@@ -290,6 +290,16 @@
     100% { transform: translateX(-50%); }
   }
 
+  .animate-nfo-ticker {
+    animation: nfoTicker 25s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes nfoTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }
   .delay-300 { animation-delay: 300ms; }
@@ -302,7 +312,8 @@
     .animate-slide-up,
     .animate-float,
     .animate-scroll-left,
-    .animate-marquee {
+    .animate-marquee,
+    .animate-nfo-ticker {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
