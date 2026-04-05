@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 
 
 // Lazy load non-critical components
+const NfoBannerTop = lazy(() => import("@/components/NfoBannerTop"));
 const Header = lazy(() => import("@/components/Header"));
 const QuickActionButtons = lazy(() => import("@/components/QuickActionButtons"));
 const DistributorNetworkBanner = lazy(() => import("@/components/DistributorNetworkBanner"));
@@ -27,7 +28,7 @@ const ReportPopup = lazy(() => import("@/components/ReportPopup"));
 
 // Minimal header placeholder to prevent layout shift
 const HeaderPlaceholder = () => (
-  <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-slate-950 border-b border-border/50 shadow-sm h-16 lg:h-20" />
+  <header className="fixed top-10 left-0 right-0 z-50 bg-white dark:bg-slate-950 border-b border-border/50 shadow-sm h-16 lg:h-20" />
 );
 
 // Minimal loading fallback
@@ -40,10 +41,13 @@ const SectionLoader = () => (
 const Index = memo(() => {
   return (
     <div className="min-h-screen bg-background">
+      <Suspense fallback={null}>
+        <NfoBannerTop />
+      </Suspense>
       <Suspense fallback={<HeaderPlaceholder />}>
         <Header />
       </Suspense>
-      <main className="pt-16 lg:pt-20">
+      <main className="pt-[104px] lg:pt-[120px]">
         <Suspense fallback={<SectionLoader />}>
           <PerformanceBanner />
         </Suspense>
