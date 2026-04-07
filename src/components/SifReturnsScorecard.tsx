@@ -11,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useSifNav, type SifNavEntry } from "@/hooks/useSifNav";
 
 interface Fund {
   name: string;
@@ -22,7 +23,30 @@ interface Fund {
   href: string;
 }
 
-const fundData: { category: string; tag: string; funds: Fund[] }[] = [
+// Fund name mapping: our display name -> API fund name
+const NAV_KEY_MAP: Record<string, string> = {
+  "Altiva Hybrid Long-Short": "Altiva Hybrid Long-Short",
+  "Apex Hybrid Long-Short": "Apex Hybrid Long-Short",
+  "Arudha Hybrid Long-Short": "Arudha Hybrid Long-Short",
+  "Magnum Hybrid Long-Short": "Magnum Hybrid Long Short",
+  "qSIF Hybrid Long-Short": "qSIF Hybrid Long-Short",
+  "Titanium Hybrid Long-Short": "Titanium Hybrid Long-Short",
+  "iSIF Hybrid Long-Short": "iSIF Hybrid Long-Short",
+  "DynaSIF Equity Long-Short": "DynaSIF Equity Long-Short",
+  "Diviniti Equity Long-Short": "Diviniti Equity Long Short",
+  "qSIF Equity Long-Short": "qSIF Equity Long Short",
+  "Arudha Equity Long-Short": "Arudha Equity Long-Short",
+  "iSIF Ex-Top 100 Long-Short": "iSIF Ex-Top 100 Long-Short",
+  "qSIF Ex-Top 100 Long-Short": "qSIF Ex-Top 100 Long-Short",
+};
+
+function lookupNav(liveData: SifNavEntry[], fundName: string, fallback: number): number {
+  const apiName = NAV_KEY_MAP[fundName] ?? fundName;
+  const match = liveData.find((f) => f.fund === apiName);
+  return match?.nav ?? fallback;
+}
+
+const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
   {
     category: "Hybrid Long Short",
     tag: "hybrid",
@@ -93,6 +117,19 @@ const SifReturnsScorecard = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [sortKey, setSortKey] = useState<SortKey>("sinceInception");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  const { data: liveNavs } = useSifNav();
+
+  // Merge live NAVs into fund data, falling back to hardcoded values
+  const fundData = useMemo(() => {
+    if (liveNavs.length === 0) return baseFundData;
+    return baseFundData.map((group) => ({
+      ...group,
+      funds: group.funds.map((f) => ({
+        ...f,
+        endNav: lookupNav(liveNavs, f.name, f.endNav),
+      })),
+    }));
+  }, [liveNavs]);
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir(d => d === "desc" ? "asc" : "desc");
@@ -110,7 +147,7 @@ const SifReturnsScorecard = () => {
         return sortDir === "desc" ? bV - aV : aV - bV;
       }),
     }));
-  }, [activeTab, sortKey, sortDir]);
+  }, [activeTab, sortKey, sortDir, fundData]);
 
   const topPerformer = useMemo(() => {
     let best: Fund | null = null;
@@ -118,7 +155,7 @@ const SifReturnsScorecard = () => {
       if (!best || f.sinceInception > best.sinceInception) best = f;
     }));
     return best as Fund | null;
-  }, []);
+  }, [fundData]);
 
   const SortableHead = ({ label, sublabel, col, className = "" }: { label: string; sublabel?: string; col: SortKey; className?: string }) => (
     <TableHead className={`text-right cursor-pointer select-none hover:text-foreground transition-colors ${className}`} onClick={() => handleSort(col)}>
