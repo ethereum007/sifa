@@ -1,13 +1,6 @@
-import { Sparkles, ExternalLink, FileText } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import AmcLogo from "@/components/AmcLogo";
-
-const NFO_DATA = [
-  { name: "Apex SIF", amc: "Aditya Birla Capital", category: "Hybrid Long Short Fund", dates: "6th - 18th March", link: "https://apexsif.adityabirlacapital.com/", analysis: "/apex-hybrid-long-short" },
-  { name: "Arudha SIF", amc: "Bandhan", category: "Equity Long Short Fund", dates: "5th - 18th March", link: "https://www.arudhasif.com/", analysis: "/arudha-equity-long-short" },
-  { name: "Dyna SIF", amc: "360 One", category: "Active Asset Allocator", dates: "6th - 20th March", link: "https://dynasif.360.one/", analysis: "/dyna-active-asset-allocator" },
-];
 
 interface UpcomingSif {
   name: string;
@@ -57,61 +50,12 @@ const UpcomingSifsScroller = () => {
         </div>
 
         <div className="text-center mt-4">
-          <a 
-            href="/upcoming-sifs" 
+          <a
+            href="/upcoming-sifs"
             className="text-sm text-primary hover:underline font-medium"
           >
             View all upcoming SIFs →
           </a>
-        </div>
-
-        {/* NFO Table */}
-        <div className="max-w-4xl mx-auto mt-6">
-          <Badge variant="outline" className="text-primary border-primary/30 bg-primary/5 text-xs sm:text-sm mb-3">
-            OPEN NFOs
-          </Badge>
-          <div className="rounded-lg border border-border overflow-hidden">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-muted/50">
-                  <TableHead className="font-semibold text-foreground">SIF</TableHead>
-                  <TableHead className="font-semibold text-foreground">AMC</TableHead>
-                  <TableHead className="font-semibold text-foreground hidden sm:table-cell">Category</TableHead>
-                  <TableHead className="font-semibold text-foreground">NFO Dates</TableHead>
-                  <TableHead className="font-semibold text-foreground text-center hidden sm:table-cell">Analysis</TableHead>
-                  <TableHead className="font-semibold text-foreground text-right">Link</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {NFO_DATA.map((nfo) => (
-                  <TableRow key={nfo.name}>
-                    <TableCell className="font-medium text-foreground">{nfo.name}</TableCell>
-                    <TableCell className="text-muted-foreground">{nfo.amc}</TableCell>
-                    <TableCell className="text-muted-foreground hidden sm:table-cell">{nfo.category}</TableCell>
-                    <TableCell>
-                      <Badge variant="outline" className="text-amber-600 border-amber-500/30 bg-amber-50 text-xs whitespace-nowrap">
-                        {nfo.dates}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="text-center hidden sm:table-cell">
-                      {nfo.analysis ? (
-                        <a href={nfo.analysis} className="inline-flex items-center gap-1 text-primary text-sm font-medium hover:underline">
-                          <FileText className="w-3.5 h-3.5" /> Read
-                        </a>
-                      ) : (
-                        <span className="text-muted-foreground text-xs">—</span>
-                      )}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <a href={nfo.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary text-sm font-medium hover:underline">
-                        Apply <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
         </div>
       </div>
     </section>
