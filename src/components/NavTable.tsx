@@ -31,27 +31,27 @@ interface FundEntry {
 
 // Fallback data used until API responds
 const fallbackData: FundEntry[] = [
-  { amc: "Edelweiss", fund: "Altiva Hybrid Long-Short", nav: 10.2967, navRegular: 10.2504, date: "01 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "DSP", fund: "Apex Hybrid Long-Short", nav: 10.02, navRegular: 10.02, date: "01 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "Bandhan", fund: "Arudha Hybrid Long-Short", nav: 10.087, navRegular: 10.079, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "ICICI Prudential", fund: "iSIF Hybrid Long-Short", nav: 9.3867, navRegular: 9.3664, date: "01 Apr 2026", category: "Hybrid Long Short" },
-  { amc: "SBI", fund: "Magnum Hybrid Long Short", nav: 10.0096, navRegular: 9.9759, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "Quant", fund: "qSIF Hybrid Long-Short", nav: 9.9268, navRegular: 9.8559, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "Tata", fund: "Titanium Hybrid Long-Short", nav: 9.5246, navRegular: 9.4725, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "Bandhan", fund: "Arudha Equity Long-Short", nav: 9.902, navRegular: 9.899, date: "02 Apr 2026", category: "Equity Long Short" },
-  { amc: "ITI", fund: "Diviniti Equity Long Short", nav: 948.4573, navRegular: 943.5562, date: "02 Apr 2026", category: "Equity Long Short" },
-  { amc: "360 ONE", fund: "DynaSIF Equity Long-Short", nav: 9.63, navRegular: 9.6155, date: "02 Apr 2026", category: "Equity Long Short" },
-  { amc: "Quant", fund: "qSIF Equity Long Short", nav: 9.0718, navRegular: 9.0071, date: "02 Apr 2026", category: "Equity Long Short" },
-  { amc: "ICICI Prudential", fund: "iSIF Ex-Top 100 Long-Short", nav: 9.18, navRegular: 9.16, date: "01 Apr 2026", category: "Equity Ex-Top 100" },
-  { amc: "Quant", fund: "qSIF Ex-Top 100 Long-Short", nav: 8.7758, navRegular: 8.7247, date: "02 Apr 2026", category: "Equity Ex-Top 100" },
-  { amc: "360 ONE", fund: "DynaSIF Active Asset Allocator", nav: 10.0087, navRegular: 10.0055, date: "02 Apr 2026", category: "Active Asset Allocator" },
+  { amc: "Edelweiss", fund: "Altiva Hybrid Long-Short", nav: 10.3174, navRegular: 10.2697, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "DSP", fund: "Apex Hybrid Long-Short", nav: 10.03, navRegular: 10.02, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "Bandhan", fund: "Arudha Hybrid Long-Short", nav: 10.083, navRegular: 10.073, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "ICICI Prudential", fund: "iSIF Hybrid Long-Short", nav: 9.4754, navRegular: 9.4531, date: "06 Apr 2026", category: "Hybrid Long Short" },
+  { amc: "SBI", fund: "Magnum Hybrid Long Short", nav: 10.018, navRegular: 9.9834, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "Quant", fund: "qSIF Hybrid Long-Short", nav: 9.9607, navRegular: 9.8879, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "Tata", fund: "Titanium Hybrid Long-Short", nav: 9.5813, navRegular: 9.527, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "Bandhan", fund: "Arudha Equity Long-Short", nav: 9.959, navRegular: 9.954, date: "06 Apr 2026", category: "Equity Long Short" },
+  { amc: "ITI", fund: "Diviniti Equity Long Short", nav: 948.8272, navRegular: 943.773, date: "06 Apr 2026", category: "Equity Long Short" },
+  { amc: "360 ONE", fund: "DynaSIF Equity Long-Short", nav: 9.718, navRegular: 9.7017, date: "06 Apr 2026", category: "Equity Long Short" },
+  { amc: "Quant", fund: "qSIF Equity Long Short", nav: 9.1473, navRegular: 9.0806, date: "06 Apr 2026", category: "Equity Long Short" },
+  { amc: "ICICI Prudential", fund: "iSIF Ex-Top 100 Long-Short", nav: 9.28, navRegular: 9.26, date: "06 Apr 2026", category: "Equity Ex-Top 100" },
+  { amc: "Quant", fund: "qSIF Ex-Top 100 Long-Short", nav: 8.8418, navRegular: 8.7889, date: "06 Apr 2026", category: "Equity Ex-Top 100" },
+  { amc: "360 ONE", fund: "DynaSIF Active Asset Allocator", nav: 10.0362, navRegular: 10.0316, date: "06 Apr 2026", category: "Active Asset Allocator" },
 ];
 
 const categoryList = ["Hybrid Long Short", "Equity Long Short", "Equity Ex-Top 100", "Active Asset Allocator"];
 
 const NavTable = () => {
   const [navData, setNavData] = useState<FundEntry[]>(fallbackData);
-  const [latestDate, setLatestDate] = useState("02 Apr 2026");
+  const [latestDate, setLatestDate] = useState("06 Apr 2026");
   const [isLive, setIsLive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedAmc, setSelectedAmc] = useState<string>("all");
