@@ -244,12 +244,12 @@ const SifLiquidityGuide = () => {
                   </thead>
                   <tbody>
                     {[
-                      { brand: "Apex SIF", amc: "ABSLMF", nav: "NFO Open*", sub: "Daily", redeem: "Mon & Wed", notice: "Up to 15 days", exit: "Nil", remarks: "In NFO (Mar 6–18, 2026)" },
-                      { brand: "Altiva SIF", amc: "Edelweiss MF", nav: "₹10.3417", sub: "Daily", redeem: "Mon & Wed", notice: "Nil", exit: "0.5% (≤3 months)", remarks: "Launched; NAV live" },
-                      { brand: "Arudha SIF", amc: "Bandhan AMC", nav: "₹10.086", sub: "Daily", redeem: "—", notice: "—", exit: "—", remarks: "Launched; redemption days TBC" },
-                      { brand: "Magnum SIF", amc: "SBI MF", nav: "₹10.1458", sub: "Daily", redeem: "Mon & Thu", notice: "Nil", exit: "0.5% (≤15d), 0.25% (15d–1m)", remarks: "Launched; NAV live" },
-                      { brand: "QSIF", amc: "Quant MF", nav: "₹9.8426", sub: "Daily", redeem: "Tue & Wed", notice: "—", exit: "1% (≤15 days)", remarks: "Launched; NAV live" },
-                      { brand: "Titanium SIF", amc: "Mirae Asset MF", nav: "₹9.9065", sub: "Daily", redeem: "—", notice: "—", exit: "1% (≤365 days)", remarks: "Launched; redemption days TBC" },
+                      { brand: "Apex SIF", amc: "ABSLMF", nav: "₹10.0200", sub: "Daily", redeem: "Mon & Wed", notice: "Up to 15 days", exit: "Nil", remarks: "Launched; NAV live" },
+                      { brand: "Altiva SIF", amc: "Edelweiss MF", nav: "₹10.3174", sub: "Daily", redeem: "Mon & Wed", notice: "Nil", exit: "0.5% (≤3 months)", remarks: "Launched; NAV live" },
+                      { brand: "Arudha SIF", amc: "Bandhan AMC", nav: "₹10.0830", sub: "Daily", redeem: "—", notice: "—", exit: "—", remarks: "Launched; redemption days TBC" },
+                      { brand: "Magnum SIF", amc: "SBI MF", nav: "₹10.0180", sub: "Daily", redeem: "Mon & Thu", notice: "Nil", exit: "0.5% (≤15d), 0.25% (15d–1m)", remarks: "Launched; NAV live" },
+                      { brand: "QSIF", amc: "Quant MF", nav: "₹9.9607", sub: "Daily", redeem: "Tue & Wed", notice: "—", exit: "1% (≤15 days)", remarks: "Launched; NAV live" },
+                      { brand: "Titanium SIF", amc: "Mirae Asset MF", nav: "₹9.5813", sub: "Daily", redeem: "—", notice: "—", exit: "1% (≤365 days)", remarks: "Launched; redemption days TBC" },
                     ].map((fund, i) => (
                       <tr key={i} className={i % 2 === 0 ? "bg-background" : "bg-muted/20"}>
                         <td className="p-3 border border-border font-medium text-foreground">{fund.brand}</td>
@@ -298,12 +298,12 @@ const SifLiquidityGuide = () => {
                   </thead>
                   <tbody>
                     {[
-                      { brand: "QSIF", amc: "Quant MF", strategy: "Equity Long-Short", nav: "₹9.4911", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 500 TRI" },
-                      { brand: "QSIF", amc: "Quant MF", strategy: "Equity Ex-Top 100 L-S", nav: "₹9.0203", sub: "Daily / Daily", exit: "—", benchmark: "Nifty Midcap 150 TRI" },
-                      { brand: "Diviniti SIF", amc: "ITI Mutual Fund", strategy: "Equity Long-Short", nav: "₹964.4974", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 500 TRI" },
-                      { brand: "DynaSIF", amc: "360 ONE AMC", strategy: "Equity Long-Short", nav: "₹9.9940", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 500 TRI" },
-                      { brand: "iSIF", amc: "ICICI Prudential MF", strategy: "Equity Ex-Top 100 L-S", nav: "₹9.60", sub: "Daily / Daily", exit: "—", benchmark: "Nifty Midcap 150 TRI" },
-                      { brand: "iSIF", amc: "ICICI Prudential MF", strategy: "Hybrid Long-Short", nav: "₹9.7451", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 50 Hybrid Comp. Debt 50:50" },
+                      { brand: "QSIF", amc: "Quant MF", strategy: "Equity Long-Short", nav: "₹9.1473", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 500 TRI" },
+                      { brand: "QSIF", amc: "Quant MF", strategy: "Equity Ex-Top 100 L-S", nav: "₹8.8418", sub: "Daily / Daily", exit: "—", benchmark: "Nifty Midcap 150 TRI" },
+                      { brand: "Diviniti SIF", amc: "ITI Mutual Fund", strategy: "Equity Long-Short", nav: "₹948.8272", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 500 TRI" },
+                      { brand: "DynaSIF", amc: "360 ONE AMC", strategy: "Equity Long-Short", nav: "₹9.7180", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 500 TRI" },
+                      { brand: "iSIF", amc: "ICICI Prudential MF", strategy: "Equity Ex-Top 100 L-S", nav: "₹9.2800", sub: "Daily / Daily", exit: "—", benchmark: "Nifty Midcap 150 TRI" },
+                      { brand: "iSIF", amc: "ICICI Prudential MF", strategy: "Hybrid Long-Short", nav: "₹9.4754", sub: "Daily / Daily", exit: "—", benchmark: "Nifty 50 Hybrid Comp. Debt 50:50" },
                     ].map((fund, i) => (
                       <tr key={i} className={i % 2 === 0 ? "bg-background" : "bg-muted/20"}>
                         <td className="p-3 border border-border font-medium text-foreground">{fund.brand}</td>
