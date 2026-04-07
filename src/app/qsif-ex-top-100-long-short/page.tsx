@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "qSIF Ex-Top 100 by Quant Mutual Fund — high-conviction mid & small cap long-short SIF. Live NAV, performance and independent analysis on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/qsif-ex-top-100-long-short" },
   openGraph: {
-    title: "Quant qSIF Ex-Top 100 Long Short",
-    description: "qSIF Ex-Top 100 by Quant Mutual Fund — high-conviction mid & small cap long-short SIF. Live NAV, performance and independent analysis on SIFPrime.",
+    title: "qSIF Ex-Top 100 by Quant — Small & Mid Cap SIF Strategy",
+    description: "Review qSIF Ex-Top 100 Long Short by Quant MF. Mid & small cap equity long-short SIF strategy. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/qsif-ex-top-100-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Quant qSIF Ex-Top 100 Long Short",
-    description: "qSIF Ex-Top 100 by Quant Mutual Fund — high-conviction mid & small cap long-short SIF. Live NAV, performance and independent analysis on SIFPrime.",
+    title: "qSIF Ex-Top 100 by Quant — Small & Mid Cap SIF Strategy",
+    description: "Review qSIF Ex-Top 100 Long Short by Quant MF. Mid & small cap equity long-short SIF. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

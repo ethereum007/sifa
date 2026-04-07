@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Review Bandhan Arudha Equity Long Short SIF. Strategy, NAV, portfolio, returns & risk analysis from Bandhan Mutual Fund.",
   alternates: { canonical: "https://sifprime.com/arudha-equity-long-short" },
   openGraph: {
-    title: "Bandhan Arudha Equity Long Short SIF",
-    description: "Review Bandhan Arudha Equity Long Short SIF. Strategy, NAV, portfolio, returns & risk analysis from Bandhan Mutual Fund.",
+    title: "Arudha by Bandhan — Equity Long Short SIF",
+    description: "Review Arudha Equity Long Short SIF by Bandhan MF. Active equity long-short strategy with live NAV & portfolio analysis. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/arudha-equity-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Bandhan Arudha Equity Long Short SIF",
-    description: "Review Bandhan Arudha Equity Long Short SIF. Strategy, NAV, portfolio, returns & risk analysis from Bandhan Mutual Fund.",
+    title: "Arudha by Bandhan — Equity Long Short SIF",
+    description: "Review Arudha Equity Long Short SIF by Bandhan MF. Equity long-short strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

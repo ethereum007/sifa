@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Arudha SIF by Bandhan Mutual Fund — only SIF with positive March 2026 returns. Live NAV, since-inception performance and independent review on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/sifs/arudha-hybrid-long-short" },
   openGraph: {
-    title: "Bandhan Arudha Hybrid Long Short SIF",
-    description: "Arudha SIF by Bandhan Mutual Fund — only SIF with positive March 2026 returns. Live NAV, since-inception performance and independent review on SIFPrime.",
+    title: "Arudha Hybrid by Bandhan — SIF Fund Review",
+    description: "Review Arudha Hybrid Long Short SIF by Bandhan MF. Hybrid long-short strategy with live NAV & performance data. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/sifs/arudha-hybrid-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Bandhan Arudha Hybrid Long Short SIF",
-    description: "Arudha SIF by Bandhan Mutual Fund — only SIF with positive March 2026 returns. Live NAV, since-inception performance and independent review on SIFPrime.",
+    title: "Arudha Hybrid by Bandhan — SIF Fund Review",
+    description: "Review Arudha Hybrid Long Short SIF by Bandhan MF. Hybrid long-short strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

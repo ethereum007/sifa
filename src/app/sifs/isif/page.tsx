@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Explore ICICI Prudential iSIF fund range – Ex-Top 100 and Hybrid Long Short strategies. Compare NAV, returns & invest from ₹10 Lakhs.",
   alternates: { canonical: "https://sifprime.com/sifs/isif" },
   openGraph: {
-    title: "iSIF by ICICI Prudential",
-    description: "Explore ICICI Prudential iSIF fund range – Ex-Top 100 and Hybrid Long Short strategies. Compare NAV, returns & invest from ₹10 Lakhs.",
+    title: "iSIF by ICICI Prudential — Equity Long Short SIF",
+    description: "Review iSIF Equity Long Short by ICICI Prudential MF. Active equity long-short SIF strategy with live NAV & returns. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/sifs/isif",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "iSIF by ICICI Prudential",
-    description: "Explore ICICI Prudential iSIF fund range – Ex-Top 100 and Hybrid Long Short strategies. Compare NAV, returns & invest from ₹10 Lakhs.",
+    title: "iSIF by ICICI Prudential — Equity Long Short SIF",
+    description: "Review iSIF Equity Long Short by ICICI Prudential. Equity long-short SIF strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

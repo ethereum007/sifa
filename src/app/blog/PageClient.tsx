@@ -10,6 +10,34 @@ import { Badge } from "@/components/ui/badge";
 
 const articles = [
   {
+    title: "SIF vs PMS: Detailed Comparison for Indian Investors in 2026",
+    description: "Comprehensive comparison of SIF vs PMS — minimum investment, taxation, liquidity, strategy flexibility, fee structures, and regulatory framework.",
+    href: "/blog/sif-vs-pms-detailed-comparison",
+    category: "Comparison",
+    date: "2026-04-07",
+  },
+  {
+    title: "Best SIF to Invest in 2026 — Top Performing Specialized Investment Funds",
+    description: "Ranking of the best SIF funds across equity long-short, hybrid long-short, and ex-top 100 categories by strategy, AMC reputation, and early performance.",
+    href: "/blog/best-sif-to-invest-2026",
+    category: "Guide",
+    date: "2026-04-07",
+  },
+  {
+    title: "Can NRIs Invest in SIF? Complete Guide to SIF Investment for NRIs",
+    description: "Everything NRIs need to know — eligibility, KYC, bank accounts, FEMA compliance, taxation, repatriation rules, and which SIFs accept NRI investors.",
+    href: "/blog/sif-for-nri-complete-guide",
+    category: "Guide",
+    date: "2026-04-07",
+  },
+  {
+    title: "SIF SIP: Minimum Amount, How to Start, and Everything You Need to Know",
+    description: "Complete guide to SIF SIP — minimum amounts by AMC, how the ₹10L threshold works with SIP, STP/SWP options, and step-by-step setup guide.",
+    href: "/blog/sif-sip-minimum-amount",
+    category: "Education",
+    date: "2026-04-07",
+  },
+  {
     title: "All 14 SIFs in India Ranked and Explained (2025–26)",
     description: "Fund-by-fund breakdown of every Specialized Investment Fund in India — strategy, risk band, target returns, and who each fund is built for.",
     href: "/all-sifs-india-ranked-explained",

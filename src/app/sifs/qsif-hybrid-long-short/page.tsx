@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "qSIF Hybrid by Quant Mutual Fund — hybrid long-short strategy blending equity & debt. Live NAV, performance vs Nifty 50, drawdown data and independent analysis on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/sifs/qsif-hybrid-long-short" },
   openGraph: {
-    title: "Quant qSIF Hybrid Long Short",
-    description: "qSIF Hybrid by Quant Mutual Fund — hybrid long-short strategy blending equity & debt. Live NAV, performance vs Nifty 50, drawdown data and independent analysis on SIFPrime.",
+    title: "qSIF Hybrid by Quant — Hybrid Long Short SIF",
+    description: "Review qSIF Hybrid Long Short by Quant MF. Hybrid long-short strategy blending equity & debt. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/sifs/qsif-hybrid-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Quant qSIF Hybrid Long Short",
-    description: "qSIF Hybrid by Quant Mutual Fund — hybrid long-short strategy blending equity & debt. Live NAV, performance vs Nifty 50, drawdown data and independent analysis on SIFPrime.",
+    title: "qSIF Hybrid by Quant — Hybrid Long Short SIF",
+    description: "Review qSIF Hybrid Long Short by Quant MF. Hybrid long-short SIF strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "iSIF Hybrid by ICICI Prudential — balanced hybrid long-short strategy with equity & debt exposure. Live NAV, returns and independent review on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/sifs/isif/hybrid" },
   openGraph: {
-    title: "iSIF Hybrid Long Short by ICICI Prudential",
-    description: "iSIF Hybrid by ICICI Prudential — balanced hybrid long-short strategy with equity & debt exposure. Live NAV, returns and independent review on SIFPrime.",
+    title: "iSIF Hybrid by ICICI Prudential — Hybrid SIF Review",
+    description: "Review iSIF Hybrid Long Short by ICICI Prudential MF. Balanced hybrid long-short strategy with equity & debt exposure. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/sifs/isif/hybrid",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "iSIF Hybrid Long Short by ICICI Prudential",
-    description: "iSIF Hybrid by ICICI Prudential — balanced hybrid long-short strategy with equity & debt exposure. Live NAV, returns and independent review on SIFPrime.",
+    title: "iSIF Hybrid by ICICI Prudential — Hybrid SIF Review",
+    description: "Review iSIF Hybrid by ICICI Prudential. Balanced hybrid long-short SIF. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

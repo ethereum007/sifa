@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Review 360 ONE DynaSIF Active Asset Allocator. Dynamic allocation strategy, NAV, portfolio & risk analysis.",
   alternates: { canonical: "https://sifprime.com/dyna-active-asset-allocator" },
   openGraph: {
-    title: "360 ONE DynaSIF Active Asset Allocator",
-    description: "Review 360 ONE DynaSIF Active Asset Allocator. Dynamic allocation strategy, NAV, portfolio & risk analysis.",
+    title: "Dyna Active Asset Allocator by 360 ONE — SIF Review",
+    description: "Review DynaSIF Active Asset Allocator by 360 ONE. Dynamic asset allocation SIF strategy with live NAV & returns. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/dyna-active-asset-allocator",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "360 ONE DynaSIF Active Asset Allocator",
-    description: "Review 360 ONE DynaSIF Active Asset Allocator. Dynamic allocation strategy, NAV, portfolio & risk analysis.",
+    title: "Dyna Active Asset Allocator by 360 ONE — SIF Review",
+    description: "Review DynaSIF Active Asset Allocator by 360 ONE. Dynamic allocation strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

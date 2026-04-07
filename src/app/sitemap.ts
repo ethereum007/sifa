@@ -29,6 +29,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sifvsmutualfund",
     "/upcoming-sifs",
     "/sif-fund-insights",
+    "/compare-sifs",
+    "/sif-for-mfd",
+    "/sif-performance",
   ].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: now,

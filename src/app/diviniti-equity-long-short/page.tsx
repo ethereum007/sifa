@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Diviniti SIF by ITI Mutual Fund — active equity long-short strategy. Live NAV, performance data, drawdown analysis and independent review on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/diviniti-equity-long-short" },
   openGraph: {
-    title: "ITI Diviniti Equity Long Short SIF",
-    description: "Diviniti SIF by ITI Mutual Fund — active equity long-short strategy. Live NAV, performance data, drawdown analysis and independent review on SIFPrime.",
+    title: "Diviniti SIF by ITI — Equity Long Short Fund Review",
+    description: "Review Diviniti Equity Long Short SIF by ITI MF. Active equity long-short strategy with live NAV & returns. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/diviniti-equity-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "ITI Diviniti Equity Long Short SIF",
-    description: "Diviniti SIF by ITI Mutual Fund — active equity long-short strategy. Live NAV, performance data, drawdown analysis and independent review on SIFPrime.",
+    title: "Diviniti SIF by ITI — Equity Long Short Fund Review",
+    description: "Review Diviniti Equity Long Short SIF by ITI MF. Active equity long-short strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

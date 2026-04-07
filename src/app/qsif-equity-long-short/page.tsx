@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "qSIF Equity by Quant Mutual Fund — high-alpha equity long-short strategy. Live NAV, performance vs Nifty 50 and independent analysis on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/qsif-equity-long-short" },
   openGraph: {
-    title: "Quant qSIF Equity Long Short",
-    description: "qSIF Equity by Quant Mutual Fund — high-alpha equity long-short strategy. Live NAV, performance vs Nifty 50 and independent analysis on SIFPrime.",
+    title: "qSIF by Quant — Best Equity Long Short SIF?",
+    description: "Review qSIF Equity Long Short by Quant MF. Live NAV, returns, strategy analysis. ₹10L min investment. Compare with other SIFs on SIFPrime.",
     url: "https://sifprime.com/qsif-equity-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Quant qSIF Equity Long Short",
-    description: "qSIF Equity by Quant Mutual Fund — high-alpha equity long-short strategy. Live NAV, performance vs Nifty 50 and independent analysis on SIFPrime.",
+    title: "qSIF by Quant — Best Equity Long Short SIF?",
+    description: "Review qSIF Equity Long Short by Quant MF. Live NAV, returns, strategy analysis. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

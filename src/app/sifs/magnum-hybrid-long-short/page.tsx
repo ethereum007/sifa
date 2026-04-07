@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Magnum SIF by SBI Mutual Fund — disciplined hybrid long-short strategy. Live NAV, monthly returns, risk metrics and independent fund review on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/sifs/magnum-hybrid-long-short" },
   openGraph: {
-    title: "SBI Magnum Hybrid Long Short SIF",
-    description: "Complete review of SBI Magnum Hybrid Long Short Specialized Investment Fund.",
+    title: "SBI Magnum SIF — Hybrid Long Short Fund Review",
+    description: "Review SBI Magnum Hybrid Long Short SIF by SBI MF. Disciplined hybrid long-short strategy with live NAV & returns. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/sifs/magnum-hybrid-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "SBI Magnum Hybrid Long Short SIF",
-    description: "Complete review of SBI Magnum Hybrid Long Short Specialized Investment Fund.",
+    title: "SBI Magnum SIF — Hybrid Long Short Fund Review",
+    description: "Review SBI Magnum Hybrid Long Short SIF. Disciplined hybrid long-short strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

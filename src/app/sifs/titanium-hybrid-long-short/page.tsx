@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Titanium SIF by Tata Mutual Fund — institutional-grade hybrid long-short strategy. Live NAV, performance data and independent fund review on SIFPrime.",
   alternates: { canonical: "https://sifprime.com/sifs/titanium-hybrid-long-short" },
   openGraph: {
-    title: "Tata Titanium Hybrid Long Short SIF",
-    description: "Titanium SIF by Tata Mutual Fund — institutional-grade hybrid long-short strategy. Live NAV, performance data and independent fund review on SIFPrime.",
+    title: "Tata Titanium SIF — Hybrid Long Short Strategy",
+    description: "Review Tata Titanium Hybrid Long Short SIF by Tata MF. Institutional-grade hybrid long-short strategy with live NAV & returns. ₹10L min investment. Compare on SIFPrime.",
     url: "https://sifprime.com/sifs/titanium-hybrid-long-short",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Tata Titanium Hybrid Long Short SIF",
-    description: "Titanium SIF by Tata Mutual Fund — institutional-grade hybrid long-short strategy. Live NAV, performance data and independent fund review on SIFPrime.",
+    title: "Tata Titanium SIF — Hybrid Long Short Strategy",
+    description: "Review Tata Titanium Hybrid Long Short SIF by Tata MF. Institutional-grade hybrid strategy. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 

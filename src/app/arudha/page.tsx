@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   description: "Explore Bandhan Arudha Hybrid Long Short SIF. Strategy overview, features & investment details.",
   alternates: { canonical: "https://sifprime.com/sifs/arudha-hybrid-long-short" },
   openGraph: {
-    title: "Arudha SIF – Bandhan Hybrid Long Short Fund",
-    description: "Explore Bandhan Arudha Hybrid Long Short SIF. Strategy overview, features & investment details.",
-    url: "https://sifprime.com/sifs/arudha-hybrid-long-short",
+    title: "Arudha SIF by Bandhan — Fund Review & NAV",
+    description: "Review Arudha SIF by Bandhan MF. Equity long-short strategy with live NAV, returns & fund overview. ₹10L min investment. Compare on SIFPrime.",
+    url: "https://sifprime.com/arudha",
     images: ["https://sifprime.com/og-image.png"],
     type: "article",
   },
   twitter: {
-    title: "Arudha SIF – Bandhan Hybrid Long Short Fund",
-    description: "Explore Bandhan Arudha Hybrid Long Short SIF. Strategy overview, features & investment details.",
+    title: "Arudha SIF by Bandhan — Fund Review & NAV",
+    description: "Review Arudha SIF by Bandhan MF. Equity long-short strategy, live NAV & returns. ₹10L min investment. Compare on SIFPrime.",
   },
 };
 
