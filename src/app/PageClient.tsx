@@ -1,96 +1,53 @@
 "use client";
 
-import { lazy, Suspense, memo } from "react";
+import { memo } from "react";
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 
-
-
-
-// Lazy load non-critical components
-const NfoBannerTop = lazy(() => import("@/components/NfoBannerTop"));
-const Header = lazy(() => import("@/components/Header"));
-const QuickActionButtons = lazy(() => import("@/components/QuickActionButtons"));
-const DistributorNetworkBanner = lazy(() => import("@/components/DistributorNetworkBanner"));
-const WebinarBanner = lazy(() => import("@/components/WebinarBanner"));
-const NavTable = lazy(() => import("@/components/NavTable"));
-const SifReturnsScorecard = lazy(() => import("@/components/SifReturnsScorecard"));
-const SifAumSection = lazy(() => import("@/components/SifAumSection"));
-const SifFundsCarousel = lazy(() => import("@/components/SifFundsCarousel"));
-const PerformanceBanner = lazy(() => import("@/components/PerformanceBanner"));
-const UpcomingSifsScroller = lazy(() => import("@/components/UpcomingSifsScroller"));
-const TerComparison = lazy(() => import("@/components/TerComparison"));
-const ComparisonTable = lazy(() => import("@/components/ComparisonTable"));
-const SifFaqs = lazy(() => import("@/components/SifFaqs"));
-const EarlyAccessForm = lazy(() => import("@/components/EarlyAccessForm"));
-const Footer = lazy(() => import("@/components/Footer"));
-const ReportPopup = lazy(() => import("@/components/ReportPopup"));
-
-
-// Minimal header placeholder to prevent layout shift
-const HeaderPlaceholder = () => (
-  <header className="fixed top-10 left-0 right-0 z-50 bg-white dark:bg-slate-950 border-b border-border/50 shadow-sm h-16 lg:h-20" />
-);
-
-// Minimal loading fallback
-const SectionLoader = () => (
-  <div className="w-full py-8 flex justify-center">
-    <div className="h-8 w-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
-  </div>
-);
+// Use next/dynamic instead of React.lazy for SSR support
+const NfoBannerTop = dynamic(() => import("@/components/NfoBannerTop"), { ssr: true });
+const Header = dynamic(() => import("@/components/Header"), { ssr: true });
+const QuickActionButtons = dynamic(() => import("@/components/QuickActionButtons"), { ssr: true });
+const DistributorNetworkBanner = dynamic(() => import("@/components/DistributorNetworkBanner"), { ssr: true });
+const WebinarBanner = dynamic(() => import("@/components/WebinarBanner"), { ssr: true });
+const NavTable = dynamic(() => import("@/components/NavTable"), { ssr: true });
+const SifReturnsScorecard = dynamic(() => import("@/components/SifReturnsScorecard"), { ssr: true });
+const SifAumSection = dynamic(() => import("@/components/SifAumSection"), { ssr: true });
+const SifFundsCarousel = dynamic(() => import("@/components/SifFundsCarousel"), { ssr: true });
+const PerformanceBanner = dynamic(() => import("@/components/PerformanceBanner"), { ssr: true });
+const UpcomingSifsScroller = dynamic(() => import("@/components/UpcomingSifsScroller"), { ssr: true });
+const TerComparison = dynamic(() => import("@/components/TerComparison"), { ssr: true });
+const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"), { ssr: true });
+const SifFaqs = dynamic(() => import("@/components/SifFaqs"), { ssr: true });
+const EarlyAccessForm = dynamic(() => import("@/components/EarlyAccessForm"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const ReportPopup = dynamic(() => import("@/components/ReportPopup"), { ssr: false });
+const ExitIntentPopup = dynamic(() => import("@/components/ExitIntentPopup"), { ssr: false });
 
 const Index = memo(() => {
   return (
     <div className="min-h-screen bg-background">
-      <Suspense fallback={null}>
-        <NfoBannerTop />
-      </Suspense>
-      <Suspense fallback={<HeaderPlaceholder />}>
-        <Header />
-      </Suspense>
+      <NfoBannerTop />
+      <Header />
       <main className="pt-[104px] lg:pt-[120px]">
-        <Suspense fallback={<SectionLoader />}>
-          <PerformanceBanner />
-        </Suspense>
+        <PerformanceBanner />
         <Hero />
-        <Suspense fallback={<SectionLoader />}>
-          <SifFundsCarousel />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <UpcomingSifsScroller />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <QuickActionButtons />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <DistributorNetworkBanner />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <WebinarBanner />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <SifReturnsScorecard />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <SifAumSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <NavTable />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <TerComparison />
-          <ComparisonTable />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <SifFaqs />
-          <EarlyAccessForm />
-        </Suspense>
+        <SifFundsCarousel />
+        <UpcomingSifsScroller />
+        <QuickActionButtons />
+        <DistributorNetworkBanner />
+        <WebinarBanner />
+        <SifReturnsScorecard />
+        <SifAumSection />
+        <NavTable />
+        <TerComparison />
+        <ComparisonTable />
+        <SifFaqs />
+        <EarlyAccessForm />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-      <Suspense fallback={null}>
-        <ReportPopup />
-      </Suspense>
+      <Footer />
+      <ReportPopup />
+      <ExitIntentPopup />
     </div>
   );
 });

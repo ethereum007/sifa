@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -22,9 +22,11 @@ const ReportDownloadGate = ({ onSuccess, compact = false }: ReportDownloadGatePr
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const { toast } = useToast();
+  const [alreadyDownloaded, setAlreadyDownloaded] = useState(false);
 
-  // Check if already downloaded
-  const alreadyDownloaded = localStorage.getItem("sifprime_report_mar26") === "true";
+  useEffect(() => {
+    setAlreadyDownloaded(localStorage.getItem("sifprime_report_mar26") === "true");
+  }, []);
 
   const triggerDownload = () => {
     const a = document.createElement("a");

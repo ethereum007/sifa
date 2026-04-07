@@ -1,6 +1,7 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -40,8 +41,8 @@ import AmcLogo from "@/components/AmcLogo";
 
 
 
-const Header = lazy(() => import("@/components/Header"));
-const Footer = lazy(() => import("@/components/Footer"));
+const Header = dynamic(() => import("@/components/Header"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 // Strategy Allocation Data
 const strategyAllocation = [

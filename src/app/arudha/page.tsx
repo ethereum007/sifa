@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import FundPageJsonLd from "@/components/FundPageJsonLd";
+import RelatedFunds from "@/components/RelatedFunds";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "Arudha SIF – Bandhan Hybrid Long Short Fund",
@@ -20,6 +22,20 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 86400;
+
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <FundPageJsonLd
+        name="Bandhan Arudha SIF"
+        description="Explore Bandhan Arudha Hybrid Long Short SIF. Strategy overview, features & investment details with min investment of ₹10,00,000."
+        provider="Bandhan Mutual Fund"
+        url="https://sifprime.com/arudha"
+        category="Equity Long Short SIF"
+      />
+      <PageClient />
+      <RelatedFunds currentPath="/arudha" />
+    </>
+  );
 }

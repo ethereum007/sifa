@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import FundPageJsonLd from "@/components/FundPageJsonLd";
+import RelatedFunds from "@/components/RelatedFunds";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "Quant qSIF Equity Long Short Fund — NAV & Review",
@@ -20,6 +22,20 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 86400;
+
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <FundPageJsonLd
+        name="Quant qSIF Equity Long Short"
+        description="qSIF Equity by Quant Mutual Fund — high-alpha equity long-short strategy. Live NAV, performance vs Nifty 50 and independent analysis on SIFPrime with min investment of ₹10,00,000."
+        provider="Quant Mutual Fund"
+        url="https://sifprime.com/qsif-equity-long-short"
+        category="Equity Long Short SIF"
+      />
+      <PageClient />
+      <RelatedFunds currentPath="/qsif-equity-long-short" />
+    </>
+  );
 }

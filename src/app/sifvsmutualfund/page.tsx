@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "SIF vs Mutual Fund – Data-Driven Return Comparison",

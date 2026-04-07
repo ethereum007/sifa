@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import FundPageJsonLd from "@/components/FundPageJsonLd";
+import RelatedFunds from "@/components/RelatedFunds";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "Tata Titanium SIF Hybrid Long Short Fund — NAV & Review",
@@ -23,5 +25,17 @@ export const metadata: Metadata = {
 export const revalidate = 86400;
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <FundPageJsonLd
+        name="Tata Titanium SIF Hybrid Long Short"
+        description="Titanium SIF by Tata Mutual Fund — institutional-grade hybrid long-short strategy. Live NAV, performance data and independent fund review on SIFPrime with min investment of ₹10,00,000."
+        provider="Tata Mutual Fund"
+        url="https://sifprime.com/sifs/titanium-hybrid-long-short"
+        category="Hybrid Long Short SIF"
+      />
+      <PageClient />
+      <RelatedFunds currentPath="/sifs/titanium-hybrid-long-short" />
+    </>
+  );
 }

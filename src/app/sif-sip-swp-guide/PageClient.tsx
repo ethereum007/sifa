@@ -1,14 +1,15 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowLeft, Clock, Calendar, CheckCircle, XCircle, AlertTriangle, Info } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 
 
-const Header = lazy(() => import("@/components/Header"));
-const Footer = lazy(() => import("@/components/Footer"));
+const Header = dynamic(() => import("@/components/Header"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const SifSipSwpGuide = () => {
   const jsonLd = {

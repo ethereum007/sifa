@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "Ex-Top 100 SIF India: The SMID Long-Short Strategy Explained",

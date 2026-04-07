@@ -1,13 +1,14 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import { lazy, Suspense, memo } from "react";
+import { Suspense, memo } from "react";
 import { CONSULTATION_URL } from "@/lib/whatsapp";
 import { ArrowRight, Shield, TrendingUp, Target, Zap, ChevronDown, PieChart, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 
 // Lazy load below-fold components
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = dynamic(() => import("@/components/Footer"));
 import {
 
 

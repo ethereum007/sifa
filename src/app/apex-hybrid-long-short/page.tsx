@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import FundPageJsonLd from "@/components/FundPageJsonLd";
+import RelatedFunds from "@/components/RelatedFunds";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "DSP Apex SIF Hybrid Long Short Fund — NAV & Review",
@@ -20,6 +22,20 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 86400;
+
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <FundPageJsonLd
+        name="ABSL Apex SIF Hybrid Long Short"
+        description="Apex SIF by DSP Mutual Fund — research-driven hybrid long-short strategy. Live NAV, since-inception returns and independent fund review on SIFPrime with min investment of ₹10,00,000."
+        provider="Aditya Birla Sun Life Mutual Fund"
+        url="https://sifprime.com/apex-hybrid-long-short"
+        category="Hybrid Long Short SIF"
+      />
+      <PageClient />
+      <RelatedFunds currentPath="/apex-hybrid-long-short" />
+    </>
+  );
 }

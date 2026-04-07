@@ -1,12 +1,13 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 
 
-const SifReturnsScorecard = lazy(() => import("@/components/SifReturnsScorecard"));
+const SifReturnsScorecard = dynamic(() => import("@/components/SifReturnsScorecard"));
 
 const sifReturnsJsonLd = {
   "@context": "https://schema.org",

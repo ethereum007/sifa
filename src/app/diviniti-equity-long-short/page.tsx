@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import FundPageJsonLd from "@/components/FundPageJsonLd";
+import RelatedFunds from "@/components/RelatedFunds";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "ITI Diviniti SIF Equity Long Short Fund — NAV & Review",
@@ -20,6 +22,20 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 86400;
+
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <FundPageJsonLd
+        name="ITI Diviniti SIF Equity Long Short"
+        description="Diviniti SIF by ITI Mutual Fund — active equity long-short strategy. Live NAV, performance data, drawdown analysis and independent review on SIFPrime with min investment of ₹10,00,000."
+        provider="ITI Mutual Fund"
+        url="https://sifprime.com/diviniti-equity-long-short"
+        category="Equity Long Short SIF"
+      />
+      <PageClient />
+      <RelatedFunds currentPath="/diviniti-equity-long-short" />
+    </>
+  );
 }

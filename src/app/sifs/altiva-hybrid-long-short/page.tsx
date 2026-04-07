@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import FundPageJsonLd from "@/components/FundPageJsonLd";
+import RelatedFunds from "@/components/RelatedFunds";
 
-const PageClient = dynamic(() => import("./PageClient"), { ssr: false });
+const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
   title: "Altiva SIF Hybrid Long Short Fund — NAV, Returns & Review",
@@ -23,5 +25,17 @@ export const metadata: Metadata = {
 export const revalidate = 86400;
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <FundPageJsonLd
+        name="Edelweiss Altiva Hybrid Long Short SIF"
+        description="Altiva SIF by Edelweiss — India's first Hybrid Long-Short Specialized Investment Fund with min investment of ₹10,00,000."
+        provider="Edelweiss Mutual Fund"
+        url="https://sifprime.com/sifs/altiva-hybrid-long-short"
+        category="Hybrid Long Short SIF"
+      />
+      <PageClient />
+      <RelatedFunds currentPath="/sifs/altiva-hybrid-long-short" />
+    </>
+  );
 }
