@@ -36,7 +36,7 @@ import {
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-import quantLogo from "@/assets/logos/quant-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -52,11 +52,7 @@ const QsifExTop100Sif = () => {
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto mb-12">
             <div className="flex items-center gap-4 mb-6">
-              <img 
-                src={quantLogo as unknown as string} 
-                alt="Quant Mutual Fund" 
-                className="w-16 h-16 object-contain rounded-lg border border-border p-2"
-              />
+              <AmcLogo amc="Quant Mutual Fund" size="md" />
               <div>
                 <Badge variant="outline" className="mb-2 text-primary border-primary/30 bg-primary/5">
                   EQUITY EX-TOP 100 LONG-SHORT

@@ -15,7 +15,10 @@ const nextConfig = {
     ];
   },
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "sifprime.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "sifprime.com" },
+      { protocol: "https", hostname: "logo.clearbit.com" },
+    ],
   },
 };
 

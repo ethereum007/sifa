@@ -55,8 +55,7 @@ import {
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-import bandhanLogo from "@/assets/logos/bandhan-mutual-fund.png";
-import arudhaLogo from "@/assets/logos/arudha-sif.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -72,11 +71,7 @@ const ArudhaEquityLongShort = () => {
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <img
-                src={arudhaLogo as unknown as string}
-                alt="Arudha SIF by Bandhan"
-                className="w-16 h-16 object-contain rounded-xl bg-white p-2 shadow-md"
-              />
+              <AmcLogo amc="Bandhan Mutual Fund" size="md" />
               <div className="text-left">
                 <Badge variant="outline" className="mb-2 text-amber-600 border-amber-400/30 bg-amber-50">
                   NFO OPEN — Mar 5–18, 2026

@@ -1,8 +1,7 @@
 import { Sparkles, ExternalLink, FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import dspLogo from "@/assets/logos/dsp-mutual-fund.png";
-import miraeLogo from "@/assets/logos/mirae-asset-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 const NFO_DATA = [
   { name: "Apex SIF", amc: "Aditya Birla Capital", category: "Hybrid Long Short Fund", dates: "6th - 18th March", link: "https://apexsif.adityabirlacapital.com/", analysis: "/apex-hybrid-long-short" },
@@ -13,13 +12,12 @@ const NFO_DATA = [
 interface UpcomingSif {
   name: string;
   amc: string;
-  logo: string;
   url: string;
 }
 
 const UPCOMING_SIFS: UpcomingSif[] = [
-  { name: "Endurance SIF", amc: "DSP Mutual Fund", logo: dspLogo as unknown as string, url: "https://www.dspim.com/endurance-sif/" },
-  { name: "Platinum SIF", amc: "Mirae Asset Mutual Fund", logo: miraeLogo as unknown as string, url: "https://www.miraeassetmf.co.in/sif" },
+  { name: "Endurance SIF", amc: "DSP Mutual Fund", url: "https://www.dspim.com/endurance-sif/" },
+  { name: "Platinum SIF", amc: "Mirae Asset Mutual Fund", url: "https://www.miraeassetmf.co.in/sif" },
 ];
 
 const UpcomingSifsScroller = () => {
@@ -46,12 +44,7 @@ const UpcomingSifsScroller = () => {
                   >
                     <Sparkles className="w-4 h-4 text-amber-400 mr-2" />
                     <span className="text-amber-400 font-semibold text-sm mr-3">COMING SOON</span>
-                    <img 
-                      src={sif.logo} 
-                      alt={sif.name} 
-                      className="h-8 w-auto rounded mr-3"
-                      loading="lazy"
-                    />
+                    <AmcLogo amc={sif.amc} className="mr-3" />
                     <span className="text-white font-medium">
                       {sif.name} by {sif.amc}
                     </span>

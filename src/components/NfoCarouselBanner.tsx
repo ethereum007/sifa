@@ -1,8 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import apexLogo from "@/assets/logos/apex-sif.png";
-import arudhaLogo from "@/assets/logos/arudha-sif.png";
-import dynaLogo from "@/assets/logos/dyna-sif-logo.png";
+import AmcLogo from "@/components/AmcLogo";
 
 const NFO_ITEMS = [
   {
@@ -11,7 +9,6 @@ const NFO_ITEMS = [
     category: "Hybrid Long Short Fund",
     dates: "6th - 18th March",
     link: "https://apexsif.adityabirlacapital.com/",
-    logo: apexLogo as unknown as string,
     accent: "from-red-600/90 to-red-800/90",
     badgeClass: "bg-red-500/20 text-red-100 border-red-400/30",
   },
@@ -21,7 +18,6 @@ const NFO_ITEMS = [
     category: "Equity Long Short Fund",
     dates: "5th - 18th March",
     link: "/arudha-equity-long-short",
-    logo: arudhaLogo as unknown as string,
     accent: "from-blue-700/90 to-blue-900/90",
     badgeClass: "bg-blue-500/20 text-blue-100 border-blue-400/30",
   },
@@ -31,7 +27,6 @@ const NFO_ITEMS = [
     category: "Active Asset Allocator",
     dates: "6th - 20th March",
     link: "https://dynasif.360.one/",
-    logo: dynaLogo as unknown as string,
     accent: "from-violet-600/90 to-violet-900/90",
     badgeClass: "bg-violet-500/20 text-violet-100 border-violet-400/30",
   },
@@ -51,12 +46,7 @@ const NfoCarouselBanner = () => {
                 rel={nfo.link.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={`flex items-center gap-3 px-6 py-2.5 bg-gradient-to-r ${nfo.accent} hover:brightness-110 transition-all shrink-0`}
               >
-                <img
-                  src={nfo.logo}
-                  alt={nfo.name}
-                  className="h-8 w-auto rounded bg-white px-1"
-                  loading="lazy"
-                />
+                <AmcLogo amc={nfo.amc} />
                 <div className="flex items-center gap-2">
                   <span className="text-white font-semibold text-sm whitespace-nowrap">{nfo.name}</span>
                   <Badge variant="outline" className={`text-[10px] ${nfo.badgeClass} whitespace-nowrap`}>

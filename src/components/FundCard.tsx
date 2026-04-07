@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { TrendingUp, TrendingDown, Info } from "lucide-react";
+import AmcLogo from "@/components/AmcLogo";
 
 interface FundCardProps {
   amc: string;
@@ -9,10 +10,10 @@ interface FundCardProps {
   navDate: string;
   ter: string;
   change?: number;
-  logo: string;
+  logo?: string;
 }
 
-const FundCard = ({ amc, name, category, nav, navDate, ter, change = 0.15, logo }: FundCardProps) => {
+const FundCard = ({ amc, name, category, nav, navDate, ter, change = 0.15 }: FundCardProps) => {
   const isPositive = change >= 0;
 
   return (
@@ -20,16 +21,7 @@ const FundCard = ({ amc, name, category, nav, navDate, ter, change = 0.15, logo 
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center overflow-hidden">
-            <img 
-              src={logo} 
-              alt={amc} 
-              className="w-8 h-8 object-contain"
-              onError={(e) => {
-                e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%23f5a623' stroke-width='2'%3E%3Cpath d='m3 15 4-8 4 4 4-4 4 8'/%3E%3Cpath d='M6 19h12'/%3E%3C/svg%3E";
-              }}
-            />
-          </div>
+          <AmcLogo amc={amc} size="md" />
           <div>
             <p className="text-xs text-muted-foreground">{amc}</p>
             <h3 className="font-semibold text-foreground">{name}</h3>

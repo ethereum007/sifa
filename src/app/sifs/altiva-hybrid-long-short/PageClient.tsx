@@ -53,7 +53,7 @@ import {
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-import edelweissLogo from "@/assets/logos/edelweiss-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -69,11 +69,7 @@ const AltivaSif = () => {
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <img 
-                src={edelweissLogo as unknown as string} 
-                alt="Edelweiss Mutual Fund" 
-                className="w-16 h-16 object-contain rounded-xl bg-white p-2 shadow-md"
-              />
+              <AmcLogo amc="Edelweiss Mutual Fund" size="md" />
               <div className="text-left">
                 <h1 className="text-2xl sm:text-3xl font-bold text-heading">
                   Altiva SIF by Edelweiss

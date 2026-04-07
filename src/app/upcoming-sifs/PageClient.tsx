@@ -6,15 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import dspLogo from "@/assets/logos/dsp-mutual-fund.png";
-import miraeLogo from "@/assets/logos/mirae-asset-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
 interface UpcomingSif {
   name: string;
   amc: string;
-  logo: string;
   url: string;
   description: string;
   expectedLaunch?: string;
@@ -24,7 +22,6 @@ const UPCOMING_SIFS: UpcomingSif[] = [
   { 
     name: "Endurance SIF", 
     amc: "DSP Mutual Fund", 
-    logo: dspLogo as unknown as string, 
     url: "https://www.dspim.com/endurance-sif/",
     description: "A resilient investment strategy from DSP Mutual Fund designed to endure market cycles and deliver consistent long-term performance.",
     expectedLaunch: "Coming Soon"
@@ -32,7 +29,6 @@ const UPCOMING_SIFS: UpcomingSif[] = [
   { 
     name: "Platinum SIF", 
     amc: "Mirae Asset Mutual Fund", 
-    logo: miraeLogo as unknown as string, 
     url: "https://www.miraeassetmf.co.in/sif",
     description: "A premium specialized investment fund from Mirae Asset, leveraging their global expertise to offer differentiated investment strategies.",
     expectedLaunch: "Coming Soon"
@@ -85,13 +81,7 @@ const UpcomingSifs = () => {
                     </div>
 
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-xl bg-white border border-border/50 p-2 flex items-center justify-center shadow-sm">
-                        <img 
-                          src={sif.logo} 
-                          alt={sif.name} 
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
+                      <AmcLogo amc={sif.amc} size="md" />
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                           {sif.name}

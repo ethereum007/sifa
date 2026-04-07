@@ -8,8 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-// Import logo
-import iciciLogo from "@/assets/logos/icici-prudential-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -90,9 +89,7 @@ const ISIFIndex = () => {
               </Link>
 
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
-                <div className="w-20 h-20 rounded-2xl bg-white border border-border/50 p-3 flex items-center justify-center shadow-sm">
-                  <img src={iciciLogo as unknown as string} alt="ICICI Prudential" className="w-full h-full object-contain" />
-                </div>
+                <AmcLogo amc="ICICI Prudential Mutual Fund" size="md" />
                 <div>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
                     iSIF

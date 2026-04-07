@@ -48,7 +48,7 @@ import {
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-import tataLogo from "@/assets/logos/tata-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -64,11 +64,7 @@ const TitaniumSif = () => {
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <img 
-                src={tataLogo as unknown as string} 
-                alt="Tata Mutual Fund" 
-                className="w-16 h-16 object-contain rounded-xl bg-white p-2 shadow-md"
-              />
+              <AmcLogo amc="Tata Mutual Fund" size="md" />
               <div className="text-left">
                 <Badge variant="outline" className="mb-2 text-amber-600 border-amber-500/30 bg-amber-50">
                   NFO CLOSED

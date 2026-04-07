@@ -5,11 +5,6 @@ import { useFundNavs, useSyncNavData } from "@/hooks/useFundNavs";
 import { Button } from "./ui/button";
 import { format } from "date-fns";
 
-// Import AMC logos
-import sbiLogo from "@/assets/logos/sbi-mutual-fund.png";
-import quantLogo from "@/assets/logos/quant-mutual-fund.png";
-import edelweissLogo from "@/assets/logos/edelweiss-mutual-fund.png";
-
 // Fallback data when database is empty
 const fallbackFunds = [
   {
@@ -20,7 +15,6 @@ const fallbackFunds = [
     navDate: "02 Apr 2026",
     ter: "1.15",
     change: 0.70,
-    logo: sbiLogo as unknown as string
   },
   {
     amc: "Quant Mutual Fund",
@@ -30,7 +24,6 @@ const fallbackFunds = [
     navDate: "02 Apr 2026",
     ter: "2.24",
     change: 2.92,
-    logo: quantLogo as unknown as string
   },
   {
     amc: "Edelweiss Mutual Fund",
@@ -40,7 +33,6 @@ const fallbackFunds = [
     navDate: "01 Apr 2026",
     ter: "1.52",
     change: 1.17,
-    logo: edelweissLogo as unknown as string
   },
   {
     amc: "Quant Mutual Fund",
@@ -50,20 +42,8 @@ const fallbackFunds = [
     navDate: "02 Apr 2026",
     ter: "2.25",
     change: 1.41,
-    logo: quantLogo as unknown as string
   },
 ];
-
-const getAmcLogo = (amcName: string | null): string => {
-  if (!amcName) return sbiLogo as unknown as string;
-  
-  const lowerName = amcName.toLowerCase();
-  if (lowerName.includes("sbi")) return sbiLogo as unknown as string;
-  if (lowerName.includes("quant")) return quantLogo as unknown as string;
-  if (lowerName.includes("edelweiss")) return edelweissLogo as unknown as string;
-  
-  return sbiLogo as unknown as string;
-};
 
 const FeaturedFunds = () => {
   const { data: navData, isLoading } = useFundNavs();
@@ -79,7 +59,6 @@ const FeaturedFunds = () => {
         navDate: format(new Date(fund.nav_date), "dd MMM yyyy"),
         ter: "1.50", // TER not available from AMFI data
         change: 0, // Daily change calculation would need historical data
-        logo: getAmcLogo(fund.amc_name),
       }))
     : fallbackFunds;
 

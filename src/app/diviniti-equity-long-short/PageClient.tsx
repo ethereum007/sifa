@@ -55,7 +55,7 @@ import {
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-import itiLogo from "@/assets/logos/iti-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -71,11 +71,7 @@ const DivinitiSif = () => {
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <img 
-                src={itiLogo as unknown as string} 
-                alt="ITI Mutual Fund" 
-                className="w-16 h-16 object-contain rounded-xl bg-white p-2 shadow-md"
-              />
+              <AmcLogo amc="ITI Mutual Fund" size="md" />
               <div className="text-left">
                 <Badge variant="outline" className="mb-2 text-primary border-primary/30 bg-primary/5">
                   NOW OPEN

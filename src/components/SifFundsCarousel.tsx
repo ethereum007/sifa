@@ -1,16 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import quantLogo from "@/assets/logos/quant-mutual-fund.png";
-import edelweissLogo from "@/assets/logos/edelweiss-mutual-fund.png";
-import sbiLogo from "@/assets/logos/sbi-mutual-fund.png";
-import itiLogo from "@/assets/logos/iti-mutual-fund.png";
-import tataLogo from "@/assets/logos/tata-mutual-fund.png";
-import bandhanLogo from "@/assets/logos/bandhan-mutual-fund.png";
-import iciciLogo from "@/assets/logos/icici-prudential-mutual-fund.png";
-import dynaLogo from "@/assets/logos/dyna-sif.png";
-import arudhaLogo from "@/assets/logos/arudha-sif.png";
-import apexLogo from "@/assets/logos/apex-sif.png";
+import AmcLogo from "@/components/AmcLogo";
 import {
   Table,
   TableBody,
@@ -23,7 +14,6 @@ import {
 interface SifFund {
   name: string;
   amc: string;
-  logo: string;
   link?: string;
   internalLink?: string;
 }
@@ -34,26 +24,26 @@ const categories: Category[] = ["Hybrid Long Short", "Equity Long Short", "Equit
 
 const fundsByCategory: Record<Category, SifFund[]> = {
   "Hybrid Long Short": [
-    { name: "Altiva Hybrid Long Short Fund", amc: "Edelweiss Mutual Fund", logo: edelweissLogo as unknown as string, internalLink: "/sifs/altiva-hybrid-long-short" },
-    { name: "Magnum Hybrid Long Short Fund", amc: "SBI Mutual Fund", logo: sbiLogo as unknown as string, internalLink: "/sifs/magnum-hybrid-long-short" },
-    { name: "Titanium Hybrid Long Short Fund", amc: "Tata Mutual Fund", logo: tataLogo as unknown as string, internalLink: "/sifs/titanium-hybrid-long-short" },
-    { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", logo: arudhaLogo as unknown as string, internalLink: "/sifs/arudha-hybrid-long-short" },
-    { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", logo: iciciLogo as unknown as string, internalLink: "/sifs/isif/hybrid" },
-    { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", logo: quantLogo as unknown as string, internalLink: "/sifs/qsif-hybrid-long-short" },
-    { name: "Apex SIF Hybrid Long Short", amc: "DSP Mutual Fund", logo: apexLogo as unknown as string, internalLink: "/sifs/apex-hybrid-long-short" },
+    { name: "Altiva Hybrid Long Short Fund", amc: "Edelweiss Mutual Fund", internalLink: "/sifs/altiva-hybrid-long-short" },
+    { name: "Magnum Hybrid Long Short Fund", amc: "SBI Mutual Fund", internalLink: "/sifs/magnum-hybrid-long-short" },
+    { name: "Titanium Hybrid Long Short Fund", amc: "Tata Mutual Fund", internalLink: "/sifs/titanium-hybrid-long-short" },
+    { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-hybrid-long-short" },
+    { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/hybrid" },
+    { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-hybrid-long-short" },
+    { name: "Apex SIF Hybrid Long Short", amc: "DSP Mutual Fund", internalLink: "/sifs/apex-hybrid-long-short" },
   ],
   "Equity Ex-Top 100": [
-    { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", logo: iciciLogo as unknown as string, internalLink: "/sifs/isif/extop100" },
-    { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", logo: quantLogo as unknown as string, internalLink: "/qsif-ex-top-100-long-short" },
+    { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/extop100" },
+    { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", internalLink: "/qsif-ex-top-100-long-short" },
   ],
   "Equity Long Short": [
-    { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", logo: itiLogo as unknown as string, internalLink: "/diviniti-equity-long-short" },
-    { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", logo: quantLogo as unknown as string, internalLink: "/qsif-equity-long-short" },
-    { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", logo: dynaLogo as unknown as string, internalLink: "/dyna-equity-long-short" },
-    { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", logo: bandhanLogo as unknown as string, internalLink: "/sifs/arudha-equity-long-short" },
+    { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", internalLink: "/diviniti-equity-long-short" },
+    { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", internalLink: "/qsif-equity-long-short" },
+    { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", internalLink: "/dyna-equity-long-short" },
+    { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-equity-long-short" },
   ],
   "Active Asset Allocator": [
-    { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", logo: dynaLogo as unknown as string, internalLink: "/dyna-active-asset-allocator" },
+    { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", internalLink: "/dyna-active-asset-allocator" },
   ],
 };
 
@@ -137,12 +127,7 @@ const SifFundsCarousel = () => {
                     <TableRow key={i}>
                       <TableCell className="font-medium text-foreground">
                         <div className="flex items-center gap-3">
-                          <img
-                            src={fund.logo}
-                            alt={fund.amc}
-                            className="w-8 h-8 rounded-md object-contain flex-shrink-0"
-                            loading="lazy"
-                          />
+                          <AmcLogo amc={fund.amc} />
                           <span className="text-sm">{fund.name}</span>
                         </div>
                       </TableCell>

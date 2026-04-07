@@ -36,7 +36,7 @@ import {
   Layers,
 } from "lucide-react";
 import Link from "next/link";
-import edelweissLogo from "@/assets/logos/edelweiss-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
@@ -144,11 +144,7 @@ const AltivaSifJan2026 = () => {
 
           {/* Hero */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
-            <img
-              src={edelweissLogo as unknown as string}
-              alt="Edelweiss Mutual Fund"
-              className="w-14 h-14 object-contain rounded-xl bg-white p-2 shadow-md shrink-0"
-            />
+            <AmcLogo amc="Edelweiss Mutual Fund" size="md" />
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <Badge variant="outline" className="text-primary border-primary/30 bg-primary/5">

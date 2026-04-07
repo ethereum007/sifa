@@ -1,6 +1,6 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
-import dynaSifLogo from "@/assets/logos/dyna-sif.png";
+import AmcLogo from "@/components/AmcLogo";
 
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
@@ -9,7 +9,6 @@ const NFO_ANNOUNCEMENTS = [
     fund: "Dyna SIF",
     amc: "360 ONE Asset",
     dates: "6th Feb – 20th Feb 2026",
-    logo: dynaSifLogo as unknown as string,
     fundLink: "/upcoming-sifs",
   },
 ];
@@ -26,12 +25,7 @@ const NfoAnnouncementBanner = () => {
             <Badge className="bg-white text-purple-700 hover:bg-white text-xs sm:text-sm font-bold px-2.5 py-0.5 animate-pulse">
               🔥 NFO OPEN
             </Badge>
-            <img
-              src={nfo.logo}
-              alt={nfo.fund}
-              className="h-7 sm:h-8 w-auto rounded"
-              loading="eager"
-            />
+            <AmcLogo amc={nfo.amc} />
             <a
               href={nfo.fundLink}
               className="font-bold text-sm sm:text-base hover:underline underline-offset-2"

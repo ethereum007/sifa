@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { TrendingUp, Search, ChevronDown, ChevronRight, Filter } from "lucide-react";
+import { TrendingUp, Search, ChevronDown, ChevronRight, Filter, RefreshCw } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,11 +17,20 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import AmcLogo from "@/components/AmcLogo";
 
-// Consolidated fund data - only Direct Growth plans for cleaner display
-// Updated: 30 Mar 2026
-const navData = [
-  // Hybrid Long Short Funds
+interface FundEntry {
+  amc: string;
+  fund: string;
+  nav: number;
+  navRegular: number;
+  date: string;
+  category: string;
+  type?: string;
+}
+
+// Fallback data used until API responds
+const fallbackData: FundEntry[] = [
   { amc: "Edelweiss", fund: "Altiva Hybrid Long-Short", nav: 10.2967, navRegular: 10.2504, date: "01 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
   { amc: "DSP", fund: "Apex Hybrid Long-Short", nav: 10.02, navRegular: 10.02, date: "01 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
   { amc: "Bandhan", fund: "Arudha Hybrid Long-Short", nav: 10.087, navRegular: 10.079, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
@@ -29,41 +38,58 @@ const navData = [
   { amc: "SBI", fund: "Magnum Hybrid Long Short", nav: 10.0096, navRegular: 9.9759, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
   { amc: "Quant", fund: "qSIF Hybrid Long-Short", nav: 9.9268, navRegular: 9.8559, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
   { amc: "Tata", fund: "Titanium Hybrid Long-Short", nav: 9.5246, navRegular: 9.4725, date: "02 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  // Equity Long Short Funds
   { amc: "Bandhan", fund: "Arudha Equity Long-Short", nav: 9.902, navRegular: 9.899, date: "02 Apr 2026", category: "Equity Long Short" },
   { amc: "ITI", fund: "Diviniti Equity Long Short", nav: 948.4573, navRegular: 943.5562, date: "02 Apr 2026", category: "Equity Long Short" },
   { amc: "360 ONE", fund: "DynaSIF Equity Long-Short", nav: 9.63, navRegular: 9.6155, date: "02 Apr 2026", category: "Equity Long Short" },
   { amc: "Quant", fund: "qSIF Equity Long Short", nav: 9.0718, navRegular: 9.0071, date: "02 Apr 2026", category: "Equity Long Short" },
-  // Equity Ex-Top 100 Long Short Funds
   { amc: "ICICI Prudential", fund: "iSIF Ex-Top 100 Long-Short", nav: 9.18, navRegular: 9.16, date: "01 Apr 2026", category: "Equity Ex-Top 100" },
   { amc: "Quant", fund: "qSIF Ex-Top 100 Long-Short", nav: 8.7758, navRegular: 8.7247, date: "02 Apr 2026", category: "Equity Ex-Top 100" },
-  // Active Asset Allocator
   { amc: "360 ONE", fund: "DynaSIF Active Asset Allocator", nav: 10.0087, navRegular: 10.0055, date: "02 Apr 2026", category: "Active Asset Allocator" },
 ];
 
-const amcList = [...new Set(navData.map(d => d.amc))];
 const categoryList = ["Hybrid Long Short", "Equity Long Short", "Equity Ex-Top 100", "Active Asset Allocator"];
 
 const NavTable = () => {
+  const [navData, setNavData] = useState<FundEntry[]>(fallbackData);
+  const [latestDate, setLatestDate] = useState("02 Apr 2026");
+  const [isLive, setIsLive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedAmc, setSelectedAmc] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [showFilters, setShowFilters] = useState(false);
 
+  useEffect(() => {
+    fetch("/api/nav")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.funds && data.funds.length > 0) {
+          setNavData(data.funds);
+          // Find the most recent date across all funds
+          const dates = data.funds.map((f: FundEntry) => f.date).filter(Boolean);
+          if (dates.length > 0) setLatestDate(dates[0]);
+          setIsLive(true);
+        }
+      })
+      .catch(() => {
+        // Silently fall back to hardcoded data
+      });
+  }, []);
+
+  const amcList = [...new Set(navData.map(d => d.amc))];
+
   const filteredData = navData.filter(fund => {
     if (selectedAmc !== "all" && fund.amc !== selectedAmc) return false;
     if (selectedCategory !== "all" && fund.category !== selectedCategory) return false;
-    if (searchQuery && !fund.fund.toLowerCase().includes(searchQuery.toLowerCase()) && 
+    if (searchQuery && !fund.fund.toLowerCase().includes(searchQuery.toLowerCase()) &&
         !fund.amc.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;
   });
 
-  // Group by Category for comparison
   const groupedByCategory = filteredData.reduce((acc, fund) => {
     if (!acc[fund.category]) acc[fund.category] = [];
     acc[fund.category].push(fund);
     return acc;
-  }, {} as Record<string, typeof navData>);
+  }, {} as Record<string, FundEntry[]>);
 
   return (
     <section id="nav" className="py-8 sm:py-12 lg:py-16 bg-muted/30">
@@ -79,11 +105,11 @@ const NavTable = () => {
                 SIF NAV Tracker
               </h2>
               <p className="text-xs sm:text-sm text-muted-foreground">
-                {filteredData.length} funds • Updated daily
+                {filteredData.length} funds • {isLive ? "Live from AMFI" : "Updated daily"}
               </p>
             </div>
           </div>
-          
+
           {/* Search & Filter Toggle */}
           <div className="flex gap-2">
             <div className="relative flex-1 sm:w-64">
@@ -121,7 +147,7 @@ const NavTable = () => {
                   ))}
                 </SelectContent>
               </Select>
-              
+
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                 <SelectTrigger className="w-40 h-8 text-sm">
                   <SelectValue placeholder="Category" />
@@ -135,9 +161,9 @@ const NavTable = () => {
               </Select>
 
               {(selectedAmc !== "all" || selectedCategory !== "all") && (
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
+                <Button
+                  variant="ghost"
+                  size="sm"
                   className="h-8 text-xs"
                   onClick={() => { setSelectedAmc("all"); setSelectedCategory("all"); }}
                 >
@@ -177,7 +203,7 @@ const NavTable = () => {
         {/* Footer with date */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mt-4 text-sm text-muted-foreground">
           <p className="font-medium">
-            NAV as on: <span className="text-foreground">02 Apr 2026</span>
+            NAV as on: <span className="text-foreground">{latestDate}</span>
           </p>
           <p className="text-xs">
             NAV shown for Growth option • IDCW options available • Min investment ₹10L
@@ -190,7 +216,7 @@ const NavTable = () => {
 };
 
 // Collapsible Category Group
-const CategoryGroup = ({ category, funds }: { category: string; funds: typeof navData }) => {
+const CategoryGroup = ({ category, funds }: { category: string; funds: FundEntry[] }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -210,17 +236,20 @@ const CategoryGroup = ({ category, funds }: { category: string; funds: typeof na
       </CollapsibleTrigger>
       <CollapsibleContent>
         {funds.map((fund, idx) => (
-          <div 
+          <div
             key={idx}
             className={`grid grid-cols-12 gap-2 px-4 py-2.5 items-center hover:bg-muted/10 transition-colors ${
               idx % 2 === 1 ? "bg-muted/5" : ""
             }`}
           >
-            <div className="col-span-5 sm:col-span-4">
-              <span className="text-sm font-medium text-foreground line-clamp-1">{fund.fund}</span>
-              {fund.type && (
-                <span className="text-xs text-muted-foreground ml-1">({fund.type})</span>
-              )}
+            <div className="col-span-5 sm:col-span-4 flex items-center gap-2">
+              <AmcLogo amc={fund.amc} size="sm" />
+              <div className="min-w-0">
+                <span className="text-sm font-medium text-foreground line-clamp-1">{fund.fund}</span>
+                {fund.type && (
+                  <span className="text-xs text-muted-foreground ml-1">({fund.type})</span>
+                )}
+              </div>
             </div>
             <div className="col-span-3 sm:col-span-2 text-center">
               <span className="text-xs text-muted-foreground">{fund.amc}</span>

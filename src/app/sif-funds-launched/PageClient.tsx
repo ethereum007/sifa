@@ -11,23 +11,13 @@ import { TrendingUp } from "lucide-react";
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-import quantLogo from "@/assets/logos/quant-mutual-fund.png";
-import edelweissLogo from "@/assets/logos/edelweiss-mutual-fund.png";
-import itiLogo from "@/assets/logos/iti-mutual-fund.png";
-import iciciLogo from "@/assets/logos/icici-prudential-mutual-fund.png";
-import sbiLogo from "@/assets/logos/sbi-mutual-fund.png";
-import tataLogo from "@/assets/logos/tata-mutual-fund.png";
-import dynaLogo from "@/assets/logos/dyna-sif.png";
-import arudhaLogo from "@/assets/logos/arudha-sif.png";
-import apexLogo from "@/assets/logos/apex-sif.png";
-import bandhanLogo from "@/assets/logos/bandhan-mutual-fund.png";
+import AmcLogo from "@/components/AmcLogo";
 
 
 
 interface SifFund {
   name: string;
   amc: string;
-  logo: string;
   href: string;
   linkText?: string;
 }
@@ -43,38 +33,38 @@ const categories: CategoryData[] = [
     label: "Hybrid Long Short",
     badgeClass: "bg-purple-50 text-purple-700 border-purple-200",
     funds: [
-      { name: "Altiva Hybrid Long Short Fund", amc: "Edelweiss Mutual Fund", logo: edelweissLogo as unknown as string, href: "/sifs/altiva-hybrid-long-short" },
-      { name: "Magnum Hybrid Long Short Fund", amc: "SBI Mutual Fund", logo: sbiLogo as unknown as string, href: "/sifs/magnum-hybrid-long-short" },
-      { name: "Titanium Hybrid Long Short Fund", amc: "Tata Mutual Fund", logo: tataLogo as unknown as string, href: "/sifs/titanium-hybrid-long-short" },
-      { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", logo: arudhaLogo as unknown as string, href: "/sifs/arudha-hybrid-long-short" },
-      { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", logo: iciciLogo as unknown as string, href: "/sifs/isif/hybrid" },
-      { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", logo: quantLogo as unknown as string, href: "/sifs/qsif-hybrid-long-short" },
-      { name: "Apex SIF Hybrid Long Short", amc: "DSP Mutual Fund", logo: apexLogo as unknown as string, href: "/sifs/apex-hybrid-long-short" },
+      { name: "Altiva Hybrid Long Short Fund", amc: "Edelweiss Mutual Fund", href: "/sifs/altiva-hybrid-long-short" },
+      { name: "Magnum Hybrid Long Short Fund", amc: "SBI Mutual Fund", href: "/sifs/magnum-hybrid-long-short" },
+      { name: "Titanium Hybrid Long Short Fund", amc: "Tata Mutual Fund", href: "/sifs/titanium-hybrid-long-short" },
+      { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-hybrid-long-short" },
+      { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/hybrid" },
+      { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-hybrid-long-short" },
+      { name: "Apex SIF Hybrid Long Short", amc: "DSP Mutual Fund", href: "/sifs/apex-hybrid-long-short" },
     ],
   },
   {
     label: "Equity Ex-Top 100",
     badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
     funds: [
-      { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", logo: iciciLogo as unknown as string, href: "/sifs/isif/extop100" },
-      { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", logo: quantLogo as unknown as string, href: "/qsif-ex-top-100-long-short" },
+      { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/extop100" },
+      { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", href: "/qsif-ex-top-100-long-short" },
     ],
   },
   {
     label: "Equity Long Short",
     badgeClass: "bg-blue-50 text-blue-700 border-blue-200",
     funds: [
-      { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", logo: itiLogo as unknown as string, href: "/diviniti-equity-long-short" },
-      { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", logo: quantLogo as unknown as string, href: "/qsif-equity-long-short" },
-      { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", logo: dynaLogo as unknown as string, href: "/dyna-equity-long-short" },
-      { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", logo: bandhanLogo as unknown as string, href: "/sifs/arudha-equity-long-short" },
+      { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/diviniti-equity-long-short" },
+      { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", href: "/qsif-equity-long-short" },
+      { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/dyna-equity-long-short" },
+      { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-equity-long-short" },
     ],
   },
   {
     label: "Active Asset Allocator",
     badgeClass: "bg-orange-50 text-orange-700 border-orange-200",
     funds: [
-      { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", logo: dynaLogo as unknown as string, href: "/dyna-active-asset-allocator", linkText: "View" },
+      { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", href: "/dyna-active-asset-allocator", linkText: "View" },
     ],
   },
 ];
@@ -127,12 +117,7 @@ const SifFundsLaunched = () => {
                         <TableRow key={idx}>
                           <TableCell className="pl-6">
                             <div className="flex items-center gap-3">
-                              <img 
-                                src={fund.logo} 
-                                alt={fund.amc} 
-                                className="w-8 h-8 object-contain rounded"
-                                loading="lazy"
-                              />
+                              <AmcLogo amc={fund.amc} />
                               <span className="font-medium text-foreground">{fund.name}</span>
                             </div>
                           </TableCell>
