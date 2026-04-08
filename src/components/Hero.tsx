@@ -39,15 +39,23 @@ const Hero = () => {
 
           {/* CTA Button - Centered */}
           <div className="flex flex-col items-center gap-8 mb-8 animate-slide-up delay-200">
-            <Button 
-              variant="gold" 
-              size="lg" 
-              className="px-8"
-              onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Schedule a Consultation
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <Button
+                variant="gold"
+                size="lg"
+                className="px-8"
+                onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Schedule a Consultation
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+              <a href="/sif-quiz">
+                <Button variant="outline" size="lg" className="px-8 border-primary text-primary hover:bg-primary/10">
+                  🎯 Find My SIF
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
+            </div>
             
             {/* Stats below button - Mobile optimized */}
             <div className="flex flex-wrap justify-center gap-3 sm:inline-flex sm:flex-nowrap sm:items-center sm:justify-center bg-gradient-to-r from-white via-secondary/50 to-white rounded-2xl border border-border/40 shadow-lg px-3 py-3 sm:px-4 sm:py-4">
@@ -68,6 +76,9 @@ const Hero = () => {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground mt-3 text-center">
+              Best protection: 87.4% capital protected when Nifty fell -11.30% (March 2026)
+            </p>
           </div>
         </div>
 

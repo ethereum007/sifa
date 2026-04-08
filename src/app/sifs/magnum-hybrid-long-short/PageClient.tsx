@@ -31,8 +31,13 @@ import {
   PieChart,
   Layers
 } from "lucide-react";
+import CrashAnalysis from "@/components/CrashAnalysis";
+import NavJourneyChart from "@/components/NavJourneyChart";
+import MonthlyHeatmap from "@/components/MonthlyHeatmap";
+import { getSifBySlug } from "@/lib/sifData";
 
 const MagnumSif = () => {
+  const fundData = getSifBySlug('magnum-hybrid-long-short');
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -735,6 +740,15 @@ const MagnumSif = () => {
           </div>
         </div>
       </section>
+
+      {/* Analysis Components */}
+      {fundData && (
+        <div className="container mx-auto px-4 space-y-8 py-8">
+          <CrashAnalysis fund={fundData} />
+          <NavJourneyChart funds={[fundData]} showNifty={true} />
+          <MonthlyHeatmap funds={[fundData]} showNifty={true} mode="single" />
+        </div>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-primary/10 via-background to-accent/5">

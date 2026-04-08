@@ -20,6 +20,8 @@ const TerComparison = dynamic(() => import("@/components/TerComparison"), { ssr:
 const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"), { ssr: true });
 const SifFaqs = dynamic(() => import("@/components/SifFaqs"), { ssr: true });
 const EarlyAccessForm = dynamic(() => import("@/components/EarlyAccessForm"), { ssr: true });
+const MarketConditionsWidget = dynamic(() => import("@/components/MarketConditionsWidget"), { ssr: true });
+const AlphaShieldLeaderboard = dynamic(() => import("@/components/AlphaShieldLeaderboard"), { ssr: true });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 const ReportPopup = dynamic(() => import("@/components/ReportPopup"), { ssr: false });
 const ExitIntentPopup = dynamic(() => import("@/components/ExitIntentPopup"), { ssr: false });
@@ -32,6 +34,7 @@ const Index = memo(() => {
       <main className="pt-[104px] lg:pt-[120px]">
         <PerformanceBanner />
         <Hero />
+        <MarketConditionsWidget />
         <SifFundsCarousel />
         <UpcomingSifsScroller />
         <QuickActionButtons />
@@ -39,6 +42,7 @@ const Index = memo(() => {
         <WebinarBanner />
         <SifReturnsScorecard />
         <SifAumSection />
+        <AlphaShieldLeaderboard />
         <NavTable />
         <TerComparison />
         <ComparisonTable />

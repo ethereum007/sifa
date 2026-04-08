@@ -57,10 +57,15 @@ const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 import AmcLogo from "@/components/AmcLogo";
+import CrashAnalysis from "@/components/CrashAnalysis";
+import NavJourneyChart from "@/components/NavJourneyChart";
+import MonthlyHeatmap from "@/components/MonthlyHeatmap";
+import { getSifBySlug } from "@/lib/sifData";
 
 
 
 const DynaSifActiveAssetAllocator = () => {
+  const fundData = getSifBySlug('dynasif-active-asset-allocator');
   return (
     <div className="min-h-screen bg-background">
       <Suspense fallback={<div className="h-16 lg:h-20" />}>
@@ -941,6 +946,15 @@ const DynaSifActiveAssetAllocator = () => {
               </p>
             </div>
           </div>
+
+          {/* Analysis Components */}
+          {fundData && (
+            <div className="max-w-4xl mx-auto space-y-8 mb-12">
+              <CrashAnalysis fund={fundData} />
+              <NavJourneyChart funds={[fundData]} showNifty={true} />
+              <MonthlyHeatmap funds={[fundData]} showNifty={true} mode="single" />
+            </div>
+          )}
 
           {/* CTA */}
           <div className="max-w-4xl mx-auto text-center">

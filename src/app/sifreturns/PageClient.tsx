@@ -4,6 +4,10 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NavJourneyChart from "@/components/NavJourneyChart";
+import MonthlyHeatmap from "@/components/MonthlyHeatmap";
+import { sifFunds, getHybridFunds } from "@/lib/sifData";
+import Link from "next/link";
 
 
 
@@ -151,10 +155,45 @@ const SifReturns = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20 lg:pt-24">
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <NavJourneyChart funds={sifFunds} showNifty={true} height={400} />
+          </div>
+        </section>
+
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <MonthlyHeatmap funds={sifFunds} showNifty={true} mode="all" />
+          </div>
+        </section>
+
         <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-10 h-10 border-3 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
           <SifReturnsScorecard />
         </Suspense>
       </main>
+
+      <section className="py-8 sm:py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Monthly Performance Archive</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 max-w-4xl mx-auto">
+            {[
+              { month: 'Oct 2025', slug: 'october-2025' },
+              { month: 'Nov 2025', slug: 'november-2025' },
+              { month: 'Dec 2025', slug: 'december-2025' },
+              { month: 'Jan 2026', slug: 'january-2026' },
+              { month: 'Feb 2026', slug: 'february-2026' },
+              { month: 'Mar 2026', slug: 'march-2026' },
+              { month: 'Apr 2026', slug: 'april-2026', live: true },
+            ].map((m) => (
+              <Link key={m.slug} href={`/performance/${m.slug}`}
+                className={`p-3 rounded-xl border text-center text-sm font-medium transition-colors ${m.live ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400' : 'border-border bg-card text-foreground hover:border-primary/50'}`}>
+                {m.month}{m.live ? ' \uD83D\uDD34' : ''}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
