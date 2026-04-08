@@ -40,21 +40,34 @@ export default function ExitIntentPopup() {
     localStorage.setItem("sifprime_exit_popup_dismissed", "true");
   };
 
+  const triggerDownload = () => {
+    const a = document.createElement("a");
+    a.href = "https://qawkanomagvilmiplyjr.supabase.co/storage/v1/object/public/reports/SIF_March_2026_Performance.pdf";
+    a.download = "SIF_Comparison_Guide.pdf";
+    a.target = "_blank";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || submitting) return;
     setSubmitting(true);
 
     try {
-      await supabase.from("leads").insert({
-        email,
-        name: "SIF Guide Download",
-        phone: "",
+      await supabase.functions.invoke("submit-lead", {
+        body: {
+          name: "SIF Guide Download",
+          email,
+          phone: "N/A",
+        },
       });
     } catch {
-      // silently fail — still show success
+      // silently fail — still deliver the guide
     }
 
+    triggerDownload();
     setSubmitted(true);
     setSubmitting(false);
     localStorage.setItem("sifprime_exit_popup_dismissed", "true");
@@ -77,10 +90,11 @@ export default function ExitIntentPopup() {
           <div className="text-center py-4">
             <div className="text-3xl mb-3">&#9989;</div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              Check your inbox!
+              Your guide is downloading!
             </h3>
             <p className="text-sm text-muted-foreground">
-              We&apos;ll send the Free SIF Comparison Guide to your email shortly.
+              Check your downloads folder for the SIF Comparison Guide. If it didn&apos;t start,{" "}
+              <button onClick={triggerDownload} className="text-primary underline">click here</button>.
             </p>
           </div>
         ) : (
