@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 const AMC_DOMAIN_MAP: Record<string, string> = {
   edelweiss: "edelweissmf.com",
   sbi: "sbimutual.com",
@@ -53,27 +51,13 @@ export function getAmcLogoUrl(amcName: string): string | null {
 }
 
 const AmcLogo = ({ amc, size = "sm", className = "" }: AmcLogoProps) => {
-  const [failed, setFailed] = useState(false);
-  const logoUrl = getAmcLogoUrl(amc);
   const dim = size === "md" ? "w-12 h-12" : "w-8 h-8";
   const textSize = size === "md" ? "text-sm" : "text-xs";
 
-  if (!logoUrl || failed) {
-    return (
-      <div className={`${dim} rounded-md ${getColor(amc)} flex items-center justify-center text-white font-semibold ${textSize} flex-shrink-0 ${className}`}>
-        {getInitials(amc)}
-      </div>
-    );
-  }
-
   return (
-    <img
-      src={logoUrl}
-      alt={amc}
-      className={`${dim} rounded-md object-contain flex-shrink-0 ${className}`}
-      loading="lazy"
-      onError={() => setFailed(true)}
-    />
+    <div className={`${dim} rounded-md ${getColor(amc)} flex items-center justify-center text-white font-semibold ${textSize} flex-shrink-0 ${className}`}>
+      {getInitials(amc)}
+    </div>
   );
 };
 
