@@ -79,7 +79,8 @@ function SifCompareInner() {
           return {
             fund,
             alphaShield: calculateAlphaShield(
-              fund.marchCrashData?.fundReturn ?? null
+              fund.marchCrashData?.fundReturn ?? null,
+              fund.marchCrashData?.benchmarkReturn ?? -11.30
             ),
           };
         })
@@ -215,8 +216,8 @@ function SifCompareInner() {
     const marchReturns = resolved.map(
       (r) => r.fund.marchCrashData?.fundReturn ?? null
     );
-    const alphaVsNifty = resolved.map(
-      (r) => r.fund.marchCrashData?.alphaVsNifty ?? null
+    const alphaVsBenchmark = resolved.map(
+      (r) => r.fund.marchCrashData?.alphaVsBenchmark ?? null
     );
     const capitalProtected = resolved.map(
       (r) => r.fund.marchCrashData?.capitalProtected ?? null
@@ -254,14 +255,14 @@ function SifCompareInner() {
             },
           },
           {
-            label: "Alpha vs Nifty (%)",
-            values: alphaVsNifty.map((v) =>
+            label: "Alpha vs Benchmark (%)",
+            values: alphaVsBenchmark.map((v) =>
               v !== null && v !== undefined ? `+${v.toFixed(2)}%` : "\u2014"
             ),
-            rawValues: alphaVsNifty,
+            rawValues: alphaVsBenchmark,
             higherIsBetter: true,
             renderCell: (_, idx) => {
-              const val = alphaVsNifty[idx];
+              const val = alphaVsBenchmark[idx];
               return (
                 <span className="text-emerald-400">
                   {val !== null && val !== undefined

@@ -8,13 +8,12 @@ import {
 } from "@/lib/alphaShield";
 import { getSifsByCategory } from "@/lib/sifData";
 import type { SIFund } from "@/lib/sifData";
+import { getBenchmarkForFund } from "@/lib/benchmarkData";
 import AlphaShieldBadge from "@/components/AlphaShieldBadge";
 
 interface CrashAnalysisProps {
   fund: SIFund;
 }
-
-const NIFTY_CRASH_RETURN = -11.3;
 
 const RANK_MEDALS: Record<number, string> = {
   1: "🥇",
@@ -22,26 +21,31 @@ const RANK_MEDALS: Record<number, string> = {
   3: "🥉",
 };
 
-function getVerdictText(score: number | null): string {
+function getVerdictText(score: number | null, benchmarkName: string): string {
   if (score === null) {
     return "This fund launched after March 2026. Alpha Shield Score will be calculated during the next major market movement.";
   }
   if (score >= 9) {
-    return "Exceptional downside protection. This fund stayed positive when everything else fell. The hedging strategy worked exactly as designed \u2014 this is what separates SIFs from regular mutual funds.";
+    return `Exceptional downside protection. This fund stayed positive when its benchmark (${benchmarkName}) fell sharply. The hedging strategy worked exactly as designed — this is what separates SIFs from regular mutual funds.`;
   }
   if (score >= 7) {
-    return "Strong downside protection. The fund outperformed Nifty by nearly 10 percentage points in the crash. Your capital was significantly cushioned.";
+    return `Strong downside protection. The fund significantly outperformed its benchmark (${benchmarkName}) in the crash. Your capital was well cushioned.`;
   }
   if (score >= 5) {
-    return "Moderate protection. The fund cushioned some of the Nifty\u2019s fall but underperformed category peers.";
+    return `Moderate protection. The fund cushioned some of the benchmark's fall but underperformed category peers.`;
   }
-  return "Limited protection in the March 2026 crash. High net long exposure meant the fund bore significant market impact.";
+  if (score >= 3) {
+    return `Limited protection in the March 2026 crash. The fund underperformed relative to what was expected given the benchmark decline.`;
+  }
+  return `Weak protection in the March 2026 crash. The fund fell nearly as much as its benchmark (${benchmarkName}), indicating limited hedging benefit.`;
 }
 
 export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
   const marchData = fund.marchCrashData;
   const fundReturn = marchData?.fundReturn ?? null;
-  const alphaShieldScore = calculateAlphaShield(fundReturn);
+  const benchmarkReturn = marchData?.benchmarkReturn ?? -11.30;
+  const benchmarkInfo = getBenchmarkForFund(fund.benchmark);
+  const alphaShieldScore = calculateAlphaShield(fundReturn, benchmarkReturn);
 
   // --- NULL STATE: Fund launched after March 2026 ---
   if (fundReturn === null || fundReturn === undefined) {
@@ -66,7 +70,7 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
             href="/compare-sifs"
             className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors"
           >
-            Compare with other funds &rarr;
+            Compare with other funds →
           </Link>
         </div>
       </div>
@@ -74,8 +78,11 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
   }
 
   // --- FULL ANALYSIS ---
-  const alphaVsNifty = (fundReturn - NIFTY_CRASH_RETURN).toFixed(2);
-  const capitalProtected = Math.max(0, 100 + fundReturn).toFixed(1);
+  const alphaVsBenchmark = (fundReturn - benchmarkReturn).toFixed(2);
+  const capitalProtected = Math.max(
+    0,
+    ((1 - Math.abs(fundReturn) / Math.abs(benchmarkReturn)) * 100)
+  ).toFixed(1);
   const isPositiveReturn = fundReturn >= 0;
   const color = getAlphaShieldColor(alphaShieldScore!);
 
@@ -95,9 +102,9 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
     ) + 1;
   const totalFunds = categoryFunds.length;
 
-  // Calculate max bar width reference: best return distance from Nifty crash
+  // Calculate max bar width reference: best return distance from benchmark crash
   const bestReturn = sortedFunds[0]?.marchCrashData?.fundReturn ?? 0;
-  const barMaxRange = Math.max(bestReturn - NIFTY_CRASH_RETURN, 1);
+  const barMaxRange = Math.max(bestReturn - benchmarkReturn, 1);
 
   return (
     <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-8">
@@ -113,7 +120,8 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
 
       {/* INTRO */}
       <p className="text-slate-300">
-        When Nifty crashed {NIFTY_CRASH_RETURN}% in March 2026, here&apos;s how{" "}
+        When {benchmarkInfo.name} fell {benchmarkReturn}% in March 2026,
+        here&apos;s how{" "}
         <span className="font-semibold text-white">{fund.shortName}</span>{" "}
         performed:
       </p>
@@ -122,10 +130,10 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
       <div className="grid grid-cols-2 gap-4 mt-6">
         <div className="bg-red-950/50 rounded-xl p-4">
           <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">
-            Nifty 50
+            {benchmarkInfo.shortName}
           </p>
           <p className="text-2xl font-bold text-red-400">
-            {NIFTY_CRASH_RETURN}%
+            {benchmarkReturn}%
           </p>
         </div>
         <div
@@ -150,8 +158,8 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
       {/* METRICS ROW */}
       <div className="grid grid-cols-3 gap-4 mt-6 bg-slate-800 rounded-xl p-4">
         <div>
-          <p className="text-xs text-slate-400 mb-1">Alpha vs Nifty</p>
-          <p className="text-lg font-bold text-emerald-400">+{alphaVsNifty}%</p>
+          <p className="text-xs text-slate-400 mb-1">Alpha vs Benchmark</p>
+          <p className="text-lg font-bold text-emerald-400">+{alphaVsBenchmark}%</p>
         </div>
         <div>
           <p className="text-xs text-slate-400 mb-1">Capital Protected</p>
@@ -198,7 +206,7 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
             }
 
             const barWidth = Math.max(
-              ((fReturn - NIFTY_CRASH_RETURN) / barMaxRange) * 100,
+              ((fReturn - benchmarkReturn) / barMaxRange) * 100,
               2
             );
             const isPositive = fReturn >= 0;
@@ -245,6 +253,7 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
 
         <p className="text-sm text-slate-400 mt-3">
           Rank: #{currentFundRank} of {totalFunds} {fund.category} funds
+          <span className="text-slate-500 ml-2">(vs {benchmarkInfo.shortName})</span>
         </p>
       </div>
 
@@ -254,7 +263,7 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
           What This Means:
         </p>
         <p className="text-slate-300 text-sm leading-relaxed">
-          {getVerdictText(alphaShieldScore)}
+          {getVerdictText(alphaShieldScore, benchmarkInfo.shortName)}
         </p>
       </div>
 
@@ -264,7 +273,7 @@ export default function CrashAnalysis({ fund }: CrashAnalysisProps) {
           href="/compare-sifs"
           className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors"
         >
-          Compare with other funds &rarr;
+          Compare with other funds →
         </Link>
       </div>
     </div>

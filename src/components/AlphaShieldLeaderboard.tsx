@@ -6,12 +6,15 @@ import { calculateAlphaShield, getAlphaShieldColor } from "@/lib/alphaShield";
 import AlphaShieldBadge from "@/components/AlphaShieldBadge";
 
 export default function AlphaShieldLeaderboard() {
-  // Filter funds with march crash data, calculate scores, sort by score descending, take top 6
+  // Filter funds with march crash data, calculate scores using per-fund benchmark, sort by score descending, take top 6
   const rankedFunds = sifFunds
     .filter((f) => f.marchCrashData.fundReturn !== null)
     .map((f) => ({
       ...f,
-      alphaShieldScore: calculateAlphaShield(f.marchCrashData.fundReturn),
+      alphaShieldScore: calculateAlphaShield(
+        f.marchCrashData.fundReturn,
+        f.marchCrashData.benchmarkReturn
+      ),
     }))
     .sort((a, b) => (b.alphaShieldScore ?? 0) - (a.alphaShieldScore ?? 0))
     .slice(0, 6);
@@ -24,7 +27,7 @@ export default function AlphaShieldLeaderboard() {
             🛡️ Alpha Shield Leaderboard
           </h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            How each SIF protected your capital during the March 2026 market crash (Nifty fell -11.30%)
+            How each SIF protected your capital vs its own benchmark during the March 2026 crash
           </p>
         </div>
 
@@ -36,9 +39,9 @@ export default function AlphaShieldLeaderboard() {
                   <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Rank</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Fund</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider hidden sm:table-cell">AMC</th>
-                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider hidden md:table-cell">Category</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider hidden md:table-cell">Benchmark</th>
                   <th className="text-right px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">March Return</th>
-                  <th className="text-right px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider hidden sm:table-cell">Alpha vs Nifty</th>
+                  <th className="text-right px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider hidden sm:table-cell">Alpha vs Benchmark</th>
                   <th className="text-right px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider hidden md:table-cell">Capital Protected</th>
                   <th className="text-right px-4 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Alpha Shield</th>
                 </tr>
@@ -48,8 +51,12 @@ export default function AlphaShieldLeaderboard() {
                   const rank = index + 1;
                   const isWinner = rank === 1;
                   const fundReturn = fund.marchCrashData.fundReturn!;
-                  const alphaVsNifty = fund.marchCrashData.alphaVsNifty;
+                  const alphaVsBenchmark = fund.marchCrashData.alphaVsBenchmark;
                   const capitalProtected = fund.marchCrashData.capitalProtected;
+                  // Short benchmark name for display
+                  const benchmarkShort = fund.benchmark
+                    .replace('NIFTY 50 Hybrid Composite Debt ', 'Hybrid ')
+                    .replace('Nifty ', 'N');
 
                   return (
                     <tr
@@ -77,15 +84,15 @@ export default function AlphaShieldLeaderboard() {
                       <td className="px-4 py-3 text-slate-400 hidden sm:table-cell">
                         {fund.amc}
                       </td>
-                      <td className="px-4 py-3 text-slate-400 hidden md:table-cell">
-                        {fund.category}
+                      <td className="px-4 py-3 text-slate-500 text-xs hidden md:table-cell">
+                        {benchmarkShort}
                       </td>
                       <td className={`px-4 py-3 text-right font-semibold ${fundReturn >= 0 ? "text-emerald-400" : "text-red-400"}`}>
                         {fundReturn >= 0 ? "+" : ""}
                         {fundReturn.toFixed(2)}%
                       </td>
                       <td className="px-4 py-3 text-right font-semibold text-emerald-400 hidden sm:table-cell">
-                        +{alphaVsNifty?.toFixed(2)}%
+                        +{alphaVsBenchmark?.toFixed(2)}%
                       </td>
                       <td className="px-4 py-3 text-right text-slate-300 hidden md:table-cell">
                         {capitalProtected?.toFixed(1)}%

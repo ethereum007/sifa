@@ -31,9 +31,9 @@ export interface SIFund {
   netLongRange: string;
   marchCrashData: {
     fundReturn: number | null;
-    niftyReturn: number;
+    benchmarkReturn: number;
     capitalProtected: number | null;
-    alphaVsNifty: number | null;
+    alphaVsBenchmark: number | null;
     categoryAvg: number;
     vsCategory: number | null;
     rank: number | null;
@@ -69,7 +69,7 @@ export const sifFunds: SIFund[] = [
     benchmark: 'NIFTY 50 Hybrid Composite Debt 50:50',
     slug: 'altiva-hybrid-long-short',
     seoTitle: 'Altiva SIF by Edelweiss — Returns, NAV & Analysis',
-    seoDesc: 'Altiva Hybrid Long-Short SIF returned +2.10% since inception while Nifty fell 11.3% in March 2026.',
+    seoDesc: 'Altiva Hybrid Long-Short SIF returned +2.10% since inception while its benchmark fell 6.35% in March 2026.',
     navHistory: [
       { month: 'Oct 2025', nav: 10.0102 },
       { month: 'Nov 2025', nav: 10.12 },
@@ -98,9 +98,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '40-60%',
     marchCrashData: {
       fundReturn: -1.42,
-      niftyReturn: -11.30,
-      capitalProtected: 87.4,
-      alphaVsNifty: 9.88,
+      benchmarkReturn: -6.35,
+      capitalProtected: 77.6,
+      alphaVsBenchmark: 4.93,
       categoryAvg: -2.76,
       vsCategory: 1.34,
       rank: 3,
@@ -135,7 +135,7 @@ export const sifFunds: SIFund[] = [
     benchmark: 'NIFTY 50 Hybrid Composite Debt 50:50',
     slug: 'magnum-hybrid-long-short',
     seoTitle: 'Magnum SIF by SBI — Hybrid Long Short Fund',
-    seoDesc: 'SBI Magnum Hybrid Long-Short SIF. Protected 83.2% of capital when Nifty fell 11.3%.',
+    seoDesc: 'SBI Magnum Hybrid Long-Short SIF. Protected 70.1% of capital vs benchmark in March 2026 crash.',
     navHistory: [
       { month: 'Oct 2025', nav: 10.0357 },
       { month: 'Nov 2025', nav: 10.08 },
@@ -164,9 +164,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '30-70%',
     marchCrashData: {
       fundReturn: -1.90,
-      niftyReturn: -11.30,
-      capitalProtected: 83.2,
-      alphaVsNifty: 9.40,
+      benchmarkReturn: -6.35,
+      capitalProtected: 70.1,
+      alphaVsBenchmark: 4.45,
       categoryAvg: -2.76,
       vsCategory: 0.86,
       rank: 4,
@@ -230,9 +230,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '25-75%',
     marchCrashData: {
       fundReturn: -0.86,
-      niftyReturn: -11.30,
-      capitalProtected: 92.4,
-      alphaVsNifty: 10.44,
+      benchmarkReturn: -6.35,
+      capitalProtected: 86.5,
+      alphaVsBenchmark: 5.49,
       categoryAvg: -2.76,
       vsCategory: 1.90,
       rank: 2,
@@ -292,9 +292,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '50-80%',
     marchCrashData: {
       fundReturn: -6.16,
-      niftyReturn: -11.30,
-      capitalProtected: 45.5,
-      alphaVsNifty: 5.14,
+      benchmarkReturn: -6.35,
+      capitalProtected: 3.0,
+      alphaVsBenchmark: 0.19,
       categoryAvg: -2.76,
       vsCategory: -3.40,
       rank: 5,
@@ -329,7 +329,7 @@ export const sifFunds: SIFund[] = [
     benchmark: 'NIFTY 50 Hybrid Composite Debt 50:50',
     slug: 'arudha-hybrid-long-short',
     seoTitle: 'Arudha SIF by Bandhan — Best Capital Protection',
-    seoDesc: 'Bandhan Arudha Hybrid Long-Short SIF returned +0.07% when Nifty fell -11.3%. #1 in capital protection.',
+    seoDesc: 'Bandhan Arudha Hybrid Long-Short SIF returned +0.07% when benchmark fell -6.35%. #1 in capital protection.',
     navHistory: [
       { month: 'Feb 2026', nav: 10.0340 },
       { month: 'Mar 2026', nav: 10.083 },
@@ -350,9 +350,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '20-50%',
     marchCrashData: {
       fundReturn: 0.07,
-      niftyReturn: -11.30,
-      capitalProtected: 100.6,
-      alphaVsNifty: 11.37,
+      benchmarkReturn: -6.35,
+      capitalProtected: 100.0,
+      alphaVsBenchmark: 6.42,
       categoryAvg: -2.76,
       vsCategory: 2.83,
       rank: 1,
@@ -408,9 +408,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '60-90%',
     marchCrashData: {
       fundReturn: -6.29,
-      niftyReturn: -11.30,
-      capitalProtected: 44.3,
-      alphaVsNifty: 5.01,
+      benchmarkReturn: -6.35,
+      capitalProtected: 0.9,
+      alphaVsBenchmark: 0.06,
       categoryAvg: -2.76,
       vsCategory: -3.53,
       rank: 6,
@@ -462,9 +462,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '30-60%',
     marchCrashData: {
       fundReturn: null,
-      niftyReturn: -11.30,
+      benchmarkReturn: -6.35,
       capitalProtected: null,
-      alphaVsNifty: null,
+      alphaVsBenchmark: null,
       categoryAvg: -2.76,
       vsCategory: null,
       rank: null,
@@ -528,9 +528,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '50-90%',
     marchCrashData: {
       fundReturn: -8.23,
-      niftyReturn: -11.30,
-      capitalProtected: 27.2,
-      alphaVsNifty: 3.07,
+      benchmarkReturn: -11.36,
+      capitalProtected: 27.6,
+      alphaVsBenchmark: 3.13,
       categoryAvg: -6.31,
       vsCategory: 1.92,
       rank: 2,
@@ -590,9 +590,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '50-80%',
     marchCrashData: {
       fundReturn: -2.24,
-      niftyReturn: -11.30,
-      capitalProtected: 80.2,
-      alphaVsNifty: 9.06,
+      benchmarkReturn: -11.36,
+      capitalProtected: 80.3,
+      alphaVsBenchmark: 9.12,
       categoryAvg: -6.31,
       vsCategory: 4.07,
       rank: 1,
@@ -648,9 +648,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '40-80%',
     marchCrashData: {
       fundReturn: -4.42,
-      niftyReturn: -11.30,
-      capitalProtected: 60.9,
-      alphaVsNifty: 6.88,
+      benchmarkReturn: -11.36,
+      capitalProtected: 61.1,
+      alphaVsBenchmark: 6.94,
       categoryAvg: -6.31,
       vsCategory: 1.89,
       rank: 2,
@@ -704,9 +704,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '20-60%',
     marchCrashData: {
       fundReturn: null,
-      niftyReturn: -11.30,
+      benchmarkReturn: -11.36,
       capitalProtected: null,
-      alphaVsNifty: null,
+      alphaVsBenchmark: null,
       categoryAvg: -6.31,
       vsCategory: null,
       rank: null,
@@ -762,9 +762,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '60-90%',
     marchCrashData: {
       fundReturn: -7.30,
-      niftyReturn: -11.30,
-      capitalProtected: 35.4,
-      alphaVsNifty: 4.00,
+      benchmarkReturn: -11.06,
+      capitalProtected: 34.0,
+      alphaVsBenchmark: 3.76,
       categoryAvg: -6.79,
       vsCategory: -0.51,
       rank: 2,
@@ -826,9 +826,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: '50-90%',
     marchCrashData: {
       fundReturn: -6.27,
-      niftyReturn: -11.30,
-      capitalProtected: 44.5,
-      alphaVsNifty: 5.03,
+      benchmarkReturn: -11.06,
+      capitalProtected: 43.3,
+      alphaVsBenchmark: 4.79,
       categoryAvg: -6.79,
       vsCategory: 0.52,
       rank: 1,
@@ -882,9 +882,9 @@ export const sifFunds: SIFund[] = [
     netLongRange: 'Dynamic 0-100%',
     marchCrashData: {
       fundReturn: null,
-      niftyReturn: -11.30,
+      benchmarkReturn: -7.84,
       capitalProtected: null,
-      alphaVsNifty: null,
+      alphaVsBenchmark: null,
       categoryAvg: 0,
       vsCategory: null,
       rank: null,

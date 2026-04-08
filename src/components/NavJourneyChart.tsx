@@ -13,10 +13,12 @@ import {
   Legend,
 } from "recharts";
 import { SIFund } from "@/lib/sifData";
-import { niftyMonthlyReturns } from "@/lib/benchmarkData";
+import { getBenchmarkForFund, niftyMonthlyReturns } from "@/lib/benchmarkData";
 
 interface NavJourneyChartProps {
   funds: SIFund[];
+  showBenchmark?: boolean;
+  /** @deprecated use showBenchmark instead */
   showNifty?: boolean;
   height?: number;
 }
@@ -39,20 +41,21 @@ interface SingleFundTooltipProps {
   payload?: Array<{ value: number; dataKey: string; name: string }>;
   label?: string;
   fundName: string;
+  benchmarkName: string;
   inceptionNav: number;
 }
 
-function SingleFundTooltip({ active, payload, label, fundName, inceptionNav }: SingleFundTooltipProps) {
+function SingleFundTooltip({ active, payload, label, fundName, benchmarkName, inceptionNav }: SingleFundTooltipProps) {
   if (!active || !payload || payload.length === 0) return null;
 
   const fundEntry = payload.find((p) => p.dataKey === "fundNav");
-  const niftyEntry = payload.find((p) => p.dataKey === "niftyNav");
+  const bmEntry = payload.find((p) => p.dataKey === "benchmarkNav");
 
   const fundNav = fundEntry?.value ?? null;
-  const niftyNav = niftyEntry?.value ?? null;
+  const bmNav = bmEntry?.value ?? null;
 
   const fundReturn = fundNav !== null ? (((fundNav - inceptionNav) / inceptionNav) * 100).toFixed(2) : "—";
-  const niftyReturn = niftyNav !== null ? (((niftyNav - inceptionNav) / inceptionNav) * 100).toFixed(2) : "—";
+  const bmReturn = bmNav !== null ? (((bmNav - inceptionNav) / inceptionNav) * 100).toFixed(2) : "—";
 
   return (
     <div className="bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm shadow-xl">
@@ -62,9 +65,9 @@ function SingleFundTooltip({ active, payload, label, fundName, inceptionNav }: S
           {fundName}: ₹{fundNav.toFixed(4)} ({fundReturn}%)
         </p>
       )}
-      {niftyNav !== null && (
+      {bmNav !== null && (
         <p className="text-gray-400">
-          Nifty 50: ₹{niftyNav.toFixed(4)} ({niftyReturn}%)
+          {benchmarkName}: ₹{bmNav.toFixed(4)} ({bmReturn}%)
         </p>
       )}
     </div>
@@ -95,42 +98,47 @@ function MultiFundTooltip({ active, payload, label }: MultiFundTooltipProps) {
   );
 }
 
-export default function NavJourneyChart({ funds, showNifty = true, height }: NavJourneyChartProps) {
+export default function NavJourneyChart({ funds, showBenchmark, showNifty, height }: NavJourneyChartProps) {
+  // Support both old showNifty and new showBenchmark prop
+  const showBm = showBenchmark ?? showNifty ?? true;
+
   if (funds.length === 1) {
-    return <SingleFundChart fund={funds[0]} showNifty={showNifty} height={height} />;
+    return <SingleFundChart fund={funds[0]} showBenchmark={showBm} height={height} />;
   }
 
-  return <MultiFundChart funds={funds} showNifty={showNifty} height={height} />;
+  return <MultiFundChart funds={funds} showBenchmark={showBm} height={height} />;
 }
 
 /* ─── SINGLE FUND MODE ─── */
 
 function SingleFundChart({
   fund,
-  showNifty,
+  showBenchmark,
   height,
 }: {
   fund: SIFund;
-  showNifty?: boolean;
+  showBenchmark?: boolean;
   height?: number;
 }) {
+  const benchmarkInfo = getBenchmarkForFund(fund.benchmark);
+
   const data = useMemo(() => {
     if (!fund.navHistory || fund.navHistory.length === 0) return [];
 
     const startNav = fund.navHistory[0]?.nav ?? 10;
-    let niftyNav: number = startNav;
+    let bmNav: number = startNav;
 
     return fund.navHistory.map((point) => {
-      const niftyReturn = niftyMonthlyReturns[point.month] ?? 0;
-      niftyNav = niftyNav! * (1 + niftyReturn / 100);
+      const bmReturn = benchmarkInfo.monthlyReturns[point.month] ?? 0;
+      bmNav = bmNav * (1 + bmReturn / 100);
 
       return {
         month: point.month,
         fundNav: point.nav,
-        niftyNav: showNifty ? parseFloat(niftyNav.toFixed(4)) : undefined,
+        benchmarkNav: showBenchmark ? parseFloat(bmNav.toFixed(4)) : undefined,
       };
     });
-  }, [fund, showNifty]);
+  }, [fund, showBenchmark, benchmarkInfo]);
 
   const inceptionNav = fund.navHistory?.[0]?.nav ?? 10;
 
@@ -146,6 +154,7 @@ function SingleFundChart({
             content={
               <SingleFundTooltip
                 fundName={fund.shortName}
+                benchmarkName={benchmarkInfo.shortName}
                 inceptionNav={inceptionNav}
               />
             }
@@ -159,15 +168,15 @@ function SingleFundChart({
             dot={false}
             name={fund.shortName}
           />
-          {showNifty && (
+          {showBenchmark && (
             <Line
               type="monotone"
-              dataKey="niftyNav"
+              dataKey="benchmarkNav"
               stroke="#6b7280"
               strokeDasharray="5 5"
               strokeWidth={1.5}
               dot={false}
-              name="Nifty 50 (Normalized)"
+              name={`${benchmarkInfo.shortName} (Normalized)`}
             />
           )}
           <ReferenceLine
@@ -186,11 +195,11 @@ function SingleFundChart({
 
 function MultiFundChart({
   funds,
-  showNifty,
+  showBenchmark,
   height,
 }: {
   funds: SIFund[];
-  showNifty?: boolean;
+  showBenchmark?: boolean;
   height?: number;
 }) {
   const [visibleFunds, setVisibleFunds] = useState<Set<string>>(() => new Set(funds.map((f) => f.slug)));
@@ -225,8 +234,6 @@ function MultiFundChart({
     });
 
     const monthsArray = Array.from(allMonths);
-    // The months should already be in chronological order from the data source,
-    // but we sort defensively by parsing month strings
     const monthOrder = [
       "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026",
       "Feb 2026", "Mar 2026", "Apr 2026", "May 2026",
@@ -254,7 +261,7 @@ function MultiFundChart({
       return point;
     });
 
-    // Add Nifty normalized to 10
+    // In multi-fund mode, show Nifty 50 as common reference (since funds have different benchmarks)
     let niftyVal = 10;
     dataPoints.forEach((point) => {
       const monthKey = point.month as string;
@@ -270,7 +277,7 @@ function MultiFundChart({
 
   return (
     <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
-      <h3 className="text-lg font-bold text-white mb-4">NAV Journey — Compare SIFs vs Nifty</h3>
+      <h3 className="text-lg font-bold text-white mb-4">NAV Journey — Compare SIFs vs Nifty 50</h3>
 
       {/* Category filter buttons */}
       <div className="flex flex-wrap gap-2 mb-3">
@@ -336,7 +343,7 @@ function MultiFundChart({
             );
           })}
 
-          {showNifty && (
+          {showBenchmark && (
             <Line
               type="monotone"
               dataKey={niftyDataKey}

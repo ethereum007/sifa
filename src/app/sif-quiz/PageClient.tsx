@@ -213,7 +213,7 @@ function scoreFunds(answers: Answers): SIFund[] {
     // --- Primary goal (weight 30) ---
     const goal = answers.goal;
     if (goal === "A") {
-      const as = calculateAlphaShield(fund.marchCrashData?.fundReturn ?? null);
+      const as = calculateAlphaShield(fund.marchCrashData?.fundReturn ?? null, fund.marchCrashData?.benchmarkReturn ?? -11.30);
       if (as !== null && as >= 8) score += 30;
       else if (as !== null && as >= 6) score += 20;
       else if (as !== null && as >= 4) score += 10;
@@ -439,7 +439,8 @@ export default function SifQuizPage() {
   if (step === 5 && !loading && results.length > 0) {
     const primary = results[0];
     const primaryAlpha = calculateAlphaShield(
-      primary.marchCrashData?.fundReturn ?? null
+      primary.marchCrashData?.fundReturn ?? null,
+      primary.marchCrashData?.benchmarkReturn ?? -11.30
     );
 
     return (
@@ -545,7 +546,8 @@ export default function SifQuizPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {results.slice(1).map((fund) => {
                     const alpha = calculateAlphaShield(
-                      fund.marchCrashData?.fundReturn ?? null
+                      fund.marchCrashData?.fundReturn ?? null,
+                      fund.marchCrashData?.benchmarkReturn ?? -11.30
                     );
                     return (
                       <div

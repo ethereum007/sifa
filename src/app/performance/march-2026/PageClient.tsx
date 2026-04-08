@@ -371,7 +371,7 @@ const PerformanceMar2026 = () => {
                     <h3 className="font-semibold text-foreground mb-1">Broad Market Selloff</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       FII net outflows continued in March 2026, with the Nifty testing multi-month lows. 
-                      Long books across the Hybrid Long-Short category faced significant headwinds. Nifty 50 fell -11.30% in March alone.
+                      Long books across the Hybrid Long-Short category faced significant headwinds. Nifty 50 fell -11.30% and the Hybrid 50:50 benchmark fell -6.35% in March.
                     </p>
                   </div>
                 </div>
@@ -390,7 +390,7 @@ const PerformanceMar2026 = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Hedging Works</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Arudha's +0.07% in a month where Nifty fell -11.30% demonstrates effective hedging. 
+                      Arudha's +0.07% in a month where its benchmark (Hybrid 50:50) fell -6.35% demonstrates effective hedging. 
                       Altiva retains the best since-inception at +2.10% despite -1.42% in March — showing 
                       compounding gains from better months can offset drawdowns.
                     </p>

@@ -11,7 +11,7 @@ interface AlphaShieldBadgeProps {
 }
 
 const TOOLTIP_TEXT =
-  "Alpha Shield Score measures how much capital this fund protected when Nifty fell 11.3% in March 2026. Score 10 = stayed positive. Score 0 = fell as much as Nifty.";
+  "Alpha Shield Score measures how much capital this fund protected vs its own benchmark during the March 2026 crash. Score 10 = stayed positive. Score 0 = fell as much as benchmark.";
 
 export default function AlphaShieldBadge({
   score,

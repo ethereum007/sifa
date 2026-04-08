@@ -1,7 +1,7 @@
-export const calculateAlphaShield = (fundReturn: number | null, niftyReturn: number = -11.30): number | null => {
+export const calculateAlphaShield = (fundReturn: number | null, benchmarkReturn: number = -11.30): number | null => {
   if (fundReturn === null) return null;
   if (fundReturn >= 0) return 10.0;
-  const capitalProtected = (1 - (Math.abs(fundReturn) / Math.abs(niftyReturn))) * 100;
+  const capitalProtected = (1 - (Math.abs(fundReturn) / Math.abs(benchmarkReturn))) * 100;
   return Math.max(0, Math.round((capitalProtected / 10) * 10) / 10);
 };
 

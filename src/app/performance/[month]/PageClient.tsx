@@ -349,13 +349,13 @@ export default function PageClient({ monthSlug }: Props) {
             <div className="container mx-auto px-4 max-w-4xl">
               <h2 className="text-2xl lg:text-3xl font-bold mb-2">Alpha Shield Leaderboard</h2>
               <p className="text-muted-foreground text-sm mb-6">
-                How well did each fund protect capital when Nifty fell 11.30% in March 2026?
+                How well did each fund protect capital vs its own benchmark during the March 2026 crash?
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {fundData
                   .filter((d) => d.monthlyReturn !== null)
                   .map(({ fund, monthlyReturn }) => {
-                    const score = calculateAlphaShield(monthlyReturn, 11.30);
+                    const score = calculateAlphaShield(monthlyReturn, fund.marchCrashData?.benchmarkReturn ?? -11.30);
                     return (
                       <Card key={fund.id} className="overflow-hidden">
                         <CardContent className="p-4">

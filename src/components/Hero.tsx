@@ -77,7 +77,7 @@ const Hero = () => {
               ))}
             </div>
             <p className="text-xs text-muted-foreground mt-3 text-center">
-              Best protection: 87.4% capital protected when Nifty fell -11.30% (March 2026)
+              Best protection: Arudha stayed positive (+0.07%) when its benchmark fell -6.35% (March 2026)
             </p>
           </div>
         </div>
