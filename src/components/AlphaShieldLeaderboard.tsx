@@ -29,7 +29,7 @@ export default function AlphaShieldLeaderboard() {
         {/* Header row with toggle */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
           <div className="text-center sm:text-left">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               🛡️ Alpha Shield Leaderboard
             </h2>
             <p className="text-muted-foreground mt-2 max-w-2xl">

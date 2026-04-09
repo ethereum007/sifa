@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, TrendingUp } from "lucide-react";
 import { WHATSAPP_URL, CONSULTATION_URL } from "@/lib/whatsapp";
 
 const Header = () => {
@@ -78,25 +78,18 @@ const Header = () => {
     <header className="fixed top-8 left-0 right-0 z-50 bg-white border-b border-border/60" style={{ overflow: 'visible' }}>
       <div className="container mx-auto px-4" style={{ overflow: 'visible' }}>
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
-          {/* Logo — text-based like SIFScan */}
-          <a href="/" className="flex items-center gap-0 group">
-            <span className="relative">
-              <span className="text-[26px] font-bold tracking-tight" style={{ color: 'hsl(220, 30%, 10%)' }}>
-                SIF
-              </span>
-              {/* Green underline accent */}
-              <span
-                className="absolute bottom-0 left-0 w-full h-[3px] rounded-full"
-                style={{ backgroundColor: 'hsl(152, 76%, 36%)' }}
-              />
-            </span>
-            <span className="text-[26px] font-bold tracking-tight text-primary ml-[-1px]">
-              PRIME
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-[0_4px_20px_hsl(152_76%_36%/0.3)] group-hover:shadow-[0_6px_30px_hsl(152_76%_36%/0.4)] transition-all duration-300">
+              <TrendingUp className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <span className="text-[22px] font-bold text-foreground">
+              SIF<span className="text-primary">Prime</span>
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-8" style={{ overflow: 'visible', fontSize: '15px' }}>
+          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-8" style={{ overflow: 'visible', fontSize: '16px' }}>
             <DropdownMenu name="funds" label="Funds" items={fundsItems} />
 
             <a href="/sifreturns" className="text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium">

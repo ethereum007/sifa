@@ -65,7 +65,7 @@ const EarlyAccessForm = () => {
     <section id="early-access" className="py-12 sm:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-md mx-auto rounded-xl border border-border bg-card p-6 sm:p-10">
-          <h2 className="font-serif-accent text-2xl sm:text-3xl text-center mb-2" style={{ color: 'hsl(220, 30%, 10%)' }}>
+          <h2 className="font-serif-accent text-3xl sm:text-4xl text-center mb-2" style={{ color: 'hsl(220, 30%, 10%)' }}>
             Schedule a Consultation
           </h2>
           <p className="text-sm text-muted-foreground mb-6 text-center">

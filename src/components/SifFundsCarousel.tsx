@@ -53,10 +53,10 @@ const SifFundsCarousel = () => {
     <section id="sif-funds" className="py-10 sm:py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="font-serif-accent text-2xl sm:text-3xl" style={{ color: 'hsl(220, 30%, 10%)' }}>
+          <h2 className="font-serif-accent text-3xl sm:text-4xl" style={{ color: 'hsl(220, 30%, 10%)' }}>
             Specialized Investment Funds Launched
           </h2>
-          <p className="text-sm text-muted-foreground mt-2 max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground mt-2 max-w-2xl mx-auto">
             India's first SIF schemes are now live. Explore the funds from leading AMCs.
           </p>
         </div>

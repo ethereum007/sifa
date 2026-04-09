@@ -21,7 +21,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl sm:text-[22px] text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             Bridge the gap between Mutual Funds and PMS. Access structured
             investment strategies with just ₹10 Lakhs minimum investment.
           </p>

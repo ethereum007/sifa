@@ -16,10 +16,10 @@ const SifAumSection = () => {
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="font-serif-accent text-2xl sm:text-3xl" style={{ color: 'hsl(220, 30%, 10%)' }}>
+          <h2 className="font-serif-accent text-3xl sm:text-4xl" style={{ color: 'hsl(220, 30%, 10%)' }}>
             AUM of SIF
           </h2>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-base text-muted-foreground mt-2">
             Assets Under Management across all Specialized Investment Fund categories
           </p>
         </div>

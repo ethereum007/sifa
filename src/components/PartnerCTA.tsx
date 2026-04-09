@@ -12,7 +12,7 @@ export default function PartnerCTA() {
             <Handshake className="w-6 h-6 text-primary" />
           </div>
 
-          <h2 className="font-serif-accent text-2xl sm:text-3xl mb-3" style={{ color: 'hsl(220, 30%, 10%)' }}>
+          <h2 className="font-serif-accent text-3xl sm:text-4xl mb-3" style={{ color: 'hsl(220, 30%, 10%)' }}>
             Are you an MFD or RIA?
           </h2>
 
