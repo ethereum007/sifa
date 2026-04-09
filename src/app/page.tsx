@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HomepageSeoContent from "@/components/HomepageSeoContent";
 import HomepageJsonLd from "@/components/HomepageJsonLd";
-import LeadCaptureBar from "@/components/LeadCaptureBar";
 
 const PageClient = dynamic(() => import("./PageClient"));
 
@@ -32,7 +31,6 @@ export default function Page() {
   return (
     <>
       <HomepageJsonLd />
-      <LeadCaptureBar />
       <PageClient />
       <HomepageSeoContent />
     </>
