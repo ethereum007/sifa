@@ -1,914 +1,535 @@
 "use client";
+import { useState } from "react";
 import dynamic from "next/dynamic";
-
 import { Suspense } from "react";
-import { CONSULTATION_URL } from "@/lib/whatsapp";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger 
-} from "@/components/ui/accordion";
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
-} from "@/components/ui/table";
+import { WHATSAPP_URL, CONSULTATION_URL } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
-import {
-  TrendingUp,
-  TrendingDown,
-  Shield,
-  Target,
-  PieChart,
-  Calendar,
-  Users,
-  AlertTriangle,
-  CheckCircle2,
-  XCircle,
-  ArrowUpDown,
-  Percent,
-  IndianRupee,
-  Clock,
-  Building2,
-  LineChart,
-  Briefcase,
-  Scale,
-  Wallet,
-  BarChart3,
-  Layers,
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  Globe,
-  FileText,
-  Banknote,
-  RefreshCw
-} from "lucide-react";
+import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+import AmcLogo from "@/components/AmcLogo";
+import CrashAnalysis from "@/components/CrashAnalysis";
+import NavJourneyChart from "@/components/NavJourneyChart";
+import { getSifBySlug } from "@/lib/sifData";
 
 const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
-import AmcLogo from "@/components/AmcLogo";
-import CrashAnalysis from "@/components/CrashAnalysis";
-import NavJourneyChart from "@/components/NavJourneyChart";
-import MonthlyHeatmap from "@/components/MonthlyHeatmap";
-import { getSifBySlug } from "@/lib/sifData";
+/* ------------------------------------------------------------------ */
+/*  Static data for Altiva                                             */
+/* ------------------------------------------------------------------ */
 
+const TAGS = ["Hybrid Long-Short", "Arbitrage", "Special Situations", "Low Volatility", "Interval Strategy", "Low Risk"];
 
+const METRICS = [
+  { label: "Latest NAV", value: "₹10.3842", sub: "Apr 8, 2026", color: "" },
+  { label: "1M Return", value: "+1.23%", sub: "", color: "text-green-600" },
+  { label: "3M Return", value: "+0.91%", sub: "", color: "text-green-600" },
+  { label: "Since Inception", value: "+3.75%", sub: "", color: "text-green-600" },
+  { label: "TER", value: "1.67%", sub: "Regular plan", color: "" },
+  { label: "6M Return", value: "+0.91%", sub: "", color: "text-green-600" },
+];
+
+const INFO_BAR = [
+  { label: "AUM", value: "₹2,784 Cr" },
+  { label: "Min Investment", value: "₹10L" },
+  { label: "Start Date", value: "24 Oct 2025" },
+  { label: "Subscription", value: "Twice-weekly" },
+  { label: "SIP", value: "No" },
+  { label: "Exit Load", value: "0.50% <90d" },
+];
+
+const TRAILING = [
+  { period: "1D", value: "+0.04%" },
+  { period: "1W", value: "+0.93%" },
+  { period: "1M", value: "+1.23%" },
+  { period: "3M", value: "+0.91%" },
+  { period: "6M", value: "+0.91%" },
+  { period: "Since Inception", value: "+3.75%" },
+  { period: "FYTD", value: "+2.86%" },
+];
+
+const ALLOCATION_TAGS = [
+  "Equity long 25–75%", "Debt 25–75%", "Short derivatives 0–25%", "Overseas 0–30%", "REITs/InvITs 0–20%"
+];
+
+const FUND_DETAILS = [
+  { label: "Fund house", value: "Edelweiss AMC" },
+  { label: "Category", value: "Hybrid Long-Short" },
+  { label: "Inception date", value: "24 Oct 2025" },
+  { label: "AUM", value: "₹2,784 Cr" },
+  { label: "Benchmark", value: "Nifty 50 Hybrid 50:50" },
+  { label: "TER (Regular)", value: "1.67%" },
+  { label: "Max TER", value: "2.00%" },
+  { label: "Exit load", value: "0.50% <90d" },
+];
+
+const REDEMPTION = [
+  { label: "Subscription", value: "Daily" },
+  { label: "Redemption", value: "Mon & Wed" },
+  { label: "Settlement", value: "T+3 days" },
+  { label: "SIP allowed", value: "No" },
+  { label: "Min additional", value: "₹1,000" },
+];
+
+const RISK = [
+  { label: "Risk level", value: "Moderate", color: "text-amber-600" },
+  { label: "Short selling", value: "Allowed" },
+  { label: "Lock-in period", value: "None" },
+  { label: "Portfolio disclosure", value: "Not monthly" },
+];
+
+const PEERS = [
+  { name: "Arudha Hybrid", amc: "Bandhan", ret: "+3.1%", href: "/sifs/arudha-hybrid-long-short" },
+  { name: "qSIF Hybrid", amc: "Quant", ret: "+2.8%", href: "/sifs/qsif-hybrid-long-short" },
+  { name: "Magnum SIF", amc: "SBI", ret: "+1.9%", href: "/sifs/magnum-hybrid-long-short" },
+  { name: "Titanium SIF", amc: "Tata", ret: "+1.2%", href: "/sifs/titanium-hybrid-long-short" },
+];
+
+const TEAM = [
+  { name: "Bhavesh Jain", initials: "BJ" },
+  { name: "Bharat Lahoti", initials: "BL" },
+  { name: "Dhawal Dalal", initials: "DD" },
+  { name: "Pranavi Kulkarni", initials: "PK" },
+  { name: "Amit Vora", initials: "AV" },
+];
+
+const SUITABLE = [
+  "HNIs seeking multi-strategy diversification",
+  "Hybrid equity-debt comfort",
+  "Global exposure seekers",
+  "3+ year investment horizon",
+];
+const NOT_SUITABLE = [
+  "Guaranteed return seekers",
+  "Requiring daily liquidity",
+  "Below ₹10L investable surplus",
+  "Short-term traders",
+];
+
+/* ------------------------------------------------------------------ */
+/*  Sub-components                                                     */
+/* ------------------------------------------------------------------ */
+
+function SidebarCard({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-xl border border-gray-100 bg-white p-5">
+      <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">{title}</h3>
+      {children}
+    </div>
+  );
+}
+
+function DetailRow({ label, value, color }: { label: string; value: string; color?: string }) {
+  return (
+    <div className="flex justify-between py-2.5 border-b border-gray-50 last:border-b-0">
+      <span className="text-sm text-gray-500">{label}</span>
+      <span className={`text-sm font-semibold ${color || "text-gray-900"}`}>{value}</span>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Tabs                                                               */
+/* ------------------------------------------------------------------ */
+
+const TABS = ["Snapshot", "Portfolio", "Fund Managers", "Risk & Scores", "Documents"] as const;
+
+/* ------------------------------------------------------------------ */
+/*  Page                                                               */
+/* ------------------------------------------------------------------ */
 
 const AltivaSif = () => {
-  const fundData = getSifBySlug('altiva-hybrid-long-short');
+  const fundData = getSifBySlug("altiva-hybrid-long-short");
+  const [activeTab, setActiveTab] = useState<string>("Snapshot");
+  const [returnMode, setReturnMode] = useState<"absolute" | "annualised">("absolute");
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50">
       <Suspense fallback={<div className="h-16 lg:h-20" />}>
         <Header />
       </Suspense>
-      
-      <main className="pt-20 lg:pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero Section */}
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <AmcLogo amc="Edelweiss Mutual Fund" size="md" />
-              <div className="text-left">
-                <h1 className="text-2xl sm:text-3xl font-bold text-heading">
-                  Altiva SIF by Edelweiss
+
+      <main className="pt-24 lg:pt-28 pb-20">
+        {/* ============================================================ */}
+        {/* HERO                                                         */}
+        {/* ============================================================ */}
+        <section className="bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
+            {/* Breadcrumb */}
+            <nav className="text-xs text-gray-400 mb-4">
+              <a href="/" className="hover:text-gray-600">SIF Universe</a>
+              <span className="mx-1.5">›</span>
+              <a href="/sif-funds-launched" className="hover:text-gray-600">Hybrid Long-Short</a>
+              <span className="mx-1.5">›</span>
+              <span className="text-gray-600">Altiva</span>
+            </nav>
+
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div>
+                {/* AMC */}
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-blue-500" />
+                  <span className="text-sm text-gray-500">Edelweiss Mutual Fund</span>
+                </div>
+                {/* Fund name */}
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                  Altiva Hybrid Long-Short Fund
                 </h1>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {TAGS.map((t) => (
+                    <span key={t} className="px-2.5 py-1 rounded-full bg-gray-100 text-xs font-medium text-gray-600">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action buttons */}
+              <div className="flex items-center gap-2 shrink-0">
+                <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:text-gray-900">
+                  + Compare
+                </Button>
+                <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:text-gray-900">
+                  Track Fund
+                </Button>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                    Start Investing <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                  </Button>
+                </a>
               </div>
             </div>
-            
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-foreground mb-4">
-              Altiva Hybrid Long-Short Fund
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
-              A multi-strategy hybrid long-short fund combining equity growth, special situations, 
-              fixed income, and overseas investments for sophisticated investors seeking diversified returns.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              by Edelweiss Asset Management Limited
-            </p>
           </div>
+        </section>
 
-          {/* Key Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
-            <Card className="text-center p-4">
-              <IndianRupee className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-2xl font-bold text-heading">₹10L</p>
-              <p className="text-xs text-muted-foreground">Min Investment</p>
-            </Card>
-            <Card className="text-center p-4">
-              <Target className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-2xl font-bold text-heading">2x/Week</p>
-              <p className="text-xs text-muted-foreground">Redemption</p>
-            </Card>
-            <Card className="text-center p-4">
-              <Calendar className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-2xl font-bold text-heading">3 Days</p>
-              <p className="text-xs text-muted-foreground">Settlement</p>
-            </Card>
-            <Card className="text-center p-4">
-              <Percent className="w-6 h-6 text-primary mx-auto mb-2" />
-              <p className="text-2xl font-bold text-heading">2.00%</p>
-              <p className="text-xs text-muted-foreground">Max TER</p>
-            </Card>
-          </div>
-
-          {/* Altiva Returns Scorecard */}
-          <Card className="max-w-4xl mx-auto mb-12 border-primary/20 bg-gradient-to-r from-primary/5 to-secondary/10 overflow-hidden">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-primary text-lg">
-                <TrendingUp className="w-5 h-5" />
-                Altiva SIF Returns Scorecard
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="p-4 rounded-xl bg-background/60 border border-border/50">
-                  <p className="text-xs text-muted-foreground mb-1">1 Month</p>
-                  <p className="text-xl font-bold text-green-600">+1.46%</p>
+        {/* ============================================================ */}
+        {/* METRICS BAR                                                  */}
+        {/* ============================================================ */}
+        <section className="bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-3 sm:grid-cols-6">
+              {METRICS.map((m, i) => (
+                <div
+                  key={i}
+                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS.length - 1 ? "border-r border-gray-100" : ""}`}
+                >
+                  <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{m.label}</p>
+                  <p className={`text-lg sm:text-xl font-bold ${m.color || "text-gray-900"}`}>{m.value}</p>
+                  {m.sub && <p className="text-[11px] text-gray-400 mt-0.5">{m.sub}</p>}
                 </div>
-                <div className="p-4 rounded-xl bg-background/60 border border-border/50">
-                  <p className="text-xs text-muted-foreground mb-1">3 Months</p>
-                  <p className="text-xl font-bold text-green-600">+2.53%</p>
-                </div>
-                <div className="p-4 rounded-xl bg-background/60 border border-border/50">
-                  <p className="text-xs text-muted-foreground mb-1">Since Inception</p>
-                  <p className="text-xl font-bold text-green-600">+5.31%</p>
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground mt-3 text-center">
-                Source: AMFI • NAV as of March 31, 2026
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* NFO Details */}
-          <Card className="max-w-4xl mx-auto mb-12 border-primary/20 bg-primary/5">
-            <CardHeader className="pb-3">
-              <CardTitle className="flex items-center gap-2 text-primary">
-                <Calendar className="w-5 h-5" />
-                NFO Information
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div>
-                  <p className="text-muted-foreground">NFO Open Date</p>
-                  <p className="font-semibold">October 01, 2025</p>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">NFO Close Date</p>
-                  <p className="font-semibold">October 15, 2025</p>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">NFO Price</p>
-                  <p className="font-semibold">₹10 per unit</p>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Reopening Date</p>
-                  <p className="font-semibold">On/Before Oct 31, 2025</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Multi-Strategy Overview */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <h3 className="text-2xl font-semibold text-heading text-center mb-6">
-              Multi-Strategy Investment Approach
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="border-blue-200 bg-gradient-to-br from-blue-50 to-white">
-                <CardHeader className="pb-3">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-3">
-                    <TrendingUp className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-lg text-blue-900">Equity Strategy</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-blue-800/80 mb-3">
-                    Long positions in equity and equity-related instruments for capital appreciation.
-                  </p>
-                  <Badge className="bg-blue-100 text-blue-700 border-blue-200">25-75% Allocation</Badge>
-                </CardContent>
-              </Card>
-
-              <Card className="border-amber-200 bg-gradient-to-br from-amber-50 to-white">
-                <CardHeader className="pb-3">
-                  <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mb-3">
-                    <Zap className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <CardTitle className="text-lg text-amber-900">Special Situations</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-amber-800/80 mb-3">
-                    IPOs, FPOs, Rights Issues, Buybacks, Mergers, Demergers, QIPs, Delistings.
-                  </p>
-                  <Badge className="bg-amber-100 text-amber-700 border-amber-200">Event-Driven</Badge>
-                </CardContent>
-              </Card>
-
-              <Card className="border-green-200 bg-gradient-to-br from-green-50 to-white">
-                <CardHeader className="pb-3">
-                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-3">
-                    <Banknote className="w-6 h-6 text-green-600" />
-                  </div>
-                  <CardTitle className="text-lg text-green-900">Fixed Income</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-green-800/80 mb-3">
-                    Debt and money market instruments for accrual income and price appreciation.
-                  </p>
-                  <Badge className="bg-green-100 text-green-700 border-green-200">25-75% Allocation</Badge>
-                </CardContent>
-              </Card>
-
-              <Card className="border-purple-200 bg-gradient-to-br from-purple-50 to-white">
-                <CardHeader className="pb-3">
-                  <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-3">
-                    <Globe className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <CardTitle className="text-lg text-purple-900">Overseas</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-purple-800/80 mb-3">
-                    Global equity, debt, and thematic opportunities through direct securities or ETFs.
-                  </p>
-                  <Badge className="bg-purple-100 text-purple-700 border-purple-200">Up to 30%</Badge>
-                </CardContent>
-              </Card>
+              ))}
             </div>
           </div>
+        </section>
 
-          {/* Asset Allocation Table */}
-          <Card className="max-w-4xl mx-auto mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <PieChart className="w-5 h-5 text-primary" />
-                Asset Allocation Matrix
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Asset Class</TableHead>
-                    <TableHead className="text-center">Min %</TableHead>
-                    <TableHead className="text-center">Max %</TableHead>
-                    <TableHead className="hidden sm:table-cell">Purpose</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">Equity & Equity-Related</TableCell>
-                    <TableCell className="text-center">25%</TableCell>
-                    <TableCell className="text-center">75%</TableCell>
-                    <TableCell className="hidden sm:table-cell text-muted-foreground">Capital appreciation</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Debt & Money Market</TableCell>
-                    <TableCell className="text-center">25%</TableCell>
-                    <TableCell className="text-center">75%</TableCell>
-                    <TableCell className="hidden sm:table-cell text-muted-foreground">Accrual income & stability</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Short Unhedged Derivatives</TableCell>
-                    <TableCell className="text-center">0%</TableCell>
-                    <TableCell className="text-center">25%</TableCell>
-                    <TableCell className="hidden sm:table-cell text-muted-foreground">Downside protection & alpha</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">REITs & InvITs</TableCell>
-                    <TableCell className="text-center">0%</TableCell>
-                    <TableCell className="text-center">20%</TableCell>
-                    <TableCell className="hidden sm:table-cell text-muted-foreground">Diversification & yield</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Overseas Securities</TableCell>
-                    <TableCell className="text-center">0%</TableCell>
-                    <TableCell className="text-center">30%</TableCell>
-                    <TableCell className="hidden sm:table-cell text-muted-foreground">Global diversification</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-              <p className="text-xs text-muted-foreground mt-4">
-                <strong>Note:</strong> Cumulative Gross Exposure across all instruments should NOT exceed 100% of net assets.
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Derivative Strategies */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <h3 className="text-2xl font-semibold text-heading text-center mb-6">
-              <Layers className="w-6 h-6 inline mr-2 text-primary" />
-              Derivative Strategies
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <ArrowUpDown className="w-5 h-5 text-primary" />
-                    Cash-Futures Arbitrage
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Simultaneously buy in spot and sell in futures to lock in spreads during pricing inefficiencies.
-                  </p>
-                  <div className="bg-secondary/50 p-3 rounded-lg text-xs space-y-1">
-                    <p className="text-muted-foreground">Position: Cash + Short stocks</p>
-                    <p className="text-primary font-medium">Risk: Basis risk, rollover cost</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <Wallet className="w-5 h-5 text-primary" />
-                    Covered Call Writing
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Write call options against existing equity holdings to enhance yield in range-bound markets.
-                  </p>
-                  <div className="bg-secondary/50 p-3 rounded-lg text-xs space-y-1">
-                    <p className="text-muted-foreground">Position: Cash/Future + Call written</p>
-                    <p className="text-primary font-medium">Profit limited to option premium</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-primary" />
-                    Protective Put
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Buy put options to limit downside in volatile markets while maintaining upside potential.
-                  </p>
-                  <div className="bg-secondary/50 p-3 rounded-lg text-xs space-y-1">
-                    <p className="text-muted-foreground">Position: Cash/Future + Long put</p>
-                    <p className="text-primary font-medium">Risk: Premium cost, time decay</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <Scale className="w-5 h-5 text-primary" />
-                    Pair Trading
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Capture relative value between two correlated securities/indices regardless of direction.
-                  </p>
-                  <div className="bg-secondary/50 p-3 rounded-lg text-xs space-y-1">
-                    <p className="text-muted-foreground">Position: Long & Short</p>
-                    <p className="text-primary font-medium">Risk: Correlation breakdown</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <BarChart3 className="w-5 h-5 text-primary" />
-                    Straddle/Strangle
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Express view on market volatility with limited or undefined directional bias.
-                  </p>
-                  <div className="bg-secondary/50 p-3 rounded-lg text-xs space-y-1">
-                    <p className="text-muted-foreground">Position: Long or Short</p>
-                    <p className="text-primary font-medium">Risk: Time decay, timing risk</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <LineChart className="w-5 h-5 text-primary" />
-                    Index/Stock Futures
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Used for short-term risk reduction, rebalancing, or expressing directional bias.
-                  </p>
-                  <div className="bg-secondary/50 p-3 rounded-lg text-xs space-y-1">
-                    <p className="text-muted-foreground">Position: Long/Short</p>
-                    <p className="text-primary font-medium">Risk: Beta estimation, rollover</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Special Situations */}
-          <Card className="max-w-4xl mx-auto mb-12 border-amber-200">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-amber-700">
-                <Zap className="w-5 h-5" />
-                Special Situations Strategy
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4">
-                The fund capitalizes on event-driven opportunities for tactical short-term return generation:
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {[
-                  "IPOs (Initial Public Offerings)",
-                  "FPOs (Follow-on Public Offers)", 
-                  "Rights Issues",
-                  "Buybacks",
-                  "Open Offers",
-                  "Demergers & Mergers",
-                  "QIPs (Qualified Institutional Placements)",
-                  "Index Rebalancing Events"
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Investment Limits */}
-          <Card className="max-w-4xl mx-auto mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-primary" />
-                Investment Limits & Restrictions
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Instrument/Activity</TableHead>
-                      <TableHead className="text-right">Limit</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>Securities Lending</TableCell>
-                      <TableCell className="text-right">Max 20% of net assets; Max 5% to single intermediary</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Derivatives (Non-hedging)</TableCell>
-                      <TableCell className="text-right">Max 25% short exposure; Options premium max 20%</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Securitized Debt</TableCell>
-                      <TableCell className="text-right">Max 25% of debt portfolio</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Overseas Securities</TableCell>
-                      <TableCell className="text-right">Up to 30% (No overseas derivatives)</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>REITs and InvITs</TableCell>
-                      <TableCell className="text-right">Up to 20% of net assets</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>AT1/AT2 Bonds</TableCell>
-                      <TableCell className="text-right">Up to 10% of NAV of debt portfolio</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Repo/Reverse Repo (Corporate Debt)</TableCell>
-                      <TableCell className="text-right">Up to 10% of net assets</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Equity Derivatives (Hedging)</TableCell>
-                      <TableCell className="text-right">Up to 100% of equity exposure</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Market Scenarios */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <h3 className="text-2xl font-semibold text-heading text-center mb-6">
-              <BarChart3 className="w-6 h-6 inline mr-2 text-primary" />
-              Performance Across Market Scenarios
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-green-200">
-                <CardHeader className="pb-3 bg-gradient-to-r from-green-50 to-transparent">
-                  <div className="flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-green-600" />
-                    <CardTitle className="text-lg text-green-800">Bull Market</CardTitle>
-                  </div>
-                  <p className="text-sm text-green-700">Nifty +15%</p>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Long Equity</span>
-                      <span className="text-green-600 font-medium">Strong gains</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Short Positions</span>
-                      <span className="text-red-600 font-medium">Slight drag</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Fixed Income</span>
-                      <span className="text-green-600 font-medium">Accrual</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-3 pt-3 border-t">
-                    Participates in upside while covered calls may cap extreme gains
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-red-200">
-                <CardHeader className="pb-3 bg-gradient-to-r from-red-50 to-transparent">
-                  <div className="flex items-center gap-2">
-                    <TrendingDown className="w-5 h-5 text-red-600" />
-                    <CardTitle className="text-lg text-red-800">Bear Market</CardTitle>
-                  </div>
-                  <p className="text-sm text-red-700">Nifty -15%</p>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Long Equity</span>
-                      <span className="text-red-600 font-medium">Drawdown</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Short Positions</span>
-                      <span className="text-green-600 font-medium">Alpha gains</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Fixed Income</span>
-                      <span className="text-green-600 font-medium">Cushion</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-3 pt-3 border-t">
-                    Short positions + arbitrage + debt cushion the fall significantly
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-amber-200">
-                <CardHeader className="pb-3 bg-gradient-to-r from-amber-50 to-transparent">
-                  <div className="flex items-center gap-2">
-                    <ArrowUpDown className="w-5 h-5 text-amber-600" />
-                    <CardTitle className="text-lg text-amber-800">Sideways Market</CardTitle>
-                  </div>
-                  <p className="text-sm text-amber-700">Nifty ±5%</p>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Arbitrage</span>
-                      <span className="text-green-600 font-medium">Premium capture</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Covered Calls</span>
-                      <span className="text-green-600 font-medium">Option income</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Fixed Income</span>
-                      <span className="text-green-600 font-medium">Accrual</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-3 pt-3 border-t">
-                    Generates returns even when markets don't move through income strategies
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Who Should Invest */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <h3 className="text-2xl font-semibold text-heading text-center mb-6">
-              Who Should Invest?
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="border-green-200 bg-green-50/50">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center gap-2 text-green-700">
-                    <CheckCircle2 className="w-5 h-5" />
-                    Suitable For
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                      <span>HNIs seeking diversified multi-strategy approach</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                      <span>Investors comfortable with hybrid equity-debt strategies</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                      <span>Those seeking global diversification exposure</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                      <span>Investors wanting event-driven special situations exposure</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                      <span>Minimum 3+ year investment horizon</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-red-200 bg-red-50/50">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center gap-2 text-red-700">
-                    <XCircle className="w-5 h-5" />
-                    Not Suitable For
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex items-start gap-2">
-                      <XCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                      <span>Investors seeking guaranteed returns</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <XCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                      <span>Those requiring daily liquidity access</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <XCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                      <span>Investors who cannot meet ₹10 lakh minimum</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <XCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                      <span>Those uncomfortable with derivative strategies</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <XCircle className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                      <span>Short-term traders looking for quick exits</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Minimum Investment Threshold */}
-          <Card className="max-w-4xl mx-auto mb-12 border-primary/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <IndianRupee className="w-5 h-5 text-primary" />
-                Investment Requirements
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-3">Regular Investors</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex justify-between">
-                      <span>Minimum Investment (NFO)</span>
-                      <span className="font-medium text-foreground">₹10,00,000</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Additional Purchase</span>
-                      <span className="font-medium text-foreground">₹1,000</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>SIP Minimum</span>
-                      <span className="font-medium text-foreground">₹1,000/month</span>
-                    </li>
-                  </ul>
+        {/* ============================================================ */}
+        {/* INFO BAR                                                     */}
+        {/* ============================================================ */}
+        <section className="bg-gray-50 border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex flex-wrap items-center justify-between py-3 gap-x-6 gap-y-2">
+              {INFO_BAR.map((item) => (
+                <div key={item.label} className="flex items-center gap-1.5">
+                  <span className="text-xs text-gray-400">{item.label}:</span>
+                  <span className="text-xs font-semibold text-gray-700">{item.value}</span>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-3">Accredited Investors</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex justify-between">
-                      <span>Minimum Investment</span>
-                      <span className="font-medium text-foreground">₹1,00,000</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Additional Purchase</span>
-                      <span className="font-medium text-foreground">₹1,000</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>SIP Minimum</span>
-                      <span className="font-medium text-foreground">₹1,000/month</span>
-                    </li>
-                  </ul>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* TAB NAV                                                      */}
+        {/* ============================================================ */}
+        <section className="bg-white border-b border-gray-100 sticky top-20 z-30">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex gap-0 overflow-x-auto">
+              {TABS.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-4 sm:px-5 py-3.5 text-sm font-medium whitespace-nowrap transition-colors relative ${
+                    activeTab === tab ? "text-blue-600" : "text-gray-400 hover:text-gray-600"
+                  }`}
+                >
+                  {tab}
+                  {activeTab === tab && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-blue-600" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* CONTENT: 2-COLUMN LAYOUT                                     */}
+        {/* ============================================================ */}
+        {activeTab === "Snapshot" && (
+          <div className="max-w-6xl mx-auto px-4 py-8">
+            <div className="flex flex-col lg:flex-row gap-6 items-start">
+
+              {/* ====== MAIN COLUMN ====== */}
+              <div className="flex-1 min-w-0 space-y-6">
+
+                {/* A) NAV CHART */}
+                <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
+                  <div className="flex items-baseline gap-3 mb-1">
+                    <span className="text-2xl font-bold text-gray-900">₹10.3842</span>
+                    <span className="text-sm font-semibold text-green-600">+3.75% since inception</span>
+                  </div>
+                  <div className="h-[280px] mt-4">
+                    {fundData && (
+                      <NavJourneyChart funds={[fundData]} showBenchmark={false} height={280} />
+                    )}
+                  </div>
+                  <p className="text-[11px] text-gray-400 mt-3">193 data points · Source: AMFI NAV API</p>
                 </div>
-              </div>
-              
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                  <div className="text-sm">
-                    <p className="font-medium text-amber-800 mb-1">Threshold Compliance</p>
-                    <p className="text-amber-700">
-                      If investment value falls below ₹10L due to redemption (active breach), units are frozen. 
-                      You get 30 days to rebalance or units are auto-redeemed.
+
+                {/* B) TRAILING RETURNS */}
+                <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
+                  <div className="flex items-center justify-between mb-5">
+                    <h3 className="text-base font-bold text-gray-900">Trailing returns</h3>
+                    <div className="flex rounded-lg border border-gray-200 overflow-hidden">
+                      {(["absolute", "annualised"] as const).map((mode) => (
+                        <button
+                          key={mode}
+                          onClick={() => setReturnMode(mode)}
+                          className={`px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
+                            returnMode === mode
+                              ? "bg-blue-600 text-white"
+                              : "text-gray-500 hover:text-gray-700"
+                          }`}
+                        >
+                          {mode}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-3 mb-3">
+                    {TRAILING.slice(0, 4).map((t) => (
+                      <div key={t.period} className="text-center p-3 rounded-lg bg-gray-50">
+                        <p className="text-xs text-gray-400 mb-1">{t.period}</p>
+                        <p className="text-base font-bold text-green-600">{t.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    {TRAILING.slice(4).map((t) => (
+                      <div key={t.period} className="text-center p-3 rounded-lg bg-gray-50">
+                        <p className="text-xs text-gray-400 mb-1">{t.period}</p>
+                        <p className="text-base font-bold text-green-600">{t.value}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Date calculator */}
+                  <div className="mt-5 pt-5 border-t border-gray-100">
+                    <div className="flex flex-wrap items-end gap-3">
+                      <div>
+                        <label className="text-xs text-gray-400 block mb-1">From</label>
+                        <input type="date" defaultValue="2024-10-24" className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700" />
+                      </div>
+                      <div>
+                        <label className="text-xs text-gray-400 block mb-1">To</label>
+                        <input type="date" defaultValue="2026-04-08" className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700" />
+                      </div>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Calculate</Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* C) ALPHA SHIELD */}
+                <div className="rounded-xl border-2 border-green-200 bg-green-50/30 overflow-hidden">
+                  {/* Header */}
+                  <div className="bg-green-600 px-5 py-3.5 flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-white font-bold text-sm flex items-center gap-2">
+                      <span className="text-base">🛡</span> Alpha Shield — March 2026 Crash Analysis
+                    </span>
+                    <span className="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      8.7 / 10 · Strong Protection
+                    </span>
+                  </div>
+                  <div className="p-5 sm:p-6">
+                    {/* 3-stat row */}
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                      <div className="text-center">
+                        <p className="text-xs text-gray-500 mb-1">Benchmark fell</p>
+                        <p className="text-xl font-bold text-red-600">-6.35%</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-gray-500 mb-1">Altiva performance</p>
+                        <p className="text-xl font-bold text-green-600">-1.42%</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs text-gray-500 mb-1">Capital preserved</p>
+                        <p className="text-xl font-bold text-blue-600">77.6%</p>
+                      </div>
+                    </div>
+
+                    {/* Peer ranking */}
+                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+                      Hybrid Long-Short Peer Ranking — March 2026
                     </p>
+                    <div className="space-y-2">
+                      {[
+                        { rank: "🥇", name: "Arudha Hybrid", ret: "+0.1%", color: "text-green-600", w: "100%" },
+                        { rank: "🥈", name: "qSIF Hybrid", ret: "-0.9%", color: "text-red-600", w: "85%" },
+                        { rank: "🥉", name: "Altiva", ret: "-1.4%", color: "text-blue-600", w: "75%", you: true },
+                        { rank: "4", name: "Magnum SIF", ret: "-1.9%", color: "text-red-600", w: "60%" },
+                        { rank: "5", name: "Titanium SIF", ret: "-6.2%", color: "text-red-600", w: "25%" },
+                        { rank: "6", name: "iSIF Hybrid", ret: "-6.3%", color: "text-red-600", w: "22%" },
+                      ].map((p) => (
+                        <div key={p.name} className={`flex items-center gap-3 text-sm ${p.you ? "bg-blue-50 rounded-lg p-2 -mx-2" : ""}`}>
+                          <span className="w-6 text-center">{p.rank}</span>
+                          <span className={`flex-1 font-medium ${p.you ? "text-blue-700" : "text-gray-700"}`}>
+                            {p.name} {p.you && <span className="text-xs text-blue-500">← you</span>}
+                          </span>
+                          <div className="w-32 bg-gray-100 rounded-full h-2 overflow-hidden">
+                            <div className="bg-green-500 h-full rounded-full" style={{ width: p.w }} />
+                          </div>
+                          <span className={`w-14 text-right font-bold ${p.color}`}>{p.ret}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* D) STRATEGY SUMMARY */}
+                <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
+                  <h3 className="text-base font-bold text-gray-900 mb-4">Strategy summary</h3>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {ALLOCATION_TAGS.map((t) => (
+                      <span key={t} className="px-3 py-1.5 rounded-full bg-blue-50 text-xs font-medium text-blue-700 border border-blue-100">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    India&apos;s largest SIF scheme by AUM. Combines equity arbitrage, high-quality fixed income,
+                    and special situation plays (IPOs, buybacks, open offers, pair trades, covered calls, and straddles).
+                    The interval/arbitrage-heavy structure keeps risk low while targeting superior post-tax returns
+                    versus fixed deposits. Managed by Edelweiss CEO Radhika Gupta&apos;s team.
+                  </p>
+                </div>
+
+                {/* E) INVESTOR SUITABILITY */}
+                <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
+                  <h3 className="text-base font-bold text-gray-900 mb-4">Investor suitability</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="rounded-lg bg-green-50 border border-green-100 p-4">
+                      <p className="text-sm font-bold text-green-800 mb-3">Suitable for</p>
+                      <ul className="space-y-2">
+                        {SUITABLE.map((s) => (
+                          <li key={s} className="flex items-start gap-2 text-sm text-green-700">
+                            <span className="mt-0.5">✓</span> {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="rounded-lg bg-red-50 border border-red-100 p-4">
+                      <p className="text-sm font-bold text-red-800 mb-3">Not suitable for</p>
+                      <ul className="space-y-2">
+                        {NOT_SUITABLE.map((s) => (
+                          <li key={s} className="flex items-start gap-2 text-sm text-red-700">
+                            <span className="mt-0.5">✗</span> {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* F) FUND MANAGEMENT TEAM */}
+                <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
+                  <h3 className="text-base font-bold text-gray-900 mb-4">Fund management team</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {TEAM.map((m) => (
+                      <div key={m.name} className="rounded-lg border border-gray-100 p-4 text-center">
+                        <div className="w-11 h-11 rounded-full bg-blue-100 text-blue-700 font-bold text-sm flex items-center justify-center mx-auto mb-2">
+                          {m.initials}
+                        </div>
+                        <p className="text-sm font-semibold text-gray-900">{m.name}</p>
+                        <p className="text-xs text-gray-400">Fund Manager</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
 
-          {/* Redemption & Liquidity */}
-          <Card className="max-w-4xl mx-auto mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <RefreshCw className="w-5 h-5 text-primary" />
-                Redemption & Liquidity
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-                <div>
-                  <p className="text-muted-foreground">Subscription</p>
-                  <p className="font-semibold text-lg">Daily</p>
-                  <p className="text-xs text-muted-foreground">After scheme reopens</p>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Redemption Days</p>
-                  <p className="font-semibold text-lg">Mon & Wed</p>
-                  <p className="text-xs text-muted-foreground">Every week</p>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Settlement</p>
-                  <p className="font-semibold text-lg">T+3 Days</p>
-                  <p className="text-xs text-muted-foreground">Working days</p>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Exit Load</p>
-                  <p className="font-semibold text-lg">0.50%</p>
-                  <p className="text-xs text-muted-foreground">If redeemed within 90 days</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              {/* ====== SIDEBAR ====== */}
+              <div className="w-full lg:w-[340px] shrink-0 space-y-5 lg:sticky lg:top-32">
 
-          {/* Fund Management */}
-          <Card className="max-w-4xl mx-auto mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
-                Fund Management Team
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {[
-                  { name: "Bhavesh Jain", role: "Fund Manager" },
-                  { name: "Bharat Lahoti", role: "Fund Manager" },
-                  { name: "Dhawal Dalal", role: "Fund Manager" },
-                  { name: "Pranavi Kulkarni", role: "Fund Manager" },
-                  { name: "Amit Vora", role: "Fund Manager" }
-                ].map((manager) => (
-                  <div key={manager.name} className="flex items-center gap-3 p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Users className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-medium">{manager.name}</p>
-                      <p className="text-xs text-muted-foreground">{manager.role}</p>
-                    </div>
+                {/* S1) CTA */}
+                <div className="rounded-xl border border-blue-100 bg-blue-50/50 p-5">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Invest in Altiva</h3>
+                  <p className="text-sm text-gray-500 mb-4">Speak with our SIF specialist. No commitment.</p>
+                  <div className="flex gap-2">
+                    <a href={CONSULTATION_URL} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                        <Phone className="w-3.5 h-3.5 mr-1.5" /> Schedule call
+                      </Button>
+                    </a>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button variant="outline" className="w-full border-green-300 text-green-700 hover:bg-green-50 text-sm">
+                        <MessageCircle className="w-3.5 h-3.5 mr-1.5" /> WhatsApp
+                      </Button>
+                    </a>
                   </div>
-                ))}
+                </div>
+
+                {/* S2) Fund Details */}
+                <SidebarCard title="Fund details">
+                  {FUND_DETAILS.map((d) => (
+                    <DetailRow key={d.label} label={d.label} value={d.value} />
+                  ))}
+                </SidebarCard>
+
+                {/* S3) Redemption & Liquidity */}
+                <SidebarCard title="Redemption & Liquidity">
+                  {REDEMPTION.map((d) => (
+                    <DetailRow key={d.label} label={d.label} value={d.value} />
+                  ))}
+                </SidebarCard>
+
+                {/* S4) Risk & Compliance */}
+                <SidebarCard title="Risk & compliance">
+                  {RISK.map((d) => (
+                    <DetailRow key={d.label} label={d.label} value={d.value} color={d.color} />
+                  ))}
+                </SidebarCard>
+
+                {/* S5) Other funds */}
+                <SidebarCard title="Other funds in category">
+                  <div className="grid grid-cols-2 gap-2">
+                    {PEERS.map((p) => (
+                      <a
+                        key={p.name}
+                        href={p.href}
+                        className="rounded-lg border border-gray-100 p-3 hover:border-blue-200 hover:bg-blue-50/30 transition-colors"
+                      >
+                        <p className="text-xs text-gray-400">{p.amc}</p>
+                        <p className="text-sm font-semibold text-gray-900 mt-0.5">{p.name}</p>
+                        <p className="text-sm font-bold text-green-600 mt-1">{p.ret} <span className="text-[10px] font-normal text-gray-400">SI</span></p>
+                      </a>
+                    ))}
+                  </div>
+                </SidebarCard>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Risk Factors Accordion */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <h3 className="text-2xl font-semibold text-heading text-center mb-6">
-              <AlertTriangle className="w-6 h-6 inline mr-2 text-amber-500" />
-              Key Risk Factors
-            </h3>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="equity-risks">
-                <AccordionTrigger>Equity & Market Risks</AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><strong>Liquidity Risk:</strong> Investments may become less liquid due to market developments</li>
-                    <li><strong>Market Risk:</strong> Value affected by interest rates, currency, government policy changes</li>
-                    <li><strong>Volatility Risk:</strong> Daily price fluctuations may affect redemption ability</li>
-                    <li><strong>Settlement Risk:</strong> Inability to make intended purchases due to settlement problems</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="debt-risks">
-                <AccordionTrigger>Debt & Fixed Income Risks</AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><strong>Interest Rate Risk:</strong> Price falls when interest rates rise</li>
-                    <li><strong>Credit/Default Risk:</strong> Issuer may default on interest or principal</li>
-                    <li><strong>Reinvestment Risk:</strong> Interest rates vary over time</li>
-                    <li><strong>Prepayment Risk:</strong> May receive monthly cashflows earlier than scheduled</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="derivative-risks">
-                <AccordionTrigger>Derivative Strategy Risks</AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><strong>Leverage Risk:</strong> Derivatives can provide disproportionate gains or losses</li>
-                    <li><strong>Counterparty Risk:</strong> In OTC derivatives, counterparty may default</li>
-                    <li><strong>Basis Risk:</strong> Cash-futures may not track perfectly</li>
-                    <li><strong>Time Decay:</strong> Options lose value over time without significant movement</li>
-                    <li><strong>Correlation Breakdown:</strong> Pair trades may diverge instead of converge</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="overseas-risks">
-                <AccordionTrigger>Overseas Investment Risks</AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><strong>Currency Risk:</strong> Exchange rate changes can impact returns</li>
-                    <li><strong>Regulatory Risk:</strong> Foreign government regulations may change</li>
-                    <li><strong>Political Risk:</strong> Political and economic instability in foreign markets</li>
-                    <li><strong>Industry Limit Risk:</strong> Investment subject to RBI/SEBI industry-wide limits</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-
-          {/* Benchmark */}
-          <Card className="max-w-4xl mx-auto mb-12">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <LineChart className="w-5 h-5 text-primary" />
-                Benchmark Index
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-semibold text-heading mb-2">
-                NIFTY 50 Hybrid Composite Debt 50:50 Index
-              </p>
-              <p className="text-sm text-muted-foreground">
-                This benchmark represents 50% allocation to equity (NIFTY 50) and 50% allocation to debt, 
-                matching the fund's hybrid equity-debt allocation approach.
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Analysis Components */}
-          {fundData && (
-            <div className="max-w-4xl mx-auto space-y-8 mb-12">
-              <CrashAnalysis fund={fundData} />
-              <NavJourneyChart funds={[fundData]} showNifty={true} />
-              <MonthlyHeatmap funds={[fundData]} showNifty={true} mode="single" />
             </div>
-          )}
-
-          {/* CTA */}
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-heading mb-4">Ready to Invest?</h3>
-            <p className="text-muted-foreground mb-6">
-              Contact us to start investing in Altiva Hybrid Long-Short Fund
-            </p>
-            <a 
-              href={CONSULTATION_URL} 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <Button variant="gold" size="lg" className="gap-2">
-                Schedule a Consultation <ArrowRight className="w-4 h-4" />
-              </Button>
-            </a>
           </div>
-        </div>
+        )}
+
+        {/* Placeholder for other tabs */}
+        {activeTab !== "Snapshot" && (
+          <div className="max-w-6xl mx-auto px-4 py-16 text-center">
+            <p className="text-gray-400 text-lg">
+              {activeTab} tab — coming soon
+            </p>
+          </div>
+        )}
       </main>
-      
+
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
