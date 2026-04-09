@@ -73,11 +73,11 @@ function isRegularGrowth(name: string): boolean {
   return lower.includes("regular") && lower.includes("growth") && !lower.includes("idcw");
 }
 
-export const revalidate = 86400;
+export const revalidate = 3600; // revalidate every hour to pick up new NAVs promptly
 
 export async function GET() {
   try {
-    const res = await fetch(AMFI_SIF_URL, { next: { revalidate: 86400 } });
+    const res = await fetch(AMFI_SIF_URL, { next: { revalidate: 3600 } });
     if (!res.ok) throw new Error(`AMFI SIF fetch failed: ${res.status}`);
 
     const json: AmfiResponse = await res.json();
