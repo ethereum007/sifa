@@ -1,33 +1,34 @@
 import { Users, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { DISTRIBUTOR_WHATSAPP_GROUP } from "@/lib/whatsapp";
 
 const DistributorNetworkBanner = () => {
   return (
-    <section className="py-6 sm:py-8">
+    <section className="py-8 sm:py-12">
       <div className="container mx-auto px-4">
         <a
           href={DISTRIBUTOR_WHATSAPP_GROUP}
           target="_blank"
           rel="noopener noreferrer"
-          className="block rounded-xl border border-border bg-card p-6 sm:p-8 hover:border-primary/30 transition-all duration-200 group"
+          className="block rounded-2xl border border-border bg-card p-8 sm:p-10 hover:border-primary/40 transition-all duration-200 group"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <Users className="w-5 h-5 text-primary" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div className="flex items-center gap-5">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Users className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-xl font-bold text-foreground">
                   Join Our Distributor Network
                 </h3>
-                <p className="text-sm text-muted-foreground mt-0.5">
+                <p className="text-base text-muted-foreground mt-1">
                   Connect with 500+ MFDs & distributors. Get early access to SIF launches & exclusive insights.
                 </p>
               </div>
             </div>
-            <span className="flex items-center gap-2 text-primary font-semibold text-sm shrink-0 group-hover:gap-3 transition-all">
-              Join Now <ArrowRight className="w-4 h-4" />
-            </span>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-5 shrink-0">
+              Join Now <ArrowRight className="w-4 h-4 ml-1" />
+            </Button>
           </div>
         </a>
       </div>

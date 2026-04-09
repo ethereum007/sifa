@@ -4,62 +4,65 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative pt-8 pb-16 lg:pt-12 lg:pb-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="text-xs font-medium text-primary uppercase tracking-wider">
-              SEBI Regulated
-            </span>
-          </div>
+    <section className="relative overflow-hidden bg-[#0A1628] pt-20 pb-16 sm:pt-28 sm:pb-24">
+      {/* Subtle gradient orb */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[600px] w-[900px] rounded-full bg-gradient-to-br from-emerald-500/10 via-transparent to-blue-600/10 blur-3xl" />
 
-          {/* Headline — serif for institutional authority */}
-          <h1 className="font-serif-accent text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6" style={{ color: 'hsl(220, 30%, 10%)' }}>
-            Specialized Investment Funds in India
-          </h1>
+      <div className="relative mx-auto max-w-5xl px-4 text-center">
+        {/* Badge */}
+        <span className="mb-6 inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+          SEBI Regulated &middot; Now Live in India
+        </span>
 
-          {/* Subheadline */}
-          <p className="text-xl sm:text-[22px] text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-            Bridge the gap between Mutual Funds and PMS. Access structured
-            investment strategies with just ₹10 Lakhs minimum investment.
-          </p>
+        {/* Headline */}
+        <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          India&apos;s First{" "}
+          <span className="bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">
+            Specialized Investment Funds
+          </span>{" "}
+          Platform
+        </h1>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
+        {/* Subtitle */}
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Bridge the gap between Mutual Funds and PMS. Compare, track and invest in
+          SEBI-regulated SIFs with just{" "}
+          <strong className="text-white">₹10 Lakhs</strong> minimum investment.
+        </p>
+
+        {/* CTAs */}
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button
+            size="lg"
+            className="bg-emerald-500 text-white hover:bg-emerald-400 font-semibold px-8 py-6 text-base"
+            onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Schedule a Consultation
+            <ArrowRight className="w-4 h-4 ml-1" />
+          </Button>
+          <a href="/sif-quiz">
             <Button
+              variant="outline"
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 h-12"
-              onClick={() => document.getElementById('early-access')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border-slate-500 text-slate-200 hover:bg-slate-800 px-8 py-6 text-base"
             >
-              Schedule a Consultation
-              <ArrowRight className="w-4 h-4 ml-1" />
+              Find My SIF
             </Button>
-            <a href="/sif-quiz">
-              <Button variant="outline" size="lg" className="px-8 h-12 border-border text-foreground/70 hover:text-foreground hover:border-foreground/30">
-                Find My SIF
-              </Button>
-            </a>
-          </div>
+          </a>
+        </div>
 
-          {/* Stats strip — minimal, institutional */}
-          <div className="flex items-center justify-center gap-8 sm:gap-12 text-center">
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-foreground">₹10L</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Min Investment</p>
+        {/* Stats strip */}
+        <div className="mt-14 grid grid-cols-3 gap-6 sm:gap-8 max-w-lg mx-auto">
+          {[
+            { value: "₹10L", label: "Min Investment" },
+            { value: "14", label: "Active SIFs" },
+            { value: "SEBI", label: "Regulated" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-2xl sm:text-3xl font-extrabold text-white">{stat.value}</p>
+              <p className="text-xs text-slate-400 mt-1">{stat.label}</p>
             </div>
-            <div className="w-px h-10 bg-border" />
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-foreground">14</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Active SIFs</p>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-foreground">SEBI</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Regulated</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

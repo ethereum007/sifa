@@ -49,12 +49,12 @@ const EarlyAccessForm = () => {
     return (
       <section id="early-access" className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto text-center rounded-xl border border-border bg-card p-10">
-            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-              <Check className="w-7 h-7 text-primary" />
+          <div className="max-w-md mx-auto text-center rounded-2xl border border-border bg-card p-12">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+              <Check className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-3">Thanks for Connecting!</h2>
-            <p className="text-muted-foreground">We will reach out to you as soon as possible.</p>
+            <p className="text-base text-muted-foreground">We will reach out to you as soon as possible.</p>
           </div>
         </div>
       </section>
@@ -62,61 +62,61 @@ const EarlyAccessForm = () => {
   }
 
   return (
-    <section id="early-access" className="py-12 sm:py-20">
+    <section id="early-access" className="py-14 sm:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-md mx-auto rounded-xl border border-border bg-card p-6 sm:p-10">
-          <h2 className="font-serif-accent text-3xl sm:text-4xl text-center mb-2" style={{ color: 'hsl(220, 30%, 10%)' }}>
+        <div className="max-w-lg mx-auto rounded-2xl border border-border bg-card p-8 sm:p-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-3">
             Schedule a Consultation
           </h2>
-          <p className="text-sm text-muted-foreground mb-6 text-center">
+          <p className="text-base text-muted-foreground mb-8 text-center">
             Connect with our SIF experts for personalized investment guidance.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">Name *</label>
+              <label className="block text-sm font-semibold text-foreground mb-2">Name *</label>
               <Input
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Enter your name"
                 required
-                className="h-11 border-border"
+                className="h-12 border-border text-base"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">Email Address *</label>
+              <label className="block text-sm font-semibold text-foreground mb-2">Email Address *</label>
               <Input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="you@example.com"
                 required
-                className="h-11 border-border"
+                className="h-12 border-border text-base"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">Phone Number *</label>
+              <label className="block text-sm font-semibold text-foreground mb-2">Phone Number *</label>
               <Input
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="+91 XXXXX XXXXX"
                 required
-                className="h-11 border-border"
+                className="h-12 border-border text-base"
               />
             </div>
 
             <Button
               type="submit"
               size="lg"
-              className="w-full mt-2 bg-primary hover:bg-primary/90 text-white h-12"
+              className="w-full mt-3 bg-primary hover:bg-primary/90 text-white h-13 text-base font-semibold"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Submitting..." : (<>Submit <ArrowRight className="w-4 h-4 ml-1" /></>)}
             </Button>
 
-            <div className="flex items-center gap-2 justify-center text-xs text-muted-foreground mt-3">
+            <div className="flex items-center gap-2 justify-center text-xs text-muted-foreground mt-4">
               <Shield className="w-3.5 h-3.5" />
               <span>Your information is secure and never shared</span>
             </div>

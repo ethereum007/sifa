@@ -50,19 +50,19 @@ const SifFundsCarousel = () => {
   const funds = fundsByCategory[activeCategory];
 
   return (
-    <section id="sif-funds" className="py-10 sm:py-16">
+    <section id="sif-funds" className="py-12 sm:py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="font-serif-accent text-3xl sm:text-4xl" style={{ color: 'hsl(220, 30%, 10%)' }}>
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
             Specialized Investment Funds Launched
           </h2>
-          <p className="text-base text-muted-foreground mt-2 max-w-2xl mx-auto">
-            India's first SIF schemes are now live. Explore the funds from leading AMCs.
+          <p className="text-base sm:text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
+            India&apos;s first SIF schemes are now live. Explore funds from leading AMCs.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Tab navigation — SIFScan style with underline */}
+          {/* Tab navigation */}
           <div className="flex gap-1 border-b border-border mb-6 overflow-x-auto">
             {categories.map((cat) => {
               const isActive = activeCategory === cat;
@@ -70,7 +70,7 @@ const SifFundsCarousel = () => {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-colors relative ${
+                  className={`px-4 py-3 text-sm font-semibold whitespace-nowrap transition-colors relative ${
                     isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -89,13 +89,13 @@ const SifFundsCarousel = () => {
           </div>
 
           {/* Fund table */}
-          <div className="rounded-xl border border-border bg-card overflow-hidden">
+          <div className="rounded-2xl border border-border bg-card overflow-hidden">
             <Table>
               <TableHeader>
                 <TableRow className="hover:bg-transparent">
-                  <TableHead className="w-[50%]">Fund Name</TableHead>
-                  <TableHead>AMC</TableHead>
-                  <TableHead className="text-right w-[80px]">Link</TableHead>
+                  <TableHead className="w-[50%] text-sm">Fund Name</TableHead>
+                  <TableHead className="text-sm">AMC</TableHead>
+                  <TableHead className="text-right w-[80px] text-sm">Link</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -104,21 +104,21 @@ const SifFundsCarousel = () => {
                     <TableCell className="font-medium text-foreground">
                       <div className="flex items-center gap-3">
                         <AmcLogo amc={fund.amc} />
-                        <span className="text-sm">{fund.name}</span>
+                        <span>{fund.name}</span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-sm text-muted-foreground">{fund.amc}</TableCell>
+                    <TableCell className="text-muted-foreground">{fund.amc}</TableCell>
                     <TableCell className="text-right">
                       {fund.internalLink ? (
-                        <Link href={fund.internalLink} className="text-primary text-sm hover:underline font-medium">
+                        <Link href={fund.internalLink} className="text-primary hover:underline font-medium">
                           View →
                         </Link>
                       ) : fund.link ? (
-                        <a href={fund.link} target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline font-medium">
+                        <a href={fund.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
                           Visit →
                         </a>
                       ) : (
-                        <span className="text-xs text-muted-foreground">—</span>
+                        <span className="text-muted-foreground">—</span>
                       )}
                     </TableCell>
                   </TableRow>
@@ -128,10 +128,10 @@ const SifFundsCarousel = () => {
           </div>
         </div>
 
-        <div className="text-center mt-6">
-          <p className="text-sm text-muted-foreground">
-            <span className="font-semibold text-foreground">{totalFunds}</span> SIF schemes across{" "}
-            <span className="font-semibold text-foreground">{totalAMCs}</span> AMCs
+        <div className="text-center mt-8">
+          <p className="text-base text-muted-foreground">
+            <span className="font-bold text-foreground">{totalFunds}</span> SIF schemes across{" "}
+            <span className="font-bold text-foreground">{totalAMCs}</span> AMCs
           </p>
         </div>
       </div>
