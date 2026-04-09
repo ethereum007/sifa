@@ -62,7 +62,7 @@ const Header = () => {
       >
         <button
           onClick={() => toggleDropdown(name)}
-          className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-200 text-sm font-medium py-2"
+          className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-200 font-medium py-2"
         >
           {label}
           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -77,7 +77,7 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-gray-100 hover:text-primary transition-colors"
+                  className="block px-4 py-2.5 text-[14px] text-foreground/80 hover:bg-gray-100 hover:text-primary transition-colors"
                   onClick={() => setOpenDropdown(null)}
                 >
                   {item.label}
@@ -99,25 +99,25 @@ const Header = () => {
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-[0_4px_20px_hsl(152_76%_36%/0.3)] group-hover:shadow-[0_6px_30px_hsl(152_76%_36%/0.4)] transition-all duration-300">
               <TrendingUp className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-foreground">
+            <span className="text-[22px] font-bold text-foreground">
               SIF<span className="text-primary">Prime</span>
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-6" style={{ overflow: 'visible' }}>
+          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-8" style={{ overflow: 'visible', fontSize: '15px' }}>
             <DropdownMenu name="funds" label="Funds" items={fundsItems} />
 
             <a
               href="/sifreturns"
-              className="text-foreground/80 hover:text-primary transition-colors duration-200 text-sm font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
             >
               Performance
             </a>
 
             <a
               href="/sif-compare"
-              className="text-foreground/80 hover:text-primary transition-colors duration-200 text-sm font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
             >
               Compare
             </a>
@@ -126,7 +126,7 @@ const Header = () => {
 
             <a
               href="/partner"
-              className="text-foreground/80 hover:text-primary transition-colors duration-200 text-sm font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
             >
               For Partners
             </a>
