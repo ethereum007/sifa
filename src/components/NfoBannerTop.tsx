@@ -12,9 +12,9 @@ const NfoBannerTop = () => {
   }
 
   const tickerContent = (
-    <div className="flex items-center gap-6 px-4 whitespace-nowrap">
+    <div className="flex items-center gap-6 px-4 whitespace-nowrap" style={{ fontSize: "12px" }}>
       <span className="inline-flex items-center gap-2">
-        <span className="bg-amber-500 text-[#0f1f3d] text-xs font-bold px-2 py-0.5 rounded animate-pulse">
+        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "10px" }}>
           NFO OPEN
         </span>
         <span className="font-semibold text-white">
@@ -32,7 +32,8 @@ const NfoBannerTop = () => {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] text-sm font-bold px-4 py-1.5 rounded-full transition-colors"
+        className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"
+        style={{ fontSize: "12px" }}
         onClick={(e) => e.stopPropagation()}
       >
         Invest Now
@@ -47,7 +48,7 @@ const NfoBannerTop = () => {
       style={{ backgroundColor: "#0f1f3d" }}
     >
       {/* Scrolling ticker */}
-      <div className="relative flex items-center h-10">
+      <div className="relative flex items-center h-8">
         {/* Scrolling content container */}
         <div className="flex animate-nfo-ticker hover:[animation-play-state:paused]">
           {/* Duplicate content 4 times for seamless loop */}
