@@ -80,6 +80,34 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
   },
 ];
 
+const ALPHA_SHIELD_SCORES: Record<string, number | null> = {
+  "Arudha Hybrid Long-Short": 10.0,
+  "qSIF Hybrid Long-Short": 8.6,
+  "Altiva Hybrid Long-Short": 7.8,
+  "Magnum Hybrid Long-Short": 7.0,
+  "DynaSIF Equity Long-Short": 6.1,
+  "Titanium Hybrid Long-Short": 4.5,
+  "iSIF Hybrid Long-Short": 4.4,
+  "Apex Hybrid Long-Short": null,
+  "Diviniti Equity Long-Short": 8.0,
+  "Arudha Equity Long-Short": null,
+  "qSIF Equity Long-Short": null,
+  "iSIF Ex-Top 100 Long-Short": null,
+  "qSIF Ex-Top 100 Long-Short": null,
+};
+
+const AlphaShieldCell = ({ fundName }: { fundName: string }) => {
+  const score = ALPHA_SHIELD_SCORES[fundName] ?? null;
+  if (score === null) return <span className="text-xs" style={{ color: "#9ca3af" }}>—</span>;
+  const color = score >= 8.0 ? "#16a34a" : score >= 5.0 ? "#d97706" : "#dc2626";
+  return (
+    <span className="inline-flex items-center gap-1 text-xs font-medium tabular-nums" style={{ color }}>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      {score.toFixed(1)}
+    </span>
+  );
+};
+
 const indexData = [
   { name: "Nifty 50", m1: -11.30, m3: -14.44, y1: -3.99 },
   { name: "Nifty 500", m1: -11.36, m3: -13.88, y1: -2.88 },
@@ -191,6 +219,9 @@ const SifReturnsScorecard = () => {
           <p className="text-xs text-muted-foreground mt-0.5">
             1M: 02-Mar-2026 to 30-Mar-2026 &nbsp;|&nbsp; 3M: Jan-2026 to 30-Mar-2026 &nbsp;|&nbsp; Overall: Inception to 30-Mar-2026
           </p>
+          <p className="text-xs text-muted-foreground/70 mt-1.5 italic">
+            Alpha Shield measures how well each fund protected capital vs its own benchmark during the March 2026 market crash (Nifty -11.30%). Score out of 10.
+          </p>
         </div>
 
         {/* Top performer */}
@@ -243,6 +274,7 @@ const SifReturnsScorecard = () => {
                     <SortableHead label="1M Return" sublabel="(Feb 2026)" col="m1" />
                     <SortableHead label="3M Return" sublabel="(Dec–Feb)" col="m3" />
                     <SortableHead label="Since Inception" col="sinceInception" />
+                    <TableHead className="text-right hidden sm:table-cell">🛡 Alpha Shield</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -265,6 +297,7 @@ const SifReturnsScorecard = () => {
                       <TableCell className="text-right"><ReturnCell value={fund.m1} /></TableCell>
                       <TableCell className="text-right"><ReturnCell value={fund.m3} /></TableCell>
                       <TableCell className="text-right"><ReturnCell value={fund.sinceInception} bold /></TableCell>
+                      <TableCell className="text-right hidden sm:table-cell"><AlphaShieldCell fundName={fund.name} /></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
