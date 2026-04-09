@@ -1,25 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "./providers";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["400", "500"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://sifprime.com"),
   title: {
-    default: "SIF Comparison Platform India — Compare Specialized Investment Funds | SIFPrime",
+    default: "SIF Comparison Platform India \u2014 Compare Specialized Investment Funds | SIFPrime",
     template: "%s | SIFPrime",
   },
   description:
-    "Compare all SEBI-regulated Specialized Investment Funds (SIFs) in India. Live NAV, returns, strategy breakdown. Min ₹10L investment.",
+    "Compare, track and invest in SEBI-regulated Specialized Investment Funds (SIFs). NAV, returns, strategy breakdown. Min \u20b910L investment.",
   authors: [{ name: "SIF Prime" }],
   robots: {
     index: true,
@@ -46,7 +38,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
+      <head>
+        <link key="preconnect-google" rel="preconnect" href="https://fonts.googleapis.com" />
+        <link key="preconnect-gstatic" rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link key="fonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" />
+      </head>
       <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9G62RKT" height="0" width="0" style={{display:"none",visibility:"hidden"}} /></noscript>
         <Providers>{children}<Toaster /></Providers>
