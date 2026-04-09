@@ -342,8 +342,13 @@ const Header = () => {
             <DropdownMenu name="distributors" label="Distributors" items={distributorItems} />
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a href="/partner">
+              <Button variant="outline" size="sm" className="border-slate-700 text-slate-700 hover:bg-slate-50 dark:border-slate-400 dark:text-slate-300">
+                For MFDs & RIAs →
+              </Button>
+            </a>
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -557,7 +562,15 @@ const Header = () => {
                 Contact
               </a>
 
-              <div className="pt-4 border-t border-border/50">
+              <div className="pt-4 border-t border-border/50 flex flex-col gap-3">
+                <a
+                  href="/partner"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Button variant="outline" className="w-full border-slate-700 text-slate-700">
+                    For MFDs & RIAs →
+                  </Button>
+                </a>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
