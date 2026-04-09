@@ -83,7 +83,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 18px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
@@ -91,7 +91,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 17px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.7;
