@@ -3,12 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import AmcLogo from "@/components/AmcLogo";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 
 interface SifFund {
@@ -47,25 +42,6 @@ const fundsByCategory: Record<Category, SifFund[]> = {
   ],
 };
 
-const categoryColors: Record<Category, { active: string; inactive: string }> = {
-  "Hybrid Long Short": {
-    active: "bg-purple-600 text-white border-purple-600",
-    inactive: "text-purple-700 bg-purple-50 border-purple-200 hover:bg-purple-100",
-  },
-  "Equity Long Short": {
-    active: "bg-blue-600 text-white border-blue-600",
-    inactive: "text-blue-700 bg-blue-50 border-blue-200 hover:bg-blue-100",
-  },
-  "Equity Ex-Top 100": {
-    active: "bg-emerald-600 text-white border-emerald-600",
-    inactive: "text-emerald-700 bg-emerald-50 border-emerald-200 hover:bg-emerald-100",
-  },
-  "Active Asset Allocator": {
-    active: "bg-orange-600 text-white border-orange-600",
-    inactive: "text-orange-700 bg-orange-50 border-orange-200 hover:bg-orange-100",
-  },
-};
-
 const totalFunds = Object.values(fundsByCategory).flat().length;
 const totalAMCs = new Set(Object.values(fundsByCategory).flat().map(f => f.amc)).size;
 
@@ -74,91 +50,88 @@ const SifFundsCarousel = () => {
   const funds = fundsByCategory[activeCategory];
 
   return (
-    <section id="sif-funds" className="py-8 sm:py-16 bg-muted/30">
+    <section id="sif-funds" className="py-10 sm:py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6 sm:mb-10">
-          <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
-            SIFs Now Available
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-foreground">
+        <div className="text-center mb-8">
+          <h2 className="font-serif-accent text-2xl sm:text-3xl" style={{ color: 'hsl(220, 30%, 10%)' }}>
             Specialized Investment Funds Launched
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-2 sm:mt-3 max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground mt-2 max-w-2xl mx-auto">
             India's first SIF schemes are now live. Explore the funds from leading AMCs.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-            {/* Side category tabs */}
-            <div className="flex md:flex-col gap-2 md:gap-2 md:w-56 flex-shrink-0 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0">
-              {categories.map((cat) => {
-                const isActive = activeCategory === cat;
-                const colors = categoryColors[cat];
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-4 py-2.5 rounded-lg border text-xs sm:text-sm font-semibold transition-all whitespace-nowrap text-left ${
-                      isActive ? colors.active : colors.inactive
-                    }`}
-                  >
-                    {cat}
-                    <span className={`ml-2 text-[10px] font-normal ${isActive ? "opacity-80" : "opacity-60"}`}>
-                      ({fundsByCategory[cat].length})
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+          {/* Tab navigation — SIFScan style with underline */}
+          <div className="flex gap-1 border-b border-border mb-6 overflow-x-auto">
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-colors relative ${
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {cat}
+                  <span className="ml-1.5 text-xs text-muted-foreground">
+                    {fundsByCategory[cat].length}
+                  </span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary rounded-full" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Fund table */}
-            <div className="flex-1 rounded-xl border bg-card shadow-sm overflow-hidden min-w-0">
-              <Table>
-                <TableHeader>
-                  <TableRow className="hover:bg-transparent">
-                    <TableHead className="w-[50%]">Fund Name</TableHead>
-                    <TableHead>AMC</TableHead>
-                    <TableHead className="text-right w-[80px]">Link</TableHead>
+          {/* Fund table */}
+          <div className="rounded-xl border border-border bg-card overflow-hidden">
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent">
+                  <TableHead className="w-[50%]">Fund Name</TableHead>
+                  <TableHead>AMC</TableHead>
+                  <TableHead className="text-right w-[80px]">Link</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {funds.map((fund, i) => (
+                  <TableRow key={i}>
+                    <TableCell className="font-medium text-foreground">
+                      <div className="flex items-center gap-3">
+                        <AmcLogo amc={fund.amc} />
+                        <span className="text-sm">{fund.name}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-sm text-muted-foreground">{fund.amc}</TableCell>
+                    <TableCell className="text-right">
+                      {fund.internalLink ? (
+                        <Link href={fund.internalLink} className="text-primary text-sm hover:underline font-medium">
+                          View →
+                        </Link>
+                      ) : fund.link ? (
+                        <a href={fund.link} target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline font-medium">
+                          Visit →
+                        </a>
+                      ) : (
+                        <span className="text-xs text-muted-foreground">—</span>
+                      )}
+                    </TableCell>
                   </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {funds.map((fund, i) => (
-                    <TableRow key={i}>
-                      <TableCell className="font-medium text-foreground">
-                        <div className="flex items-center gap-3">
-                          <AmcLogo amc={fund.amc} />
-                          <span className="text-sm">{fund.name}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell className="text-sm text-muted-foreground">{fund.amc}</TableCell>
-                      <TableCell className="text-right">
-                        {(fund.link || fund.internalLink) ? (
-                          fund.internalLink ? (
-                            <Link href={fund.internalLink} className="text-primary text-sm hover:underline font-medium">
-                              View →
-                            </Link>
-                          ) : (
-                            <a href={fund.link} target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline font-medium">
-                              Visit →
-                            </a>
-                          )
-                        ) : (
-                          <span className="text-xs text-muted-foreground">—</span>
-                        )}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+                ))}
+              </TableBody>
+            </Table>
           </div>
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-6">
           <p className="text-sm text-muted-foreground">
-            <span className="font-semibold text-primary">{totalFunds}</span> SIF schemes launched across{" "}
-            <span className="font-semibold text-primary">{totalAMCs}</span> AMCs
+            <span className="font-semibold text-foreground">{totalFunds}</span> SIF schemes across{" "}
+            <span className="font-semibold text-foreground">{totalAMCs}</span> AMCs
           </p>
         </div>
       </div>
