@@ -18,7 +18,8 @@ export async function POST(
       .single();
 
     if (partnerError || !partner) {
-      return NextResponse.json({ error: 'Invalid or inactive partner' }, { status: 404 });
+      console.error('Invest widget partner lookup error:', partnerError?.message);
+      return NextResponse.json({ error: 'This investment link is not active. Please contact your advisor.' }, { status: 404 });
     }
 
     const body = await request.json();
@@ -71,7 +72,8 @@ export async function POST(
       });
 
     if (insertError) {
-      return NextResponse.json({ error: insertError.message }, { status: 500 });
+      console.error('Invest lead insert error:', insertError.message);
+      return NextResponse.json({ error: 'Could not save your details. Please try again or contact the advisor directly.' }, { status: 500 });
     }
 
     return NextResponse.json({
@@ -81,7 +83,7 @@ export async function POST(
       top_fund_recommendations: topFundRecommendations,
     });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : 'Internal server error';
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error('Invest route error:', err instanceof Error ? err.message : err);
+    return NextResponse.json({ error: 'Something went wrong. Please try again later.' }, { status: 500 });
   }
 }

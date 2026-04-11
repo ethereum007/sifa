@@ -2,6 +2,13 @@ import { NextResponse } from 'next/server';
 import { supabasePartner as supabase } from '@/lib/partner/supabaseAdmin';
 import { hashPassword } from '@/lib/partner/auth';
 
+const FRIENDLY_DB_ERROR = 'Partner registration is temporarily unavailable. Please try again later or contact us on WhatsApp.';
+
+function isTechnicalError(msg: string): boolean {
+  const patterns = ['schema cache', 'relation', 'does not exist', 'PGRST', 'connection', 'timeout'];
+  return patterns.some(p => msg.toLowerCase().includes(p.toLowerCase()));
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -27,11 +34,16 @@ export async function POST(request: Request) {
     }
 
     // Check if ARN already exists
-    const { data: existing } = await supabase
+    const { data: existing, error: checkError } = await supabase
       .from('partners')
       .select('id')
       .eq('arn_number', arn_number)
       .single();
+
+    if (checkError && isTechnicalError(checkError.message)) {
+      console.error('Partner signup DB error:', checkError.message);
+      return NextResponse.json({ error: FRIENDLY_DB_ERROR }, { status: 503 });
+    }
 
     if (existing) {
       return NextResponse.json(
@@ -62,12 +74,15 @@ export async function POST(request: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      console.error('Partner insert error:', error.message);
+      const msg = isTechnicalError(error.message) ? FRIENDLY_DB_ERROR : error.message;
+      return NextResponse.json({ error: msg }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, widget_key: partner.widget_key });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Internal server error';
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error('Partner signup error:', message);
+    return NextResponse.json({ error: FRIENDLY_DB_ERROR }, { status: 500 });
   }
 }
