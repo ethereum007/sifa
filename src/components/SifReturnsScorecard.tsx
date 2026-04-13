@@ -259,6 +259,7 @@ const SifReturnsScorecard = () => {
         <div className="space-y-6">
           {filteredData.map(group => (
             <div key={group.tag} className="rounded-xl border bg-card shadow-sm overflow-hidden">
+              <div className="overflow-x-auto">
               <div className="px-4 py-3 border-b bg-muted/40 flex items-center gap-3">
                 <Badge variant="secondary" className={`text-xs font-semibold ${categoryBadgeColors[group.tag]}`}>
                   {group.category}
@@ -302,6 +303,7 @@ const SifReturnsScorecard = () => {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </div>
           ))}
         </div>
@@ -313,6 +315,7 @@ const SifReturnsScorecard = () => {
               Benchmark Indices
             </Badge>
           </div>
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent">
@@ -333,6 +336,7 @@ const SifReturnsScorecard = () => {
               ))}
             </TableBody>
           </Table>
+          </div>
         </div>
 
         {/* Footer */}

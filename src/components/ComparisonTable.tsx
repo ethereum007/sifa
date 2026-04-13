@@ -89,7 +89,7 @@ const ComparisonTable = () => {
 
         {/* Table */}
         <div className="overflow-x-auto -mx-2 sm:mx-0 px-2 sm:px-0">
-          <div className="min-w-[600px] sm:min-w-[800px]">
+          <div className="min-w-[480px] sm:min-w-[800px]">
             {/* Table Header */}
             <div className="grid grid-cols-5 gap-1.5 sm:gap-4 mb-2 sm:mb-4">
               <div className="p-2 sm:p-4">

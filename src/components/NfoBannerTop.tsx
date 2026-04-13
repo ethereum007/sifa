@@ -12,7 +12,7 @@ const NfoBannerTop = () => {
   }
 
   const tickerContent = (
-    <div className="flex items-center gap-6 px-4 whitespace-nowrap" style={{ fontSize: "12px" }}>
+    <div className="flex items-center gap-3 sm:gap-6 px-2 sm:px-4 whitespace-nowrap" style={{ fontSize: "12px" }}>
       <span className="inline-flex items-center gap-2">
         <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "10px" }}>
           NFO OPEN

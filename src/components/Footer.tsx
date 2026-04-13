@@ -186,7 +186,7 @@ const Footer = () => {
           </div>
 
           {/* Disclaimer */}
-          <p className="text-[10px] sm:text-xs text-muted-foreground mt-4 sm:mt-6 text-center max-w-4xl mx-auto px-2">
+          <p className="text-[11px] sm:text-xs text-muted-foreground mt-4 sm:mt-6 text-center max-w-4xl mx-auto px-2">
             Disclaimer: Investments in Specialized Investment Funds (SIFs) are subject to market risks. 
             Please read all scheme related documents carefully before investing. Past performance is not 
             indicative of future returns. SIF Prime is a discovery and comparison platform and does not 

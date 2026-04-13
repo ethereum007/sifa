@@ -207,7 +207,7 @@ const AltivaSif = () => {
         {/* ============================================================ */}
         <section className="bg-white border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-3 sm:grid-cols-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
               {METRICS.map((m, i) => (
                 <div
                   key={i}
@@ -241,7 +241,7 @@ const AltivaSif = () => {
         {/* ============================================================ */}
         {/* TAB NAV                                                      */}
         {/* ============================================================ */}
-        <section className="bg-white border-b border-gray-100 sticky top-20 z-30">
+        <section className="bg-white border-b border-gray-100 sticky top-[88px] lg:top-[104px] z-30">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex gap-0 overflow-x-auto">
               {TABS.map((tab) => (
@@ -306,7 +306,7 @@ const AltivaSif = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="grid grid-cols-4 gap-3 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
                     {TRAILING.slice(0, 4).map((t) => (
                       <div key={t.period} className="text-center p-3 rounded-lg bg-gray-50">
                         <p className="text-xs text-gray-400 mb-1">{t.period}</p>
@@ -314,7 +314,7 @@ const AltivaSif = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {TRAILING.slice(4).map((t) => (
                       <div key={t.period} className="text-center p-3 rounded-lg bg-gray-50">
                         <p className="text-xs text-gray-400 mb-1">{t.period}</p>
@@ -325,16 +325,16 @@ const AltivaSif = () => {
 
                   {/* Date calculator */}
                   <div className="mt-5 pt-5 border-t border-gray-100">
-                    <div className="flex flex-wrap items-end gap-3">
+                    <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-end gap-3">
                       <div>
                         <label className="text-xs text-gray-400 block mb-1">From</label>
-                        <input type="date" defaultValue="2024-10-24" className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700" />
+                        <input type="date" defaultValue="2024-10-24" className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700" />
                       </div>
                       <div>
                         <label className="text-xs text-gray-400 block mb-1">To</label>
-                        <input type="date" defaultValue="2026-04-08" className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700" />
+                        <input type="date" defaultValue="2026-04-08" className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700" />
                       </div>
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">Calculate</Button>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white col-span-2 sm:col-span-1">Calculate</Button>
                     </div>
                   </div>
                 </div>
@@ -352,18 +352,18 @@ const AltivaSif = () => {
                   </div>
                   <div className="p-5 sm:p-6">
                     {/* 3-stat row */}
-                    <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
                       <div className="text-center">
-                        <p className="text-xs text-gray-500 mb-1">Benchmark fell</p>
-                        <p className="text-xl font-bold text-red-600">-6.35%</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">Benchmark fell</p>
+                        <p className="text-base sm:text-xl font-bold text-red-600">-6.35%</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-xs text-gray-500 mb-1">Altiva performance</p>
-                        <p className="text-xl font-bold text-green-600">-1.42%</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">Altiva performance</p>
+                        <p className="text-base sm:text-xl font-bold text-green-600">-1.42%</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-xs text-gray-500 mb-1">Capital preserved</p>
-                        <p className="text-xl font-bold text-blue-600">77.6%</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">Capital preserved</p>
+                        <p className="text-base sm:text-xl font-bold text-blue-600">77.6%</p>
                       </div>
                     </div>
 
@@ -385,10 +385,10 @@ const AltivaSif = () => {
                           <span className={`flex-1 font-medium ${p.you ? "text-blue-700" : "text-gray-700"}`}>
                             {p.name} {p.you && <span className="text-xs text-blue-500">← you</span>}
                           </span>
-                          <div className="w-32 bg-gray-100 rounded-full h-2 overflow-hidden">
+                          <div className="hidden sm:block w-32 bg-gray-100 rounded-full h-2 overflow-hidden">
                             <div className="bg-green-500 h-full rounded-full" style={{ width: p.w }} />
                           </div>
-                          <span className={`w-14 text-right font-bold ${p.color}`}>{p.ret}</span>
+                          <span className={`w-12 sm:w-14 text-right font-bold text-xs sm:text-sm ${p.color}`}>{p.ret}</span>
                         </div>
                       ))}
                     </div>
