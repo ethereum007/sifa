@@ -70,7 +70,7 @@ export async function POST(request: Request) {
         plan: plan || 'starter',
         password_hash,
       })
-      .select('widget_key')
+      .select('id, widget_key')
       .single();
 
     if (error) {
@@ -78,6 +78,14 @@ export async function POST(request: Request) {
       const msg = isTechnicalError(error.message) ? FRIENDLY_DB_ERROR : error.message;
       return NextResponse.json({ error: msg }, { status: 500 });
     }
+
+    // Send welcome email (fire and forget — don't block signup on email delivery)
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://sifprime.com';
+    fetch(`${baseUrl}/api/emails/welcome-partner`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ partner_id: partner.id }),
+    }).catch((err) => console.error('Welcome email trigger failed:', err));
 
     return NextResponse.json({ success: true, widget_key: partner.widget_key });
   } catch (err: unknown) {
