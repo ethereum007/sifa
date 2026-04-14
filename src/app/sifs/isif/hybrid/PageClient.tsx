@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 
 // Lazy load below-fold components
 const Footer = dynamic(() => import("@/components/Footer"));
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 import {
 
 
@@ -556,6 +557,11 @@ const ISIFHybrid = () => {
       </main>
       
       <Suspense fallback={null}>
+        <section className="py-10 lg:py-14 bg-muted/30 border-t border-border/60">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <LeadCaptureForm fundSlug="isif-hybrid" fundName="iSIF Hybrid by ICICI" source="fund-page" />
+          </div>
+        </section>
         <Footer />
       </Suspense>
     </div>

@@ -157,7 +157,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -1.90,
       threeMonth: -2.38,
-      sinceInception: -0.42,
+      sinceInception: 0.18,
     },
     managers: ['Dinesh Balachandran', 'Mansi Sajeja'],
     strategyType: 'pure-long-short',

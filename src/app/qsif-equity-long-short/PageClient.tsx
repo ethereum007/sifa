@@ -39,6 +39,7 @@ import {
 const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 import AmcLogo from "@/components/AmcLogo";
 import CrashAnalysis from "@/components/CrashAnalysis";
 import NavJourneyChart from "@/components/NavJourneyChart";
@@ -657,6 +658,11 @@ const QsifEquitySif = () => {
       </main>
 
       <Suspense fallback={null}>
+        <section className="py-10 lg:py-14 bg-muted/30 border-t border-border/60">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <LeadCaptureForm fundSlug="qsif-equity-long-short" fundName="qSIF Equity Long Short by Quant" source="fund-page" />
+          </div>
+        </section>
         <Footer />
       </Suspense>
     </div>
