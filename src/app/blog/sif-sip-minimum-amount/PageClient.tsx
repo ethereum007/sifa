@@ -15,10 +15,13 @@ const Footer = dynamic(() => import("@/components/Footer"));
 const sipDetailsByAmc = [
   { amc: "Quant Mutual Fund (qSIF)", minSip: "₹25,000/month", sipFrequency: "Monthly, Quarterly", stpAvailable: "Yes", swpAvailable: "Yes" },
   { amc: "ICICI Prudential (iSIF)", minSip: "₹25,000/month", sipFrequency: "Daily, Weekly, Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
-  { amc: "Edelweiss (Altiva, Diviniti)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
-  { amc: "DSP (Dyna, Titanium)", minSip: "₹25,000/month", sipFrequency: "Monthly, Quarterly", stpAvailable: "Yes", swpAvailable: "Yes" },
-  { amc: "White Oak (Arudha)", minSip: "₹50,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Limited" },
-  { amc: "Motilal Oswal (Magnum)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "Edelweiss (Altiva)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "ITI (Diviniti)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "360 ONE (Dyna)", minSip: "₹25,000/month", sipFrequency: "Monthly, Quarterly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "Tata (Titanium)", minSip: "₹25,000/month", sipFrequency: "Monthly, Quarterly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "Bandhan (Arudha)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "SBI (Magnum)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
+  { amc: "Aditya Birla Sun Life (Apex)", minSip: "₹25,000/month", sipFrequency: "Monthly", stpAvailable: "Yes", swpAvailable: "Yes" },
 ];
 
 const SifSipMinimumAmount = () => {

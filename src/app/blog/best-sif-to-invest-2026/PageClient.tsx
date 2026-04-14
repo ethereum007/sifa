@@ -14,15 +14,15 @@ const Footer = dynamic(() => import("@/components/Footer"));
 
 const equityLongShortFunds = [
   { name: "Quant SIF Equity Long Short (qSIF)", amc: "Quant Mutual Fund", strategy: "Quantitative long-short with momentum + mean reversion", riskBand: "Very High", highlight: "Quant's signature data-driven approach with aggressive derivatives overlay" },
-  { name: "Edelweiss Diviniti Equity Long Short", amc: "Edelweiss Mutual Fund", strategy: "Fundamental equity selection with systematic hedging", riskBand: "Very High", highlight: "Backed by Edelweiss's deep derivatives expertise and institutional pedigree" },
-  { name: "DSP Dyna Equity Long Short", amc: "DSP Mutual Fund", strategy: "Dynamic equity allocation with tactical short positions", riskBand: "High", highlight: "Leverages DSP's strong equity research team with active risk management" },
-  { name: "White Oak Arudha Equity Long Short", amc: "White Oak Capital", strategy: "Bottom-up stock selection with pair-trade hedging", riskBand: "Very High", highlight: "Prashant Khemka-led team with global hedge fund experience" },
+  { name: "ITI Diviniti Equity Long Short", amc: "ITI Mutual Fund", strategy: "Fundamental equity selection with systematic hedging", riskBand: "Very High", highlight: "ITI's research-led approach with a focused long-short equity mandate" },
+  { name: "360 ONE Dyna Equity Long Short", amc: "360 ONE Asset", strategy: "Dynamic equity allocation with tactical short positions", riskBand: "High", highlight: "360 ONE's institutional wealth-management pedigree with active risk management" },
+  { name: "Bandhan Arudha Equity Long Short", amc: "Bandhan Mutual Fund", strategy: "Bottom-up stock selection with pair-trade hedging", riskBand: "Very High", highlight: "Bandhan's equity team with disciplined hedging framework" },
 ];
 
 const hybridLongShortFunds = [
   { name: "Edelweiss Altiva Hybrid Long Short", amc: "Edelweiss Mutual Fund", strategy: "Equity-debt hybrid with long-short equity overlay", riskBand: "High", highlight: "India's first hybrid long-short SIF; pioneer in the category" },
-  { name: "Motilal Oswal Magnum Hybrid Long Short", amc: "Motilal Oswal AMC", strategy: "Multi-asset hybrid with tactical equity hedging", riskBand: "High", highlight: "Backed by Motilal Oswal's strong equity franchise and research" },
-  { name: "DSP Titanium Hybrid Long Short", amc: "DSP Mutual Fund", strategy: "Conservative hybrid with systematic derivatives hedging", riskBand: "Moderate-High", highlight: "Designed for lower volatility with partial downside protection" },
+  { name: "SBI Magnum Hybrid Long Short", amc: "SBI Mutual Fund", strategy: "Multi-asset hybrid with tactical equity hedging", riskBand: "High", highlight: "Backed by SBI MF's scale and institutional research depth" },
+  { name: "Tata Titanium Hybrid Long Short", amc: "Tata Mutual Fund", strategy: "Conservative hybrid with systematic derivatives hedging", riskBand: "Moderate-High", highlight: "Designed for lower volatility with partial downside protection" },
   { name: "ICICI Pru iSIF Hybrid Long Short", amc: "ICICI Prudential AMC", strategy: "Balanced allocation with dynamic hedging framework", riskBand: "High", highlight: "India's largest AMC by AUM brings institutional risk management" },
 ];
 
@@ -126,13 +126,13 @@ const BestSifToInvest2026 = () => {
                   <strong className="text-foreground">Quant SIF (qSIF) Equity Long Short</strong> is the standout in this category. Quant Mutual Fund has been India&apos;s most aggressive quantitative fund house, and their SIF extends this approach with dedicated long-short capabilities. Their data-driven momentum and mean-reversion models, combined with aggressive derivatives usage, make this the highest-conviction play in the equity long-short space. However, it also carries the highest volatility. Explore the <Link href="/sifs/qsif-equity-long-short" className="text-primary hover:underline">qSIF Equity Long Short</Link> fund page for details.
                 </p>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Edelweiss Diviniti</strong> brings institutional pedigree. Edelweiss has a strong derivatives desk and has managed long-short strategies in their AIF division for years. Diviniti translates this expertise into a SIF wrapper with lower minimum investment. See the <Link href="/sifs/diviniti-equity-long-short" className="text-primary hover:underline">Diviniti fund review</Link>.
+                  <strong className="text-foreground">ITI Diviniti</strong> brings a research-led approach. ITI Mutual Fund has built a focused equity franchise, and Diviniti translates that into a SIF wrapper with fundamental stock picks paired with systematic hedging. See the <Link href="/sifs/diviniti-equity-long-short" className="text-primary hover:underline">Diviniti fund review</Link>.
                 </p>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">DSP Dyna</strong> offers a more moderate approach. DSP is known for disciplined risk management, and their equity long-short SIF reflects this with relatively conservative short positions. It is well-suited for investors who want long-short exposure without extreme volatility. Read more in our <Link href="/sifs/dyna-equity-long-short" className="text-primary hover:underline">Dyna Equity Long Short</Link> review.
+                  <strong className="text-foreground">360 ONE Dyna</strong> offers a more moderate approach. 360 ONE Asset (formerly IIFL Wealth) brings institutional wealth-management discipline, and their equity long-short SIF reflects this with relatively conservative short positions. It is well-suited for investors who want long-short exposure without extreme volatility. Read more in our <Link href="/sifs/dyna-equity-long-short" className="text-primary hover:underline">Dyna Equity Long Short</Link> review.
                 </p>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">White Oak Arudha</strong> leverages Prashant Khemka&apos;s global experience managing money at Goldman Sachs. The fund uses bottom-up stock selection with systematic pair trades, making it attractive for investors who value fundamental research over quantitative models. Visit the <Link href="/arudha-equity-long-short" className="text-primary hover:underline">Arudha Equity Long Short</Link> page.
+                  <strong className="text-foreground">Bandhan Arudha</strong> uses bottom-up stock selection with systematic pair trades, making it attractive for investors who value fundamental research over quantitative models. Visit the <Link href="/sifs/arudha-equity-long-short" className="text-primary hover:underline">Arudha Equity Long Short</Link> page.
                 </p>
               </div>
             </div>
@@ -169,10 +169,10 @@ const BestSifToInvest2026 = () => {
                   <strong className="text-foreground">Edelweiss Altiva</strong> has the first-mover advantage as India&apos;s first hybrid long-short SIF. It combines equity long-short exposure with a fixed-income allocation to dampen volatility. Edelweiss&apos;s experience managing multi-asset strategies makes Altiva a well-rounded choice for moderate-risk investors. Check the <Link href="/sifs/altiva-hybrid-long-short" className="text-primary hover:underline">Altiva fund page</Link> for live NAV data.
                 </p>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Motilal Oswal Magnum</strong> benefits from one of India&apos;s strongest equity research teams. The fund takes a multi-asset approach with tactical equity hedging, making it suitable for investors who want hybrid exposure with a growth tilt.
+                  <strong className="text-foreground">SBI Magnum</strong> benefits from the scale and institutional research depth of India&apos;s largest public-sector AMC. The fund takes a multi-asset approach with tactical equity hedging, making it suitable for investors who want hybrid exposure with a growth tilt.
                 </p>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">DSP Titanium</strong> is positioned as the most conservative option in this category. With systematic derivatives hedging and a focus on capital preservation, Titanium is designed for investors who prioritise lower drawdowns over maximising upside.
+                  <strong className="text-foreground">Tata Titanium</strong> is positioned as the most conservative option in this category. With systematic derivatives hedging and a focus on capital preservation, Titanium is designed for investors who prioritise lower drawdowns over maximising upside.
                 </p>
                 <p className="text-base text-muted-foreground leading-relaxed">
                   <strong className="text-foreground">ICICI Prudential iSIF Hybrid</strong> brings the weight of India&apos;s largest AMC. ICICI Pru&apos;s scale provides access to deep liquidity pools and institutional-grade risk management infrastructure. The balanced allocation framework is designed for consistent performance across market cycles.
@@ -236,8 +236,8 @@ const BestSifToInvest2026 = () => {
                     <TableRow><TableCell className="font-medium">Aggressive, 5+ year horizon</TableCell><TableCell>Equity Long Short</TableCell><TableCell className="text-primary font-medium">qSIF Equity Long Short</TableCell></TableRow>
                     <TableRow><TableCell className="font-medium">Moderate risk, wants stability</TableCell><TableCell>Hybrid Long Short</TableCell><TableCell className="text-primary font-medium">Altiva Hybrid Long Short</TableCell></TableRow>
                     <TableRow><TableCell className="font-medium">High risk, mid/small-cap believer</TableCell><TableCell>Ex-Top 100</TableCell><TableCell className="text-primary font-medium">qSIF Ex-Top 100</TableCell></TableRow>
-                    <TableRow><TableCell className="font-medium">Conservative, first SIF investor</TableCell><TableCell>Hybrid Long Short</TableCell><TableCell className="text-primary font-medium">DSP Titanium</TableCell></TableRow>
-                    <TableRow><TableCell className="font-medium">Value-oriented, fundamental focus</TableCell><TableCell>Equity Long Short</TableCell><TableCell className="text-primary font-medium">White Oak Arudha</TableCell></TableRow>
+                    <TableRow><TableCell className="font-medium">Conservative, first SIF investor</TableCell><TableCell>Hybrid Long Short</TableCell><TableCell className="text-primary font-medium">Tata Titanium</TableCell></TableRow>
+                    <TableRow><TableCell className="font-medium">Value-oriented, fundamental focus</TableCell><TableCell>Equity Long Short</TableCell><TableCell className="text-primary font-medium">Bandhan Arudha</TableCell></TableRow>
                   </TableBody>
                 </Table>
               </div>
