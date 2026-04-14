@@ -22,6 +22,7 @@ const nextConfig = {
       { source: "/diviniti-equity-long-short", destination: "/sifs/diviniti-equity-long-short", permanent: true },
       { source: "/dyna-active-asset-allocator", destination: "/sifs/dyna-active-asset-allocator", permanent: true },
       { source: "/apex-hybrid-long-short", destination: "/sifs/apex-hybrid-long-short", permanent: true },
+      { source: "/arudha-equity-long-short", destination: "/sifs/arudha-equity-long-short", permanent: true },
     ];
   },
   images: {
