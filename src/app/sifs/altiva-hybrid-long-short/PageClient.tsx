@@ -23,7 +23,7 @@ const METRICS = [
   { label: "Latest NAV", value: "₹10.3842", sub: "Apr 8, 2026", color: "" },
   { label: "1M Return", value: "+1.23%", sub: "", color: "text-green-600" },
   { label: "3M Return", value: "+0.91%", sub: "", color: "text-green-600" },
-  { label: "Since Inception", value: "+3.75%", sub: "", color: "text-green-600" },
+  { label: "Since Inception", value: "+2.10%", sub: "", color: "text-green-600" },
   { label: "TER", value: "1.67%", sub: "Regular plan", color: "" },
   { label: "6M Return", value: "+0.91%", sub: "", color: "text-green-600" },
 ];
@@ -43,7 +43,7 @@ const TRAILING = [
   { period: "1M", value: "+1.23%" },
   { period: "3M", value: "+0.91%" },
   { period: "6M", value: "+0.91%" },
-  { period: "Since Inception", value: "+3.75%" },
+  { period: "Since Inception", value: "+2.10%" },
   { period: "FYTD", value: "+2.86%" },
 ];
 
@@ -276,7 +276,7 @@ const AltivaSif = () => {
                 <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
                   <div className="flex items-baseline gap-3 mb-1">
                     <span className="text-2xl font-bold text-gray-900">₹10.3842</span>
-                    <span className="text-sm font-semibold text-green-600">+3.75% since inception</span>
+                    <span className="text-sm font-semibold text-green-600">+2.10% since inception</span>
                   </div>
                   <div className="h-[280px] mt-4">
                     {fundData && (
