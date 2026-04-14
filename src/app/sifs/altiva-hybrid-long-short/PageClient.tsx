@@ -78,10 +78,10 @@ const RISK = [
 ];
 
 const PEERS = [
-  { name: "Arudha Hybrid", amc: "Bandhan", ret: "+3.1%", href: "/sifs/arudha-hybrid-long-short" },
-  { name: "qSIF Hybrid", amc: "Quant", ret: "+2.8%", href: "/sifs/qsif-hybrid-long-short" },
-  { name: "Magnum SIF", amc: "SBI", ret: "+1.9%", href: "/sifs/magnum-hybrid-long-short" },
-  { name: "Titanium SIF", amc: "Tata", ret: "+1.2%", href: "/sifs/titanium-hybrid-long-short" },
+  { name: "Arudha Hybrid", amc: "Bandhan", ret: "+0.6%", href: "/sifs/arudha-hybrid-long-short" },
+  { name: "Apex Hybrid", amc: "DSP", ret: "+0.2%", href: "/sifs/apex-hybrid-long-short" },
+  { name: "Magnum SIF", amc: "SBI", ret: "-0.4%", href: "/sifs/magnum-hybrid-long-short" },
+  { name: "qSIF Hybrid", amc: "Quant", ret: "-1.7%", href: "/sifs/qsif-hybrid-long-short" },
 ];
 
 const TEAM = [
