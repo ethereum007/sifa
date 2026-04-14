@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinkHub from "@/components/InternalLinkHub";
 import { Badge } from "@/components/ui/badge";
 
 
@@ -207,6 +208,8 @@ const Blog = () => {
             </div>
           </div>
         </section>
+
+        <InternalLinkHub heading="Explore SIF Funds" subheading="All 14 launched SIFs on SIFPrime, organized by category." variant="funds" />
       </main>
 
       <Footer />

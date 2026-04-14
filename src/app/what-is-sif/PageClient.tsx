@@ -5,6 +5,7 @@ import { CONSULTATION_URL } from "@/lib/whatsapp";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinkHub from "@/components/InternalLinkHub";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2, AlertTriangle, TrendingUp, TrendingDown, Shield, BarChart3, Wallet, Layers, RefreshCw, Scale, Target, Users, FileText, Clock, DollarSign, BookOpen } from "lucide-react";
@@ -764,6 +765,115 @@ const WhatIsSif = () => {
           </div>
         </section>
 
+        {/* Explore All SIFs & Guides Hub */}
+        <section className="py-12 lg:py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">Explore All SIFs & Guides</h2>
+                <p className="text-base text-foreground/75 max-w-2xl mx-auto">
+                  Browse every Specialized Investment Fund launched in India, alongside in-depth guides on strategy, taxation, rules, and performance.
+                </p>
+              </div>
+
+              <div className="mb-10">
+                <h3 className="text-lg font-bold text-foreground mb-5">SIF Funds by Strategy</h3>
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Equity Long Short</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/qsif-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Equity Long-Short</a></li>
+                      <li><a href="/diviniti-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Diviniti Equity Long-Short</a></li>
+                      <li><a href="/dyna-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Equity Long-Short</a></li>
+                      <li><a href="/arudha-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Arudha Equity Long-Short</a></li>
+                      <li><a href="/sifs/sapphire-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Sapphire Equity Long-Short</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Ex-Top 100</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/qsif-ex-top-100-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Ex-Top 100 Long-Short</a></li>
+                      <li><a href="/sifs/isif/extop100" className="text-foreground/80 hover:text-primary hover:underline">iSIF Ex-Top 100</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Hybrid Long Short</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/sifs/qsif-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Hybrid Long-Short</a></li>
+                      <li><a href="/sifs/isif/hybrid" className="text-foreground/80 hover:text-primary hover:underline">iSIF Hybrid</a></li>
+                      <li><a href="/sifs/magnum-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Magnum Hybrid (SBI)</a></li>
+                      <li><a href="/sifs/titanium-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Titanium Hybrid (Tata)</a></li>
+                      <li><a href="/sifs/altiva-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Altiva Hybrid (Edelweiss)</a></li>
+                      <li><a href="/sifs/arudha-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Arudha Hybrid</a></li>
+                      <li><a href="/apex-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Apex Hybrid (ABSL)</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Active Asset Allocator</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/dyna-active-asset-allocator" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Active Asset Allocator</a></li>
+                      <li><a href="/sifs/qsif-active-asset-allocator-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Active Asset Allocator</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-5">Guides & Resources</h3>
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">SIF Basics</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/what-is-sif" className="text-foreground/80 hover:text-primary hover:underline">What is a SIF?</a></li>
+                      <li><a href="/all-sifs-india-ranked-explained" className="text-foreground/80 hover:text-primary hover:underline">All SIFs in India Ranked</a></li>
+                      <li><a href="/which-sif-should-you-invest-in" className="text-foreground/80 hover:text-primary hover:underline">Which SIF Should You Invest In?</a></li>
+                      <li><a href="/blog/best-sif-to-invest-2026" className="text-foreground/80 hover:text-primary hover:underline">Best SIF to Invest in 2026</a></li>
+                      <li><a href="/sif-compare" className="text-foreground/80 hover:text-primary hover:underline">SIF Comparison Tool</a></li>
+                      <li><a href="/best-hybrid-sif" className="text-foreground/80 hover:text-primary hover:underline">Best Hybrid SIF</a></li>
+                      <li><a href="/ex-top-100-sif-explained" className="text-foreground/80 hover:text-primary hover:underline">Ex-Top 100 SIF Explained</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Comparisons</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/sif-vs-pms-vs-aif" className="text-foreground/80 hover:text-primary hover:underline">SIF vs PMS vs AIF</a></li>
+                      <li><a href="/sif-vs-mf" className="text-foreground/80 hover:text-primary hover:underline">SIF vs Mutual Fund</a></li>
+                      <li><a href="/blog/sif-vs-pms-detailed-comparison" className="text-foreground/80 hover:text-primary hover:underline">SIF vs PMS — Detailed</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Rules & Tax</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/sif-tax-guide" className="text-foreground/80 hover:text-primary hover:underline">SIF Tax Guide</a></li>
+                      <li><a href="/sif-redemption-rules" className="text-foreground/80 hover:text-primary hover:underline">SIF Redemption Rules</a></li>
+                      <li><a href="/sif-liquidity-guide" className="text-foreground/80 hover:text-primary hover:underline">SIF Liquidity Guide</a></li>
+                      <li><a href="/sif-derivatives-explained" className="text-foreground/80 hover:text-primary hover:underline">SIF Derivatives Explained</a></li>
+                      <li><a href="/sif-sip-swp-guide" className="text-foreground/80 hover:text-primary hover:underline">SIF SIP & SWP Guide</a></li>
+                      <li><a href="/blog/sif-sip-minimum-amount" className="text-foreground/80 hover:text-primary hover:underline">SIF SIP Minimum Amount</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">NRI & Advisors</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/nri-sif-guide" className="text-foreground/80 hover:text-primary hover:underline">NRI SIF Guide</a></li>
+                      <li><a href="/blog/sif-for-nri-complete-guide" className="text-foreground/80 hover:text-primary hover:underline">Complete NRI SIF Guide</a></li>
+                      <li><a href="/sif-for-mfd" className="text-foreground/80 hover:text-primary hover:underline">SIF for MFDs</a></li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-5 rounded-lg">
+                    <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Performance & Data</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/sif-performance" className="text-foreground/80 hover:text-primary hover:underline">SIF Performance</a></li>
+                      <li><a href="/sifnav" className="text-foreground/80 hover:text-primary hover:underline">SIF NAV Tracker</a></li>
+                      <li><a href="/upcoming-sifs" className="text-foreground/80 hover:text-primary hover:underline">Upcoming SIFs</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA Section */}
         <section className="py-12 lg:py-16 bg-gradient-to-b from-primary/10 to-background">
           <div className="container mx-auto px-4">
@@ -789,6 +899,8 @@ const WhatIsSif = () => {
             </div>
           </div>
         </section>
+
+        <InternalLinkHub />
 
         {/* Disclaimers */}
         <section className="py-8 bg-muted/50">

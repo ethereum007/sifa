@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InternalLinkHub from "@/components/InternalLinkHub";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -361,6 +362,8 @@ const AllSifsRanked = () => {
             </div>
           </div>
         </section>
+
+        <InternalLinkHub />
 
         {/* About & Disclaimer */}
         <section className="py-8 lg:py-12">
