@@ -32,7 +32,7 @@ const Index = memo(() => {
     <div className="min-h-screen bg-background">
       <NfoBannerTop />
       <Header />
-      <main className="pt-[96px] lg:pt-[112px]">
+      <main className="pt-[104px] lg:pt-[120px]">
         <PerformanceBanner />
         <Hero />
         <MarketConditionsWidget />

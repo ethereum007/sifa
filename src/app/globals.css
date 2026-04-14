@@ -291,7 +291,7 @@
   }
 
   .animate-nfo-ticker {
-    animation: nfoTicker 25s linear infinite;
+    animation: nfoTicker 60s linear infinite;
     will-change: transform;
   }
 

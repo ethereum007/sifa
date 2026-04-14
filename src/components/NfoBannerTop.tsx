@@ -12,9 +12,9 @@ const NfoBannerTop = () => {
   }
 
   const tickerContent = (
-    <div className="flex items-center gap-3 sm:gap-6 px-2 sm:px-4 whitespace-nowrap" style={{ fontSize: "12px" }}>
+    <div className="flex items-center gap-3 sm:gap-6 px-2 sm:px-4 whitespace-nowrap" style={{ fontSize: "13px" }}>
       <span className="inline-flex items-center gap-2">
-        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "10px" }}>
+        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "11px" }}>
           NFO OPEN
         </span>
         <span className="font-semibold text-white">
@@ -33,14 +33,14 @@ const NfoBannerTop = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"
-        style={{ fontSize: "12px" }}
+        style={{ fontSize: "13px" }}
         onClick={(e) => e.stopPropagation()}
       >
         Invest Now
       </a>
       <span className="text-[#0f1f3d]/30 mx-4">•</span>
       <span className="inline-flex items-center gap-2">
-        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "10px" }}>
+        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "11px" }}>
           NFO OPEN
         </span>
         <span className="font-semibold text-white">
@@ -55,7 +55,7 @@ const NfoBannerTop = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"
-        style={{ fontSize: "12px" }}
+        style={{ fontSize: "13px" }}
         onClick={(e) => e.stopPropagation()}
       >
         Invest Now
@@ -70,7 +70,7 @@ const NfoBannerTop = () => {
       style={{ backgroundColor: "#0f1f3d" }}
     >
       {/* Scrolling ticker */}
-      <div className="relative flex items-center h-8">
+      <div className="relative flex items-center h-10">
         {/* Scrolling content container */}
         <div className="flex animate-nfo-ticker hover:[animation-play-state:paused]">
           {/* Duplicate content 4 times for seamless loop */}

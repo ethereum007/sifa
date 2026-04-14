@@ -120,7 +120,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-8 left-0 right-0 z-50 bg-white border-b border-border/60" style={{ overflow: 'visible' }}>
+    <header className="fixed top-10 left-0 right-0 z-50 bg-white border-b border-border/60" style={{ overflow: 'visible' }}>
       <div className="container mx-auto px-4" style={{ overflow: 'visible' }}>
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
           {/* Logo */}
