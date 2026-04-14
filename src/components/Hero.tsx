@@ -55,7 +55,7 @@ const Hero = () => {
         <div className="mt-10 sm:mt-14 grid grid-cols-3 gap-4 sm:gap-8 max-w-sm sm:max-w-lg mx-auto">
           {[
             { value: "₹10L", label: "Min Investment" },
-            { value: "14", label: "Active SIFs" },
+            { value: "16", label: "Active SIFs" },
             { value: "SEBI", label: "Regulated" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
