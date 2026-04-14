@@ -93,6 +93,9 @@
     font-family: 'Geist', 'Inter', system-ui, sans-serif;
     font-feature-settings: "cv11", "ss01", "ss03";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
   }
   /* Tabular numbers for tables/metrics — Bloomberg-style */
   table, .font-mono, .tabular-nums {
@@ -102,10 +105,6 @@
     font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.7;
-    overflow-x: hidden;
-    min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
   }
 
   h1, h2, h3, h4, h5, h6 {
