@@ -65,7 +65,7 @@ import { getSifBySlug } from "@/lib/sifData";
 
 
 const DynaSifActiveAssetAllocator = () => {
-  const fundData = getSifBySlug('dynasif-active-asset-allocator');
+  const fundData = getSifBySlug('dyna-active-asset-allocator');
   return (
     <div className="min-h-screen bg-background">
       <Suspense fallback={<div className="h-16 lg:h-20" />}>

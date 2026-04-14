@@ -23,7 +23,7 @@ import MonthlyHeatmap from "@/components/MonthlyHeatmap";
 import { getSifBySlug } from "@/lib/sifData";
 
 const ISIF = () => {
-  const fundData = getSifBySlug('isif-ex-top-100');
+  const fundData = getSifBySlug('sifs/isif/extop100');
   const features = [
     {
       icon: TrendingUp,

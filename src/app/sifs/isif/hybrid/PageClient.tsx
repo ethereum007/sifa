@@ -23,7 +23,7 @@ import MonthlyHeatmap from "@/components/MonthlyHeatmap";
 import { getSifBySlug } from "@/lib/sifData";
 
 const ISIFHybrid = () => {
-  const fundData = getSifBySlug('isif-hybrid');
+  const fundData = getSifBySlug('isif/hybrid');
   const features = [
     {
       icon: PieChart,

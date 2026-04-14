@@ -65,7 +65,7 @@ import { getSifBySlug } from "@/lib/sifData";
 
 
 const DynaSif = () => {
-  const fundData = getSifBySlug('dynasif-equity-long-short');
+  const fundData = getSifBySlug('dyna-equity-long-short');
   return (
     <div className="min-h-screen bg-background">
       <Suspense fallback={<div className="h-16 lg:h-20" />}>

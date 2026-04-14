@@ -46,7 +46,7 @@ import { getSifBySlug } from "@/lib/sifData";
 
 
 const QsifExTop100Sif = () => {
-  const fundData = getSifBySlug('qsif-ex-top-100');
+  const fundData = getSifBySlug('qsif-ex-top-100-long-short');
   return (
     <div className="min-h-screen bg-background">
       <Suspense fallback={<div className="h-16 lg:h-20" />}>
