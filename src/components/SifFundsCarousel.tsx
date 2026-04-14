@@ -34,7 +34,7 @@ const fundsByCategory: Record<Category, SifFund[]> = {
   "Equity Long Short": [
     { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", internalLink: "/diviniti-equity-long-short" },
     { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", internalLink: "/qsif-equity-long-short" },
-    { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", internalLink: "/dyna-equity-long-short" },
+    { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", internalLink: "/sifs/dyna-equity-long-short" },
     { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-equity-long-short" },
     { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", internalLink: "/sifs/sapphire-equity-long-short" },
   ],
