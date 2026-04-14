@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const PageClient = dynamic(() => import("./PageClient"));
 
@@ -21,5 +23,21 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <ArticleJsonLd
+        headline="Ex-Top 100 SIF India: The SMID Long-Short Strategy Explained"
+        description="What is an Ex-Top 100 SIF? How ICICI Pru and Quant are targeting India's mid and small-cap universe with long-short strategies — and whether this category is right for you."
+        url="https://sifprime.com/ex-top-100-sif-explained"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://sifprime.com" },
+          { name: "Guides", url: "https://sifprime.com/blog" },
+          { name: "Ex-Top 100 SIF Explained", url: "https://sifprime.com/ex-top-100-sif-explained" },
+        ]}
+      />
+      <PageClient />
+    </>
+  );
 }

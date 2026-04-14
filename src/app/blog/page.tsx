@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import ItemListJsonLd from "@/components/ItemListJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const PageClient = dynamic(() => import("./PageClient"));
 
@@ -21,5 +23,24 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <ItemListJsonLd
+        name="SIFPrime Blog Posts"
+        items={[
+          { name: "Best SIF to Invest in 2026", url: "https://sifprime.com/blog/best-sif-to-invest-2026" },
+          { name: "SIF vs PMS: Detailed Comparison", url: "https://sifprime.com/blog/sif-vs-pms-detailed-comparison" },
+          { name: "SIF for NRI: Complete Guide", url: "https://sifprime.com/blog/sif-for-nri-complete-guide" },
+          { name: "SIF SIP Minimum Amount", url: "https://sifprime.com/blog/sif-sip-minimum-amount" },
+        ]}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://sifprime.com" },
+          { name: "Blog", url: "https://sifprime.com/blog" },
+        ]}
+      />
+      <PageClient />
+    </>
+  );
 }

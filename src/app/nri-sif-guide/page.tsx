@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const PageClient = dynamic(() => import("./PageClient"));
 
@@ -21,5 +23,21 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <ArticleJsonLd
+        headline="NRI Guide to SIF Investments in India 2025: Rules & Best Funds"
+        description="Can NRIs invest in Specialized Investment Funds in India? Yes. Here's the complete NRI guide — eligibility, NRE/NRO account rules, KYC, repatriation, taxation, and the best SIFs for NRI portfolios."
+        url="https://sifprime.com/nri-sif-guide"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://sifprime.com" },
+          { name: "Guides", url: "https://sifprime.com/blog" },
+          { name: "NRI SIF Guide", url: "https://sifprime.com/nri-sif-guide" },
+        ]}
+      />
+      <PageClient />
+    </>
+  );
 }

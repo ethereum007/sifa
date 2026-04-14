@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const PageClient = dynamic(() => import("./PageClient"));
 
@@ -21,5 +23,21 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageClient />;
+  return (
+    <>
+      <ArticleJsonLd
+        headline="SIF vs PMS vs AIF: Which One Should HNIs Choose in 2025?"
+        description="Confused between SIF, PMS, and AIF? This side-by-side comparison breaks down minimums, costs, liquidity, tax treatment, and which structure suits each HNI investor type."
+        url="https://sifprime.com/sif-vs-pms-vs-aif"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://sifprime.com" },
+          { name: "Guides", url: "https://sifprime.com/blog" },
+          { name: "SIF vs PMS vs AIF", url: "https://sifprime.com/sif-vs-pms-vs-aif" },
+        ]}
+      />
+      <PageClient />
+    </>
+  );
 }
