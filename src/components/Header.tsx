@@ -18,6 +18,7 @@ const Header = () => {
     { label: "Diviniti SIF by ITI", href: "/diviniti-equity-long-short" },
     { label: "Dyna SIF by 360 ONE", href: "/dyna-equity-long-short" },
     { label: "Arudha Equity L/S by Bandhan", href: "/arudha-equity-long-short" },
+    { label: "Sapphire by Franklin Templeton", href: "/sifs/sapphire-equity-long-short" },
     { label: "Ex-Top 100 Long Short", href: "/sif-funds-launched", section: true },
     { label: "qSIF Ex-Top 100 by Quant", href: "/qsif-ex-top-100-long-short" },
     { label: "iSIF Ex-Top 100 by ICICI", href: "/sifs/isif/extop100" },
@@ -31,6 +32,7 @@ const Header = () => {
     { label: "Apex SIF by ABSL", href: "/apex-hybrid-long-short" },
     { label: "Active Asset Allocator", href: "/sif-funds-launched", section: true },
     { label: "Dyna AAA by 360 ONE", href: "/dyna-active-asset-allocator" },
+    { label: "qSIF by Quant", href: "/sifs/qsif-active-asset-allocator-long-short" },
   ];
 
   const learnItems = [
