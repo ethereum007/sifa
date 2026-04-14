@@ -35,7 +35,7 @@ const Index = memo(() => {
       <main className="pt-[104px] lg:pt-[120px]">
         <Hero />
         <PerformanceBanner />
-        <MarketConditionsWidget />
+        {/* <MarketConditionsWidget /> */}
         <SifFundsCarousel />
         <UpcomingSifsScroller />
         <QuickActionButtons />
