@@ -25,6 +25,7 @@ const PEER_FUNDS = getPeers("altiva-hybrid-long-short");
 
 const AMC_URL = "https://www.edelweissmf.com/altivasif";
 
+const NfoBannerTop = dynamic(() => import("@/components/NfoBannerTop"));
 const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
@@ -264,11 +265,12 @@ const AltivaSif = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <NfoBannerTop />
       <Suspense fallback={<div className="h-16 lg:h-20" />}>
         <Header />
       </Suspense>
 
-      <main className="pt-24 lg:pt-28 pb-20">
+      <main className="pt-[104px] lg:pt-[120px] pb-20">
         {/* HERO */}
         <section className="bg-white border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
@@ -349,7 +351,7 @@ const AltivaSif = () => {
         </section>
 
         {/* TAB NAV */}
-        <section className="bg-white border-b border-gray-100 sticky top-[88px] lg:top-[104px] z-30">
+        <section className="bg-white border-b border-gray-100 sticky top-[104px] lg:top-[112px] z-30">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex gap-0 overflow-x-auto">
               {TABS.map((tab) => (
