@@ -71,11 +71,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Individual fund pages
   const fundPages = [
-    "/qsif-equity-long-short",
-    "/qsif-ex-top-100-long-short",
-    "/diviniti-equity-long-short",
+    "/sifs/qsif-equity-long-short",
+    "/sifs/qsif-ex-top-100-long-short",
+    "/sifs/diviniti-equity-long-short",
     "/sifs/dyna-equity-long-short",
-    "/dyna-active-asset-allocator",
+    "/sifs/dyna-active-asset-allocator",
     "/arudha-equity-long-short",
     "/apex-hybrid-long-short",
     "/sifs/altiva-hybrid-long-short",

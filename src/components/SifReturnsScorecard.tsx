@@ -65,8 +65,8 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     tag: "equity",
     funds: [
       { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", endNav: 9.7180, m1: -4.42, m3: -4.39, sinceInception: -4.39, href: "/sifs/dyna-equity-long-short" },
-      { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", endNav: 948.8272, m1: -2.24, m3: -5.61, sinceInception: -5.24, href: "/diviniti-equity-long-short" },
-      { name: "qSIF Equity Long-Short", inception: "08-Oct-25", endNav: 9.1473, m1: -8.23, m3: -11.68, sinceInception: -10.77, href: "/qsif-equity-long-short" },
+      { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", endNav: 948.8272, m1: -2.24, m3: -5.61, sinceInception: -5.24, href: "/sifs/diviniti-equity-long-short" },
+      { name: "qSIF Equity Long-Short", inception: "08-Oct-25", endNav: 9.1473, m1: -8.23, m3: -11.68, sinceInception: -10.77, href: "/sifs/qsif-equity-long-short" },
       { name: "Arudha Equity Long-Short", inception: "30-Mar-26", endNav: 9.9590, m1: null, m3: null, sinceInception: 0, href: "/sifs/arudha-equity-long-short" },
     ],
   },
@@ -75,7 +75,7 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     tag: "extop",
     funds: [
       { name: "iSIF Ex-Top 100 Long-Short", inception: "05-Feb-26", endNav: 9.2800, m1: -7.30, m3: -9.71, sinceInception: -9.71, href: "/sifs/isif/extop100" },
-      { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", endNav: 8.8418, m1: -6.27, m3: -13.03, sinceInception: -14.02, href: "/qsif-ex-top-100-long-short" },
+      { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", endNav: 8.8418, m1: -6.27, m3: -13.03, sinceInception: -14.02, href: "/sifs/qsif-ex-top-100-long-short" },
     ],
   },
 ];

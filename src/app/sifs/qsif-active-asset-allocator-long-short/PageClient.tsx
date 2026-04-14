@@ -84,9 +84,9 @@ const RISK = [
 ];
 
 const PEERS = [
-  { name: "Dyna Active AA", amc: "DSP", ret: "—", href: "/dyna-active-asset-allocator" },
-  { name: "qSIF Equity L/S", amc: "Quant", ret: "—", href: "/qsif-equity-long-short" },
-  { name: "qSIF Ex-Top 100", amc: "Quant", ret: "—", href: "/qsif-ex-top-100-long-short" },
+  { name: "Dyna Active AA", amc: "DSP", ret: "—", href: "/sifs/dyna-active-asset-allocator" },
+  { name: "qSIF Equity L/S", amc: "Quant", ret: "—", href: "/sifs/qsif-equity-long-short" },
+  { name: "qSIF Ex-Top 100", amc: "Quant", ret: "—", href: "/sifs/qsif-ex-top-100-long-short" },
   { name: "qSIF Hybrid", amc: "Quant", ret: "—", href: "/sifs/qsif-hybrid-long-short" },
 ];
 

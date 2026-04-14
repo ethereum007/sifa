@@ -2,8 +2,8 @@ const FUND_GROUPS: { title: string; links: { label: string; href: string }[] }[]
   {
     title: "Equity Long Short Funds",
     links: [
-      { label: "qSIF by Quant", href: "/qsif-equity-long-short" },
-      { label: "Diviniti SIF by ITI", href: "/diviniti-equity-long-short" },
+      { label: "qSIF by Quant", href: "/sifs/qsif-equity-long-short" },
+      { label: "Diviniti SIF by ITI", href: "/sifs/diviniti-equity-long-short" },
       { label: "Dyna SIF by 360 ONE", href: "/sifs/dyna-equity-long-short" },
       { label: "Arudha by Bandhan", href: "/arudha-equity-long-short" },
       { label: "Sapphire by Franklin Templeton", href: "/sifs/sapphire-equity-long-short" },
@@ -12,7 +12,7 @@ const FUND_GROUPS: { title: string; links: { label: string; href: string }[] }[]
   {
     title: "Ex-Top 100 Long Short",
     links: [
-      { label: "qSIF Ex-Top 100 by Quant", href: "/qsif-ex-top-100-long-short" },
+      { label: "qSIF Ex-Top 100 by Quant", href: "/sifs/qsif-ex-top-100-long-short" },
       { label: "iSIF Ex-Top 100 by ICICI", href: "/sifs/isif/extop100" },
     ],
   },
@@ -31,7 +31,7 @@ const FUND_GROUPS: { title: string; links: { label: string; href: string }[] }[]
   {
     title: "Active Asset Allocator",
     links: [
-      { label: "Dyna AAA by 360 ONE", href: "/dyna-active-asset-allocator" },
+      { label: "Dyna AAA by 360 ONE", href: "/sifs/dyna-active-asset-allocator" },
       { label: "qSIF AAA by Quant", href: "/sifs/qsif-active-asset-allocator-long-short" },
     ],
   },

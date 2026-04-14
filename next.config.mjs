@@ -17,6 +17,10 @@ const nextConfig = {
       { source: "/compare-sifs", destination: "/sif-compare", permanent: true },
       { source: "/arudha", destination: "/sifs/arudha-hybrid-long-short", permanent: true },
       { source: "/dyna-equity-long-short", destination: "/sifs/dyna-equity-long-short", permanent: true },
+      { source: "/qsif-equity-long-short", destination: "/sifs/qsif-equity-long-short", permanent: true },
+      { source: "/qsif-ex-top-100-long-short", destination: "/sifs/qsif-ex-top-100-long-short", permanent: true },
+      { source: "/diviniti-equity-long-short", destination: "/sifs/diviniti-equity-long-short", permanent: true },
+      { source: "/dyna-active-asset-allocator", destination: "/sifs/dyna-active-asset-allocator", permanent: true },
     ];
   },
   images: {

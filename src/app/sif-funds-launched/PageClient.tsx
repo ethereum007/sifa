@@ -48,15 +48,15 @@ const categories: CategoryData[] = [
     badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
     funds: [
       { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/extop100" },
-      { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", href: "/qsif-ex-top-100-long-short" },
+      { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", href: "/sifs/qsif-ex-top-100-long-short" },
     ],
   },
   {
     label: "Equity Long Short",
     badgeClass: "bg-blue-50 text-blue-700 border-blue-200",
     funds: [
-      { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/diviniti-equity-long-short" },
-      { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", href: "/qsif-equity-long-short" },
+      { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/sifs/diviniti-equity-long-short" },
+      { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-equity-long-short" },
       { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/sifs/dyna-equity-long-short" },
       { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-equity-long-short" },
     ],
@@ -65,7 +65,7 @@ const categories: CategoryData[] = [
     label: "Active Asset Allocator",
     badgeClass: "bg-orange-50 text-orange-700 border-orange-200",
     funds: [
-      { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", href: "/dyna-active-asset-allocator", linkText: "View" },
+      { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", href: "/sifs/dyna-active-asset-allocator", linkText: "View" },
     ],
   },
 ];

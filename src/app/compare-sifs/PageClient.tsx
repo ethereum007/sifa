@@ -9,11 +9,11 @@ const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 const sifData = [
-  { name: "qSIF Equity Long Short", amc: "Quant", category: "Equity LS", launch: "Feb 2025", path: "/qsif-equity-long-short" },
-  { name: "Diviniti Equity Long Short", amc: "ITI", category: "Equity LS", launch: "Mar 2025", path: "/diviniti-equity-long-short" },
+  { name: "qSIF Equity Long Short", amc: "Quant", category: "Equity LS", launch: "Feb 2025", path: "/sifs/qsif-equity-long-short" },
+  { name: "Diviniti Equity Long Short", amc: "ITI", category: "Equity LS", launch: "Mar 2025", path: "/sifs/diviniti-equity-long-short" },
   { name: "Dyna SIF Equity Long Short", amc: "360 ONE", category: "Equity LS", launch: "Mar 2025", path: "/sifs/dyna-equity-long-short" },
   { name: "Arudha Equity Long Short", amc: "Bandhan", category: "Equity LS", launch: "Apr 2025", path: "/arudha-equity-long-short" },
-  { name: "qSIF Ex-Top 100", amc: "Quant", category: "Ex-Top 100", launch: "Feb 2025", path: "/qsif-ex-top-100-long-short" },
+  { name: "qSIF Ex-Top 100", amc: "Quant", category: "Ex-Top 100", launch: "Feb 2025", path: "/sifs/qsif-ex-top-100-long-short" },
   { name: "iSIF Ex-Top 100", amc: "ICICI Prudential", category: "Ex-Top 100", launch: "Apr 2025", path: "/sifs/isif/extop100" },
   { name: "qSIF Hybrid Long Short", amc: "Quant", category: "Hybrid LS", launch: "Feb 2025", path: "/sifs/qsif-hybrid-long-short" },
   { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential", category: "Hybrid LS", launch: "Apr 2025", path: "/sifs/isif/hybrid" },
@@ -22,7 +22,7 @@ const sifData = [
   { name: "Altiva Hybrid Long Short", amc: "Edelweiss", category: "Hybrid LS", launch: "Mar 2025", path: "/sifs/altiva-hybrid-long-short" },
   { name: "Arudha Hybrid Long Short", amc: "Bandhan", category: "Hybrid LS", launch: "Apr 2025", path: "/sifs/arudha-hybrid-long-short" },
   { name: "Apex SIF Hybrid Long Short", amc: "ABSL", category: "Hybrid LS", launch: "Mar 2025", path: "/apex-hybrid-long-short" },
-  { name: "Dyna SIF Active Asset Allocator", amc: "360 ONE", category: "AAA", launch: "Mar 2025", path: "/dyna-active-asset-allocator" },
+  { name: "Dyna SIF Active Asset Allocator", amc: "360 ONE", category: "AAA", launch: "Mar 2025", path: "/sifs/dyna-active-asset-allocator" },
 ];
 
 const categoryColors: Record<string, string> = {

@@ -8,12 +8,12 @@ interface Fund {
 }
 
 const ALL_FUNDS: Fund[] = [
-  { name: "qSIF Equity Long Short", href: "/qsif-equity-long-short", amc: "Quant", category: "Equity Long Short" },
-  { name: "qSIF Ex-Top 100 Long Short", href: "/qsif-ex-top-100-long-short", amc: "Quant", category: "Equity Ex-Top 100" },
+  { name: "qSIF Equity Long Short", href: "/sifs/qsif-equity-long-short", amc: "Quant", category: "Equity Long Short" },
+  { name: "qSIF Ex-Top 100 Long Short", href: "/sifs/qsif-ex-top-100-long-short", amc: "Quant", category: "Equity Ex-Top 100" },
   { name: "qSIF Hybrid Long Short", href: "/sifs/qsif-hybrid-long-short", amc: "Quant", category: "Hybrid Long Short" },
-  { name: "Diviniti SIF Equity Long Short", href: "/diviniti-equity-long-short", amc: "ITI", category: "Equity Long Short" },
+  { name: "Diviniti SIF Equity Long Short", href: "/sifs/diviniti-equity-long-short", amc: "ITI", category: "Equity Long Short" },
   { name: "Dyna SIF Equity Long Short", href: "/sifs/dyna-equity-long-short", amc: "360 ONE", category: "Equity Long Short" },
-  { name: "Dyna SIF Active Asset Allocator", href: "/dyna-active-asset-allocator", amc: "360 ONE", category: "Active Asset Allocator" },
+  { name: "Dyna SIF Active Asset Allocator", href: "/sifs/dyna-active-asset-allocator", amc: "360 ONE", category: "Active Asset Allocator" },
   { name: "Arudha Equity Long Short", href: "/arudha-equity-long-short", amc: "Bandhan", category: "Equity Long Short" },
   { name: "Arudha Hybrid Long Short", href: "/sifs/arudha-hybrid-long-short", amc: "Bandhan", category: "Hybrid Long Short" },
   { name: "Altiva Hybrid Long Short", href: "/sifs/altiva-hybrid-long-short", amc: "Edelweiss", category: "Hybrid Long Short" },

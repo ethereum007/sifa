@@ -29,17 +29,17 @@ const fundsByCategory: Record<Category, SifFund[]> = {
   ],
   "Equity Ex-Top 100": [
     { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/extop100" },
-    { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", internalLink: "/qsif-ex-top-100-long-short" },
+    { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-ex-top-100-long-short" },
   ],
   "Equity Long Short": [
-    { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", internalLink: "/diviniti-equity-long-short" },
-    { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", internalLink: "/qsif-equity-long-short" },
+    { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", internalLink: "/sifs/diviniti-equity-long-short" },
+    { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-equity-long-short" },
     { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", internalLink: "/sifs/dyna-equity-long-short" },
     { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-equity-long-short" },
     { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", internalLink: "/sifs/sapphire-equity-long-short" },
   ],
   "Active Asset Allocator": [
-    { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", internalLink: "/dyna-active-asset-allocator" },
+    { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", internalLink: "/sifs/dyna-active-asset-allocator" },
     { name: "qSIF Active Asset Allocator Long-Short", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-active-asset-allocator-long-short" },
   ],
 };

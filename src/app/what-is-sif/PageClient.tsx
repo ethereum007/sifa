@@ -782,8 +782,8 @@ const WhatIsSif = () => {
                   <div className="glass-card p-5 rounded-lg">
                     <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Equity Long Short</h4>
                     <ul className="space-y-2 text-sm">
-                      <li><a href="/qsif-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Equity Long-Short</a></li>
-                      <li><a href="/diviniti-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Diviniti Equity Long-Short</a></li>
+                      <li><a href="/sifs/qsif-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Equity Long-Short</a></li>
+                      <li><a href="/sifs/diviniti-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Diviniti Equity Long-Short</a></li>
                       <li><a href="/sifs/dyna-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Equity Long-Short</a></li>
                       <li><a href="/arudha-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Arudha Equity Long-Short</a></li>
                       <li><a href="/sifs/sapphire-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Sapphire Equity Long-Short</a></li>
@@ -792,7 +792,7 @@ const WhatIsSif = () => {
                   <div className="glass-card p-5 rounded-lg">
                     <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Ex-Top 100</h4>
                     <ul className="space-y-2 text-sm">
-                      <li><a href="/qsif-ex-top-100-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Ex-Top 100 Long-Short</a></li>
+                      <li><a href="/sifs/qsif-ex-top-100-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Ex-Top 100 Long-Short</a></li>
                       <li><a href="/sifs/isif/extop100" className="text-foreground/80 hover:text-primary hover:underline">iSIF Ex-Top 100</a></li>
                     </ul>
                   </div>
@@ -811,7 +811,7 @@ const WhatIsSif = () => {
                   <div className="glass-card p-5 rounded-lg">
                     <h4 className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">Active Asset Allocator</h4>
                     <ul className="space-y-2 text-sm">
-                      <li><a href="/dyna-active-asset-allocator" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Active Asset Allocator</a></li>
+                      <li><a href="/sifs/dyna-active-asset-allocator" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Active Asset Allocator</a></li>
                       <li><a href="/sifs/qsif-active-asset-allocator-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Active Asset Allocator</a></li>
                     </ul>
                   </div>
