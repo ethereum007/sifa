@@ -16,7 +16,7 @@ const Hero = () => {
 
         {/* Headline */}
         <h1 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-6xl">
-          India&apos;s First{" "}
+          India&apos;s Premier{" "}
           <span className="bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">
             Specialized Investment Funds
           </span>{" "}
