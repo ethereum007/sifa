@@ -9,9 +9,13 @@ const nextConfig = {
     return [
       { source: "/isifextop100", destination: "/sifs/isif/extop100", permanent: true },
       { source: "/isif-hybrid", destination: "/sifs/isif/hybrid", permanent: true },
-      { source: "/sif-compare", destination: "/sif-vs-mf", permanent: true },
       { source: "/specialized-investment-fund-sif", destination: "/what-is-sif", permanent: true },
       { source: "/sif-funds", destination: "/sif-funds-launched", permanent: true },
+      // URL canonicalization — avoid duplicate content penalties
+      { source: "/sifperformance", destination: "/sif-performance", permanent: true },
+      { source: "/sifvsmutualfund", destination: "/sif-vs-mf", permanent: true },
+      { source: "/compare-sifs", destination: "/sif-compare", permanent: true },
+      { source: "/arudha", destination: "/sifs/arudha-hybrid-long-short", permanent: true },
     ];
   },
   images: {
