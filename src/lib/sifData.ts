@@ -424,13 +424,13 @@ export const sifFunds: SIFund[] = [
     },
   },
 
-  // 7. Apex Hybrid Long-Short (DSP)
+  // 7. Apex Hybrid Long-Short (Aditya Birla Sun Life)
   {
     id: 'apex-hybrid-long-short',
     name: 'Apex Hybrid Long-Short',
     shortName: 'Apex',
-    amc: 'DSP Mutual Fund',
-    amcCode: 'DS',
+    amc: 'Aditya Birla Sun Life Mutual Fund',
+    amcCode: 'AB',
     category: 'Hybrid Long Short',
     categorySlug: 'hybrid-long-short',
     inceptionDate: '2026-04-01',
@@ -444,8 +444,8 @@ export const sifFunds: SIFund[] = [
     exitLoad: '0.50% if redeemed within 90 days',
     benchmark: 'NIFTY 50 Hybrid Composite Debt 50:50',
     slug: 'apex-hybrid-long-short',
-    seoTitle: 'Apex SIF by DSP — Hybrid Long Short Fund',
-    seoDesc: 'DSP Apex Hybrid Long-Short SIF launched April 2026.',
+    seoTitle: 'Apex SIF by Aditya Birla Sun Life — Hybrid Long Short Fund',
+    seoDesc: 'Aditya Birla Sun Life Apex Hybrid Long-Short SIF launched April 2026.',
     navHistory: [
       { month: 'Apr 2026', nav: 10.03 },
     ],
@@ -457,7 +457,7 @@ export const sifFunds: SIFund[] = [
       threeMonth: null,
       sinceInception: 0.20,
     },
-    managers: ['Atul Bhole', 'Jay Kothari'],
+    managers: ['Lovelish Solanki', 'Mohit Sharma'],
     strategyType: 'multi-strategy',
     netLongRange: '30-60%',
     marchCrashData: {
@@ -474,7 +474,7 @@ export const sifFunds: SIFund[] = [
       riskLevel: 'moderate',
       strategyClarity: 'high',
       amcTrust: 'specialist',
-      bestFor: ['new fund opportunity', 'DSP brand', 'multi-strategy'],
+      bestFor: ['new fund opportunity', 'Aditya Birla brand', 'multi-strategy'],
     },
   },
 

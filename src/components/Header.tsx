@@ -29,7 +29,7 @@ const Header = () => {
     { label: "Titanium SIF by Tata", href: "/sifs/titanium-hybrid-long-short" },
     { label: "Altiva SIF by Edelweiss", href: "/sifs/altiva-hybrid-long-short" },
     { label: "Arudha SIF by Bandhan", href: "/sifs/arudha-hybrid-long-short" },
-    { label: "Apex SIF by ABSL", href: "/apex-hybrid-long-short" },
+    { label: "Apex SIF by ABSL", href: "/sifs/apex-hybrid-long-short" },
     { label: "Active Asset Allocator", href: "/sif-funds-launched", section: true },
     { label: "Dyna AAA by 360 ONE", href: "/sifs/dyna-active-asset-allocator" },
     { label: "qSIF by Quant", href: "/sifs/qsif-active-asset-allocator-long-short" },

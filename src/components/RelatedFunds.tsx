@@ -22,7 +22,7 @@ const ALL_FUNDS: Fund[] = [
   { name: "iSIF Equity Long Short", href: "/sifs/isif", amc: "ICICI", category: "Equity Long Short" },
   { name: "iSIF Ex-Top 100", href: "/sifs/isif/extop100", amc: "ICICI", category: "Equity Ex-Top 100" },
   { name: "iSIF Hybrid Long Short", href: "/sifs/isif/hybrid", amc: "ICICI", category: "Hybrid Long Short" },
-  { name: "Apex SIF Hybrid Long Short", href: "/apex-hybrid-long-short", amc: "ABSL", category: "Hybrid Long Short" },
+  { name: "Apex SIF Hybrid Long Short", href: "/sifs/apex-hybrid-long-short", amc: "ABSL", category: "Hybrid Long Short" },
 ];
 
 interface RelatedFundsProps {

@@ -21,7 +21,7 @@ const sifData = [
   { name: "Titanium SIF Hybrid Long Short", amc: "Tata", category: "Hybrid LS", launch: "Mar 2025", path: "/sifs/titanium-hybrid-long-short" },
   { name: "Altiva Hybrid Long Short", amc: "Edelweiss", category: "Hybrid LS", launch: "Mar 2025", path: "/sifs/altiva-hybrid-long-short" },
   { name: "Arudha Hybrid Long Short", amc: "Bandhan", category: "Hybrid LS", launch: "Apr 2025", path: "/sifs/arudha-hybrid-long-short" },
-  { name: "Apex SIF Hybrid Long Short", amc: "ABSL", category: "Hybrid LS", launch: "Mar 2025", path: "/apex-hybrid-long-short" },
+  { name: "Apex SIF Hybrid Long Short", amc: "ABSL", category: "Hybrid LS", launch: "Mar 2025", path: "/sifs/apex-hybrid-long-short" },
   { name: "Dyna SIF Active Asset Allocator", amc: "360 ONE", category: "AAA", launch: "Mar 2025", path: "/sifs/dyna-active-asset-allocator" },
 ];
 

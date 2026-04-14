@@ -48,7 +48,7 @@ interface FundEntry {
 // Map SIF Code (Direct Growth) -> display metadata + Regular Growth SIF code
 const FUND_META: Record<string, { amc: string; fund: string; category: string; type?: string; regularSifId: string }> = {
   "SIF-9":  { amc: "Edelweiss", fund: "Altiva Hybrid Long-Short", category: "Hybrid Long Short", type: "Interval", regularSifId: "SIF-11" },
-  "SIF-79": { amc: "DSP", fund: "Apex Hybrid Long-Short", category: "Hybrid Long Short", type: "Interval", regularSifId: "SIF-80" },
+  "SIF-79": { amc: "ABSL", fund: "Apex Hybrid Long-Short", category: "Hybrid Long Short", type: "Interval", regularSifId: "SIF-80" },
   "SIF-54": { amc: "Bandhan", fund: "Arudha Hybrid Long-Short", category: "Hybrid Long Short", type: "Interval", regularSifId: "SIF-40" },
   "SIF-36": { amc: "ICICI Prudential", fund: "iSIF Hybrid Long-Short", category: "Hybrid Long Short", regularSifId: "SIF-35" },
   "SIF-14": { amc: "SBI", fund: "Magnum Hybrid Long Short", category: "Hybrid Long Short", type: "Interval", regularSifId: "SIF-13" },

@@ -77,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sifs/dyna-equity-long-short",
     "/sifs/dyna-active-asset-allocator",
     "/arudha-equity-long-short",
-    "/apex-hybrid-long-short",
+    "/sifs/apex-hybrid-long-short",
     "/sifs/altiva-hybrid-long-short",
     "/sifs/magnum-hybrid-long-short",
     "/sifs/titanium-hybrid-long-short",

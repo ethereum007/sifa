@@ -805,7 +805,7 @@ const WhatIsSif = () => {
                       <li><a href="/sifs/titanium-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Titanium Hybrid (Tata)</a></li>
                       <li><a href="/sifs/altiva-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Altiva Hybrid (Edelweiss)</a></li>
                       <li><a href="/sifs/arudha-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Arudha Hybrid</a></li>
-                      <li><a href="/apex-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Apex Hybrid (ABSL)</a></li>
+                      <li><a href="/sifs/apex-hybrid-long-short" className="text-foreground/80 hover:text-primary hover:underline">Apex Hybrid (ABSL)</a></li>
                     </ul>
                   </div>
                   <div className="glass-card p-5 rounded-lg">

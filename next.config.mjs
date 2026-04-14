@@ -21,6 +21,7 @@ const nextConfig = {
       { source: "/qsif-ex-top-100-long-short", destination: "/sifs/qsif-ex-top-100-long-short", permanent: true },
       { source: "/diviniti-equity-long-short", destination: "/sifs/diviniti-equity-long-short", permanent: true },
       { source: "/dyna-active-asset-allocator", destination: "/sifs/dyna-active-asset-allocator", permanent: true },
+      { source: "/apex-hybrid-long-short", destination: "/sifs/apex-hybrid-long-short", permanent: true },
     ];
   },
   images: {

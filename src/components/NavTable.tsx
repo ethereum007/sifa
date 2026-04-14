@@ -32,7 +32,7 @@ interface FundEntry {
 // Fallback data used until API responds
 const fallbackData: FundEntry[] = [
   { amc: "Edelweiss", fund: "Altiva Hybrid Long-Short", nav: 10.3174, navRegular: 10.2697, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
-  { amc: "DSP", fund: "Apex Hybrid Long-Short", nav: 10.03, navRegular: 10.02, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
+  { amc: "ABSL", fund: "Apex Hybrid Long-Short", nav: 10.03, navRegular: 10.02, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
   { amc: "Bandhan", fund: "Arudha Hybrid Long-Short", nav: 10.083, navRegular: 10.073, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },
   { amc: "ICICI Prudential", fund: "iSIF Hybrid Long-Short", nav: 9.4754, navRegular: 9.4531, date: "06 Apr 2026", category: "Hybrid Long Short" },
   { amc: "SBI", fund: "Magnum Hybrid Long Short", nav: 10.018, navRegular: 9.9834, date: "06 Apr 2026", category: "Hybrid Long Short", type: "Interval" },

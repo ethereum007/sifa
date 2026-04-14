@@ -25,7 +25,7 @@ const fundsByCategory: Record<Category, SifFund[]> = {
     { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-hybrid-long-short" },
     { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/hybrid" },
     { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-hybrid-long-short" },
-    { name: "Apex SIF Hybrid Long Short", amc: "DSP Mutual Fund", internalLink: "/sifs/apex-hybrid-long-short" },
+    { name: "Apex SIF Hybrid Long Short", amc: "Aditya Birla Sun Life Mutual Fund", internalLink: "/sifs/apex-hybrid-long-short" },
   ],
   "Equity Ex-Top 100": [
     { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/extop100" },

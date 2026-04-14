@@ -25,7 +25,7 @@ const FUND_GROUPS: { title: string; links: { label: string; href: string }[] }[]
       { label: "Titanium SIF by Tata", href: "/sifs/titanium-hybrid-long-short" },
       { label: "Altiva SIF by Edelweiss", href: "/sifs/altiva-hybrid-long-short" },
       { label: "Arudha SIF by Bandhan", href: "/sifs/arudha-hybrid-long-short" },
-      { label: "Apex SIF by ABSL", href: "/apex-hybrid-long-short" },
+      { label: "Apex SIF by ABSL", href: "/sifs/apex-hybrid-long-short" },
     ],
   },
   {

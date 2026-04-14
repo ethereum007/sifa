@@ -17,7 +17,7 @@ const PEER_HREF: Record<string, string> = {
   "titanium-hybrid-long-short": "/sifs/titanium-hybrid-long-short",
   "arudha-hybrid-long-short": "/sifs/arudha-hybrid-long-short",
   "isif/hybrid": "/sifs/isif/hybrid",
-  "apex-hybrid-long-short": "/apex-hybrid-long-short",
+  "apex-hybrid-long-short": "/sifs/apex-hybrid-long-short",
 };
 
 const FUND = getSifBySlug("isif/hybrid")!;
