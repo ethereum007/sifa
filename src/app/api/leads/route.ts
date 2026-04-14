@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     }
 
     // Fire-and-forget admin notification
-    const adminEmail = process.env.ADMIN_EMAIL || 'kiran@sifprime.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'info@sifprime.com';
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       const resend = new Resend(resendKey);
