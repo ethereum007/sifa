@@ -91,7 +91,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -1.42,
       threeMonth: -0.80,
-      sinceInception: 2.10,
+      sinceInception: 3.17,
     },
     managers: ['Bhavesh Jain', 'Bharat Lahoti', 'Dhawal Dalal', 'Pranavi Kulkarni', 'Amit Vora'],
     strategyType: 'multi-strategy',
@@ -223,7 +223,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -0.86,
       threeMonth: -1.70,
-      sinceInception: -1.73,
+      sinceInception: -0.39,
     },
     managers: ['Sanjeev Sharma', 'Ankit Pande'],
     strategyType: 'quantitative',
@@ -285,7 +285,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -6.16,
       threeMonth: -6.50,
-      sinceInception: -5.93,
+      sinceInception: -4.19,
     },
     managers: ['Rahul Singh', 'Murthy Nagarajan'],
     strategyType: 'pure-long-short',
@@ -343,7 +343,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: 0.07,
       threeMonth: 0.56,
-      sinceInception: 0.56,
+      sinceInception: 0.83,
     },
     managers: ['Saurabh Bhatia', 'Gautam Kaul'],
     strategyType: 'pure-long-short',
@@ -401,7 +401,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -6.29,
       threeMonth: -7.86,
-      sinceInception: -7.86,
+      sinceInception: -5.25,
     },
     managers: ['Mittul Kalawadia', 'Rohit Lakhotia'],
     strategyType: 'pure-long-short',
@@ -521,7 +521,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -8.23,
       threeMonth: -11.68,
-      sinceInception: -10.77,
+      sinceInception: -8.53,
     },
     managers: ['Sanjeev Sharma', 'Vasav Sahgal'],
     strategyType: 'quantitative',
@@ -583,7 +583,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -2.24,
       threeMonth: -5.61,
-      sinceInception: -5.24,
+      sinceInception: -5.12,
     },
     managers: ['George Heber Joseph', 'Pradeep Gokhale'],
     strategyType: 'pure-long-short',
@@ -641,7 +641,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -4.42,
       threeMonth: -4.39,
-      sinceInception: -4.39,
+      sinceInception: -2.82,
     },
     managers: ['Karan Mehta', 'Neeraj Garg'],
     strategyType: 'pure-long-short',
@@ -697,7 +697,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: null,
       threeMonth: null,
-      sinceInception: 0.00,
+      sinceInception: -0.41,
     },
     managers: ['Saurabh Bhatia', 'Gautam Kaul'],
     strategyType: 'pure-long-short',
@@ -755,7 +755,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -7.30,
       threeMonth: -9.71,
-      sinceInception: -9.71,
+      sinceInception: -7.20,
     },
     managers: ['Mittul Kalawadia', 'Sri Sharma'],
     strategyType: 'ex-top-100',
@@ -819,7 +819,7 @@ export const sifFunds: SIFund[] = [
     returns: {
       oneMonth: -6.27,
       threeMonth: -13.03,
-      sinceInception: -14.02,
+      sinceInception: -11.58,
     },
     managers: ['Sanjeev Sharma', 'Vasav Sahgal'],
     strategyType: 'quantitative',
