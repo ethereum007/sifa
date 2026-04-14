@@ -905,3 +905,17 @@ export const getSifsByCategory = (cat: string) => sifFunds.filter(f => f.categor
 export const getHybridFunds = () => getSifsByCategory('hybrid-long-short');
 export const getEquityFunds = () => getSifsByCategory('equity-long-short');
 export const getExTop100Funds = () => getSifsByCategory('ex-top-100');
+
+// Peers = funds in same category, excluding self
+export const getPeers = (slug: string) => {
+  const self = getSifBySlug(slug);
+  if (!self) return [];
+  return sifFunds.filter(f => f.categorySlug === self.categorySlug && f.slug !== slug);
+};
+
+// Format a return number as "+X.XX%" / "-X.XX%"
+export const fmtPct = (n: number | null | undefined, digits = 2) => {
+  if (n === null || n === undefined) return "—";
+  const sign = n > 0 ? "+" : "";
+  return `${sign}${n.toFixed(digits)}%`;
+};

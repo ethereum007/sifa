@@ -8,7 +8,21 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import AmcLogo from "@/components/AmcLogo";
 import CrashAnalysis from "@/components/CrashAnalysis";
 import NavJourneyChart from "@/components/NavJourneyChart";
-import { getSifBySlug } from "@/lib/sifData";
+import { getSifBySlug, getPeers, fmtPct } from "@/lib/sifData";
+
+// Map sifData slug -> live page URL (handles non-/sifs/{slug} paths)
+const PEER_HREF: Record<string, string> = {
+  "altiva-hybrid-long-short": "/sifs/altiva-hybrid-long-short",
+  "magnum-hybrid-long-short": "/sifs/magnum-hybrid-long-short",
+  "qsif-hybrid-long-short": "/sifs/qsif-hybrid-long-short",
+  "titanium-hybrid-long-short": "/sifs/titanium-hybrid-long-short",
+  "arudha-hybrid-long-short": "/sifs/arudha-hybrid-long-short",
+  "isif-hybrid-long-short": "/sifs/isif/hybrid",
+  "apex-hybrid-long-short": "/apex-hybrid-long-short",
+};
+
+const FUND = getSifBySlug("altiva-hybrid-long-short")!;
+const PEER_FUNDS = getPeers("altiva-hybrid-long-short");
 
 const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
@@ -19,12 +33,13 @@ const Footer = dynamic(() => import("@/components/Footer"));
 
 const TAGS = ["Hybrid Long-Short", "Arbitrage", "Special Situations", "Low Volatility", "Interval Strategy", "Low Risk"];
 
+const siColor = FUND.returns.sinceInception >= 0 ? "text-green-600" : "text-red-600";
 const METRICS = [
-  { label: "Latest NAV", value: "₹10.3842", sub: "Apr 8, 2026", color: "" },
-  { label: "1M Return", value: "+1.23%", sub: "", color: "text-green-600" },
-  { label: "3M Return", value: "+0.91%", sub: "", color: "text-green-600" },
-  { label: "Since Inception", value: "+2.10%", sub: "", color: "text-green-600" },
-  { label: "TER", value: "1.67%", sub: "Regular plan", color: "" },
+  { label: "Latest NAV", value: `₹${FUND.currentNav.toFixed(4)}`, sub: "Apr 8, 2026", color: "" },
+  { label: "1M Return", value: fmtPct(FUND.returns.oneMonth), sub: "", color: (FUND.returns.oneMonth ?? 0) >= 0 ? "text-green-600" : "text-red-600" },
+  { label: "3M Return", value: fmtPct(FUND.returns.threeMonth), sub: "", color: (FUND.returns.threeMonth ?? 0) >= 0 ? "text-green-600" : "text-red-600" },
+  { label: "Since Inception", value: fmtPct(FUND.returns.sinceInception), sub: "", color: siColor },
+  { label: "TER", value: `${FUND.terRegular.toFixed(2)}%`, sub: "Regular plan", color: "" },
   { label: "6M Return", value: "+0.91%", sub: "", color: "text-green-600" },
 ];
 
@@ -43,7 +58,7 @@ const TRAILING = [
   { period: "1M", value: "+1.23%" },
   { period: "3M", value: "+0.91%" },
   { period: "6M", value: "+0.91%" },
-  { period: "Since Inception", value: "+2.10%" },
+  { period: "Since Inception", value: fmtPct(FUND.returns.sinceInception) },
   { period: "FYTD", value: "+2.86%" },
 ];
 
@@ -77,12 +92,16 @@ const RISK = [
   { label: "Portfolio disclosure", value: "Not monthly" },
 ];
 
-const PEERS = [
-  { name: "Arudha Hybrid", amc: "Bandhan", ret: "+0.6%", href: "/sifs/arudha-hybrid-long-short" },
-  { name: "Apex Hybrid", amc: "DSP", ret: "+0.2%", href: "/sifs/apex-hybrid-long-short" },
-  { name: "Magnum SIF", amc: "SBI", ret: "-0.4%", href: "/sifs/magnum-hybrid-long-short" },
-  { name: "qSIF Hybrid", amc: "Quant", ret: "-1.7%", href: "/sifs/qsif-hybrid-long-short" },
-];
+const PEERS = PEER_FUNDS
+  .slice()
+  .sort((a, b) => b.returns.sinceInception - a.returns.sinceInception)
+  .slice(0, 4)
+  .map(f => ({
+    name: f.shortName + " " + f.category.replace("Long Short", "").trim(),
+    amc: f.amc,
+    ret: fmtPct(f.returns.sinceInception, 1),
+    href: PEER_HREF[f.slug] ?? `/sifs/${f.slug}`,
+  }));
 
 const TEAM = [
   { name: "Bhavesh Jain", initials: "BJ" },
@@ -275,8 +294,8 @@ const AltivaSif = () => {
                 {/* A) NAV CHART */}
                 <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
                   <div className="flex items-baseline gap-3 mb-1">
-                    <span className="text-2xl font-bold text-gray-900">₹10.3842</span>
-                    <span className="text-sm font-semibold text-green-600">+2.10% since inception</span>
+                    <span className="text-2xl font-bold text-gray-900">₹{FUND.currentNav.toFixed(4)}</span>
+                    <span className={`text-sm font-semibold ${siColor}`}>{fmtPct(FUND.returns.sinceInception)} since inception</span>
                   </div>
                   <div className="h-[280px] mt-4">
                     {fundData && (
