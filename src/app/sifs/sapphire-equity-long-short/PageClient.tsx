@@ -83,7 +83,7 @@ const RISK = [
 ];
 
 const PEERS = [
-  { name: "Dyna Equity L/S", amc: "DSP", ret: "—", href: "/dyna-equity-long-short" },
+  { name: "Dyna Equity L/S", amc: "DSP", ret: "—", href: "/sifs/dyna-equity-long-short" },
   { name: "Diviniti Equity L/S", amc: "ITI", ret: "—", href: "/diviniti-equity-long-short" },
   { name: "Arudha Equity L/S", amc: "Bandhan", ret: "—", href: "/arudha-equity-long-short" },
   { name: "qSIF Equity L/S", amc: "Quant", ret: "—", href: "/qsif-equity-long-short" },

@@ -64,7 +64,7 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     category: "Equity Long Short",
     tag: "equity",
     funds: [
-      { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", endNav: 9.7180, m1: -4.42, m3: -4.39, sinceInception: -4.39, href: "/dyna-equity-long-short" },
+      { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", endNav: 9.7180, m1: -4.42, m3: -4.39, sinceInception: -4.39, href: "/sifs/dyna-equity-long-short" },
       { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", endNav: 948.8272, m1: -2.24, m3: -5.61, sinceInception: -5.24, href: "/diviniti-equity-long-short" },
       { name: "qSIF Equity Long-Short", inception: "08-Oct-25", endNav: 9.1473, m1: -8.23, m3: -11.68, sinceInception: -10.77, href: "/qsif-equity-long-short" },
       { name: "Arudha Equity Long-Short", inception: "30-Mar-26", endNav: 9.9590, m1: null, m3: null, sinceInception: 0, href: "/sifs/arudha-equity-long-short" },

@@ -74,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/qsif-equity-long-short",
     "/qsif-ex-top-100-long-short",
     "/diviniti-equity-long-short",
-    "/dyna-equity-long-short",
+    "/sifs/dyna-equity-long-short",
     "/dyna-active-asset-allocator",
     "/arudha-equity-long-short",
     "/apex-hybrid-long-short",

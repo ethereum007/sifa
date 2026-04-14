@@ -16,6 +16,7 @@ const nextConfig = {
       { source: "/sifvsmutualfund", destination: "/sif-vs-mf", permanent: true },
       { source: "/compare-sifs", destination: "/sif-compare", permanent: true },
       { source: "/arudha", destination: "/sifs/arudha-hybrid-long-short", permanent: true },
+      { source: "/dyna-equity-long-short", destination: "/sifs/dyna-equity-long-short", permanent: true },
     ];
   },
   images: {

@@ -784,7 +784,7 @@ const WhatIsSif = () => {
                     <ul className="space-y-2 text-sm">
                       <li><a href="/qsif-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">QSIF Equity Long-Short</a></li>
                       <li><a href="/diviniti-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Diviniti Equity Long-Short</a></li>
-                      <li><a href="/dyna-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Equity Long-Short</a></li>
+                      <li><a href="/sifs/dyna-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">DynaSIF Equity Long-Short</a></li>
                       <li><a href="/arudha-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Arudha Equity Long-Short</a></li>
                       <li><a href="/sifs/sapphire-equity-long-short" className="text-foreground/80 hover:text-primary hover:underline">Sapphire Equity Long-Short</a></li>
                     </ul>

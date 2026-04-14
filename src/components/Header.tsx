@@ -16,7 +16,7 @@ const Header = () => {
     { label: "Equity Long Short", href: "/sif-funds-launched", section: true },
     { label: "qSIF by Quant", href: "/qsif-equity-long-short" },
     { label: "Diviniti SIF by ITI", href: "/diviniti-equity-long-short" },
-    { label: "Dyna SIF by 360 ONE", href: "/dyna-equity-long-short" },
+    { label: "Dyna SIF by 360 ONE", href: "/sifs/dyna-equity-long-short" },
     { label: "Arudha Equity L/S by Bandhan", href: "/arudha-equity-long-short" },
     { label: "Sapphire by Franklin Templeton", href: "/sifs/sapphire-equity-long-short" },
     { label: "Ex-Top 100 Long Short", href: "/sif-funds-launched", section: true },

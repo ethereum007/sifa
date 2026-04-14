@@ -57,7 +57,7 @@ const categories: CategoryData[] = [
     funds: [
       { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/diviniti-equity-long-short" },
       { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", href: "/qsif-equity-long-short" },
-      { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/dyna-equity-long-short" },
+      { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/sifs/dyna-equity-long-short" },
       { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-equity-long-short" },
     ],
   },

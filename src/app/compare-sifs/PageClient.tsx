@@ -11,7 +11,7 @@ const Footer = dynamic(() => import("@/components/Footer"));
 const sifData = [
   { name: "qSIF Equity Long Short", amc: "Quant", category: "Equity LS", launch: "Feb 2025", path: "/qsif-equity-long-short" },
   { name: "Diviniti Equity Long Short", amc: "ITI", category: "Equity LS", launch: "Mar 2025", path: "/diviniti-equity-long-short" },
-  { name: "Dyna SIF Equity Long Short", amc: "360 ONE", category: "Equity LS", launch: "Mar 2025", path: "/dyna-equity-long-short" },
+  { name: "Dyna SIF Equity Long Short", amc: "360 ONE", category: "Equity LS", launch: "Mar 2025", path: "/sifs/dyna-equity-long-short" },
   { name: "Arudha Equity Long Short", amc: "Bandhan", category: "Equity LS", launch: "Apr 2025", path: "/arudha-equity-long-short" },
   { name: "qSIF Ex-Top 100", amc: "Quant", category: "Ex-Top 100", launch: "Feb 2025", path: "/qsif-ex-top-100-long-short" },
   { name: "iSIF Ex-Top 100", amc: "ICICI Prudential", category: "Ex-Top 100", launch: "Apr 2025", path: "/sifs/isif/extop100" },

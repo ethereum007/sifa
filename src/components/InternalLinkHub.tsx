@@ -4,7 +4,7 @@ const FUND_GROUPS: { title: string; links: { label: string; href: string }[] }[]
     links: [
       { label: "qSIF by Quant", href: "/qsif-equity-long-short" },
       { label: "Diviniti SIF by ITI", href: "/diviniti-equity-long-short" },
-      { label: "Dyna SIF by 360 ONE", href: "/dyna-equity-long-short" },
+      { label: "Dyna SIF by 360 ONE", href: "/sifs/dyna-equity-long-short" },
       { label: "Arudha by Bandhan", href: "/arudha-equity-long-short" },
       { label: "Sapphire by Franklin Templeton", href: "/sifs/sapphire-equity-long-short" },
     ],
