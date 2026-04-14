@@ -33,8 +33,8 @@ const Index = memo(() => {
       <NfoBannerTop />
       <Header />
       <main className="pt-[104px] lg:pt-[120px]">
-        <PerformanceBanner />
         <Hero />
+        <PerformanceBanner />
         <MarketConditionsWidget />
         <SifFundsCarousel />
         <UpcomingSifsScroller />
