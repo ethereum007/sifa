@@ -264,7 +264,7 @@ const DivinitiSif = () => {
   const [returnMode, setReturnMode] = useState<"absolute" | "annualised">("absolute");
 
   return (
-    <div className="min-h-screen bg-gray-50 font-mono tabular-nums">
+    <div className="min-h-screen bg-gray-50">
       <NfoBannerTop />
       <Suspense fallback={<div className="h-16 lg:h-20" />}>
         <Header />
