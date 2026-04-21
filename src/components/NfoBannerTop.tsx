@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const NfoBannerTop = () => {
   const [isDismissed, setIsDismissed] = useState(false);
@@ -13,32 +12,6 @@ const NfoBannerTop = () => {
 
   const tickerContent = (
     <div className="flex items-center gap-3 sm:gap-6 px-2 sm:px-4 whitespace-nowrap" style={{ fontSize: "13px" }}>
-      <span className="inline-flex items-center gap-2">
-        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "11px" }}>
-          NFO OPEN
-        </span>
-        <span className="font-semibold text-white">
-          QSIF Active Asset Allocator Long Short Fund
-        </span>
-      </span>
-      <span className="text-amber-500 font-medium">|</span>
-      <span className="text-white/90">April 2 to April 16</span>
-      <span className="text-amber-500 font-medium">|</span>
-      <span className="text-white/90">
-        Min Investment <span className="text-amber-400 font-semibold">₹10,00,000</span>
-      </span>
-      <span className="text-amber-500 font-medium">|</span>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"
-        style={{ fontSize: "13px" }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        Invest Now
-      </a>
-      <span className="text-[#0f1f3d]/30 mx-4">•</span>
       <span className="inline-flex items-center gap-2">
         <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "11px" }}>
           NFO OPEN
