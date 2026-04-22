@@ -41,7 +41,7 @@ const Header = () => {
     { label: "Guides", href: "/specialized-investment-fund-sif", section: true },
     { label: "What is SIF?", href: "/specialized-investment-fund-sif" },
     { label: "What is a SIF?", href: "/what-is-sif" },
-    { label: "All 14 SIFs Ranked & Explained", href: "/all-sifs-india-ranked-explained" },
+    { label: "All 17 SIFs Ranked & Explained", href: "/all-sifs-india-ranked-explained" },
     { label: "Which SIF Should You Invest In?", href: "/which-sif-should-you-invest-in" },
     { label: "Best SIF to Invest in 2026", href: "/blog/best-sif-to-invest-2026" },
     { label: "Compare SIFs Side by Side", href: "/compare-sifs" },

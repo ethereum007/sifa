@@ -372,7 +372,7 @@ export default function SifQuizPage() {
         setLoading(true);
         setLoadingText("Analysing your profile...");
         setTimeout(() => {
-          setLoadingText("Matching with 14 SIFs...");
+          setLoadingText("Matching with 17 SIFs...");
         }, 700);
         setTimeout(() => {
           setResults(scoreFunds(next));
@@ -417,17 +417,13 @@ export default function SifQuizPage() {
 
   if (step === 5 && loading) {
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-20 lg:pt-24 flex items-center justify-center min-h-[70vh]">
-          <div className="text-center space-y-6">
-            <Loader2 className="w-12 h-12 animate-spin text-emerald-500 mx-auto" />
-            <p className="text-lg text-muted-foreground animate-pulse">
-              {loadingText}
-            </p>
-          </div>
-        </main>
-        <Footer />
+      <div className="flex items-center justify-center min-h-[50vh]">
+        <div className="text-center space-y-6">
+          <Loader2 className="w-12 h-12 animate-spin text-emerald-500 mx-auto" />
+          <p className="text-lg text-muted-foreground animate-pulse">
+            {loadingText}
+          </p>
+        </div>
       </div>
     );
   }
@@ -444,15 +440,13 @@ export default function SifQuizPage() {
     );
 
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-20 lg:pt-24 pb-16">
-          <div className="container mx-auto px-4 max-w-3xl">
-            {/* ------ PRIMARY RESULT ------ */}
-            <div className="bg-gradient-to-br from-emerald-950 to-slate-900 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 mb-8">
-              <p className="text-emerald-400 text-xs uppercase tracking-widest font-semibold mb-4">
-                Your SIF Match
-              </p>
+      <div className="pb-16">
+        <div className="container mx-auto px-4 max-w-3xl">
+          {/* ------ PRIMARY RESULT ------ */}
+          <div className="bg-gradient-to-br from-emerald-950 to-slate-900 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 mb-8">
+            <p className="text-emerald-400 text-xs uppercase tracking-widest font-semibold mb-4">
+              Your SIF Match
+            </p>
 
               <div className="flex items-center gap-3 mb-2">
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-sm">
@@ -654,25 +648,23 @@ export default function SifQuizPage() {
               </div>
             </div>
 
-            {/* Retake */}
-            <div className="text-center mt-8">
-              <button
-                onClick={() => {
-                  setStep(0);
-                  setAnswers({});
-                  setResults([]);
-                  setEmailSaved(false);
-                  setPhone("");
-                  setEmail("");
-                }}
-                className="text-sm text-muted-foreground hover:text-foreground underline transition-colors"
-              >
-                Retake quiz
-              </button>
-            </div>
+          {/* Retake */}
+          <div className="text-center mt-8">
+            <button
+              onClick={() => {
+                setStep(0);
+                setAnswers({});
+                setResults([]);
+                setEmailSaved(false);
+                setPhone("");
+                setEmail("");
+              }}
+              className="text-sm text-muted-foreground hover:text-foreground underline transition-colors"
+            >
+              Retake quiz
+            </button>
           </div>
-        </main>
-        <Footer />
+        </div>
       </div>
     );
   }
@@ -684,10 +676,8 @@ export default function SifQuizPage() {
   const currentStep = STEPS[step];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-20 lg:pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-2xl">
+    <div className="pb-16">
+      <div className="container mx-auto px-4 max-w-2xl">
           {/* Progress bar */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-2">
@@ -749,9 +739,7 @@ export default function SifQuizPage() {
               </button>
             ))}
           </div>
-        </div>
-      </main>
-      <Footer />
+      </div>
     </div>
   );
 }

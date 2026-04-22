@@ -31,7 +31,7 @@ const FAQ_DATA = [
   },
   {
     q: "How many SIFs are currently active in India?",
-    a: "As of April 2026, there are 14 active SIF strategies across major AMCs including Quant (qSIF), Edelweiss (Altiva), SBI (Magnum), Tata (Titanium), ICICI (iSIF), Bandhan (Arudha), ITI (Diviniti), 360 ONE (Dyna), and ABSL (Apex). SIFPrime tracks all active SIFs with live NAV, returns and strategy analysis.",
+    a: "As of April 2026, SIFPrime tracks 17 SIF strategies — 14 live funds plus 3 in NFO — across 11 AMCs including Quant (qSIF), Edelweiss (Altiva), SBI (Magnum), Tata (Titanium), ICICI (iSIF), Bandhan (Arudha), ITI (Diviniti), 360 ONE (Dyna), ABSL (Apex), Franklin Templeton (Sapphire) and The Wealth Company (WSIF). Live NAV, returns and strategy analysis for every fund.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function HomepageSeoContent() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div className="p-6 rounded-xl border border-border bg-card">
-              <h3 className="font-semibold text-foreground mb-2">All 14 SIFs Tracked</h3>
+              <h3 className="font-semibold text-foreground mb-2">All 17 SIFs Tracked</h3>
               <p className="text-sm text-muted-foreground">
                 Live NAV, returns, AUM, and strategy breakdowns for every SEBI-registered Specialized Investment Fund in India.
               </p>

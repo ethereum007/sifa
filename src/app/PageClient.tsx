@@ -14,6 +14,7 @@ const NavTable = dynamic(() => import("@/components/NavTable"), { ssr: true });
 const SifReturnsScorecard = dynamic(() => import("@/components/SifReturnsScorecard"), { ssr: true });
 const SifAumSection = dynamic(() => import("@/components/SifAumSection"), { ssr: true });
 const SifFundsCarousel = dynamic(() => import("@/components/SifFundsCarousel"), { ssr: true });
+const SifDirectoryTable = dynamic(() => import("@/components/SifDirectoryTable"), { ssr: true });
 const PerformanceBanner = dynamic(() => import("@/components/PerformanceBanner"), { ssr: true });
 const UpcomingSifsScroller = dynamic(() => import("@/components/UpcomingSifsScroller"), { ssr: true });
 const TerComparison = dynamic(() => import("@/components/TerComparison"), { ssr: true });
@@ -36,6 +37,7 @@ const Index = memo(() => {
         <Hero />
         <PerformanceBanner />
         {/* <MarketConditionsWidget /> */}
+        <SifDirectoryTable />
         <SifFundsCarousel />
         <UpcomingSifsScroller />
         <QuickActionButtons />

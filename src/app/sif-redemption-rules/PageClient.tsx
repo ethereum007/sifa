@@ -49,7 +49,7 @@ const SifRedemptionRules = () => {
         <section className="py-8 lg:py-12">
           <div className="container mx-auto px-4 max-w-4xl space-y-8">
             <p className="text-muted-foreground leading-relaxed">
-              Before you invest ₹10 Lakhs into a Specialized Investment Fund, you need to understand exactly how and when you can get your money back. Unlike a regular mutual fund where you can redeem any business day, SIFs have a more varied liquidity profile. This guide explains every redemption mechanic currently in operation across all 14 SIFs.
+              Before you invest ₹10 Lakhs into a Specialized Investment Fund, you need to understand exactly how and when you can get your money back. Unlike a regular mutual fund where you can redeem any business day, SIFs have a more varied liquidity profile. This guide explains every redemption mechanic currently in operation across all 17 SIFs.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground">Open-Ended SIFs — Redeem Any Business Day</h2>

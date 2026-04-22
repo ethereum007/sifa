@@ -39,7 +39,7 @@ const SifDerivativesExplained = () => {
               SIF Derivatives Explained: Covered Calls, Shorts, Straddles, and Pair Trades in Plain English
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              The derivative strategies inside your SIF — what they are, why fund managers use them, and which funds use which strategies across all 14 SIFs.
+              The derivative strategies inside your SIF — what they are, why fund managers use them, and which funds use which strategies across all 17 SIFs.
             </p>
           </div>
         </section>

@@ -10,9 +10,6 @@ import AlphaShieldBadge from "@/components/AlphaShieldBadge";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
-const Header = dynamic(() => import("@/components/Header"));
-const Footer = dynamic(() => import("@/components/Footer"));
-
 const DEFAULT_FUND_IDS = [
   "altiva-hybrid-long-short",
   "qsif-hybrid-long-short",
@@ -436,20 +433,14 @@ function SifCompareInner() {
 
   /* ---------- RENDER ---------- */
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-20 lg:pt-24 pb-12">
-        <div className="container mx-auto px-4 max-w-6xl">
-          {/* ---- FUND SELECTOR ---- */}
-          <section className="py-8">
-            <h1 className="text-3xl font-bold text-foreground text-center">
-              Compare SIF Funds Side by Side
-            </h1>
-            <p className="text-muted-foreground text-center mt-2 mb-8">
-              Select up to 3 funds to compare
-            </p>
+    <div className="container mx-auto px-4 max-w-6xl">
+      {/* ---- FUND SELECTOR ---- */}
+      <section className="py-6">
+        <p className="text-muted-foreground text-center mb-6 text-sm">
+          Select up to 3 funds to compare
+        </p>
 
-            {/* Selector dropdown */}
+        {/* Selector dropdown */}
             {selectedFundIds.length < MAX_FUNDS && (
               <div className="relative max-w-lg mx-auto mb-6">
                 <button
@@ -655,9 +646,6 @@ function SifCompareInner() {
               Select funds above to start comparing.
             </div>
           )}
-        </div>
-      </main>
-      <Footer />
     </div>
   );
 }
@@ -741,7 +729,7 @@ export default function SifComparePage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="min-h-[400px] flex items-center justify-center">
           <div className="text-muted-foreground">Loading comparison tool...</div>
         </div>
       }

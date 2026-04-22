@@ -63,7 +63,7 @@ const SifPerformance = () => {
                 Track SIF Performance Across All Categories
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
-                Stay updated with monthly performance reports, live NAV data, and returns analysis for every Specialized Investment Fund in India. Our performance tracker covers all 14 SIFs across Equity Long Short, Hybrid Long Short, Ex-Top 100, and Active Asset Allocator categories.
+                Stay updated with monthly performance reports, live NAV data, and returns analysis for every Specialized Investment Fund in India. Our performance tracker covers all 17 SIFs across Equity Long Short, Hybrid Long Short, Ex-Top 100, and Active Asset Allocator categories.
               </p>
               <a href={CONSULTATION_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant="gold" size="lg" className="gap-2">
@@ -139,7 +139,7 @@ const SifPerformance = () => {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Since-Inception Returns</h3>
                 <p className="text-muted-foreground">
-                  Given that most SIFs launched in early to mid 2025, the primary performance metric currently available is since-inception return. This measures the total return from the fund&apos;s launch date to the present. As SIFs mature, additional metrics like 1-year, 3-year, and 5-year returns will become available. SIFPrime tracks since-inception returns for all 14 SIFs and updates them monthly in our performance reports.
+                  Given that most SIFs launched in early to mid 2025, the primary performance metric currently available is since-inception return. This measures the total return from the fund&apos;s launch date to the present. As SIFs mature, additional metrics like 1-year, 3-year, and 5-year returns will become available. SIFPrime tracks since-inception returns for all 14 live SIFs and updates them monthly in our performance reports.
                 </p>
               </div>
 
@@ -232,7 +232,7 @@ const SifPerformance = () => {
               <a href="/sifnav" className="glass-card p-6 text-center hover:border-primary/30 transition-colors group">
                 <LineChart className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="font-bold text-foreground mb-1">Live SIF NAV</h3>
-                <p className="text-sm text-muted-foreground">Daily NAV updates for all 14 SIFs</p>
+                <p className="text-sm text-muted-foreground">Daily NAV updates for all 14 live SIFs</p>
               </a>
               <a href="/sifreturns" className="glass-card p-6 text-center hover:border-primary/30 transition-colors group">
                 <TrendingUp className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />

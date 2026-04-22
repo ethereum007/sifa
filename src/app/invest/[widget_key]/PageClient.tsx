@@ -361,7 +361,7 @@ export default function PageClient() {
               </div>
 
               <p className="text-sm text-gray-600 leading-relaxed">
-                <strong>14 SIFs are live today</strong> from SBI, Edelweiss, Quant, ICICI,
+                <strong>14 SIFs are live today (3 more in NFO)</strong> from SBI, Edelweiss, Quant, ICICI,
                 360 ONE, Bandhan, Tata, and Mirae.
               </p>
 
