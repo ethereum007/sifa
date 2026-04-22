@@ -19,6 +19,7 @@ const Header = () => {
     { label: "Dyna SIF by 360 ONE", href: "/sifs/dyna-equity-long-short" },
     { label: "Arudha Equity L/S by Bandhan", href: "/arudha-equity-long-short" },
     { label: "Sapphire by Franklin Templeton", href: "/sifs/sapphire-equity-long-short" },
+    { label: "WSIF by Wealth Company", href: "/sifs/wsif-equity-long-short" },
     { label: "Ex-Top 100 Long Short", href: "/sif-funds-launched", section: true },
     { label: "qSIF Ex-Top 100 by Quant", href: "/sifs/qsif-ex-top-100-long-short" },
     { label: "iSIF Ex-Top 100 by ICICI", href: "/sifs/isif/extop100" },

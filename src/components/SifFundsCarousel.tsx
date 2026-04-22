@@ -37,6 +37,7 @@ const fundsByCategory: Record<Category, SifFund[]> = {
     { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", internalLink: "/sifs/dyna-equity-long-short" },
     { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-equity-long-short" },
     { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", internalLink: "/sifs/sapphire-equity-long-short" },
+    { name: "WSIF Equity Long-Short Fund", amc: "The Wealth Company Mutual Fund", internalLink: "/sifs/wsif-equity-long-short" },
   ],
   "Active Asset Allocator": [
     { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", internalLink: "/sifs/dyna-active-asset-allocator" },

@@ -84,6 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sifs/qsif-hybrid-long-short",
     "/sifs/arudha-hybrid-long-short",
     "/sifs/sapphire-equity-long-short",
+    "/sifs/wsif-equity-long-short",
     "/sifs/qsif-active-asset-allocator-long-short",
     "/sifs/isif",
     "/sifs/isif/extop100",
