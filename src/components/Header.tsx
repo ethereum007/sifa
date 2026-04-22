@@ -23,6 +23,7 @@ const Header = () => {
     { label: "Ex-Top 100 Long Short", href: "/sif-funds-launched", section: true },
     { label: "qSIF Ex-Top 100 by Quant", href: "/sifs/qsif-ex-top-100-long-short" },
     { label: "iSIF Ex-Top 100 by ICICI", href: "/sifs/isif/extop100" },
+    { label: "WSIF Ex-Top 100 by Wealth Company", href: "/sifs/wsif-ex-top-100-long-short" },
     { label: "Hybrid Long Short", href: "/sif-funds-launched", section: true },
     { label: "qSIF Hybrid by Quant", href: "/sifs/qsif-hybrid-long-short" },
     { label: "iSIF Hybrid by ICICI", href: "/sifs/isif/hybrid" },

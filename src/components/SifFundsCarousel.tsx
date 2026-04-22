@@ -30,6 +30,7 @@ const fundsByCategory: Record<Category, SifFund[]> = {
   "Equity Ex-Top 100": [
     { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/extop100" },
     { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-ex-top-100-long-short" },
+    { name: "WSIF Equity Ex-Top 100 Long-Short Fund", amc: "The Wealth Company Mutual Fund", internalLink: "/sifs/wsif-ex-top-100-long-short" },
   ],
   "Equity Long Short": [
     { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", internalLink: "/sifs/diviniti-equity-long-short" },
