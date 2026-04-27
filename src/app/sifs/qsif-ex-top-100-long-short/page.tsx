@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import FundPageJsonLd from "@/components/FundPageJsonLd";
+import FundFAQ from "@/components/FundFAQ";
+import { buildFundFAQs } from "@/lib/fundFAQs";
 import RelatedFunds from "@/components/RelatedFunds";
 
 const PageClient = dynamic(() => import("./PageClient"));
@@ -39,6 +41,16 @@ export default function Page() {
       />
       <PageClient />
       <RelatedFunds currentPath="/sifs/qsif-ex-top-100-long-short" />
-    </>
+    <FundFAQ
+        faqs={buildFundFAQs({
+      fundName: "qSIF Ex-Top 100 Long-Short",
+      shortName: "qSIF Ex-Top 100",
+      amc: "Quant Mutual Fund",
+      category: "Equity Ex-Top 100",
+      benchmark: "Nifty Midsmallcap 400 TRI",
+      inceptionDate: "November 13, 2025",
+        })}
+      />
+      </>
   );
 }

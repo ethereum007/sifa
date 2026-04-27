@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import FundPageJsonLd from "@/components/FundPageJsonLd";
+import FundFAQ from "@/components/FundFAQ";
+import { buildFundFAQs } from "@/lib/fundFAQs";
 import RelatedFunds from "@/components/RelatedFunds";
 
 const PageClient = dynamic(() => import("./PageClient"));
@@ -36,6 +38,16 @@ export default function Page() {
       />
       <PageClient />
       <RelatedFunds currentPath="/sifs/magnum-hybrid-long-short" />
-    </>
+    <FundFAQ
+        faqs={buildFundFAQs({
+      fundName: "Magnum Hybrid Long-Short",
+      shortName: "Magnum SIF",
+      amc: "SBI Mutual Fund",
+      category: "Hybrid Long Short",
+      benchmark: "Nifty 50 Hybrid Composite Debt 50:50",
+      inceptionDate: "October 29, 2025",
+        })}
+      />
+      </>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import FundPageJsonLd from "@/components/FundPageJsonLd";
+import FundFAQ from "@/components/FundFAQ";
+import { buildFundFAQs } from "@/lib/fundFAQs";
 import RelatedFunds from "@/components/RelatedFunds";
 
 const PageClient = dynamic(() => import("./PageClient"));
@@ -38,6 +40,16 @@ export default function Page() {
       />
       <PageClient />
       <RelatedFunds currentPath="/sifs/diviniti-equity-long-short" />
-    </>
+    <FundFAQ
+        faqs={buildFundFAQs({
+      fundName: "Diviniti Equity Long-Short",
+      shortName: "Diviniti SIF",
+      amc: "ITI Mutual Fund",
+      category: "Equity Long Short",
+      benchmark: "Nifty 500 TRI",
+      inceptionDate: "December 2025",
+        })}
+      />
+      </>
   );
 }

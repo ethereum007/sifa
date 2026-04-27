@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import FundPageJsonLd from "@/components/FundPageJsonLd";
+import FundFAQ from "@/components/FundFAQ";
+import { buildFundFAQs } from "@/lib/fundFAQs";
 import RelatedFunds from "@/components/RelatedFunds";
 
 const PageClient = dynamic(() => import("./PageClient"));
@@ -36,6 +38,16 @@ export default function Page() {
       />
       <PageClient />
       <RelatedFunds currentPath="/sifs/arudha-hybrid-long-short" />
-    </>
+    <FundFAQ
+        faqs={buildFundFAQs({
+      fundName: "Arudha Hybrid Long-Short",
+      shortName: "Arudha SIF",
+      amc: "Bandhan Mutual Fund",
+      category: "Hybrid Long Short",
+      benchmark: "Nifty 50 Hybrid Composite Debt 50:50",
+      inceptionDate: "February 4, 2026",
+        })}
+      />
+      </>
   );
 }

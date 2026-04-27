@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import FundPageJsonLd from "@/components/FundPageJsonLd";
+import FundFAQ from "@/components/FundFAQ";
+import { buildFundFAQs } from "@/lib/fundFAQs";
 import RelatedFunds from "@/components/RelatedFunds";
 
 const PageClient = dynamic(() => import("./PageClient"));
@@ -39,6 +41,17 @@ export default function Page() {
       />
       <PageClient />
       <RelatedFunds currentPath="/sifs/qsif-equity-long-short" />
-    </>
+    <FundFAQ
+        faqs={buildFundFAQs({
+      fundName: "qSIF Equity Long-Short",
+      shortName: "qSIF Equity Long-Short",
+      amc: "Quant Mutual Fund",
+      category: "Equity Long Short",
+      benchmark: "Nifty 500 TRI",
+      terDirect: 2.15,
+      inceptionDate: "October 8, 2025",
+        })}
+      />
+      </>
   );
 }

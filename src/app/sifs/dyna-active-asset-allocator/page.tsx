@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import FundPageJsonLd from "@/components/FundPageJsonLd";
+import FundFAQ from "@/components/FundFAQ";
+import { buildFundFAQs } from "@/lib/fundFAQs";
 import RelatedFunds from "@/components/RelatedFunds";
 
 const PageClient = dynamic(() => import("./PageClient"));
@@ -39,6 +41,16 @@ export default function Page() {
       />
       <PageClient />
       <RelatedFunds currentPath="/sifs/dyna-active-asset-allocator" />
-    </>
+    <FundFAQ
+        faqs={buildFundFAQs({
+      fundName: "Dyna Active Asset Allocator",
+      shortName: "Dyna AAA",
+      amc: "360 ONE Asset",
+      category: "Active Asset Allocator",
+      benchmark: "Nifty 50 Hybrid Composite Debt 50:50",
+      inceptionDate: "November 2025",
+        })}
+      />
+      </>
   );
 }
