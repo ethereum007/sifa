@@ -422,6 +422,62 @@ export default function PartnerPage() {
         </div>
       </section>
 
+      {/* PARTNERSHIP CALL */}
+      <section className="border-b border-[#E5E0D5] bg-[#FAF7F0]">
+        <div className="mx-auto max-w-4xl px-6 py-20">
+          <div className="text-xs uppercase tracking-[0.25em] text-[#7B2D26] mb-4 text-center">The partnership call</div>
+          <h2 className="serif text-4xl md:text-5xl leading-[1.1] tracking-tight text-center mb-4">
+            What we cover on your partnership call.
+          </h2>
+          <p className="text-center text-[#3A3A36] mb-14 max-w-2xl mx-auto">
+            15 minutes. No pitch deck. Real questions, tailored answers.
+          </p>
+
+          <div className="space-y-6 mb-12">
+            <CallRow
+              n="01"
+              title="Trail structure"
+              desc="Tailored to your AUM band, client base, and sourcing model. We work it out together — not off a public price list."
+            />
+            <CallRow
+              n="02"
+              title="Co-branded report engine"
+              desc="Live demo with your logo, photo, brand colours, and ARN. See exactly what your clients will receive."
+            />
+            <CallRow
+              n="03"
+              title="Lead routing from sifprime.com"
+              desc="HNI enquiries from your city, with first-right-of-refusal. We walk through how city-tagging and assignment work."
+            />
+            <CallRow
+              n="04"
+              title="AMC empanelment review"
+              desc="We review your current empanelment status across the 11 SIF AMCs and map the gaps. You leave the call with a clear action list."
+            />
+            <CallRow
+              n="05"
+              title="Onboarding timeline"
+              desc="Your first SIF transaction in 30 days or less — we'll show you the path from sub-distributor agreement to first NFO subscription."
+            />
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://wa.me/919032999466?text=Hi%20Kiran%2C%20I%27d%20like%20to%20schedule%20a%2015-min%20SIFPrime%20partnership%20call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#0F1419] text-[#FAF7F0] px-8 py-4 text-sm font-medium hover:bg-[#7B2D26] transition-colors"
+            >
+              <MessageCircle size={16} />
+              Schedule your 15-min call
+            </a>
+            <p className="serif italic text-sm text-[#5C5C58] mt-5">
+              Calls are with Kiran Dutta directly. No SDRs. No call centres.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* SIGNUP */}
       <section id="signup" className="border-b border-[#E5E0D5] bg-[#F1ECDF]">
         <div className="mx-auto max-w-3xl px-6 py-20">
@@ -562,6 +618,18 @@ function ProRow({ title, desc }: { title: string; desc: string }) {
       <div>
         <div className="font-medium mb-1">{title}</div>
         <div className="text-sm text-[#5C5C58]">{desc}</div>
+      </div>
+    </div>
+  );
+}
+
+function CallRow({ n, title, desc }: { n: string; title: string; desc: string }) {
+  return (
+    <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 items-start py-5 border-t border-[#E5E0D5] first:border-t-0">
+      <div className="num text-2xl md:text-3xl serif text-[#7B2D26] tabular-nums leading-none pt-1">{n}</div>
+      <div>
+        <div className="text-xs uppercase tracking-[0.2em] text-[#0F1419] font-semibold mb-2">{title}</div>
+        <p className="text-[15px] text-[#3A3A36] leading-relaxed">{desc}</p>
       </div>
     </div>
   );
