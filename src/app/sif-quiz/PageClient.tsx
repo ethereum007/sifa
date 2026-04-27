@@ -372,7 +372,7 @@ export default function SifQuizPage() {
         setLoading(true);
         setLoadingText("Analysing your profile...");
         setTimeout(() => {
-          setLoadingText("Matching with 17 SIFs...");
+          setLoadingText("Matching with 18 SIFs...");
         }, 700);
         setTimeout(() => {
           setResults(scoreFunds(next));

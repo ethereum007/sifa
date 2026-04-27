@@ -80,7 +80,7 @@ const TOOLKIT: ToolkitSection[] = [
 const PAIN_POINTS = [
   "Should I even get empanelled for SIF distribution?",
   "How do I explain SIF to my client in 60 seconds?",
-  "Which SIF should I recommend out of the 17 funds tracked?",
+  "Which SIF should I recommend out of the 18 funds tracked?",
   "What if my client loses money — how do I defend the recommendation?",
   "How do I position SIF against my client's existing PMS?",
   "What's the right ticket size and allocation?",
@@ -224,7 +224,7 @@ export default function PartnerPage() {
             </div>
             <div className="mt-12 pt-8 border-t border-[#E5E0D5] grid grid-cols-3 gap-6 max-w-xl">
               <div>
-                <div className="serif text-3xl num">17</div>
+                <div className="serif text-3xl num">18</div>
                 <div className="text-xs text-[#5C5C58] mt-1 uppercase tracking-wider">SIFs tracked</div>
               </div>
               <div>

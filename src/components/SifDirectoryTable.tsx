@@ -43,6 +43,7 @@ const GROUPS: Group[] = [
       { name: "Arudha Equity Long-Short", amc: "Bandhan Mutual Fund", strategy: "Long-biased (80–100% equity) with ≤25% unhedged short", min: "₹10L", status: "live", href: "/sifs/arudha-equity-long-short" },
       { name: "Sapphire Equity Long-Short", amc: "Franklin Templeton", strategy: "Multi-factor quant + macro-driven allocation", min: "₹10L", status: "nfo", statusNote: "10–24 Apr 2026", href: "/sifs/sapphire-equity-long-short" },
       { name: "WSIF Equity Long-Short", amc: "The Wealth Company Mutual Fund", strategy: "Long-biased active management with ≤25% unhedged short", min: "₹10L", status: "nfo", statusNote: "15–29 Apr 2026", href: "/sifs/wsif-equity-long-short" },
+      { name: "Titanium Equity Long-Short", amc: "Tata Mutual Fund", strategy: "Long-biased equity (80–100%) with ≤25% unhedged short via derivatives", min: "₹10L", status: "nfo", statusNote: "27 Apr–11 May 2026", href: "/sifs/titanium-equity-long-short" },
     ],
   },
   {

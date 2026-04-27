@@ -73,7 +73,7 @@ const SifVsPmsDetailedComparison = () => {
                 A <Link href="/what-is-sif" className="text-primary hover:underline">Specialized Investment Fund (SIF)</Link> is a new category introduced by SEBI on April 1, 2025, under the Mutual Fund Regulations. SIFs are pooled investment vehicles — similar to mutual funds in structure — but with the ability to use advanced strategies like long-short equity, derivatives overlays, and sector rotation. The minimum investment is ₹10 Lakhs aggregated at the PAN level per AMC.
               </p>
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                SIFs are managed by SEBI-approved Asset Management Companies (AMCs) that meet strict eligibility criteria, including a minimum 3-year track record or highly experienced fund management teams. As of April 2026, over 17 SIF schemes are tracked by SIFPrime from leading AMCs including Quant, ICICI Prudential, Edelweiss, SBI, Tata, ITI, 360 ONE, Bandhan, Aditya Birla Sun Life, Franklin Templeton, and The Wealth Company.
+                SIFs are managed by SEBI-approved Asset Management Companies (AMCs) that meet strict eligibility criteria, including a minimum 3-year track record or highly experienced fund management teams. As of April 2026, over 18 SIF schemes are tracked by SIFPrime from leading AMCs including Quant, ICICI Prudential, Edelweiss, SBI, Tata, ITI, 360 ONE, Bandhan, Aditya Birla Sun Life, Franklin Templeton, and The Wealth Company.
               </p>
             </div>
 

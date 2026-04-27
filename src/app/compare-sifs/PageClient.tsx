@@ -45,7 +45,7 @@ const CompareSifs = () => {
                 SIF Comparison Tool
               </span>
               <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 px-2">
-                Compare All 17 SIFs in India
+                Compare All 18 SIFs in India
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
                 A comprehensive side-by-side comparison of every Specialized Investment Fund launched in India. View fund names, AMCs, categories, launch dates, and minimum investment requirements in one place to make an informed decision.
@@ -63,7 +63,7 @@ const CompareSifs = () => {
         <section className="py-8 sm:py-16 lg:py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground text-center mb-4 sm:mb-6">
-              All 17 Specialized Investment Funds at a Glance
+              All 18 Specialized Investment Funds at a Glance
             </h2>
             <p className="text-center text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto">
               SEBI introduced Specialized Investment Funds (SIFs) in 2025 as a new category sitting between mutual funds and portfolio management services. As of early 2026, fourteen SIF schemes have been launched by leading AMCs across four distinct categories. The table below captures the essential data points for every SIF available to investors today.

@@ -16,12 +16,12 @@ const SifCompareTool = dynamic(() => import("./PageClient"), {
 export const metadata: Metadata = {
   title: "Compare SIF Funds — Alpha Shield Scores & Returns",
   description:
-    "Compare Hybrid Long-Short, Equity Long-Short and Ex-Top 100 SIFs side by side. Capital protection scores, returns, TER and strategy comparison across all 17 SIFs in India.",
+    "Compare Hybrid Long-Short, Equity Long-Short and Ex-Top 100 SIFs side by side. Capital protection scores, returns, TER and strategy comparison across all 18 SIFs in India.",
   alternates: { canonical: "https://sifprime.com/sif-compare" },
   openGraph: {
     title: "Compare SIF Funds Side by Side",
     description:
-      "Interactive SIF comparison tool. Alpha Shield scores, returns, costs and strategy analysis for all 17 SIFs in India.",
+      "Interactive SIF comparison tool. Alpha Shield scores, returns, costs and strategy analysis for all 18 SIFs in India.",
     url: "https://sifprime.com/sif-compare",
     images: ["https://sifprime.com/og-image.png"],
     type: "website",
@@ -135,7 +135,7 @@ export default function Page() {
               through a crash has already been stress-tested. Pair that with
               the{" "}
               <Link href="/all-sifs-india-ranked-explained">
-                SIFPrime ranked list of all 17 SIFs
+                SIFPrime ranked list of all 18 SIFs
               </Link>{" "}
               for deeper qualitative context.
             </p>
@@ -174,7 +174,7 @@ export default function Page() {
               href="/all-sifs-india-ranked-explained"
               className="hover:text-primary"
             >
-              All 17 SIFs ranked →
+              All 18 SIFs ranked →
             </Link>
             <Link href="/which-sif-should-you-invest-in" className="hover:text-primary">
               Which SIF should you invest in? →

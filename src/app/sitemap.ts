@@ -86,6 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sifs/sapphire-equity-long-short",
     "/sifs/wsif-equity-long-short",
     "/sifs/wsif-ex-top-100-long-short",
+    "/sifs/titanium-equity-long-short",
     "/sifs/qsif-active-asset-allocator-long-short",
     "/sifs/isif",
     "/sifs/isif/extop100",
