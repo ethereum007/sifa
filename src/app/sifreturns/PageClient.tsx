@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NavJourneyChart from "@/components/NavJourneyChart";
+import NavJourneyChart from "@/components/NavJourneyChartLazy";
 import MonthlyHeatmap from "@/components/MonthlyHeatmap";
 import { sifFunds, getHybridFunds } from "@/lib/sifData";
 import Link from "next/link";

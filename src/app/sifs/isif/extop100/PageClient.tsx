@@ -6,7 +6,7 @@ import { WHATSAPP_URL, CONSULTATION_URL } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageCircle, ExternalLink } from "lucide-react";
 import CrashAnalysis from "@/components/CrashAnalysis";
-import NavJourneyChart from "@/components/NavJourneyChart";
+import NavJourneyChart from "@/components/NavJourneyChartLazy";
 import MonthlyHeatmap from "@/components/MonthlyHeatmap";
 import { getSifBySlug, getPeers, fmtPct } from "@/lib/sifData";
 
