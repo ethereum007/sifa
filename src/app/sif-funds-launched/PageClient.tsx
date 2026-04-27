@@ -21,6 +21,8 @@ interface SifFund {
   amc: string;
   href: string;
   linkText?: string;
+  status: "live" | "nfo";
+  nfoWindow?: string;
 }
 
 interface CategoryData {
@@ -34,44 +36,59 @@ const categories: CategoryData[] = [
     label: "Hybrid Long Short",
     badgeClass: "bg-purple-50 text-purple-700 border-purple-200",
     funds: [
-      { name: "Altiva Hybrid Long Short Fund", amc: "Edelweiss Mutual Fund", href: "/sifs/altiva-hybrid-long-short" },
-      { name: "Magnum Hybrid Long Short Fund", amc: "SBI Mutual Fund", href: "/sifs/magnum-hybrid-long-short" },
-      { name: "Titanium Hybrid Long Short Fund", amc: "Tata Mutual Fund", href: "/sifs/titanium-hybrid-long-short" },
-      { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-hybrid-long-short" },
-      { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/hybrid" },
-      { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-hybrid-long-short" },
-      { name: "Apex SIF Hybrid Long Short", amc: "DSP Mutual Fund", href: "/sifs/apex-hybrid-long-short" },
-    ],
-  },
-  {
-    label: "Equity Ex-Top 100",
-    badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    funds: [
-      { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/extop100" },
-      { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", href: "/sifs/qsif-ex-top-100-long-short" },
+      { name: "Altiva Hybrid Long Short Fund", amc: "Edelweiss Mutual Fund", href: "/sifs/altiva-hybrid-long-short", status: "live" },
+      { name: "Magnum Hybrid Long Short Fund", amc: "SBI Mutual Fund", href: "/sifs/magnum-hybrid-long-short", status: "live" },
+      { name: "qSIF Hybrid Long Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-hybrid-long-short", status: "live" },
+      { name: "Titanium Hybrid Long Short Fund", amc: "Tata Mutual Fund", href: "/sifs/titanium-hybrid-long-short", status: "live" },
+      { name: "Arudha Hybrid Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-hybrid-long-short", status: "live" },
+      { name: "iSIF Hybrid Long Short", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/hybrid", status: "live" },
+      { name: "Apex Hybrid Long Short", amc: "Aditya Birla Sun Life Mutual Fund", href: "/sifs/apex-hybrid-long-short", status: "live" },
     ],
   },
   {
     label: "Equity Long Short",
     badgeClass: "bg-blue-50 text-blue-700 border-blue-200",
     funds: [
-      { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/sifs/diviniti-equity-long-short" },
-      { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-equity-long-short" },
-      { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/sifs/dyna-equity-long-short" },
-      { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-equity-long-short" },
+      { name: "qSIF Equity Long Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-equity-long-short", status: "live" },
+      { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/sifs/diviniti-equity-long-short", status: "live" },
+      { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/sifs/dyna-equity-long-short", status: "live" },
+      { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-equity-long-short", status: "live" },
+      { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", href: "/sifs/sapphire-equity-long-short", status: "nfo", nfoWindow: "10–24 Apr 2026" },
+      { name: "WSIF Equity Long-Short Fund", amc: "The Wealth Company Mutual Fund", href: "/sifs/wsif-equity-long-short", status: "nfo", nfoWindow: "15–29 Apr 2026" },
+      { name: "Titanium Equity Long-Short Fund", amc: "Tata Mutual Fund", href: "/sifs/titanium-equity-long-short", status: "nfo", nfoWindow: "27 Apr–11 May 2026" },
+    ],
+  },
+  {
+    label: "Equity Ex-Top 100",
+    badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    funds: [
+      { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/extop100", status: "live" },
+      { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", href: "/sifs/qsif-ex-top-100-long-short", status: "live" },
+      { name: "WSIF Equity Ex-Top 100 Long-Short Fund", amc: "The Wealth Company Mutual Fund", href: "/sifs/wsif-ex-top-100-long-short", status: "nfo", nfoWindow: "15–29 Apr 2026" },
+    ],
+  },
+  {
+    label: "Sector Rotation",
+    badgeClass: "bg-rose-50 text-rose-700 border-rose-200",
+    funds: [
+      { name: "qSIF Sector Rotation Long-Short Fund", amc: "Quant Mutual Fund", href: "/sifs/qsif-sector-rotation-long-short", status: "nfo", nfoWindow: "27 Apr–11 May 2026" },
     ],
   },
   {
     label: "Active Asset Allocator",
     badgeClass: "bg-orange-50 text-orange-700 border-orange-200",
     funds: [
-      { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", href: "/sifs/dyna-active-asset-allocator", linkText: "View" },
+      { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", href: "/sifs/dyna-active-asset-allocator", status: "live" },
+      { name: "qSIF Active Asset Allocator Long-Short", amc: "Quant Mutual Fund", href: "/sifs/qsif-active-asset-allocator-long-short", status: "live" },
     ],
   },
 ];
 
-const totalFunds = categories.reduce((sum, cat) => sum + cat.funds.length, 0);
-const uniqueAMCs = new Set(categories.flatMap(cat => cat.funds.map(f => f.amc))).size;
+const allFunds = categories.flatMap((cat) => cat.funds);
+const totalFunds = allFunds.length;
+const liveCount = allFunds.filter((f) => f.status === "live").length;
+const nfoCount = allFunds.filter((f) => f.status === "nfo").length;
+const uniqueAMCs = new Set(allFunds.map((f) => f.amc)).size;
 
 const SifFundsLaunched = () => {
   return (
@@ -87,7 +104,7 @@ const SifFundsLaunched = () => {
               Specialized Investment Funds Launched
             </h1>
             <p className="text-lg text-muted-foreground">
-              India's first SIF schemes are now live. Explore the funds from leading AMCs.
+              Every SIF in India — live and in NFO. Explore the full universe across leading AMCs.
             </p>
           </div>
 
@@ -110,6 +127,7 @@ const SifFundsLaunched = () => {
                       <TableRow className="hover:bg-transparent">
                         <TableHead className="pl-6">Fund Name</TableHead>
                         <TableHead>AMC</TableHead>
+                        <TableHead className="hidden sm:table-cell">Status</TableHead>
                         <TableHead className="pr-6 text-right">Link</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -123,8 +141,20 @@ const SifFundsLaunched = () => {
                             </div>
                           </TableCell>
                           <TableCell className="text-muted-foreground">{fund.amc}</TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            {fund.status === "nfo" ? (
+                              <span className="inline-flex items-center gap-1.5 rounded border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-800 whitespace-nowrap">
+                                NFO OPEN
+                                {fund.nfoWindow && <span className="font-normal text-amber-700">· {fund.nfoWindow}</span>}
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center rounded border border-green-200 bg-green-50 px-2 py-0.5 text-[11px] font-semibold text-green-800">
+                                LIVE
+                              </span>
+                            )}
+                          </TableCell>
                           <TableCell className="pr-6 text-right">
-                            <Link 
+                            <Link
                               href={fund.href}
                               className="text-sm font-medium text-primary hover:underline"
                             >
@@ -142,8 +172,10 @@ const SifFundsLaunched = () => {
 
           <div className="text-center">
             <p className="text-lg text-muted-foreground">
-              <span className="text-2xl font-bold text-primary">{totalFunds}</span> SIF schemes launched across{" "}
-              <span className="text-2xl font-bold text-primary">{uniqueAMCs}</span> AMCs
+              <span className="text-2xl font-bold text-primary">{totalFunds}</span> SIFs across{" "}
+              <span className="text-2xl font-bold text-primary">{uniqueAMCs}</span> AMCs —{" "}
+              <span className="font-semibold text-green-700">{liveCount} live</span>,{" "}
+              <span className="font-semibold text-amber-700">{nfoCount} in NFO</span>
             </p>
           </div>
 
