@@ -13,9 +13,9 @@ interface SifFund {
   internalLink?: string;
 }
 
-type Category = "Hybrid Long Short" | "Equity Long Short" | "Equity Ex-Top 100" | "Active Asset Allocator";
+type Category = "Hybrid Long Short" | "Equity Long Short" | "Equity Ex-Top 100" | "Active Asset Allocator" | "Sector Rotation";
 
-const categories: Category[] = ["Hybrid Long Short", "Equity Long Short", "Equity Ex-Top 100", "Active Asset Allocator"];
+const categories: Category[] = ["Hybrid Long Short", "Equity Long Short", "Equity Ex-Top 100", "Sector Rotation", "Active Asset Allocator"];
 
 const fundsByCategory: Record<Category, SifFund[]> = {
   "Hybrid Long Short": [
@@ -40,6 +40,9 @@ const fundsByCategory: Record<Category, SifFund[]> = {
     { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", internalLink: "/sifs/sapphire-equity-long-short" },
     { name: "WSIF Equity Long-Short Fund", amc: "The Wealth Company Mutual Fund", internalLink: "/sifs/wsif-equity-long-short" },
     { name: "Titanium Equity Long-Short Fund", amc: "Tata Mutual Fund", internalLink: "/sifs/titanium-equity-long-short" },
+  ],
+  "Sector Rotation": [
+    { name: "qSIF Sector Rotation Long-Short Fund", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-sector-rotation-long-short" },
   ],
   "Active Asset Allocator": [
     { name: "DynaSIF Active Asset Allocator", amc: "360 ONE Asset", internalLink: "/sifs/dyna-active-asset-allocator" },

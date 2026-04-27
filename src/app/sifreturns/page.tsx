@@ -152,7 +152,7 @@ export default function Page() {
               <Link href="/sif-performance">SIF performance tracker</Link> or
               the{" "}
               <Link href="/all-sifs-india-ranked-explained">
-                ranked list of all 18 SIFs
+                ranked list of all 19 SIFs
               </Link>
               .
             </p>

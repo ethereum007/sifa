@@ -380,7 +380,7 @@ export default function ReportPageClient() {
             </div>
 
             <p className="text-xs text-gray-500 mt-3">
-              18 SIFs tracked as of April 2026 (14 live + 4 NFO).
+              19 SIFs tracked as of April 2026 (14 live + 5 NFO).
             </p>
           </section>
 

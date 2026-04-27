@@ -55,7 +55,7 @@ export default function Page() {
           <p className="text-muted-foreground mt-3 text-base md:text-lg max-w-2xl mx-auto">
             A free 2-minute, 5-question quiz that matches your risk profile,
             investment goals and time horizon to the right Specialized
-            Investment Fund among all 18 SIFs in India.
+            Investment Fund among all 19 SIFs in India.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
             <li>
@@ -86,7 +86,7 @@ export default function Page() {
               market correction, time horizon (under 2 years, 2–5 years, or 5+
               years), strategy preference (Hybrid vs Equity Long-Short vs
               Ex-Top 100), and AMC preference (if any). Based on your answers,
-              we score each of the 18 SIFs on fit and surface the top 3
+              we score each of the 19 SIFs on fit and surface the top 3
               matches, each with its Alpha Shield capital-protection score
               and since-inception return.
             </p>
@@ -98,7 +98,7 @@ export default function Page() {
               committing ₹10 lakh or more. For a deeper look at each fund, see
               the{" "}
               <Link href="/all-sifs-india-ranked-explained">
-                ranked list of all 18 SIFs
+                ranked list of all 19 SIFs
               </Link>{" "}
               or the <Link href="/sif-compare">side-by-side comparison tool</Link>.
             </p>

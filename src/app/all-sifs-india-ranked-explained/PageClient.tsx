@@ -43,7 +43,7 @@ const AllSifsRanked = () => {
               <span className="text-sm text-muted-foreground">March 2026</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
-              All 18 SIFs in India Ranked and Explained (2025–26)
+              All 19 SIFs in India Ranked and Explained (2025–26)
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6">
               The only fund-by-fund breakdown of every Specialized Investment Fund launched in India — strategy, risk band, target returns, and who each fund is built for.
@@ -60,7 +60,7 @@ const AllSifsRanked = () => {
                 India's Specialized Investment Fund (SIF) category is one of the most significant regulatory developments in Indian wealth management in recent years. Positioned between Mutual Funds and Portfolio Management Services (PMS), SIFs allow qualified investors to access institutional-grade long-short strategies, derivatives-based hedging, and multi-asset portfolios — all within a SEBI-regulated framework. The minimum ticket is ₹10 Lakhs per PAN.
               </p>
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed mt-4">
-                As of April 2026, 18 SIF strategies are tracked on SIFPrime across leading AMCs. Here is a comprehensive breakdown of every fund currently available.
+                As of April 2026, 19 SIF strategies are tracked on SIFPrime across leading AMCs. Here is a comprehensive breakdown of every fund currently available.
               </p>
             </div>
           </div>
@@ -303,7 +303,7 @@ const AllSifsRanked = () => {
               <CardContent className="p-6 lg:p-8 flex gap-4">
                 <Info className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <p className="text-muted-foreground leading-relaxed">
-                  <span className="font-semibold text-foreground">SIFPrime Tip:</span> With 18 funds across 11 AMCs and 3 strategy types, choosing the right SIF requires matching your risk appetite, return expectations, liquidity needs, and tax horizon. Use SIFPrime's comparison tool to filter by category, risk level, and target return.
+                  <span className="font-semibold text-foreground">SIFPrime Tip:</span> With 19 funds across 11 AMCs and 3 strategy types, choosing the right SIF requires matching your risk appetite, return expectations, liquidity needs, and tax horizon. Use SIFPrime's comparison tool to filter by category, risk level, and target return.
                 </p>
               </CardContent>
             </Card>
@@ -313,7 +313,7 @@ const AllSifsRanked = () => {
         {/* Quick Reference Table */}
         <section className="py-8 lg:py-12">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">Quick Reference: All 18 SIFs at a Glance</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">Quick Reference: All 19 SIFs at a Glance</h2>
             <div className="overflow-x-auto rounded-lg border">
               <Table>
                 <TableHeader>

@@ -13,7 +13,8 @@ export type SIFCategory =
   | "Equity Long Short"
   | "Hybrid Long Short"
   | "Equity Ex-Top 100"
-  | "Active Asset Allocator";
+  | "Active Asset Allocator"
+  | "Sector Rotation Long Short";
 
 interface FundFAQInput {
   /** e.g. "qSIF Equity Long-Short" */
@@ -43,6 +44,8 @@ const CATEGORY_DESCRIPTIONS: Record<SIFCategory, string> = {
     "an equity Specialized Investment Fund that invests primarily in companies outside the top 100 by market capitalization (mid- and small-cap focused), with limited short exposure via derivatives",
   "Active Asset Allocator":
     "an open-ended Specialized Investment Fund that dynamically rotates allocation across equity, debt and arbitrage based on market conditions, with derivative-based hedging",
+  "Sector Rotation Long Short":
+    "an equity Specialized Investment Fund that concentrates 80–100% of assets in a small number of high-conviction sectors (typically up to 4 of 12 candidate sectors), with limited derivative-based short exposure to capitalise on sector-specific downturns",
 };
 
 const CATEGORY_RISK: Record<SIFCategory, string> = {
@@ -54,6 +57,8 @@ const CATEGORY_RISK: Record<SIFCategory, string> = {
     "Higher risk than a top-100 equity SIF — mid- and small-caps are inherently more volatile, and the derivative-based short overlay does not fully neutralise that. Suited for investors with high risk tolerance and a 3+ year horizon.",
   "Active Asset Allocator":
     "Lower equity beta than a pure equity SIF because allocation rotates between debt and equity based on signals. Risk profile is moderate; drawdowns are typically smaller but upside in bull markets is also capped relative to long-only equity funds.",
+  "Sector Rotation Long Short":
+    "High concentration risk — with 80–100% allocated across only ~4 sectors, performance is highly dependent on sector calls being right. The derivative short overlay can mitigate sector-specific drawdowns but does not eliminate selection risk. Suited for investors with high conviction on the manager's sector-rotation framework and a 3+ year horizon.",
 };
 
 export function buildFundFAQs({

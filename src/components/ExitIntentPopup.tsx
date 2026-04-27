@@ -105,7 +105,7 @@ export default function ExitIntentPopup() {
                 Get our Free SIF Comparison Guide
               </h3>
               <p className="text-sm text-muted-foreground">
-                Compare all 18 SIFs side-by-side — returns, strategy, taxation, and minimum investment in one PDF.
+                Compare all 19 SIFs side-by-side — returns, strategy, taxation, and minimum investment in one PDF.
               </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-3">

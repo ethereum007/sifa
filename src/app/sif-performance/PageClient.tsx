@@ -63,7 +63,7 @@ const SifPerformance = () => {
                 Track SIF Performance Across All Categories
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto px-2">
-                Stay updated with monthly performance reports, live NAV data, and returns analysis for every Specialized Investment Fund in India. Our performance tracker covers all 18 SIFs across Equity Long Short, Hybrid Long Short, Ex-Top 100, and Active Asset Allocator categories.
+                Stay updated with monthly performance reports, live NAV data, and returns analysis for every Specialized Investment Fund in India. Our performance tracker covers all 19 SIFs across Equity Long Short, Hybrid Long Short, Ex-Top 100, Sector Rotation, and Active Asset Allocator categories.
               </p>
               <a href={CONSULTATION_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant="gold" size="lg" className="gap-2">

@@ -39,7 +39,7 @@ const articles = [
     date: "2026-04-07",
   },
   {
-    title: "All 18 SIFs in India Ranked and Explained (2025–26)",
+    title: "All 19 SIFs in India Ranked and Explained (2025–26)",
     description: "Fund-by-fund breakdown of every Specialized Investment Fund in India — strategy, risk band, target returns, and who each fund is built for.",
     href: "/all-sifs-india-ranked-explained",
     category: "Guide",
@@ -209,7 +209,7 @@ const Blog = () => {
           </div>
         </section>
 
-        <InternalLinkHub heading="Explore SIF Funds" subheading="All 18 SIFs tracked on SIFPrime, organized by category." variant="funds" />
+        <InternalLinkHub heading="Explore SIF Funds" subheading="All 19 SIFs tracked on SIFPrime, organized by category." variant="funds" />
       </main>
 
       <Footer />

@@ -55,6 +55,12 @@ const GROUPS: Group[] = [
     ],
   },
   {
+    category: "Sector Rotation",
+    rows: [
+      { name: "qSIF Sector Rotation Long-Short", amc: "Quant Mutual Fund", strategy: "Concentrated in 4 of 12 sectors with derivatives short overlay", min: "₹10L", status: "nfo", statusNote: "27 Apr–11 May 2026", href: "/sifs/qsif-sector-rotation-long-short" },
+    ],
+  },
+  {
     category: "Active Asset Allocator",
     rows: [
       { name: "Dyna Active Asset Allocator", amc: "360 ONE Asset", strategy: "Dynamic asset allocation across equity, debt, commodities", min: "₹10L", status: "live", href: "/sifs/dyna-active-asset-allocator" },

@@ -17,28 +17,6 @@ const NfoBannerTop = () => {
           NFO OPEN
         </span>
         <span className="font-semibold text-white">
-          Franklin Templeton Sapphire Equity Long-Short SIF
-        </span>
-      </span>
-      <span className="text-amber-500 font-medium">|</span>
-      <span className="text-white/90">April 10 to April 24, 2026</span>
-      <span className="text-amber-500 font-medium">|</span>
-      <a
-        href="https://www.franklintempletonindia.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"
-        style={{ fontSize: "13px" }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        Invest Now
-      </a>
-      <span className="text-[#0f1f3d]/30 mx-4">•</span>
-      <span className="inline-flex items-center gap-2">
-        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "11px" }}>
-          NFO OPEN
-        </span>
-        <span className="font-semibold text-white">
           WSIF by Wealth — Equity Long Short
         </span>
       </span>
@@ -91,6 +69,28 @@ const NfoBannerTop = () => {
       <span className="text-amber-500 font-medium">|</span>
       <a
         href="https://www.tatamutualfund.com/titanium-sif"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"
+        style={{ fontSize: "13px" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        Invest Now
+      </a>
+      <span className="text-[#0f1f3d]/30 mx-4">•</span>
+      <span className="inline-flex items-center gap-2">
+        <span className="bg-amber-500 text-[#0f1f3d] font-bold px-2 py-0.5 rounded animate-pulse" style={{ fontSize: "11px" }}>
+          NFO OPEN
+        </span>
+        <span className="font-semibold text-white">
+          qSIF by Quant — Sector Rotation Long-Short
+        </span>
+      </span>
+      <span className="text-amber-500 font-medium">|</span>
+      <span className="text-white/90">April 27 to May 11, 2026</span>
+      <span className="text-amber-500 font-medium">|</span>
+      <a
+        href="https://www.qsif.com/"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-[#0f1f3d] font-bold px-3 py-1 rounded-full transition-colors"

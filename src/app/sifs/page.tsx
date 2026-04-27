@@ -152,7 +152,7 @@ export default function Page() {
 
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Every SEBI-registered Specialized Investment Fund in India,
-                grouped by AMC. 18 SIF schemes across 11 fund houses, ₹10 Lakh
+                grouped by AMC. 19 SIF schemes across 11 fund houses, ₹10 Lakh
                 minimum, mutual-fund governance.
               </p>
             </div>
@@ -267,7 +267,7 @@ export default function Page() {
                   href="/all-sifs-india-ranked-explained"
                   className="text-primary underline"
                 >
-                  ranked list of all 18 SIFs
+                  ranked list of all 19 SIFs
                 </Link>
                 .
               </p>

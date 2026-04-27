@@ -8,7 +8,7 @@ const PageClient = dynamic(() => import("./PageClient"));
 export const metadata: Metadata = {
   title: "SIF Comparison Platform India \u2014 Compare Specialized Investment Funds | SIFPrime",
   description:
-    "Compare all SEBI-regulated Specialized Investment Funds (SIFs) in India. Live NAV, returns, strategy breakdown, SIF vs MF vs PMS comparison. Min \u20b910L investment. 18 SIFs tracked.",
+    "Compare all SEBI-regulated Specialized Investment Funds (SIFs) in India. Live NAV, returns, strategy breakdown, SIF vs MF vs PMS comparison. Min \u20b910L investment. 19 SIFs tracked.",
   alternates: { canonical: "https://sifprime.com/" },
   openGraph: {
     title: "SIF Comparison Platform India \u2014 Compare Specialized Investment Funds | SIFPrime",
