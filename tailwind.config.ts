@@ -14,7 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        // Geist is the primary loaded font (see layout.tsx + globals.css body).
+        // System Inter / system-ui are 2nd/3rd fallbacks.
+        sans: ["Geist", "Inter", "system-ui", "sans-serif"],
+        mono: ["Geist Mono", "ui-monospace", "monospace"],
         serif: ["Playfair Display", "Georgia", "serif"],
       },
       colors: {
