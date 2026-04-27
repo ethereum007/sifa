@@ -3,22 +3,22 @@ import dynamic from "next/dynamic";
 const PageClient = dynamic(() => import("./PageClient"));
 
 export const metadata: Metadata = {
-  title: "SIFPrime Partner Platform — Co-Branded SIF Reports for MFDs & RIAs",
+  title: "SIFPrime Partner Programme — Free SIF Toolkit for MFDs & RIAs",
   description:
-    "Join India's first partner platform for Specialized Investment Funds. Generate co-branded SIF reports with your logo, track prospects, and grow your HNI advisory practice.",
+    "Free toolkit for AMFI-registered MFDs and RIAs distributing Specialized Investment Funds. Empanelment guides, fund analysis, HNI pitch decks, and the weekly Friday Brief — no subscription, no gates.",
   alternates: { canonical: "https://sifprime.com/partner" },
   openGraph: {
-    title: "SIFPrime Partner Platform — Co-Branded SIF Reports for MFDs & RIAs",
+    title: "SIFPrime Partner Programme — Free SIF Toolkit for MFDs & RIAs",
     description:
-      "Generate co-branded SIF reports with your branding. Track prospects, grow HNI advisory practice with India's only SIF intelligence platform.",
+      "Free toolkit, weekly Friday Brief, and Knowledge Series for India's wealth managers. Built by an AMFI MFD for distributors.",
     url: "https://sifprime.com/partner",
     images: ["https://sifprime.com/og-image.png"],
     type: "website",
   },
   twitter: {
-    title: "SIFPrime Partner Platform — Co-Branded SIF Reports",
+    title: "SIFPrime Partner Programme — Free SIF Toolkit",
     description:
-      "Generate co-branded SIF reports with your branding for HNI clients.",
+      "12 modules, weekly Brief, Monthly Masterclass — all free for MFDs and RIAs distributing SIFs.",
   },
 };
 
