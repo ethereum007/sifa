@@ -101,14 +101,22 @@ export default function PartnerLoginPageClient() {
             </Button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-slate-400">
+          <p className="mt-6 text-center text-sm">
+            <Link
+              href="/partner/forgot-password"
+              className="text-amber-400 hover:text-amber-300"
+            >
+              Forgot your password?
+            </Link>
+          </p>
+          <p className="mt-6 text-center text-sm text-slate-400">
             New partner?{" "}
             <Link href="/partner" className="font-semibold text-amber-400 hover:text-amber-300">
               Create an account
             </Link>
           </p>
           <p className="mt-2 text-center text-xs text-slate-500">
-            Lost your dashboard link? Email{" "}
+            Trouble logging in? Email{" "}
             <a href="mailto:partners@sifprime.com" className="text-amber-500 hover:text-amber-400">
               partners@sifprime.com
             </a>
