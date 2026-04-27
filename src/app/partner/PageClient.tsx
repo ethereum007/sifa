@@ -232,7 +232,7 @@ export default function PartnerPage() {
                 <div className="text-xs text-[#5C5C58] mt-1 uppercase tracking-wider">AMCs covered</div>
               </div>
               <div>
-                <div className="serif text-3xl num">₹2,400 Cr</div>
+                <div className="serif text-3xl num">₹10,400 Cr</div>
                 <div className="text-xs text-[#5C5C58] mt-1 uppercase tracking-wider">Category AUM</div>
               </div>
             </div>
