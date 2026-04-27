@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2, Shield, BarChart3, Zap } from "lucide-react";
 import type { SignupFormData } from "@/lib/partner/types";
@@ -104,7 +105,7 @@ function SifExplainerBanner() {
             {[
               { stat: "\u20B910 L", note: "Minimum vs \u20B950L for PMS" },
               { stat: "Long-short", note: "Strategies | SEBI regulated" },
-              { stat: "14 funds", note: "Live | \u20B92,400 Cr+ AUM" },
+              { stat: "17 funds", note: "Live | \u20B92,400 Cr+ AUM" },
               { stat: "March 2026", note: "Nifty \u221211.30% | SIF avg \u22122.76%" },
             ].map((item) => (
               <div
@@ -142,7 +143,7 @@ const VALUE_PROPS = [
     icon: BarChart3,
     emoji: "\uD83D\uDCCA",
     title: "India\u2019s only SIF intelligence",
-    desc: "14 SIFs ranked by Alpha Shield Score, crash-period analysis, fund vs benchmark breakdowns.",
+    desc: "17 SIFs ranked by Alpha Shield Score, crash-period analysis, fund vs benchmark breakdowns.",
   },
   {
     icon: Zap,
@@ -407,6 +408,12 @@ function SignupFormSection() {
         </h2>
         <p className="mx-auto mt-3 max-w-md text-center text-sm text-slate-400">
           Takes under 5 minutes. Start generating co-branded SIF reports today.
+        </p>
+        <p className="mt-3 text-center text-sm text-slate-400">
+          Already registered?{" "}
+          <Link href="/partner/login" className="font-semibold text-amber-400 hover:text-amber-300">
+            Log in
+          </Link>
         </p>
 
         {error && (

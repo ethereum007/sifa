@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS partner_leads (
   sif_category_match text,
   sif_familiarity text,
   top_fund_recommendations jsonb,
-  report_id uuid DEFAULT gen_random_uuid(),
+  report_id text,
   report_sent_at timestamp,
   consultation_booked bool DEFAULT false,
   aum_in_pipeline numeric,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS partner_leads (
 
 CREATE TABLE IF NOT EXISTS report_views (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  report_id uuid,
+  report_id text,
   lead_id uuid,
   partner_id uuid,
   viewed_at timestamp DEFAULT now()

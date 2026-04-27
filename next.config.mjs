@@ -15,6 +15,7 @@ const nextConfig = {
       { source: "/sifperformance", destination: "/sif-performance", permanent: true },
       { source: "/sifvsmutualfund", destination: "/sif-vs-mf", permanent: true },
       { source: "/compare-sifs", destination: "/sif-compare", permanent: true },
+      { source: "/reports/:reportId", destination: "/report/:reportId", permanent: true },
       { source: "/arudha", destination: "/sifs/arudha-hybrid-long-short", permanent: true },
       { source: "/dyna-equity-long-short", destination: "/sifs/dyna-equity-long-short", permanent: true },
       { source: "/qsif-equity-long-short", destination: "/sifs/qsif-equity-long-short", permanent: true },

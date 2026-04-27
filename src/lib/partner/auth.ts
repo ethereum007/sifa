@@ -30,3 +30,12 @@ export async function hashPassword(password: string): Promise<string> {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
 }
+
+/**
+ * Verify a plain password against a stored SHA-256 hex hash.
+ */
+export async function verifyPassword(password: string, hash: string): Promise<boolean> {
+  if (!password || !hash) return false;
+  const candidate = await hashPassword(password);
+  return candidate === hash;
+}
