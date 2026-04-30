@@ -64,14 +64,23 @@ const Footer = () => {
                 <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                 <span>India</span>
               </div>
-              <a 
-                href="https://www.linkedin.com/company/sif-prime" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/company/sif-prime"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors mt-2"
               >
                 <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                 <span>Follow us on LinkedIn</span>
+              </a>
+              <a
+                href="https://www.instagram.com/sifprime/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+                <span>Follow us on Instagram (@sifprime)</span>
               </a>
             </div>
           </div>

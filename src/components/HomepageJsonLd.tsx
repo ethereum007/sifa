@@ -63,7 +63,10 @@ export default function HomepageJsonLd() {
       "@type": "Country",
       name: "India",
     },
-    sameAs: ["https://www.linkedin.com/company/sif-prime"],
+    sameAs: [
+      "https://www.linkedin.com/company/sif-prime",
+      "https://www.instagram.com/sifprime/",
+    ],
   };
 
   const websiteSchema = {
