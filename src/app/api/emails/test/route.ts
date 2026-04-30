@@ -5,10 +5,16 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const to = searchParams.get('to');
+    const key = searchParams.get('key');
+
+    const adminPassword = process.env.ADMIN_PASSWORD || '';
+    if (!adminPassword || key !== adminPassword) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
 
     if (!to) {
       return NextResponse.json(
-        { error: 'Pass ?to=<recipient-email>' },
+        { error: 'Pass ?to=<recipient-email>&key=<admin-password>' },
         { status: 400 }
       );
     }
