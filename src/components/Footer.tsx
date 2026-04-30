@@ -82,6 +82,15 @@ const Footer = () => {
                 <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                 <span>Follow us on Instagram (@sifprime)</span>
               </a>
+              <a
+                href="https://x.com/SifPrime"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+                <span>Follow us on X (@SifPrime)</span>
+              </a>
             </div>
           </div>
 

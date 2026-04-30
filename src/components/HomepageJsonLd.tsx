@@ -66,6 +66,7 @@ export default function HomepageJsonLd() {
     sameAs: [
       "https://www.linkedin.com/company/sif-prime",
       "https://www.instagram.com/sifprime/",
+      "https://x.com/SifPrime",
     ],
   };
 
