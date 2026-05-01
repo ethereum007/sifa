@@ -537,31 +537,34 @@ def crash_recovery_section():
     s.append(t)
 
     s.append(Spacer(1, 5*mm))
-    s.append(Paragraph("Reading the table", H3))
-    s.append(Paragraph(
-        "<b>The biggest swingers</b> — qSIF Ex-Top 100 (22.98 pts) and qSIF Equity (22.63 pts) — "
-        "are the funds with the highest net-long equity exposure. They got punished hardest in "
-        "March, then snapped back hardest. High beta to small/mid caps cuts both ways.",
-        BODY_JUSTIFY,
-    ))
-    s.append(Paragraph(
-        "<b>The smart-hedge winners</b> — qSIF Hybrid and Altiva — show up positive in the rightmost "
-        "column. They didn't just recover; they compounded forward through both months. That's the "
-        "long-short value proposition working as designed.",
-        BODY_JUSTIFY,
-    ))
-    s.append(Paragraph(
-        "<b>The drawdown survivors</b> — iSIF Hybrid and iSIF Ex-Top 100 — fell hard, recovered "
-        "hard, but the net is roughly flat over two months. Investor experience: high volatility, "
-        "no compounding gain. Whether that's acceptable depends on time horizon.",
-        BODY_JUSTIFY,
-    ))
-    s.append(Paragraph(
-        "<b>Diviniti is the outlier</b> — fell only −2.99% in March (good defence) but then captured "
-        "almost none of the rally (+0.71% in April vs Nifty 500 +10.52%). Net 2-month return −2.30%. "
-        "Stock selection seems to have diverged from broader trends.",
-        BODY_JUSTIFY,
-    ))
+    reading_block = [
+        Paragraph("Reading the table", H3),
+        Paragraph(
+            "<b>The biggest swingers</b> — qSIF Ex-Top 100 (22.98 pts) and qSIF Equity (22.63 pts) — "
+            "are the funds with the highest net-long equity exposure. They got punished hardest in "
+            "March, then snapped back hardest. High beta to small/mid caps cuts both ways.",
+            BODY_JUSTIFY,
+        ),
+        Paragraph(
+            "<b>The smart-hedge winners</b> — qSIF Hybrid and Altiva — show up positive in the rightmost "
+            "column. They didn't just recover; they compounded forward through both months. That's the "
+            "long-short value proposition working as designed.",
+            BODY_JUSTIFY,
+        ),
+        Paragraph(
+            "<b>The drawdown survivors</b> — iSIF Hybrid and iSIF Ex-Top 100 — fell hard, recovered "
+            "hard, but the net is roughly flat over two months. Investor experience: high volatility, "
+            "no compounding gain. Whether that's acceptable depends on time horizon.",
+            BODY_JUSTIFY,
+        ),
+        Paragraph(
+            "<b>Diviniti is the outlier</b> — fell only −2.99% in March (good defence) but then captured "
+            "almost none of the rally (+0.71% in April vs Nifty 500 +10.52%). Net 2-month return −2.30%. "
+            "Stock selection seems to have diverged from broader trends.",
+            BODY_JUSTIFY,
+        ),
+    ]
+    s.append(KeepTogether(reading_block))
     s.append(PageBreak())
     return s
 
