@@ -14,8 +14,8 @@ const ReportPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const hasSeen = localStorage.getItem("sifprime_report_popup_mar26");
-    const alreadyDownloaded = localStorage.getItem("sifprime_report_mar26") === "true";
+    const hasSeen = localStorage.getItem("sifprime_report_popup_apr26");
+    const alreadyDownloaded = localStorage.getItem("sifprime_report_apr26") === "true";
     if (hasSeen || alreadyDownloaded) return;
 
     const timer = setTimeout(() => {
@@ -27,7 +27,7 @@ const ReportPopup = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem("sifprime_report_popup_mar26", "seen");
+    localStorage.setItem("sifprime_report_popup_apr26", "seen");
   };
 
   const highlights = [
@@ -44,10 +44,10 @@ const ReportPopup = () => {
             <FileText className="w-6 h-6 text-primary" />
           </div>
           <DialogTitle className="text-lg">
-            March 2026 SIF Performance Report
+            April 2026 SIF Performance Report
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
-            Free download — compare returns across all SIF strategies
+            Free download — recovery month after the March crash. qSIF Ex-Top 100 led at +15.38%.
           </DialogDescription>
         </DialogHeader>
 
