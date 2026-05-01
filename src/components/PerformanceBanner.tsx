@@ -7,7 +7,7 @@ const PerformanceBanner = () => {
     <section className="py-8 sm:py-10">
       <div className="container mx-auto px-4 space-y-4">
         {/* Performance Report Link */}
-        <Link href="/performance/march-2026" className="block group">
+        <Link href="/sifreturns" className="block group">
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 hover:border-primary/40 transition-all duration-200">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
@@ -18,14 +18,14 @@ const PerformanceBanner = () => {
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-foreground">
-                  March 2026 SIF Performance Report
+                  April 2026 SIF Performance Report
                 </h3>
                 <p className="text-base text-muted-foreground mt-1">
-                  Compare returns across Hybrid, Equity & Ex-Top 100 strategies
+                  Recovery month: every SIF closed positive after the March crash. qSIF Ex-Top 100 led at +15.38%.
                 </p>
               </div>
               <span className="flex items-center gap-2 text-primary font-semibold text-base group-hover:gap-3 transition-all shrink-0">
-                View Report <ArrowRight className="w-4 h-4" />
+                View Live Scorecard <ArrowRight className="w-4 h-4" />
               </span>
             </div>
           </div>

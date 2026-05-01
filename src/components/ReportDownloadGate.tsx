@@ -7,8 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Download, Check, Loader2 } from "lucide-react";
 import { z } from "zod";
 
-const REPORT_URL =
-  "https://qawkanomagvilmiplyjr.supabase.co/storage/v1/object/public/reports/SIF_March_2026_Performance.pdf";
+const REPORT_URL = "/downloads/SIF_April_2026_Performance.pdf";
 
 const emailSchema = z.string().trim().email("Please enter a valid email").max(255);
 
@@ -25,13 +24,13 @@ const ReportDownloadGate = ({ onSuccess, compact = false }: ReportDownloadGatePr
   const [alreadyDownloaded, setAlreadyDownloaded] = useState(false);
 
   useEffect(() => {
-    setAlreadyDownloaded(localStorage.getItem("sifprime_report_mar26") === "true");
+    setAlreadyDownloaded(localStorage.getItem("sifprime_report_apr26") === "true");
   }, []);
 
   const triggerDownload = () => {
     const a = document.createElement("a");
     a.href = REPORT_URL;
-    a.download = "SIF_March_2026_Performance.pdf";
+    a.download = "SIF_April_2026_Performance.pdf";
     a.target = "_blank";
     document.body.appendChild(a);
     a.click();
@@ -80,7 +79,7 @@ const ReportDownloadGate = ({ onSuccess, compact = false }: ReportDownloadGatePr
       // Save lead via edge function (also sends email notification)
       const { error } = await supabase.functions.invoke("submit-lead", {
         body: {
-          name: "Report Download - Mar 2026",
+          name: "Report Download - Apr 2026",
           email: validation.data,
           phone: "N/A",
         },
@@ -91,7 +90,7 @@ const ReportDownloadGate = ({ onSuccess, compact = false }: ReportDownloadGatePr
       }
 
       // Mark as downloaded
-      localStorage.setItem("sifprime_report_mar26", "true");
+      localStorage.setItem("sifprime_report_apr26", "true");
       setDone(true);
       triggerDownload();
       onSuccess?.();
