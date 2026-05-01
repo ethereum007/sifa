@@ -109,11 +109,11 @@ const AlphaShieldCell = ({ fundName }: { fundName: string }) => {
 };
 
 const indexData = [
-  { name: "Nifty 50", m1: -11.30, m3: -14.44, y1: -3.99 },
-  { name: "Nifty 500", m1: -11.36, m3: -13.88, y1: -2.88 },
-  { name: "Nifty Midcap 150", m1: -11.06, m3: -12.63, y1: 2.27 },
-  { name: "Nifty Smallcap 250", m1: -10.02, m3: -14.28, y1: -4.86 },
-  { name: "Nifty Total Market", m1: -11.36, m3: -13.96, y1: -3.09 },
+  { name: "Nifty 50", m1: 7.49, m3: -5.15, y1: -0.28 },
+  { name: "Nifty 500", m1: 10.52, m3: -1.59, y1: 3.96 },
+  { name: "Nifty Midcap 150", m1: 13.24, m3: 2.52, y1: 11.40 },
+  { name: "Nifty Smallcap 250", m1: 17.10, m3: 6.23, y1: 9.56 },
+  { name: "Nifty Total Market", m1: 10.93, m3: -1.24, y1: 4.19 },
 ];
 
 const ReturnCell = ({ value, bold = false }: { value: number | null; bold?: boolean }) => {

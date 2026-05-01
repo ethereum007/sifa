@@ -1,5 +1,5 @@
 // Per-benchmark monthly returns (month-over-month %)
-// Source: NSE Indices (niftyindices.com) — Fixed Income & Equity Dashboards, March 31 2026
+// Source: NSE Indices (niftyindices.com) — Fixed Income & Equity Dashboards, April 30 2026
 
 export type BenchmarkId =
   | 'nifty50'
@@ -31,10 +31,10 @@ export const benchmarks: Record<BenchmarkId, BenchmarkInfo> = {
       'Jan 2026': -0.8,
       'Feb 2026': -5.9,
       'Mar 2026': -11.30,
-      'Apr 2026': null,
+      'Apr 2026': 7.49,
     },
-    threeMonth: -14.44,
-    oneYear: -3.99,
+    threeMonth: -5.15,
+    oneYear: -0.28,
   },
   'nifty50-hybrid-debt-5050': {
     id: 'nifty50-hybrid-debt-5050',
@@ -48,10 +48,10 @@ export const benchmarks: Record<BenchmarkId, BenchmarkInfo> = {
       'Jan 2026': -0.2,
       'Feb 2026': -2.8,
       'Mar 2026': -6.35,
-      'Apr 2026': null,
+      'Apr 2026': 4.05,   // estimated proportional to Nifty 50 +7.49 with debt cushion
     },
-    threeMonth: -7.79,
-    oneYear: -0.64,
+    threeMonth: -2.78,    // estimate; replace with actual NSE figure when available
+    oneYear: -0.64,       // stale — needs April update
   },
   'nifty50-hybrid-debt-6535': {
     id: 'nifty50-hybrid-debt-6535',
@@ -65,10 +65,10 @@ export const benchmarks: Record<BenchmarkId, BenchmarkInfo> = {
       'Jan 2026': -0.4,
       'Feb 2026': -3.7,
       'Mar 2026': -7.84,
-      'Apr 2026': null,
+      'Apr 2026': 5.10,   // estimated proportional to Nifty 50 +7.49 with 35% debt cushion
     },
-    threeMonth: -9.81,
-    oneYear: -1.62,
+    threeMonth: -3.55,    // estimate; replace with actual NSE figure when available
+    oneYear: -1.62,       // stale — needs April update
   },
   'nifty500': {
     id: 'nifty500',
@@ -82,10 +82,10 @@ export const benchmarks: Record<BenchmarkId, BenchmarkInfo> = {
       'Jan 2026': -0.9,
       'Feb 2026': -5.8,
       'Mar 2026': -11.36,
-      'Apr 2026': null,
+      'Apr 2026': 10.52,
     },
-    threeMonth: -13.88,
-    oneYear: -2.88,
+    threeMonth: -1.59,
+    oneYear: 3.96,
   },
   'niftyMidcap150': {
     id: 'niftyMidcap150',
@@ -99,10 +99,10 @@ export const benchmarks: Record<BenchmarkId, BenchmarkInfo> = {
       'Jan 2026': -0.7,
       'Feb 2026': -5.5,
       'Mar 2026': -11.06,
-      'Apr 2026': null,
+      'Apr 2026': 13.24,
     },
-    threeMonth: -12.63,
-    oneYear: 2.27,
+    threeMonth: 2.52,
+    oneYear: 11.40,
   },
 };
 
@@ -122,7 +122,7 @@ export function getBenchmarkForFund(benchmarkName: string): BenchmarkInfo {
 // Legacy exports for backward compatibility
 export const niftyMonthlyReturns = benchmarks['nifty50'].monthlyReturns;
 export const niftyBenchmarks = {
-  oneMonth: -11.30,
-  threeMonth: -14.44,
-  oneYear: -3.99,
+  oneMonth: 7.49,
+  threeMonth: -5.15,
+  oneYear: -0.28,
 };

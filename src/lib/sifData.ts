@@ -899,6 +899,60 @@ export const sifFunds: SIFund[] = [
       bestFor: ['dynamic allocation', 'conservative HNI', 'flexible mandate'],
     },
   },
+
+  // 15. qSIF Active Asset Allocator Long-Short (Quant)
+  {
+    id: 'qsif-active-asset-allocator-long-short',
+    name: 'qSIF Active Asset Allocator Long-Short',
+    shortName: 'qSIF AAA',
+    amc: 'Quant Mutual Fund',
+    amcCode: 'QU',
+    category: 'Active Asset Allocator',
+    categorySlug: 'active-asset-allocator',
+    inceptionDate: '2026-04-24',
+    inceptionNav: 10.0110,
+    currentNav: 10.0072,
+    ter: 1.10,
+    terRegular: 1.95,
+    minInvestment: 1000000,
+    redemptionFreq: 'Tuesday & Wednesday',
+    settlement: 'T+3',
+    exitLoad: '1% if redeemed within 15 days; Nil after',
+    benchmark: 'NIFTY 50 Hybrid Composite Debt 50:50',
+    slug: 'qsif-active-asset-allocator-long-short',
+    seoTitle: 'qSIF Active Asset Allocator Long-Short by Quant',
+    seoDesc: 'Quant qSIF Active Asset Allocator Long-Short SIF. Multi-asset dynamic allocation across equity, debt, commodity & InvITs. Launched 24 April 2026.',
+    navHistory: [
+      { month: 'Apr 2026', nav: 10.0072 },
+    ],
+    monthlyReturns: {
+      'Apr 2026': -0.04,
+    },
+    returns: {
+      oneMonth: null,
+      threeMonth: null,
+      sinceInception: -0.04,
+    },
+    managers: ['Sandeep Tandon', 'Lokesh Garg', 'Ankit Pande', 'Sameer Kate', 'Sanjeev Sharma'],
+    strategyType: 'active-asset-allocator',
+    netLongRange: 'Dynamic 0-100%',
+    marchCrashData: {
+      fundReturn: null,
+      benchmarkReturn: -6.35,
+      capitalProtected: null,
+      alphaVsBenchmark: null,
+      categoryAvg: 0,
+      vsCategory: null,
+      rank: null,
+      totalFunds: 2,
+    },
+    quizProfile: {
+      riskLevel: 'moderate',
+      strategyClarity: 'medium',
+      amcTrust: 'quant',
+      bestFor: ['multi-asset exposure', 'quantitative approach', 'flexible mandate'],
+    },
+  },
 ];
 
 // Helper functions
