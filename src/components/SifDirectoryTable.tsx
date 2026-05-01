@@ -41,8 +41,7 @@ const GROUPS: Group[] = [
       { name: "Diviniti Equity Long-Short", amc: "ITI Mutual Fund", strategy: "Fundamental equity selection with systematic hedging", min: "₹10L", status: "live", href: "/sifs/diviniti-equity-long-short" },
       { name: "Dyna Equity Long-Short", amc: "360 ONE Asset", strategy: "Dynamic equity allocation with tactical short positions", min: "₹10L", status: "live", href: "/sifs/dyna-equity-long-short" },
       { name: "Arudha Equity Long-Short", amc: "Bandhan Mutual Fund", strategy: "Long-biased (80–100% equity) with ≤25% unhedged short", min: "₹10L", status: "live", href: "/sifs/arudha-equity-long-short" },
-      { name: "Sapphire Equity Long-Short", amc: "Franklin Templeton", strategy: "Multi-factor quant + macro-driven allocation", min: "₹10L", status: "nfo", statusNote: "10–24 Apr 2026", href: "/sifs/sapphire-equity-long-short" },
-      { name: "WSIF Equity Long-Short", amc: "The Wealth Company Mutual Fund", strategy: "Long-biased active management with ≤25% unhedged short", min: "₹10L", status: "nfo", statusNote: "15–29 Apr 2026", href: "/sifs/wsif-equity-long-short" },
+      { name: "Sapphire Equity Long-Short", amc: "Franklin Templeton", strategy: "Multi-factor quant + macro-driven allocation", min: "₹10L", status: "live", href: "/sifs/sapphire-equity-long-short" },
       { name: "Titanium Equity Long-Short", amc: "Tata Mutual Fund", strategy: "Long-biased equity (80–100%) with ≤25% unhedged short via derivatives", min: "₹10L", status: "nfo", statusNote: "27 Apr–11 May 2026", href: "/sifs/titanium-equity-long-short" },
     ],
   },
@@ -51,7 +50,6 @@ const GROUPS: Group[] = [
     rows: [
       { name: "iSIF Ex-Top 100 Long-Short", amc: "ICICI Prudential", strategy: "Mid/small-cap alpha with systematic short overlay", min: "₹10L", status: "live", href: "/sifs/isif/extop100" },
       { name: "qSIF Ex-Top 100 Long-Short", amc: "Quant Mutual Fund", strategy: "Quant ex-top-100 long-short with derivative hedging", min: "₹10L", status: "live", href: "/sifs/qsif-ex-top-100-long-short" },
-      { name: "WSIF Ex-Top 100 Long-Short", amc: "The Wealth Company Mutual Fund", strategy: "65–100% ex-top-100 equity + ≤25% non-large-cap short", min: "₹10L", status: "nfo", statusNote: "15–29 Apr 2026", href: "/sifs/wsif-ex-top-100-long-short" },
     ],
   },
   {

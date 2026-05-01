@@ -78,6 +78,14 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
       { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", endNav: 9.9324, m1: 15.38, m3: 5.65, sinceInception: -0.79, href: "/sifs/qsif-ex-top-100-long-short" },
     ],
   },
+  {
+    category: "Active Asset Allocator",
+    tag: "aaa",
+    funds: [
+      { name: "DynaSIF Active Asset Allocator", inception: "30-Mar-26", endNav: 10.1242, m1: 1.02, m3: null, sinceInception: 1.03, href: "/sifs/dyna-active-asset-allocator" },
+      { name: "qSIF Active Asset Allocator", inception: "24-Apr-26", endNav: 10.0072, m1: null, m3: null, sinceInception: -0.04, href: "/sifs/qsif-active-asset-allocator-long-short" },
+    ],
+  },
 ];
 
 const ALPHA_SHIELD_SCORES: Record<string, number | null> = {
@@ -94,6 +102,8 @@ const ALPHA_SHIELD_SCORES: Record<string, number | null> = {
   "qSIF Equity Long-Short": null,
   "iSIF Ex-Top 100 Long-Short": null,
   "qSIF Ex-Top 100 Long-Short": null,
+  "DynaSIF Active Asset Allocator": null,
+  "qSIF Active Asset Allocator": null,
 };
 
 const AlphaShieldCell = ({ fundName }: { fundName: string }) => {
@@ -137,6 +147,7 @@ const categoryBadgeColors: Record<string, string> = {
   hybrid: "text-blue-700 bg-blue-50 border-blue-200 dark:text-blue-400 dark:bg-blue-950/50 dark:border-blue-800/50",
   equity: "text-amber-700 bg-amber-50 border-amber-200 dark:text-amber-400 dark:bg-amber-950/50 dark:border-amber-800/50",
   extop: "text-purple-700 bg-purple-50 border-purple-200 dark:text-purple-400 dark:bg-purple-950/50 dark:border-purple-800/50",
+  aaa: "text-teal-700 bg-teal-50 border-teal-200 dark:text-teal-400 dark:bg-teal-950/50 dark:border-teal-800/50",
 };
 
 type SortKey = "sinceInception" | "m1" | "m3" | null;
@@ -251,6 +262,7 @@ const SifReturnsScorecard = () => {
               <TabsTrigger value="hybrid" className="text-xs px-3">Hybrid</TabsTrigger>
               <TabsTrigger value="equity" className="text-xs px-3">Equity</TabsTrigger>
               <TabsTrigger value="extop" className="text-xs px-3">Ex-Top 100</TabsTrigger>
+              <TabsTrigger value="aaa" className="text-xs px-3">Active AA</TabsTrigger>
             </TabsList>
           </Tabs>
         </div>

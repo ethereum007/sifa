@@ -169,15 +169,23 @@ MARGIN = 18 * mm
 
 def header_footer(canvas, doc):
     canvas.saveState()
-    # Footer: brand bar
+    # Footer: brand bar at very bottom
     canvas.setFillColor(BRAND_ORANGE)
     canvas.rect(0, 0, PAGE_W, 4*mm, fill=1, stroke=0)
-    # Footer text
+    # Footer line 1 (closer to brand bar): contact info
     canvas.setFillColor(INK_MUTED)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(MARGIN, 7*mm, "SIFPrime · April 2026 SIF Performance Report")
-    canvas.drawRightString(PAGE_W - MARGIN, 7*mm, f"Page {doc.page} · sifprime.com")
-    # Header rule (skip on cover, page 1)
+    canvas.drawString(MARGIN, 7*mm, "info@sifprime.com  ·  +91 90329 99466  ·  sifprime.com")
+    canvas.drawRightString(PAGE_W - MARGIN, 7*mm, f"Page {doc.page}")
+    # Footer line 2 (above): wordmark + report title
+    canvas.setFillColor(BRAND_ORANGE)
+    canvas.setFont("Helvetica-Bold", 9)
+    canvas.drawString(MARGIN, 11*mm, "SIFPrime")
+    canvas.setFillColor(INK_FAINT)
+    canvas.setFont("Helvetica", 7.5)
+    canvas.drawString(MARGIN + 17*mm, 11*mm, "·  April 2026 SIF Performance Report")
+    canvas.drawRightString(PAGE_W - MARGIN, 11*mm, "Monthly Report")
+    # Top header rule (skip on cover, page 1)
     if doc.page > 1:
         canvas.setStrokeColor(LINE)
         canvas.setLineWidth(0.5)
@@ -194,8 +202,8 @@ def cover_decoration(canvas, doc):
     canvas.setFillColor(BRAND_ORANGE)
     canvas.rect(0, PAGE_H - 14*mm, PAGE_W, 14*mm, fill=1, stroke=0)
     canvas.setFillColor(colors.white)
-    canvas.setFont("Helvetica-Bold", 11)
-    canvas.drawString(MARGIN, PAGE_H - 9*mm, "SIFPRIME")
+    canvas.setFont("Helvetica-Bold", 12)
+    canvas.drawString(MARGIN, PAGE_H - 9*mm, "SIFPrime")
     canvas.setFont("Helvetica", 9)
     canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 9*mm, "Monthly SIF Performance Report · April 2026")
     canvas.restoreState()
@@ -850,7 +858,7 @@ def build_pdf(out_path):
         leftMargin=MARGIN,
         rightMargin=MARGIN,
         topMargin=18*mm,
-        bottomMargin=14*mm,
+        bottomMargin=18*mm,
         title="SIF Performance Report — April 2026",
         author="SIFPrime",
         subject="Monthly performance analysis of all 15 Specialised Investment Funds in India",
