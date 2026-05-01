@@ -30,7 +30,6 @@ const fundsByCategory: Record<Category, SifFund[]> = {
   "Equity Ex-Top 100": [
     { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", internalLink: "/sifs/isif/extop100" },
     { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", internalLink: "/sifs/qsif-ex-top-100-long-short" },
-    { name: "WSIF Equity Ex-Top 100 Long-Short Fund", amc: "The Wealth Company Mutual Fund", internalLink: "/sifs/wsif-ex-top-100-long-short" },
   ],
   "Equity Long Short": [
     { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", internalLink: "/sifs/diviniti-equity-long-short" },
@@ -38,7 +37,6 @@ const fundsByCategory: Record<Category, SifFund[]> = {
     { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", internalLink: "/sifs/dyna-equity-long-short" },
     { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", internalLink: "/sifs/arudha-equity-long-short" },
     { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", internalLink: "/sifs/sapphire-equity-long-short" },
-    { name: "WSIF Equity Long-Short Fund", amc: "The Wealth Company Mutual Fund", internalLink: "/sifs/wsif-equity-long-short" },
     { name: "Titanium Equity Long-Short Fund", amc: "Tata Mutual Fund", internalLink: "/sifs/titanium-equity-long-short" },
   ],
   "Sector Rotation": [

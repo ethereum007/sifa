@@ -51,13 +51,13 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     category: "Hybrid Long Short",
     tag: "hybrid",
     funds: [
-      { name: "Altiva Hybrid Long-Short", inception: "24-Oct-25", endNav: 10.3174, m1: -1.42, m3: -0.80, sinceInception: 2.10, href: "/sifs/altiva-hybrid-long-short" },
-      { name: "Apex Hybrid Long-Short", inception: "01-Apr-26", endNav: 10.0200, m1: null, m3: null, sinceInception: 0.20, href: "/sifs/apex-hybrid-long-short" },
-      { name: "Arudha Hybrid Long-Short", inception: "04-Feb-26", endNav: 10.0830, m1: 0.07, m3: 0.56, sinceInception: 0.56, href: "/sifs/arudha-hybrid-long-short" },
-      { name: "Magnum Hybrid Long-Short", inception: "29-Oct-25", endNav: 10.0180, m1: -1.90, m3: -2.38, sinceInception: -0.42, href: "/sifs/magnum-hybrid-long-short" },
-      { name: "qSIF Hybrid Long-Short", inception: "20-Oct-25", endNav: 9.9607, m1: -0.86, m3: -1.70, sinceInception: -1.73, href: "/sifs/qsif-hybrid-long-short" },
-      { name: "Titanium Hybrid Long-Short", inception: "17-Dec-25", endNav: 9.5813, m1: -6.16, m3: -6.50, sinceInception: -5.93, href: "/sifs/titanium-hybrid-long-short" },
-      { name: "iSIF Hybrid Long-Short", inception: "05-Feb-26", endNav: 9.4754, m1: -6.29, m3: -7.86, sinceInception: -7.86, href: "/sifs/isif/hybrid" },
+      { name: "Altiva Hybrid Long-Short", inception: "24-Oct-25", endNav: 10.5455, m1: 3.17, m3: 2.32, sinceInception: 5.35, href: "/sifs/altiva-hybrid-long-short" },
+      { name: "Apex Hybrid Long-Short", inception: "30-Mar-26", endNav: 10.0600, m1: 0.40, m3: null, sinceInception: 0.40, href: "/sifs/apex-hybrid-long-short" },
+      { name: "Arudha Hybrid Long-Short", inception: "04-Feb-26", endNav: 10.1290, m1: 0.38, m3: null, sinceInception: 0.95, href: "/sifs/arudha-hybrid-long-short" },
+      { name: "Magnum Hybrid Long-Short", inception: "29-Oct-25", endNav: 10.2218, m1: 2.28, m3: 0.84, sinceInception: 1.85, href: "/sifs/magnum-hybrid-long-short" },
+      { name: "qSIF Hybrid Long-Short", inception: "20-Oct-25", endNav: 10.5297, m1: 6.94, m3: 6.48, sinceInception: 5.10, href: "/sifs/qsif-hybrid-long-short" },
+      { name: "Titanium Hybrid Long-Short", inception: "17-Dec-25", endNav: 9.9291, m1: 5.51, m3: -0.35, sinceInception: -0.74, href: "/sifs/titanium-hybrid-long-short" },
+      { name: "iSIF Hybrid Long-Short", inception: "05-Feb-26", endNav: 9.9185, m1: 7.45, m3: null, sinceInception: -0.99, href: "/sifs/isif/hybrid" },
     ],
   },
   {
@@ -214,13 +214,13 @@ const SifReturnsScorecard = () => {
             SIF Returns Scorecard
           </a>
           <p className="text-sm text-muted-foreground mt-1">
-            Absolute returns (%) • Data as of 30-Mar-2026
+            Absolute returns (%) • Hybrid as of 30-Apr-2026 • Equity & Ex-Top 100 pending update
           </p>
           <p className="text-xs text-muted-foreground mt-0.5">
-            1M: 02-Mar-2026 to 30-Mar-2026 &nbsp;|&nbsp; 3M: Jan-2026 to 30-Mar-2026 &nbsp;|&nbsp; Overall: Inception to 30-Mar-2026
+            1M: 01-Apr-2026 to 30-Apr-2026 &nbsp;|&nbsp; 3M: 01-Feb-2026 to 30-Apr-2026 &nbsp;|&nbsp; Overall: Inception to 30-Apr-2026
           </p>
           <p className="text-xs text-muted-foreground/70 mt-1.5 italic">
-            Alpha Shield measures how well each fund protected capital vs its own benchmark during the March 2026 market crash (Nifty -11.30%). Score out of 10.
+            Alpha Shield reflects each fund&apos;s capital protection during the March 2026 market crash (Nifty -11.30%). It is a stress-test snapshot, not a monthly metric — next refresh on the next ≥5% Nifty drawdown. Score out of 10.
           </p>
         </div>
 
@@ -272,8 +272,8 @@ const SifReturnsScorecard = () => {
                     <TableHead>Fund Name</TableHead>
                     <TableHead className="text-right hidden sm:table-cell">Inception Date</TableHead>
                     <TableHead className="text-right hidden sm:table-cell">End NAV (₹)</TableHead>
-                    <SortableHead label="1M Return" sublabel="(Feb 2026)" col="m1" />
-                    <SortableHead label="3M Return" sublabel="(Dec–Feb)" col="m3" />
+                    <SortableHead label="1M Return" sublabel="(April 2026)" col="m1" />
+                    <SortableHead label="3M Return" sublabel="(Feb–Apr)" col="m3" />
                     <SortableHead label="Since Inception" col="sinceInception" />
                     <TableHead className="text-right hidden sm:table-cell">🛡 Alpha Shield</TableHead>
                   </TableRow>
@@ -342,7 +342,7 @@ const SifReturnsScorecard = () => {
         {/* Footer */}
         <div className="mt-6 rounded-lg bg-muted/30 border border-border/40 p-3 space-y-2">
           <p className="text-xs text-muted-foreground font-medium">
-            Source: AMFI, niftyindices.com • NAV as of March 31st, 2026 • Returns as of March 31st, 2026
+            Source: AMFI, niftyindices.com • Hybrid NAV & Returns as of April 30th, 2026 • Equity & Ex-Top 100 as of March 30th, 2026 (April update pending)
           </p>
           <p className="text-[10px] text-muted-foreground/80 leading-relaxed italic">
             Note: Start NAV taken as first available trading day on or after the period start date. Diviniti NAV is on a 1000-base face value. N/A = Fund launched after period start / insufficient data.
