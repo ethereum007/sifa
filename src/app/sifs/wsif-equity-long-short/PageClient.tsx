@@ -38,10 +38,10 @@ const TAGS = [
 ];
 
 const METRICS = [
-  { label: "NFO Price", value: "₹10", sub: "Per unit", color: "" },
-  { label: "NFO Opens", value: "15 Apr", sub: "2026", color: "text-green-600" },
-  { label: "NFO Closes", value: "29 Apr", sub: "2026", color: "text-amber-600" },
-  { label: "Re-opens", value: "11 May", sub: "2026", color: "" },
+  { label: "Status", value: "Live", sub: "since 11 May 2026", color: "text-green-600" },
+  { label: "Inception NAV", value: "₹10", sub: "Per unit", color: "" },
+  { label: "Inception", value: "15 Apr", sub: "2026", color: "" },
+  { label: "Allotment", value: "29 Apr", sub: "2026", color: "" },
   { label: "Max TER", value: "2.25%", sub: "Regular plan", color: "" },
   { label: "Min Investment", value: "₹10L", sub: "₹10K additional", color: "" },
 ];
@@ -50,8 +50,8 @@ const INFO_BAR = [
   { label: "AMC", value: "The Wealth Company MF" },
   { label: "Category", value: "Equity Long-Short" },
   { label: "Benchmark", value: "Nifty 500 TRI" },
-  { label: "NFO", value: "15–29 Apr 2026" },
-  { label: "SIP", value: "Post-NFO" },
+  { label: "Status", value: "Live since 11 May 2026" },
+  { label: "SIP", value: "Available" },
   { label: "Exit Load", value: "NIL" },
 ];
 
@@ -67,10 +67,10 @@ const FUND_DETAILS = [
   { label: "Fund house", value: "The Wealth Company MF" },
   { label: "Category", value: "Equity Long-Short" },
   { label: "Type", value: "Open-ended" },
-  { label: "NFO opens", value: "15 Apr 2026" },
-  { label: "NFO closes", value: "29 Apr 2026" },
-  { label: "Re-opens", value: "11 May 2026" },
-  { label: "NFO price", value: "₹10 / unit" },
+  { label: "Inception", value: "15 Apr 2026" },
+  { label: "Allotment", value: "29 Apr 2026" },
+  { label: "Live since", value: "11 May 2026" },
+  { label: "Inception NAV", value: "₹10 / unit" },
   { label: "Benchmark", value: "Nifty 500 TRI" },
   { label: "Max TER", value: "2.25%" },
   { label: "Strategy code", value: "WSIF/O/E/ELSF/26/01/0001/TWCF" },
@@ -80,7 +80,7 @@ const REDEMPTION = [
   { label: "Subscription", value: "Daily" },
   { label: "Redemption", value: "Daily" },
   { label: "Settlement", value: "T+3 days" },
-  { label: "SIP / STP / SWP", value: "Post-NFO · ₹1,000" },
+  { label: "SIP / STP / SWP", value: "Available · ₹1,000" },
   { label: "Min additional", value: "₹10,000" },
   { label: "Min redemption", value: "₹1,000" },
   { label: "Listing", value: "Not listed" },
@@ -197,11 +197,8 @@ const WsifEquityLongShort = () => {
                     <span className="w-2 h-2 rounded-full" style={{ backgroundColor: BRAND_GOLD }} />
                     <span className="text-sm text-gray-500">The Wealth Company Mutual Fund</span>
                   </div>
-                  <span
-                    className="inline-flex items-center gap-1 font-bold px-2 py-0.5 rounded text-[11px] animate-pulse"
-                    style={{ backgroundColor: BRAND_GOLD, color: BRAND_GREEN }}
-                  >
-                    NFO OPEN
+                  <span className="inline-flex items-center gap-1 bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[11px]">
+                    LIVE
                   </span>
                 </div>
                 {/* Fund name */}
@@ -324,27 +321,27 @@ const WsifEquityLongShort = () => {
                     style={{ backgroundColor: BRAND_GOLD }}
                   >
                     <span className="font-bold text-sm flex items-center gap-2" style={{ color: BRAND_GREEN }}>
-                      ⚡ NFO Open — Subscribe before 29 April 2026
+                      ✓ Live since 11 May 2026 — Subscribe daily
                     </span>
                     <span
                       className="bg-white/40 text-xs font-bold px-3 py-1 rounded-full"
                       style={{ color: BRAND_GREEN }}
                     >
-                      New Launch
+                      Open for Subscription
                     </span>
                   </div>
                   <div className="p-5 sm:p-6">
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-5">
                       <div className="text-center">
-                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">NFO Opens</p>
-                        <p className="text-base sm:text-xl font-bold text-green-600">15 Apr 2026</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">Inception</p>
+                        <p className="text-base sm:text-xl font-bold text-gray-900">15 Apr 2026</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">NFO Closes</p>
-                        <p className="text-base sm:text-xl font-bold text-amber-600">29 Apr 2026</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">Live since</p>
+                        <p className="text-base sm:text-xl font-bold text-emerald-600">11 May 2026</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">NFO Price</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 mb-1">Inception NAV</p>
                         <p className="text-base sm:text-xl font-bold text-gray-900">₹10</p>
                       </div>
                       <div className="text-center">
@@ -353,9 +350,9 @@ const WsifEquityLongShort = () => {
                       </div>
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                      The Wealth Company&apos;s first Specialized Investment Fund. Offering price is{" "}
-                      <b>₹10 per unit</b> during the NFO; the strategy re-opens for continuous Sale and
-                      Repurchase on <b>11 May 2026</b>. Accredited investors: minimum application{" "}
+                      The Wealth Company&apos;s first Specialized Investment Fund. NFO ran 15–29 April
+                      2026 at <b>₹10 per unit</b>; the strategy is now <b>live for continuous Sale and
+                      Repurchase</b> from 11 May 2026. Accredited investors: minimum application{" "}
                       <b>₹1,00,000</b>.
                     </p>
                     <a href={AMC_URL} target="_blank" rel="noopener noreferrer">

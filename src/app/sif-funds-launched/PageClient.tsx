@@ -53,8 +53,7 @@ const categories: CategoryData[] = [
       { name: "Diviniti Equity Long Short", amc: "ITI Mutual Fund", href: "/sifs/diviniti-equity-long-short", status: "live" },
       { name: "DynaSIF Equity Long-Short Fund", amc: "360 ONE Asset", href: "/sifs/dyna-equity-long-short", status: "live" },
       { name: "Arudha Equity Long Short", amc: "Bandhan Mutual Fund", href: "/sifs/arudha-equity-long-short", status: "live" },
-      { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", href: "/sifs/sapphire-equity-long-short", status: "nfo", nfoWindow: "10–24 Apr 2026" },
-      { name: "WSIF Equity Long-Short Fund", amc: "The Wealth Company Mutual Fund", href: "/sifs/wsif-equity-long-short", status: "nfo", nfoWindow: "15–29 Apr 2026" },
+      { name: "Sapphire Equity Long-Short SIF", amc: "Franklin Templeton", href: "/sifs/sapphire-equity-long-short", status: "live" },
       { name: "Titanium Equity Long-Short Fund", amc: "Tata Mutual Fund", href: "/sifs/titanium-equity-long-short", status: "nfo", nfoWindow: "27 Apr–11 May 2026" },
     ],
   },
@@ -64,7 +63,6 @@ const categories: CategoryData[] = [
     funds: [
       { name: "iSIF Ex-Top 100 Long Short Fund", amc: "ICICI Prudential Mutual Fund", href: "/sifs/isif/extop100", status: "live" },
       { name: "qSIF Ex-Top 100 Long-Short Fund", amc: "Quant Mutual Fund", href: "/sifs/qsif-ex-top-100-long-short", status: "live" },
-      { name: "WSIF Equity Ex-Top 100 Long-Short Fund", amc: "The Wealth Company Mutual Fund", href: "/sifs/wsif-ex-top-100-long-short", status: "nfo", nfoWindow: "15–29 Apr 2026" },
     ],
   },
   {
