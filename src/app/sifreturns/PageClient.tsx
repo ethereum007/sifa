@@ -153,6 +153,16 @@ const sifReturnsJsonLd = {
 const SifReturns = () => {
   return (
     <>
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center py-20">
+            <div className="w-10 h-10 border-3 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
+        }
+      >
+        <SifReturnsScorecard />
+      </Suspense>
+
       <section className="py-8">
         <div className="container mx-auto px-4">
           <NavJourneyChart funds={sifFunds} showNifty={true} height={400} />
@@ -164,16 +174,6 @@ const SifReturns = () => {
           <MonthlyHeatmap funds={sifFunds} showNifty={true} mode="all" />
         </div>
       </section>
-
-      <Suspense
-        fallback={
-          <div className="flex items-center justify-center py-20">
-            <div className="w-10 h-10 border-3 border-primary border-t-transparent rounded-full animate-spin" />
-          </div>
-        }
-      >
-        <SifReturnsScorecard />
-      </Suspense>
     </>
   );
 };

@@ -12,6 +12,7 @@ import {
   ReferenceLine,
   Legend,
 } from "recharts";
+import { Sun, Moon } from "lucide-react";
 import { SIFund } from "@/lib/sifData";
 import { getBenchmarkForFund, niftyMonthlyReturns } from "@/lib/benchmarkData";
 
@@ -21,6 +22,85 @@ interface NavJourneyChartProps {
   /** @deprecated use showBenchmark instead */
   showNifty?: boolean;
   height?: number;
+}
+
+type Theme = "dark" | "light";
+
+interface ChartTheme {
+  bg: string;
+  title: string;
+  textMuted: string;
+  toggleBg: string;
+  toggleText: string;
+  pillBgInactive: string;
+  pillTextInactive: string;
+  filterBgInactive: string;
+  filterTextInactive: string;
+  filterHoverBg: string;
+  filterHoverText: string;
+  gridStroke: string;
+  axisTick: string;
+  tooltipBg: string;
+  tooltipBorder: string;
+  tooltipText: string;
+  benchmarkLine: string;
+}
+
+function chartTheme(theme: Theme): ChartTheme {
+  if (theme === "light") {
+    return {
+      bg: "bg-white border border-slate-200",
+      title: "text-slate-900",
+      textMuted: "text-slate-600",
+      toggleBg: "bg-slate-100 hover:bg-slate-200",
+      toggleText: "text-slate-700",
+      pillBgInactive: "bg-transparent",
+      pillTextInactive: "border-slate-300 text-slate-500",
+      filterBgInactive: "bg-slate-100 text-slate-600",
+      filterTextInactive: "",
+      filterHoverBg: "hover:bg-slate-200",
+      filterHoverText: "hover:text-slate-800",
+      gridStroke: "#e5e7eb",
+      axisTick: "#475569",
+      tooltipBg: "bg-white",
+      tooltipBorder: "border-slate-200",
+      tooltipText: "text-slate-900",
+      benchmarkLine: "#475569",
+    };
+  }
+  return {
+    bg: "bg-slate-900",
+    title: "text-white",
+    textMuted: "text-slate-400",
+    toggleBg: "bg-slate-800 hover:bg-slate-700",
+    toggleText: "text-slate-300",
+    pillBgInactive: "bg-transparent",
+    pillTextInactive: "border-slate-600 text-slate-500",
+    filterBgInactive: "bg-slate-800 text-slate-400",
+    filterTextInactive: "",
+    filterHoverBg: "hover:bg-slate-700",
+    filterHoverText: "hover:text-slate-300",
+    gridStroke: "#334155",
+    axisTick: "#94a3b8",
+    tooltipBg: "bg-slate-800",
+    tooltipBorder: "border-slate-700",
+    tooltipText: "text-slate-200",
+    benchmarkLine: "#6b7280",
+  };
+}
+
+function ThemeToggle({ theme, onToggle, t }: { theme: Theme; onToggle: () => void; t: ChartTheme }) {
+  return (
+    <button
+      onClick={onToggle}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${t.toggleBg} ${t.toggleText}`}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+    >
+      {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+      <span>{theme === "dark" ? "Light" : "Dark"}</span>
+    </button>
+  );
 }
 
 const FUND_COLORS = [
@@ -43,9 +123,10 @@ interface SingleFundTooltipProps {
   fundName: string;
   benchmarkName: string;
   inceptionNav: number;
+  t: ChartTheme;
 }
 
-function SingleFundTooltip({ active, payload, label, fundName, benchmarkName, inceptionNav }: SingleFundTooltipProps) {
+function SingleFundTooltip({ active, payload, label, fundName, benchmarkName, inceptionNav, t }: SingleFundTooltipProps) {
   if (!active || !payload || payload.length === 0) return null;
 
   const fundEntry = payload.find((p) => p.dataKey === "fundNav");
@@ -58,15 +139,15 @@ function SingleFundTooltip({ active, payload, label, fundName, benchmarkName, in
   const bmReturn = bmNav !== null ? (((bmNav - inceptionNav) / inceptionNav) * 100).toFixed(2) : "—";
 
   return (
-    <div className="bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm shadow-xl">
-      <p className="text-slate-300 font-medium mb-1">{label}</p>
+    <div className={`${t.tooltipBg} border ${t.tooltipBorder} rounded-lg p-3 text-sm shadow-xl`}>
+      <p className={`${t.tooltipText} font-medium mb-1`}>{label}</p>
       {fundNav !== null && (
-        <p className="text-emerald-400">
+        <p className="text-emerald-500 dark:text-emerald-400">
           {fundName}: ₹{fundNav.toFixed(4)} ({fundReturn}%)
         </p>
       )}
       {bmNav !== null && (
-        <p className="text-gray-400">
+        <p className={t.textMuted}>
           {benchmarkName}: ₹{bmNav.toFixed(4)} ({bmReturn}%)
         </p>
       )}
@@ -78,14 +159,15 @@ interface MultiFundTooltipProps {
   active?: boolean;
   payload?: Array<{ value: number; dataKey: string; name: string; color: string }>;
   label?: string;
+  t: ChartTheme;
 }
 
-function MultiFundTooltip({ active, payload, label }: MultiFundTooltipProps) {
+function MultiFundTooltip({ active, payload, label, t }: MultiFundTooltipProps) {
   if (!active || !payload || payload.length === 0) return null;
 
   return (
-    <div className="bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm shadow-xl max-h-64 overflow-y-auto">
-      <p className="text-slate-300 font-medium mb-2">{label}</p>
+    <div className={`${t.tooltipBg} border ${t.tooltipBorder} rounded-lg p-3 text-sm shadow-xl max-h-64 overflow-y-auto`}>
+      <p className={`${t.tooltipText} font-medium mb-2`}>{label}</p>
       {payload.map((entry) => {
         const returnPct = ((entry.value - 10) / 10 * 100).toFixed(2);
         return (
@@ -99,7 +181,6 @@ function MultiFundTooltip({ active, payload, label }: MultiFundTooltipProps) {
 }
 
 export default function NavJourneyChart({ funds, showBenchmark, showNifty, height }: NavJourneyChartProps) {
-  // Support both old showNifty and new showBenchmark prop
   const showBm = showBenchmark ?? showNifty ?? true;
 
   if (funds.length === 1) {
@@ -120,6 +201,8 @@ function SingleFundChart({
   showBenchmark?: boolean;
   height?: number;
 }) {
+  const [theme, setTheme] = useState<Theme>("dark");
+  const t = chartTheme(theme);
   const benchmarkInfo = getBenchmarkForFund(fund.benchmark);
 
   const data = useMemo(() => {
@@ -143,19 +226,23 @@ function SingleFundChart({
   const inceptionNav = fund.navHistory?.[0]?.nav ?? 10;
 
   return (
-    <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
-      <h3 className="text-lg font-bold text-white mb-4">NAV Journey Since Inception</h3>
+    <div className={`${t.bg} rounded-2xl p-4 sm:p-6`}>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className={`text-lg font-bold ${t.title}`}>NAV Journey Since Inception</h3>
+        <ThemeToggle theme={theme} onToggle={() => setTheme(theme === "dark" ? "light" : "dark")} t={t} />
+      </div>
       <ResponsiveContainer width="100%" height={height || 300}>
         <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-          <XAxis dataKey="month" tick={{ fill: "#94a3b8", fontSize: 12 }} />
-          <YAxis tick={{ fill: "#94a3b8", fontSize: 12 }} domain={["auto", "auto"]} />
+          <CartesianGrid strokeDasharray="3 3" stroke={t.gridStroke} />
+          <XAxis dataKey="month" tick={{ fill: t.axisTick, fontSize: 12 }} />
+          <YAxis tick={{ fill: t.axisTick, fontSize: 12 }} domain={["auto", "auto"]} />
           <Tooltip
             content={
               <SingleFundTooltip
                 fundName={fund.shortName}
                 benchmarkName={benchmarkInfo.shortName}
                 inceptionNav={inceptionNav}
+                t={t}
               />
             }
           />
@@ -172,7 +259,7 @@ function SingleFundChart({
             <Line
               type="monotone"
               dataKey="benchmarkNav"
-              stroke="#6b7280"
+              stroke={t.benchmarkLine}
               strokeDasharray="5 5"
               strokeWidth={1.5}
               dot={false}
@@ -202,6 +289,8 @@ function MultiFundChart({
   showBenchmark?: boolean;
   height?: number;
 }) {
+  const [theme, setTheme] = useState<Theme>("dark");
+  const t = chartTheme(theme);
   const [visibleFunds, setVisibleFunds] = useState<Set<string>>(() => new Set(funds.map((f) => f.slug)));
   const [categoryFilter, setCategoryFilter] = useState<string>("All");
 
@@ -226,7 +315,6 @@ function MultiFundChart({
     });
   };
 
-  // Build unified month list from all funds
   const { data, niftyDataKey } = useMemo(() => {
     const allMonths = new Set<string>();
     funds.forEach((fund) => {
@@ -245,7 +333,6 @@ function MultiFundChart({
       return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
     });
 
-    // Build normalized data: each fund starts at 10
     const dataPoints = monthsArray.map((month) => {
       const point: Record<string, string | number | undefined> = { month };
 
@@ -261,7 +348,6 @@ function MultiFundChart({
       return point;
     });
 
-    // In multi-fund mode, show Nifty 50 as common reference (since funds have different benchmarks)
     let niftyVal = 10;
     dataPoints.forEach((point) => {
       const monthKey = point.month as string;
@@ -276,10 +362,12 @@ function MultiFundChart({
   const categories = ["All", "Hybrid", "Equity", "Ex-Top 100"];
 
   return (
-    <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
-      <h3 className="text-lg font-bold text-white mb-4">NAV Journey — Compare SIFs vs Nifty 50</h3>
+    <div className={`${t.bg} rounded-2xl p-4 sm:p-6`}>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className={`text-lg font-bold ${t.title}`}>NAV Journey — Compare SIFs vs Nifty 50</h3>
+        <ThemeToggle theme={theme} onToggle={() => setTheme(theme === "dark" ? "light" : "dark")} t={t} />
+      </div>
 
-      {/* Category filter buttons */}
       <div className="flex flex-wrap gap-2 mb-3">
         {categories.map((cat) => (
           <button
@@ -288,7 +376,7 @@ function MultiFundChart({
             className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
               categoryFilter === cat
                 ? "bg-emerald-600 text-white"
-                : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-300"
+                : `${t.filterBgInactive} ${t.filterHoverBg} ${t.filterHoverText}`
             }`}
           >
             {CATEGORY_LABELS[cat] ?? cat}
@@ -296,9 +384,8 @@ function MultiFundChart({
         ))}
       </div>
 
-      {/* Fund toggle pills */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {filteredFunds.map((fund, idx) => {
+        {filteredFunds.map((fund) => {
           const color = FUND_COLORS[funds.indexOf(fund) % FUND_COLORS.length];
           const isVisible = visibleFunds.has(fund.slug);
           return (
@@ -308,7 +395,7 @@ function MultiFundChart({
               className={`px-3 py-1 rounded-full text-xs font-medium transition-all border ${
                 isVisible
                   ? "border-transparent text-white"
-                  : "border-slate-600 text-slate-500 bg-transparent"
+                  : `${t.pillBgInactive} ${t.pillTextInactive}`
               }`}
               style={isVisible ? { backgroundColor: color } : {}}
             >
@@ -320,10 +407,10 @@ function MultiFundChart({
 
       <ResponsiveContainer width="100%" height={height || 400}>
         <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-          <XAxis dataKey="month" tick={{ fill: "#94a3b8", fontSize: 12 }} />
-          <YAxis tick={{ fill: "#94a3b8", fontSize: 12 }} domain={["auto", "auto"]} />
-          <Tooltip content={<MultiFundTooltip />} />
+          <CartesianGrid strokeDasharray="3 3" stroke={t.gridStroke} />
+          <XAxis dataKey="month" tick={{ fill: t.axisTick, fontSize: 12 }} />
+          <YAxis tick={{ fill: t.axisTick, fontSize: 12 }} domain={["auto", "auto"]} />
+          <Tooltip content={<MultiFundTooltip t={t} />} />
           <Legend />
 
           {funds.map((fund, idx) => {
@@ -347,7 +434,7 @@ function MultiFundChart({
             <Line
               type="monotone"
               dataKey={niftyDataKey}
-              stroke="#6b7280"
+              stroke={t.benchmarkLine}
               strokeDasharray="5 5"
               strokeWidth={2.5}
               dot={false}

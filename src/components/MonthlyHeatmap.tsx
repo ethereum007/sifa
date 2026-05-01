@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 import { SIFund } from "@/lib/sifData";
 import { niftyMonthlyReturns } from "@/lib/benchmarkData";
 
@@ -9,6 +10,8 @@ interface MonthlyHeatmapProps {
   showNifty?: boolean;
   mode: "single" | "all";
 }
+
+type Theme = "dark" | "light";
 
 const MONTHS = [
   "Oct 2025",
@@ -20,7 +23,6 @@ const MONTHS = [
   "Apr 2026",
 ];
 
-/* Map month label to approximate start date for inception comparison */
 const MONTH_START_DATES: Record<string, Date> = {
   "Oct 2025": new Date(2025, 9, 1),
   "Nov 2025": new Date(2025, 10, 1),
@@ -45,9 +47,60 @@ const CATEGORY_HEADERS: Record<string, string> = {
   "Active Asset Allocator": "ACTIVE ASSET ALLOCATOR",
 };
 
-function getHeatColor(value: number | null, isActive: boolean): string {
-  if (!isActive) return "bg-slate-800 text-slate-600";
-  if (value === null) return "bg-slate-700 text-slate-400";
+interface ThemeColors {
+  bg: string;
+  title: string;
+  textMuted: string;
+  textSubtle: string;
+  textFund: string;
+  catBg: string;
+  inactive: string;
+  noData: string;
+  rowHover: string;
+  border: string;
+  stickyBg: string;
+  toggleBg: string;
+  toggleText: string;
+}
+
+function themeColors(theme: Theme): ThemeColors {
+  if (theme === "light") {
+    return {
+      bg: "bg-white border border-slate-200",
+      title: "text-slate-900",
+      textMuted: "text-slate-600",
+      textSubtle: "text-slate-500",
+      textFund: "text-slate-900",
+      catBg: "bg-slate-100",
+      inactive: "bg-slate-100 text-slate-400",
+      noData: "bg-slate-200 text-slate-500",
+      rowHover: "hover:bg-slate-50",
+      border: "border-slate-200",
+      stickyBg: "bg-white",
+      toggleBg: "bg-slate-100 hover:bg-slate-200",
+      toggleText: "text-slate-700",
+    };
+  }
+  return {
+    bg: "bg-slate-900",
+    title: "text-white",
+    textMuted: "text-slate-400",
+    textSubtle: "text-slate-500",
+    textFund: "text-white",
+    catBg: "bg-slate-800/50",
+    inactive: "bg-slate-800 text-slate-600",
+    noData: "bg-slate-700 text-slate-400",
+    rowHover: "hover:bg-slate-800/30",
+    border: "border-slate-700/50",
+    stickyBg: "bg-slate-900",
+    toggleBg: "bg-slate-800 hover:bg-slate-700",
+    toggleText: "text-slate-300",
+  };
+}
+
+function getHeatColor(value: number | null, isActive: boolean, c: ThemeColors): string {
+  if (!isActive) return c.inactive;
+  if (value === null) return c.noData;
   if (value >= 3) return "bg-emerald-600 text-white";
   if (value >= 1) return "bg-emerald-700 text-white";
   if (value >= 0) return "bg-emerald-800 text-emerald-200";
@@ -57,9 +110,11 @@ function getHeatColor(value: number | null, isActive: boolean): string {
 }
 
 function parseInceptionDate(dateStr: string): Date {
-  // Handle format like "24-Oct-25" or "04-Feb-26"
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    return new Date(dateStr + "T00:00:00");
+  }
   const parts = dateStr.split("-");
-  if (parts.length === 3) {
+  if (parts.length === 3 && parts[1].length === 3) {
     const day = parseInt(parts[0], 10);
     const monthMap: Record<string, number> = {
       Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
@@ -77,7 +132,6 @@ function isFundActiveInMonth(fund: SIFund, month: string): boolean {
   const monthStart = MONTH_START_DATES[month];
   if (!monthStart) return false;
   const inception = parseInceptionDate(fund.inceptionDate);
-  // Fund is active if inception is before the end of that month
   const monthEnd = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0);
   return inception <= monthEnd;
 }
@@ -98,27 +152,43 @@ function formatReturn(value: number | null): string {
   return `${sign}${value.toFixed(2)}%`;
 }
 
+function ThemeToggle({ theme, onToggle, c }: { theme: Theme; onToggle: () => void; c: ThemeColors }) {
+  return (
+    <button
+      onClick={onToggle}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${c.toggleBg} ${c.toggleText}`}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+    >
+      {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+      <span>{theme === "dark" ? "Light" : "Dark"}</span>
+    </button>
+  );
+}
+
 /* ─── SINGLE MODE ─── */
 
 function SingleModeHeatmap({
   fund,
   showNifty,
+  c,
 }: {
   fund: SIFund;
   showNifty?: boolean;
+  c: ThemeColors;
 }) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="text-left text-slate-400 text-xs font-medium py-2 px-3 min-w-[120px]">
+            <th className={`text-left ${c.textMuted} text-xs font-medium py-2 px-3 min-w-[120px]`}>
               Fund
             </th>
             {MONTHS.map((m) => (
               <th
                 key={m}
-                className="text-center text-slate-400 text-xs font-medium py-2 px-3"
+                className={`text-center ${c.textMuted} text-xs font-medium py-2 px-3`}
               >
                 {getMonthAbbrev(m)}
               </th>
@@ -126,9 +196,8 @@ function SingleModeHeatmap({
           </tr>
         </thead>
         <tbody>
-          {/* Fund row */}
           <tr>
-            <td className="text-left text-white text-sm font-medium py-1 px-3 whitespace-nowrap">
+            <td className={`text-left ${c.textFund} text-sm font-medium py-1 px-3 whitespace-nowrap`}>
               {fund.shortName}
             </td>
             {MONTHS.map((month) => {
@@ -140,7 +209,7 @@ function SingleModeHeatmap({
               return (
                 <td key={month} className="py-1 px-1">
                   <div
-                    className={`rounded py-2 px-3 text-center text-sm font-medium cursor-default ${getHeatColor(value, isActive)}`}
+                    className={`rounded py-2 px-3 text-center text-sm font-medium cursor-default ${getHeatColor(value, isActive, c)}`}
                     title={
                       isActive
                         ? `${month}: ${formatReturn(value)} (Nifty: ${formatReturn(niftyValue)} | Alpha: ${alpha !== null ? formatReturn(alpha) : "—"})`
@@ -154,10 +223,9 @@ function SingleModeHeatmap({
             })}
           </tr>
 
-          {/* Nifty row */}
           {showNifty && (
             <tr>
-              <td className="text-left text-slate-400 text-sm font-medium py-1 px-3 whitespace-nowrap">
+              <td className={`text-left ${c.textMuted} text-sm font-medium py-1 px-3 whitespace-nowrap`}>
                 Nifty 50
               </td>
               {MONTHS.map((month) => {
@@ -165,7 +233,7 @@ function SingleModeHeatmap({
                 return (
                   <td key={month} className="py-1 px-1">
                     <div
-                      className={`rounded py-2 px-3 text-center text-sm font-medium ${getHeatColor(value, true)}`}
+                      className={`rounded py-2 px-3 text-center text-sm font-medium ${getHeatColor(value, true, c)}`}
                       title={`${month}: ${formatReturn(value)}`}
                     >
                       {value !== null ? formatReturn(value) : "—"}
@@ -186,9 +254,11 @@ function SingleModeHeatmap({
 function AllModeHeatmap({
   funds,
   showNifty,
+  c,
 }: {
   funds: SIFund[];
   showNifty?: boolean;
+  c: ThemeColors;
 }) {
   const groupedFunds = useMemo(() => {
     const groups: Record<string, SIFund[]> = {};
@@ -205,7 +275,6 @@ function AllModeHeatmap({
       groups[category].push(fund);
     });
 
-    // Sort each category by inception date (oldest first)
     Object.keys(groups).forEach((cat) => {
       groups[cat].sort((a, b) => {
         const dateA = parseInceptionDate(a.inceptionDate);
@@ -222,13 +291,13 @@ function AllModeHeatmap({
       <table className="w-full border-collapse min-w-[640px]">
         <thead>
           <tr>
-            <th className="text-left text-slate-400 text-xs font-medium py-2 px-3 sticky left-0 bg-slate-900 z-10 min-w-[140px]">
+            <th className={`text-left ${c.textMuted} text-xs font-medium py-2 px-3 sticky left-0 ${c.stickyBg} z-10 min-w-[140px]`}>
               Fund
             </th>
             {MONTHS.map((m) => (
               <th
                 key={m}
-                className="text-center text-slate-400 text-xs font-medium py-2 px-3"
+                className={`text-center ${c.textMuted} text-xs font-medium py-2 px-3`}
               >
                 {getMonthAbbrev(m)}
               </th>
@@ -246,6 +315,7 @@ function AllModeHeatmap({
                 category={category}
                 funds={categoryFunds}
                 showNifty={showNifty}
+                c={c}
               />
             );
           })}
@@ -259,27 +329,27 @@ function FundCategoryGroup({
   category,
   funds,
   showNifty,
+  c,
 }: {
   category: string;
   funds: SIFund[];
   showNifty?: boolean;
+  c: ThemeColors;
 }) {
   return (
     <>
-      {/* Category header row */}
       <tr>
         <td
           colSpan={MONTHS.length + 1}
-          className="text-left text-xs font-bold tracking-wider text-slate-400 bg-slate-800/50 py-2 px-3 sticky left-0"
+          className={`text-left text-xs font-bold tracking-wider ${c.textMuted} ${c.catBg} py-2 px-3 sticky left-0`}
         >
           {CATEGORY_HEADERS[category] ?? category.toUpperCase()}
         </td>
       </tr>
 
-      {/* Fund rows */}
       {funds.map((fund) => (
-        <tr key={fund.slug} className="hover:bg-slate-800/30 transition-colors">
-          <td className="text-left text-white text-sm font-medium py-1 px-3 whitespace-nowrap sticky left-0 bg-slate-900 z-10">
+        <tr key={fund.slug} className={`${c.rowHover} transition-colors`}>
+          <td className={`text-left ${c.textFund} text-sm font-medium py-1 px-3 whitespace-nowrap sticky left-0 ${c.stickyBg} z-10`}>
             {fund.shortName}
           </td>
           {MONTHS.map((month) => {
@@ -291,7 +361,7 @@ function FundCategoryGroup({
             return (
               <td key={month} className="py-1 px-1">
                 <div
-                  className={`rounded py-2 px-3 text-center text-sm font-medium cursor-default ${getHeatColor(value, isActive)}`}
+                  className={`rounded py-2 px-3 text-center text-sm font-medium cursor-default ${getHeatColor(value, isActive, c)}`}
                   title={
                     isActive
                       ? `${month}: ${formatReturn(value)} (Nifty: ${formatReturn(niftyValue)} | Alpha: ${alpha !== null ? formatReturn(alpha) : "—"})`
@@ -306,10 +376,9 @@ function FundCategoryGroup({
         </tr>
       ))}
 
-      {/* Nifty reference row */}
       {showNifty && (
-        <tr className="border-b border-slate-700/50">
-          <td className="text-left text-slate-500 text-sm italic py-1 px-3 whitespace-nowrap sticky left-0 bg-slate-900 z-10">
+        <tr className={`border-b ${c.border}`}>
+          <td className={`text-left ${c.textSubtle} text-sm italic py-1 px-3 whitespace-nowrap sticky left-0 ${c.stickyBg} z-10`}>
             Nifty 50
           </td>
           {MONTHS.map((month) => {
@@ -317,7 +386,7 @@ function FundCategoryGroup({
             return (
               <td key={month} className="py-1 px-1">
                 <div
-                  className={`rounded py-2 px-3 text-center text-sm font-medium ${getHeatColor(value, true)}`}
+                  className={`rounded py-2 px-3 text-center text-sm font-medium ${getHeatColor(value, true, c)}`}
                   title={`${month}: ${formatReturn(value)}`}
                 >
                   {value !== null ? formatReturn(value) : "—"}
@@ -334,19 +403,21 @@ function FundCategoryGroup({
 /* ─── MAIN EXPORT ─── */
 
 export default function MonthlyHeatmap({ funds, showNifty = true, mode }: MonthlyHeatmapProps) {
-  if (mode === "single" && funds.length >= 1) {
-    return (
-      <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
-        <h3 className="text-lg font-bold text-white mb-4">Monthly Returns Heatmap</h3>
-        <SingleModeHeatmap fund={funds[0]} showNifty={showNifty} />
-      </div>
-    );
-  }
+  const [theme, setTheme] = useState<Theme>("dark");
+  const c = themeColors(theme);
+  const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
   return (
-    <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
-      <h3 className="text-lg font-bold text-white mb-4">Monthly Returns Heatmap</h3>
-      <AllModeHeatmap funds={funds} showNifty={showNifty} />
+    <div className={`${c.bg} rounded-2xl p-4 sm:p-6`}>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className={`text-lg font-bold ${c.title}`}>Monthly Returns Heatmap</h3>
+        <ThemeToggle theme={theme} onToggle={toggle} c={c} />
+      </div>
+      {mode === "single" && funds.length >= 1 ? (
+        <SingleModeHeatmap fund={funds[0]} showNifty={showNifty} c={c} />
+      ) : (
+        <AllModeHeatmap funds={funds} showNifty={showNifty} c={c} />
+      )}
     </div>
   );
 }
