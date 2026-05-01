@@ -900,10 +900,10 @@ const SapphireSif = () => {
                   <tbody className="text-gray-700">
                     {[
                       ["ISID date", "26 March 2026"],
-                      ["NFO opens", "10 April 2026"],
-                      ["NFO closes", "24 April 2026"],
-                      ["Strategy re-opens (subscription/redemption)", "04 May 2026"],
-                      ["NFO price per unit", "₹1,000"],
+                      ["Inception", "10 April 2026"],
+                      ["Allotment", "29 April 2026"],
+                      ["Live since (continuous subscription/redemption)", "04 May 2026"],
+                      ["Inception NAV per unit", "₹1,000"],
                       ["Face value", "₹1,000"],
                       ["First NAV", "Within 5 business days of allotment"],
                       ["NAV declaration time", "By 11:00 PM on each business day"],

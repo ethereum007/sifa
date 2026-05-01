@@ -52,7 +52,7 @@ const oneMColor = (FUND.returns.oneMonth ?? 0) >= 0 ? "text-green-600" : "text-r
 const threeMColor = (FUND.returns.threeMonth ?? 0) >= 0 ? "text-green-600" : "text-red-600";
 
 const METRICS = [
-  { label: "Latest NAV", value: `₹${FUND.currentNav.toFixed(4)}`, sub: "Mar 31, 2026", color: "" },
+  { label: "Latest NAV", value: `₹${FUND.currentNav.toFixed(4)}`, sub: "Apr 30, 2026", color: "" },
   { label: "1M Return", value: fmtPct(FUND.returns.oneMonth), sub: "", color: oneMColor },
   { label: "3M Return", value: fmtPct(FUND.returns.threeMonth), sub: "", color: threeMColor },
   { label: "Since Inception", value: fmtPct(FUND.returns.sinceInception), sub: "", color: siColor },

@@ -1037,10 +1037,10 @@ const WsifEquityExTop100LongShort = () => {
                   <tbody className="text-gray-700">
                     {[
                       ["ISID date", "25 March 2026"],
-                      ["NFO opens", "15 April 2026"],
-                      ["NFO closes", "29 April 2026"],
-                      ["Strategy re-opens (subscription/redemption)", "11 May 2026"],
-                      ["NFO price per unit", "₹10"],
+                      ["Inception", "15 April 2026"],
+                      ["Allotment", "29 April 2026"],
+                      ["Live since (continuous subscription/redemption)", "11 May 2026"],
+                      ["Inception NAV per unit", "₹10"],
                       ["Face value", "₹10"],
                       ["Min application (NFO)", "₹10,00,000 (accredited: ₹1,00,000)"],
                       ["Min additional purchase", "₹10,000 in multiples of ₹100"],

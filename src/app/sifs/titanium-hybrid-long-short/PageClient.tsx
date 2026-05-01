@@ -481,7 +481,7 @@ const TitaniumSif = () => {
                     })}
                   </div>
                   <p className="text-[11px] text-gray-400 mt-3">
-                    Returns as of Mar 31, 2026 (NAV data) / Feb 28, 2026 (factsheet). Fund is <b>&lt;1 year old</b> — SEBI does not permit annualised returns until completion of one year.
+                    Returns as of Apr 30, 2026 (NAV data) / Feb 28, 2026 (factsheet). Fund is <b>&lt;1 year old</b> — SEBI does not permit annualised returns until completion of one year.
                   </p>
                 </div>
 

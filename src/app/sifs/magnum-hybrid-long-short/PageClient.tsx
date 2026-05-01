@@ -38,7 +38,7 @@ const TAGS = ["Hybrid Long-Short", "Arbitrage", "Covered Calls", "Interval Strat
 
 const siColor = FUND.returns.sinceInception >= 0 ? "text-green-600" : "text-red-600";
 const METRICS = [
-  { label: "Latest NAV", value: `₹${FUND.currentNav.toFixed(4)}`, sub: "Apr 8, 2026", color: "" },
+  { label: "Latest NAV", value: `₹${FUND.currentNav.toFixed(4)}`, sub: "Apr 30, 2026", color: "" },
   { label: "1M Return", value: fmtPct(FUND.returns.oneMonth), sub: "", color: (FUND.returns.oneMonth ?? 0) >= 0 ? "text-green-600" : "text-red-600" },
   { label: "3M Return", value: fmtPct(FUND.returns.threeMonth), sub: "", color: (FUND.returns.threeMonth ?? 0) >= 0 ? "text-green-600" : "text-red-600" },
   { label: "Since Inception", value: fmtPct(FUND.returns.sinceInception), sub: "", color: siColor },
