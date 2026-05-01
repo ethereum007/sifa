@@ -16,11 +16,11 @@ const SifReturnsScorecard = dynamic(() => import("@/components/SifReturnsScoreca
 const sifReturnsJsonLd = {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "name": "SIF Returns Scorecard – Feb 2026",
-  "description": "Absolute returns (%) for India's Specialized Investment Funds (SIFs) as of 28-Feb-2026. Covers Hybrid Long Short, Equity Long Short, and Equity Ex-Top 100 categories.",
+  "name": "SIF Returns Scorecard – April 2026",
+  "description": "Absolute returns (%) for India's Specialized Investment Funds (SIFs) as of 30-Apr-2026. Covers Hybrid Long Short, Equity Long Short, and Equity Ex-Top 100 categories.",
   "url": "https://sifa.lovable.app/sifreturns",
-  "temporalCoverage": "2025-10/2026-02",
-  "dateModified": "2026-02-28",
+  "temporalCoverage": "2025-10/2026-04",
+  "dateModified": "2026-04-30",
   "creator": {
     "@type": "Organization",
     "name": "SIFPrime",
@@ -43,7 +43,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "Altiva Hybrid Long-Short",
           "category": "Hybrid Long Short",
-          "description": "Inception: 24-Oct-25 | End NAV: ₹10.3174 | 1M Return: +0.79% | 3M Return: +2.64% | Since Inception: +3.79%"
+          "description": "Inception: 24-Oct-25 | End NAV: ₹10.5455 | 1M Return: +3.17% | 3M Return: +2.32% | Since Inception: +5.35%"
         }
       },
       {
@@ -53,7 +53,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "Magnum Hybrid Long-Short",
           "category": "Hybrid Long Short",
-          "description": "Inception: 29-Oct-25 | End NAV: ₹10.0180 | 1M Return: +0.92% | 3M Return: +0.76% | Since Inception: +1.78%"
+          "description": "Inception: 29-Oct-25 | End NAV: ₹10.2218 | 1M Return: +2.28% | 3M Return: +0.84% | Since Inception: +1.85%"
         }
       },
       {
@@ -63,7 +63,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "Titanium Hybrid Long-Short",
           "category": "Hybrid Long Short",
-          "description": "Inception: 17-Dec-25 | End NAV: ₹9.5813 | 1M Return: +1.70% | 3M Return: +1.02% | Since Inception: +1.02%"
+          "description": "Inception: 17-Dec-25 | End NAV: ₹9.9291 | 1M Return: +5.51% | 3M Return: -0.35% | Since Inception: -0.74%"
         }
       },
       {
@@ -73,7 +73,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "Arudha Hybrid Long-Short",
           "category": "Hybrid Long Short",
-          "description": "Inception: 04-Feb-26 | End NAV: ₹10.0830 | 1M Return: +0.44% | 3M Return: +0.44% | Since Inception: +0.44%"
+          "description": "Inception: 04-Feb-26 | End NAV: ₹10.1290 | 1M Return: +0.38% | Since Inception: +0.95%"
         }
       },
       {
@@ -83,7 +83,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "iSIF Hybrid Long-Short",
           "category": "Hybrid Long Short",
-          "description": "Inception: 05-Feb-26 | End NAV: ₹9.4754 | 1M Return: -0.59% | 3M Return: -0.59% | Since Inception: -0.59%"
+          "description": "Inception: 05-Feb-26 | End NAV: ₹9.9185 | 1M Return: +7.45% | Since Inception: -0.99%"
         }
       },
       {
@@ -93,7 +93,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "qSIF Hybrid Long-Short",
           "category": "Hybrid Long Short",
-          "description": "Inception: 20-Oct-25 | End NAV: ₹9.9607 | 1M Return: +0.58% | 3M Return: -0.88% | Since Inception: -0.82%"
+          "description": "Inception: 20-Oct-25 | End NAV: ₹10.5297 | 1M Return: +6.94% | 3M Return: +6.48% | Since Inception: +5.10%"
         }
       },
       {
@@ -103,7 +103,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "qSIF Equity Long-Short",
           "category": "Equity Long Short",
-          "description": "Inception: 08-Oct-25 | End NAV: ₹9.1473 | 1M Return: +1.23% | 3M Return: -2.93% | Since Inception: -2.00%"
+          "description": "Inception: 08-Oct-25 | End NAV: ₹10.1492 | 1M Return: +13.68% | 3M Return: +4.35% | Since Inception: +1.44%"
         }
       },
       {
@@ -113,7 +113,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "DynaSIF Equity Long-Short",
           "category": "Equity Long Short",
-          "description": "Inception: 27-Feb-26 | End NAV: ₹9.7180 | 1M Return: 0.00% | 3M Return: 0.00% | Since Inception: 0.00%"
+          "description": "Inception: 27-Feb-26 | End NAV: ₹10.1990 | 1M Return: +6.59% | Since Inception: +1.92%"
         }
       },
       {
@@ -123,7 +123,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "Diviniti Equity Long-Short",
           "category": "Equity Long Short",
-          "description": "Inception: 03-Dec-25 | End NAV: ₹948.8272 | 1M Return: -1.05% | 3M Return: -2.33% | Since Inception: -2.33%"
+          "description": "Inception: 03-Dec-25 | End NAV: ₹955.1524 | 1M Return: +0.71% | 3M Return: -3.64% | Since Inception: -4.58%"
         }
       },
       {

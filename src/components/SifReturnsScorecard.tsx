@@ -64,10 +64,10 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     category: "Equity Long Short",
     tag: "equity",
     funds: [
-      { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", endNav: 9.7180, m1: -4.42, m3: -4.39, sinceInception: -4.39, href: "/sifs/dyna-equity-long-short" },
-      { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", endNav: 948.8272, m1: -2.24, m3: -5.61, sinceInception: -5.24, href: "/sifs/diviniti-equity-long-short" },
-      { name: "qSIF Equity Long-Short", inception: "08-Oct-25", endNav: 9.1473, m1: -8.23, m3: -11.68, sinceInception: -10.77, href: "/sifs/qsif-equity-long-short" },
-      { name: "Arudha Equity Long-Short", inception: "30-Mar-26", endNav: 9.9590, m1: null, m3: null, sinceInception: 0, href: "/sifs/arudha-equity-long-short" },
+      { name: "qSIF Equity Long-Short", inception: "08-Oct-25", endNav: 10.1492, m1: 13.68, m3: 4.35, sinceInception: 1.44, href: "/sifs/qsif-equity-long-short" },
+      { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", endNav: 10.1990, m1: 6.59, m3: null, sinceInception: 1.92, href: "/sifs/dyna-equity-long-short" },
+      { name: "Arudha Equity Long-Short", inception: "30-Mar-26", endNav: 10.1630, m1: 3.42, m3: null, sinceInception: 3.43, href: "/sifs/arudha-equity-long-short" },
+      { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", endNav: 955.1524, m1: 0.71, m3: -3.64, sinceInception: -4.58, href: "/sifs/diviniti-equity-long-short" },
     ],
   },
   {
@@ -214,7 +214,7 @@ const SifReturnsScorecard = () => {
             SIF Returns Scorecard
           </a>
           <p className="text-sm text-muted-foreground mt-1">
-            Absolute returns (%) • Hybrid as of 30-Apr-2026 • Equity & Ex-Top 100 pending update
+            Absolute returns (%) • Hybrid & Equity Long-Short as of 30-Apr-2026 • Ex-Top 100 pending update
           </p>
           <p className="text-xs text-muted-foreground mt-0.5">
             1M: 01-Apr-2026 to 30-Apr-2026 &nbsp;|&nbsp; 3M: 01-Feb-2026 to 30-Apr-2026 &nbsp;|&nbsp; Overall: Inception to 30-Apr-2026
@@ -342,7 +342,7 @@ const SifReturnsScorecard = () => {
         {/* Footer */}
         <div className="mt-6 rounded-lg bg-muted/30 border border-border/40 p-3 space-y-2">
           <p className="text-xs text-muted-foreground font-medium">
-            Source: AMFI, niftyindices.com • Hybrid NAV & Returns as of April 30th, 2026 • Equity & Ex-Top 100 as of March 30th, 2026 (April update pending)
+            Source: AMFI, niftyindices.com • Hybrid & Equity Long-Short NAV & Returns as of April 30th, 2026 • Ex-Top 100 as of March 30th, 2026 (April update pending)
           </p>
           <p className="text-[10px] text-muted-foreground/80 leading-relaxed italic">
             Note: Start NAV taken as first available trading day on or after the period start date. Diviniti NAV is on a 1000-base face value. N/A = Fund launched after period start / insufficient data.
