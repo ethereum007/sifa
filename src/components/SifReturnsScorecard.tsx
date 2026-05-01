@@ -74,8 +74,8 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     category: "Equity Ex-Top 100",
     tag: "extop",
     funds: [
-      { name: "iSIF Ex-Top 100 Long-Short", inception: "05-Feb-26", endNav: 9.2800, m1: -7.30, m3: -9.71, sinceInception: -9.71, href: "/sifs/isif/extop100" },
-      { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", endNav: 8.8418, m1: -6.27, m3: -13.03, sinceInception: -14.02, href: "/sifs/qsif-ex-top-100-long-short" },
+      { name: "iSIF Ex-Top 100 Long-Short", inception: "05-Feb-26", endNav: 9.8200, m1: 8.87, m3: null, sinceInception: -1.70, href: "/sifs/isif/extop100" },
+      { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", endNav: 9.9324, m1: 15.38, m3: 5.65, sinceInception: -0.79, href: "/sifs/qsif-ex-top-100-long-short" },
     ],
   },
 ];
@@ -214,7 +214,7 @@ const SifReturnsScorecard = () => {
             SIF Returns Scorecard
           </a>
           <p className="text-sm text-muted-foreground mt-1">
-            Absolute returns (%) • Hybrid & Equity Long-Short as of 30-Apr-2026 • Ex-Top 100 pending update
+            Absolute returns (%) • Data as of 30-Apr-2026
           </p>
           <p className="text-xs text-muted-foreground mt-0.5">
             1M: 01-Apr-2026 to 30-Apr-2026 &nbsp;|&nbsp; 3M: 01-Feb-2026 to 30-Apr-2026 &nbsp;|&nbsp; Overall: Inception to 30-Apr-2026
@@ -342,7 +342,7 @@ const SifReturnsScorecard = () => {
         {/* Footer */}
         <div className="mt-6 rounded-lg bg-muted/30 border border-border/40 p-3 space-y-2">
           <p className="text-xs text-muted-foreground font-medium">
-            Source: AMFI, niftyindices.com • Hybrid & Equity Long-Short NAV & Returns as of April 30th, 2026 • Ex-Top 100 as of March 30th, 2026 (April update pending)
+            Source: AMFI, niftyindices.com • NAV as of April 30th, 2026 • Returns as of April 30th, 2026
           </p>
           <p className="text-[10px] text-muted-foreground/80 leading-relaxed italic">
             Note: Start NAV taken as first available trading day on or after the period start date. Diviniti NAV is on a 1000-base face value. N/A = Fund launched after period start / insufficient data.

@@ -133,7 +133,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "iSIF Ex-Top 100 Long-Short",
           "category": "Equity Ex-Top 100",
-          "description": "Inception: 05-Feb-26 | End NAV: ₹9.2800 | 1M Return: -1.20% | 3M Return: -1.20% | Since Inception: -1.20%"
+          "description": "Inception: 05-Feb-26 | End NAV: ₹9.8200 | 1M Return: +8.87% | Since Inception: -1.70%"
         }
       },
       {
@@ -143,7 +143,7 @@ const sifReturnsJsonLd = {
           "@type": "FinancialProduct",
           "name": "qSIF Ex-Top 100 Long-Short",
           "category": "Equity Ex-Top 100",
-          "description": "Inception: 13-Nov-25 | End NAV: ₹8.8418 | 1M Return: -0.05% | 3M Return: -6.51% | Since Inception: -6.94%"
+          "description": "Inception: 13-Nov-25 | End NAV: ₹9.9324 | 1M Return: +15.38% | 3M Return: +5.65% | Since Inception: -0.79%"
         }
       }
     ]
