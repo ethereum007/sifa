@@ -40,17 +40,17 @@ export default function Page() {
           </h1>
           <p className="text-muted-foreground mt-3 text-base md:text-lg max-w-2xl mx-auto">
             Latest Net Asset Values for every Specialized Investment Fund in
-            India — 14 live SIF schemes across 9 AMCs, refreshed every business
+            India — 17 live SIF schemes across 11 AMCs, refreshed every business
             day from the AMC-published data.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
             <li>
-              <span className="font-semibold text-foreground">14</span> SIF
-              schemes
+              <span className="font-semibold text-foreground">17</span> live
+              SIF schemes
             </li>
             <li className="hidden md:inline">•</li>
             <li>
-              <span className="font-semibold text-foreground">10</span> AMCs
+              <span className="font-semibold text-foreground">11</span> AMCs
               tracked
             </li>
             <li className="hidden md:inline">•</li>

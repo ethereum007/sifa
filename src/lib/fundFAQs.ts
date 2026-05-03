@@ -106,7 +106,7 @@ export function buildFundFAQs({
     },
     {
       q: `Where can I compare ${shortName} with other SIFs?`,
-      a: `Use the SIFPrime side-by-side comparison tool at /sif-compare to compare ${shortName} against any other live Specialized Investment Fund in India on Alpha Shield (capital protection), since-inception return, March 2026 crash-period alpha, TER, strategy and benchmark. The /all-sifs-india-ranked-explained page also ranks all 17 SIFs end-to-end.`,
+      a: `Use the SIFPrime side-by-side comparison tool at /sif-compare to compare ${shortName} against any other live Specialized Investment Fund in India on Alpha Shield (capital protection), since-inception return, March 2026 crash-period alpha, TER, strategy and benchmark. The /all-sifs-india-ranked-explained page also ranks all 19 SIFs end-to-end.`,
     },
   ];
 

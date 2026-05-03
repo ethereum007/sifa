@@ -79,13 +79,13 @@ export default function Page() {
           </h1>
           <p className="text-muted-foreground mt-3 text-base md:text-lg max-w-2xl mx-auto">
             Compare up to 3 Specialized Investment Funds across Alpha Shield
-            score, returns, TER, strategy and capital protection — all 14
+            score, returns, TER, strategy and capital protection — all 19
             SEBI-registered SIFs in India, updated daily.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
             <li>
-              <span className="font-semibold text-foreground">14</span> live
-              SIFs tracked
+              <span className="font-semibold text-foreground">19</span> SIFs
+              tracked
             </li>
             <li className="hidden md:inline">•</li>
             <li>

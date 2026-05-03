@@ -123,6 +123,16 @@ const amcFunds = [
     accent: "from-lime-500 to-emerald-500",
     link: "/sifs/sapphire-equity-long-short",
   },
+  {
+    id: "wsif",
+    name: "WSIF",
+    fullName: "The Wealth Company Mutual Fund",
+    description:
+      "Equity long-short and ex-Top 100 strategies (NFO open Apr 2026)",
+    fundsCount: 2,
+    accent: "from-fuchsia-500 to-pink-500",
+    link: "/sifs/wsif-equity-long-short",
+  },
 ];
 
 export default function Page() {
@@ -219,11 +229,11 @@ export default function Page() {
                 <p className="text-sm text-muted-foreground">Min Investment</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">10</p>
+                <p className="text-3xl font-bold text-primary">11</p>
                 <p className="text-sm text-muted-foreground">AMC Partners</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">14</p>
+                <p className="text-3xl font-bold text-primary">17</p>
                 <p className="text-sm text-muted-foreground">Live Schemes</p>
               </div>
               <div>

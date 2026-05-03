@@ -79,7 +79,7 @@ export default function Page() {
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
             <li>
-              <span className="font-semibold text-foreground">14</span> live
+              <span className="font-semibold text-foreground">17</span> live
               funds
             </li>
             <li className="hidden md:inline">•</li>
