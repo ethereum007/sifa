@@ -29,6 +29,7 @@ const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { useFundNav, formatNavDate } from "@/hooks/useSifNav";
 
 /* ------------------------------------------------------------------ */
 /*  Static data for Diviniti (ITI MF)                                  */
@@ -259,6 +260,13 @@ const TABS = ["Snapshot", "Strategy", "Fund Managers", "Risk & Scores", "Documen
 /* ------------------------------------------------------------------ */
 
 const DivinitiSif = () => {
+  const __live = useFundNav("Diviniti Equity Long Short", FUND.currentNav);
+  const liveNav = __live.nav;
+  const liveDate = formatNavDate(__live.date) || "Face value ₹1,000";
+  const METRICS_LIVE = METRICS.map((m, i) =>
+    i === 0 ? { ...m, value: `₹${liveNav.toFixed(4)}`, sub: liveDate } : m
+  );
+
   const fundData = getSifBySlug("diviniti-equity-long-short");
   const [activeTab, setActiveTab] = useState<string>("Snapshot");
   const [returnMode, setReturnMode] = useState<"absolute" | "annualised">("absolute");
@@ -322,10 +330,10 @@ const DivinitiSif = () => {
         <section className="bg-white border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-              {METRICS.map((m, i) => (
+              {METRICS_LIVE.map((m, i) => (
                 <div
                   key={i}
-                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS.length - 1 ? "border-r border-gray-100" : ""}`}
+                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS_LIVE.length - 1 ? "border-r border-gray-100" : ""}`}
                 >
                   <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{m.label}</p>
                   <p className={`text-lg sm:text-xl font-bold ${m.color || "text-gray-900"}`}>{m.value}</p>
@@ -381,7 +389,7 @@ const DivinitiSif = () => {
                 {/* NAV + face-value callout */}
                 <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
                   <div className="flex items-baseline gap-3 mb-1 flex-wrap">
-                    <span className="text-2xl font-bold text-gray-900">₹{FUND.currentNav.toFixed(4)}</span>
+                    <span className="text-2xl font-bold text-gray-900">₹{liveNav.toFixed(4)}</span>
                     <span className={`text-sm font-semibold ${siColor}`}>{fmtPct(FUND.returns.sinceInception)} since inception</span>
                   </div>
                   <div className="mt-2 mb-3 inline-flex items-center gap-2 rounded-md border border-red-200 bg-red-50 px-2.5 py-1">
@@ -944,7 +952,7 @@ const DivinitiSif = () => {
                   <ul className="text-sm text-gray-600 space-y-1.5">
                     <li>• Face value: <b>₹1,000 / unit</b> (higher than standard MF ₹10)</li>
                     <li>• NFO price: ₹1,000 per unit</li>
-                    <li>• Current NAV: <b>₹{FUND.currentNav.toFixed(4)}</b></li>
+                    <li>• Current NAV: <b>₹{liveNav.toFixed(4)}</b></li>
                     <li>• Regular TER: <b>{FUND.terRegular.toFixed(2)}%</b> · Direct TER: <b>{FUND.ter.toFixed(2)}%</b></li>
                   </ul>
                 </div>

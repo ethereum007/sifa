@@ -10,6 +10,7 @@ const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { useFundNav, formatNavDate } from "@/hooks/useSifNav";
 /* ------------------------------------------------------------------ */
 /*  Static data for qSIF Active Asset Allocator (quant MF)             */
 /* ------------------------------------------------------------------ */
@@ -165,6 +166,13 @@ const TABS = ["Snapshot", "Strategy", "Fund Managers", "Risk & Scores", "Documen
 /* ------------------------------------------------------------------ */
 
 const QsifAaaSif = () => {
+  const __live = useFundNav("qSIF Active Asset Allocator", FUND.currentNav);
+  const liveNav = __live.nav;
+  const liveDate = formatNavDate(__live.date) || "Apr 30, 2026";
+  const METRICS_LIVE = METRICS.map((m, i) =>
+    i === 0 ? { ...m, value: `₹${liveNav.toFixed(4)}`, sub: liveDate } : m
+  );
+
   const [activeTab, setActiveTab] = useState<string>("Snapshot");
 
   return (
@@ -233,10 +241,10 @@ const QsifAaaSif = () => {
         <section className="bg-white border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-              {METRICS.map((m, i) => (
+              {METRICS_LIVE.map((m, i) => (
                 <div
                   key={i}
-                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS.length - 1 ? "border-r border-gray-100" : ""}`}
+                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS_LIVE.length - 1 ? "border-r border-gray-100" : ""}`}
                 >
                   <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{m.label}</p>
                   <p className={`text-lg sm:text-xl font-bold ${m.color || "text-gray-900"}`}>{m.value}</p>

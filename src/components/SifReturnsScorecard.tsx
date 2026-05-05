@@ -354,7 +354,7 @@ const SifReturnsScorecard = () => {
         {/* Footer */}
         <div className="mt-6 rounded-lg bg-muted/30 border border-border/40 p-3 space-y-2">
           <p className="text-xs text-muted-foreground font-medium">
-            Source: AMFI, niftyindices.com • NAV as of April 30th, 2026 • Returns as of April 30th, 2026
+            Source: AMFI, niftyindices.com • NAV as of May 4, 2026 • Returns as of May 4, 2026
           </p>
           <p className="text-[10px] text-muted-foreground/80 leading-relaxed italic">
             Note: Start NAV taken as first available trading day on or after the period start date. Diviniti NAV is on a 1000-base face value. N/A = Fund launched after period start / insufficient data.

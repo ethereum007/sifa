@@ -32,6 +32,7 @@ const Header = dynamic(() => import("@/components/Header"));
 const Footer = dynamic(() => import("@/components/Footer"));
 
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { useFundNav, formatNavDate } from "@/hooks/useSifNav";
 
 /* ------------------------------------------------------------------ */
 /*  Static data for qSIF Hybrid                                        */
@@ -301,6 +302,13 @@ const TABS = ["Snapshot", "Portfolio", "Fund Managers", "Risk & Scores", "Docume
 /* ------------------------------------------------------------------ */
 
 const QsifHybridSif = () => {
+  const __live = useFundNav("qSIF Hybrid Long-Short", FUND.currentNav);
+  const liveNav = __live.nav;
+  const liveDate = formatNavDate(__live.date) || "Regular · Growth";
+  const METRICS_LIVE = METRICS.map((m, i) =>
+    i === 0 ? { ...m, value: `₹${liveNav.toFixed(4)}`, sub: liveDate } : m
+  );
+
   const fundData = getSifBySlug("qsif-hybrid-long-short");
   const [activeTab, setActiveTab] = useState<string>("Snapshot");
   const [returnMode, setReturnMode] = useState<"absolute" | "annualised">("absolute");
@@ -367,10 +375,10 @@ const QsifHybridSif = () => {
         <section className="bg-white border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-              {METRICS.map((m, i) => (
+              {METRICS_LIVE.map((m, i) => (
                 <div
                   key={i}
-                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS.length - 1 ? "border-r border-gray-100" : ""}`}
+                  className={`py-4 px-3 sm:px-4 text-center ${i < METRICS_LIVE.length - 1 ? "border-r border-gray-100" : ""}`}
                 >
                   <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{m.label}</p>
                   <p className={`text-lg sm:text-xl font-bold font-mono tabular-nums ${m.color || "text-gray-900"}`}>{m.value}</p>
@@ -428,7 +436,7 @@ const QsifHybridSif = () => {
                 {/* NAV CHART */}
                 <div className="rounded-xl border border-gray-100 bg-white p-5 sm:p-6">
                   <div className="flex items-baseline gap-3 mb-1">
-                    <span className="text-2xl font-bold text-gray-900 font-mono tabular-nums">₹{FUND.currentNav.toFixed(4)}</span>
+                    <span className="text-2xl font-bold text-gray-900 font-mono tabular-nums">₹{liveNav.toFixed(4)}</span>
                     <span className={`text-sm font-semibold ${siColor}`}>{fmtPct(FUND.returns.sinceInception)} since inception</span>
                   </div>
                   <div className="h-[280px] mt-4">
