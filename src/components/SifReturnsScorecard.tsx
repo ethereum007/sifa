@@ -16,6 +16,7 @@ import { useSifNav, type SifNavEntry } from "@/hooks/useSifNav";
 interface Fund {
   name: string;
   inception: string;
+  inceptionNav: number;
   endNav: number;
   m1: number | null;
   m3: number | null;
@@ -51,39 +52,39 @@ const baseFundData: { category: string; tag: string; funds: Fund[] }[] = [
     category: "Hybrid Long Short",
     tag: "hybrid",
     funds: [
-      { name: "Altiva Hybrid Long-Short", inception: "24-Oct-25", endNav: 10.5455, m1: 3.17, m3: 2.32, sinceInception: 5.35, href: "/sifs/altiva-hybrid-long-short" },
-      { name: "Apex Hybrid Long-Short", inception: "30-Mar-26", endNav: 10.0600, m1: 0.40, m3: null, sinceInception: 0.40, href: "/sifs/apex-hybrid-long-short" },
-      { name: "Arudha Hybrid Long-Short", inception: "04-Feb-26", endNav: 10.1290, m1: 0.38, m3: null, sinceInception: 0.95, href: "/sifs/arudha-hybrid-long-short" },
-      { name: "Magnum Hybrid Long-Short", inception: "29-Oct-25", endNav: 10.2218, m1: 2.28, m3: 0.84, sinceInception: 1.85, href: "/sifs/magnum-hybrid-long-short" },
-      { name: "qSIF Hybrid Long-Short", inception: "20-Oct-25", endNav: 10.5297, m1: 6.94, m3: 6.48, sinceInception: 5.10, href: "/sifs/qsif-hybrid-long-short" },
-      { name: "Titanium Hybrid Long-Short", inception: "17-Dec-25", endNav: 9.9291, m1: 5.51, m3: -0.35, sinceInception: -0.74, href: "/sifs/titanium-hybrid-long-short" },
-      { name: "iSIF Hybrid Long-Short", inception: "05-Feb-26", endNav: 9.9185, m1: 7.45, m3: null, sinceInception: -0.99, href: "/sifs/isif/hybrid" },
+      { name: "Altiva Hybrid Long-Short", inception: "24-Oct-25", inceptionNav: 10.0102, endNav: 10.5455, m1: 3.17, m3: 2.32, sinceInception: 5.35, href: "/sifs/altiva-hybrid-long-short" },
+      { name: "Apex Hybrid Long-Short", inception: "30-Mar-26", inceptionNav: 10.0200, endNav: 10.0600, m1: 0.40, m3: null, sinceInception: 0.40, href: "/sifs/apex-hybrid-long-short" },
+      { name: "Arudha Hybrid Long-Short", inception: "04-Feb-26", inceptionNav: 10.0340, endNav: 10.1290, m1: 0.38, m3: null, sinceInception: 0.95, href: "/sifs/arudha-hybrid-long-short" },
+      { name: "Magnum Hybrid Long-Short", inception: "29-Oct-25", inceptionNav: 10.0357, endNav: 10.2218, m1: 2.28, m3: 0.84, sinceInception: 1.85, href: "/sifs/magnum-hybrid-long-short" },
+      { name: "qSIF Hybrid Long-Short", inception: "20-Oct-25", inceptionNav: 10.0189, endNav: 10.5297, m1: 6.94, m3: 6.48, sinceInception: 5.10, href: "/sifs/qsif-hybrid-long-short" },
+      { name: "Titanium Hybrid Long-Short", inception: "17-Dec-25", inceptionNav: 10.0029, endNav: 9.9291, m1: 5.51, m3: -0.35, sinceInception: -0.74, href: "/sifs/titanium-hybrid-long-short" },
+      { name: "iSIF Hybrid Long-Short", inception: "05-Feb-26", inceptionNav: 10.0179, endNav: 9.9185, m1: 7.45, m3: null, sinceInception: -0.99, href: "/sifs/isif/hybrid" },
     ],
   },
   {
     category: "Equity Long Short",
     tag: "equity",
     funds: [
-      { name: "qSIF Equity Long-Short", inception: "08-Oct-25", endNav: 10.1492, m1: 13.68, m3: 4.35, sinceInception: 1.44, href: "/sifs/qsif-equity-long-short" },
-      { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", endNav: 10.1990, m1: 6.59, m3: null, sinceInception: 1.92, href: "/sifs/dyna-equity-long-short" },
-      { name: "Arudha Equity Long-Short", inception: "30-Mar-26", endNav: 10.1630, m1: 3.42, m3: null, sinceInception: 3.43, href: "/sifs/arudha-equity-long-short" },
-      { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", endNav: 955.1524, m1: 0.71, m3: -3.64, sinceInception: -4.58, href: "/sifs/diviniti-equity-long-short" },
+      { name: "qSIF Equity Long-Short", inception: "08-Oct-25", inceptionNav: 10.0054, endNav: 10.1492, m1: 13.68, m3: 4.35, sinceInception: 1.44, href: "/sifs/qsif-equity-long-short" },
+      { name: "DynaSIF Equity Long-Short", inception: "27-Feb-26", inceptionNav: 10.0072, endNav: 10.1990, m1: 6.59, m3: null, sinceInception: 1.92, href: "/sifs/dyna-equity-long-short" },
+      { name: "Arudha Equity Long-Short", inception: "30-Mar-26", inceptionNav: 9.8260, endNav: 10.1630, m1: 3.42, m3: null, sinceInception: 3.43, href: "/sifs/arudha-equity-long-short" },
+      { name: "Diviniti Equity Long-Short", inception: "03-Dec-25", inceptionNav: 1000.953, endNav: 955.1524, m1: 0.71, m3: -3.64, sinceInception: -4.58, href: "/sifs/diviniti-equity-long-short" },
     ],
   },
   {
     category: "Equity Ex-Top 100",
     tag: "extop",
     funds: [
-      { name: "iSIF Ex-Top 100 Long-Short", inception: "05-Feb-26", endNav: 9.8200, m1: 8.87, m3: null, sinceInception: -1.70, href: "/sifs/isif/extop100" },
-      { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", endNav: 9.9324, m1: 15.38, m3: 5.65, sinceInception: -0.79, href: "/sifs/qsif-ex-top-100-long-short" },
+      { name: "iSIF Ex-Top 100 Long-Short", inception: "05-Feb-26", inceptionNav: 9.9900, endNav: 9.8200, m1: 8.87, m3: null, sinceInception: -1.70, href: "/sifs/isif/extop100" },
+      { name: "qSIF Ex-Top 100 Long-Short", inception: "13-Nov-25", inceptionNav: 10.0111, endNav: 9.9324, m1: 15.38, m3: 5.65, sinceInception: -0.79, href: "/sifs/qsif-ex-top-100-long-short" },
     ],
   },
   {
     category: "Active Asset Allocator",
     tag: "aaa",
     funds: [
-      { name: "DynaSIF Active Asset Allocator", inception: "30-Mar-26", endNav: 10.1242, m1: 1.02, m3: null, sinceInception: 1.03, href: "/sifs/dyna-active-asset-allocator" },
-      { name: "qSIF Active Asset Allocator", inception: "24-Apr-26", endNav: 10.0072, m1: null, m3: null, sinceInception: -0.04, href: "/sifs/qsif-active-asset-allocator-long-short" },
+      { name: "DynaSIF Active Asset Allocator", inception: "30-Mar-26", inceptionNav: 10.0209, endNav: 10.1242, m1: 1.02, m3: null, sinceInception: 1.03, href: "/sifs/dyna-active-asset-allocator" },
+      { name: "qSIF Active Asset Allocator", inception: "24-Apr-26", inceptionNav: 10.0110, endNav: 10.0072, m1: null, m3: null, sinceInception: -0.04, href: "/sifs/qsif-active-asset-allocator-long-short" },
     ],
   },
 ];
@@ -158,15 +159,45 @@ const SifReturnsScorecard = () => {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const { data: liveNavs } = useSifNav();
 
-  // Merge live NAVs into fund data, falling back to hardcoded values
+  // Latest NAV date across all funds (used for the header subtitle and footer source line)
+  const latestNavDate = useMemo(() => {
+    if (liveNavs.length === 0) return "30-Apr-2026";
+    // entries look like "04-May-2026"; pick the max by parsed date
+    const monthMap: Record<string, number> = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
+    const parse = (s: string) => {
+      const m = s.match(/^(\d{2})-([A-Za-z]{3})-(\d{4})$/);
+      if (!m) return new Date(0);
+      return new Date(parseInt(m[3], 10), monthMap[m[2]] ?? 0, parseInt(m[1], 10));
+    };
+    return liveNavs.reduce((acc, f) => (parse(f.date) > parse(acc) ? f.date : acc), liveNavs[0].date);
+  }, [liveNavs]);
+
+  const latestNavDateLong = useMemo(() => {
+    const m = latestNavDate.match(/^(\d{2})-([A-Za-z]{3})-(\d{4})$/);
+    if (!m) return latestNavDate;
+    const monthFull: Record<string, string> = { Jan:"January", Feb:"February", Mar:"March", Apr:"April", May:"May", Jun:"June", Jul:"July", Aug:"August", Sep:"September", Oct:"October", Nov:"November", Dec:"December" };
+    return `${monthFull[m[2]] || m[2]} ${parseInt(m[1], 10)}, ${m[3]}`;
+  }, [latestNavDate]);
+
+  // Merge live NAVs into fund data, falling back to hardcoded values.
+  // Also recompute since-inception return live: ((liveNav - inceptionNav) / inceptionNav) * 100.
+  // 1M and 3M returns are left as-is (would require historical NAV which is not in /api/nav).
   const fundData = useMemo(() => {
     if (liveNavs.length === 0) return baseFundData;
     return baseFundData.map((group) => ({
       ...group,
-      funds: group.funds.map((f) => ({
-        ...f,
-        endNav: lookupNav(liveNavs, f.name, f.endNav),
-      })),
+      funds: group.funds.map((f) => {
+        const liveNav = lookupNav(liveNavs, f.name, f.endNav);
+        const sinceInception =
+          f.inceptionNav > 0
+            ? ((liveNav - f.inceptionNav) / f.inceptionNav) * 100
+            : f.sinceInception;
+        return {
+          ...f,
+          endNav: liveNav,
+          sinceInception: Number(sinceInception.toFixed(2)),
+        };
+      }),
     }));
   }, [liveNavs]);
 
@@ -225,10 +256,10 @@ const SifReturnsScorecard = () => {
             SIF Returns Scorecard
           </a>
           <p className="text-sm text-muted-foreground mt-1">
-            Absolute returns (%) • Data as of 30-Apr-2026
+            Absolute returns (%) • Data as of {latestNavDate}
           </p>
           <p className="text-xs text-muted-foreground mt-0.5">
-            1M: 01-Apr-2026 to 30-Apr-2026 &nbsp;|&nbsp; 3M: 01-Feb-2026 to 30-Apr-2026 &nbsp;|&nbsp; Overall: Inception to 30-Apr-2026
+            Since-Inception is computed live from current NAV. 1M / 3M periods reflect AMFI-published NAVs as of 30-Apr-2026.
           </p>
           <p className="text-xs text-muted-foreground/70 mt-1.5 italic">
             Alpha Shield reflects each fund&apos;s capital protection during the March 2026 market crash (Nifty -11.30%). It is a stress-test snapshot, not a monthly metric — next refresh on the next ≥5% Nifty drawdown. Score out of 10.
@@ -354,7 +385,7 @@ const SifReturnsScorecard = () => {
         {/* Footer */}
         <div className="mt-6 rounded-lg bg-muted/30 border border-border/40 p-3 space-y-2">
           <p className="text-xs text-muted-foreground font-medium">
-            Source: AMFI, niftyindices.com • NAV as of May 4, 2026 • Returns as of May 4, 2026
+            Source: AMFI, niftyindices.com • NAV as of {latestNavDateLong} • Since-Inception returns as of {latestNavDateLong}
           </p>
           <p className="text-[10px] text-muted-foreground/80 leading-relaxed italic">
             Note: Start NAV taken as first available trading day on or after the period start date. Diviniti NAV is on a 1000-base face value. N/A = Fund launched after period start / insufficient data.
